@@ -291,8 +291,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "DEBUG: Log packages to be adopted"
+            "state": "translated",
+            "value": "调试：记录待采用的软件包"
           }
         },
         "zh-Hant": {
@@ -593,8 +593,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "安装 %@"
+            "state": "translated",
+            "value": "正在安装 %@"
           }
         },
         "zh-Hant": {
@@ -693,8 +693,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "加载信息..."
+            "state": "translated",
+            "value": "正在加载信息…"
           }
         },
         "zh-Hant": {
@@ -793,8 +793,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "加载热门软件包..."
+            "state": "translated",
+            "value": "正在加载热门软件包…"
           }
         },
         "zh-Hant": {
@@ -993,8 +993,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "Tap"
+            "state": "translated",
+            "value": "扩展仓库"
           }
         },
         "zh-Hant": {
@@ -1793,8 +1793,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "在从 Swift 异步编程到软件包安装阻塞等各种问题上提供了宝贵帮助"
+            "state": "translated",
+            "value": "在 Swift 异步编程、软件包安装阻塞等各种问题上提供了宝贵帮助"
           }
         },
         "zh-Hant": {
@@ -1993,8 +1993,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "解决了很多异步和 SwiftUI 相关问题"
+            "state": "translated",
+            "value": "解决了很多异步问题和 SwiftUI 相关问题"
           }
         },
         "zh-Hant": {
@@ -2593,8 +2593,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "添加了返回主页的功能"
+            "state": "translated",
+            "value": "添加了一种用于返回 Homebrew 状态页的方法"
           }
         },
         "zh-Hant": {
@@ -3093,8 +3093,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "© %@ David Bureš 及其他贡献者。"
+            "state": "translated",
+            "value": "© %@ David Bureš 及其他贡献者"
           }
         },
         "zh-Hant": {
@@ -3193,8 +3193,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "© %lld David Bureš 及其他贡献者。"
+            "state": "translated",
+            "value": "© %lld David Bureš 及其他贡献者"
           }
         },
         "zh-Hant": {
@@ -3293,8 +3293,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "使用的软件包"
+            "state": "translated",
+            "value": "已使用的软件包"
           }
         },
         "zh-Hant": {
@@ -3493,8 +3493,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "我自己的软件包提供了一些基本功能"
+            "state": "translated",
+            "value": "我的软件包，提供了一些基础的便捷功能"
           }
         },
         "zh-Hant": {
@@ -3693,8 +3693,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "一个让 Cork 登录时启动的软件包"
+            "state": "translated",
+            "value": "一个允许 Cork 登录时启动的软件包"
           }
         },
         "zh-Hant": {
@@ -7758,6 +7758,12 @@
         "zh-Hans": {
           "variations": {
             "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "添加%lld个应用"
+                }
+              },
               "other": {
                 "stringUnit": {
                   "state": "needs_review",
@@ -9806,6 +9812,12 @@
             "state": "translated",
             "value": "Open %@"
           }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "打开%@"
+          }
         }
       }
     },
@@ -9827,6 +9839,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Open detail for %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "打开%@详情"
           }
         }
       }
@@ -10255,6 +10273,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Preview %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "预览%@"
           }
         }
       }
@@ -13392,6 +13416,18 @@
             "state": "translated",
             "value": "Couldn’t install %@ %@"
           }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "needs_review",
+            "value": "Couldn’t install %@ %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法安装%@ %@"
+          }
         }
       }
     },
@@ -13409,6 +13445,18 @@
           "stringUnit": {
             "state": "translated",
             "value": "While this doesn’t necessarily mean %@ wasn’t installed, you should check the list of unexpected outputs below"
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "needs_review",
+            "value": "While this doesn’t necessarily mean %@ wasn’t installed, you should check the list of unexpected outputs below"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "尽管%@可能并未安装失败，仍建议检查下方的意外输出列表"
           }
         }
       }
@@ -13629,6 +13677,18 @@
             "state": "translated",
             "value": "Couldn’t install package"
           }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "needs_review",
+            "value": "Couldn’t install package"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法安装包"
+          }
         }
       }
     },
@@ -13647,6 +13707,18 @@
             "state": "translated",
             "value": "Unexpected outputs"
           }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "needs_review",
+            "value": "Unexpected outputs"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "意外输出"
+          }
         }
       }
     },
@@ -13664,6 +13736,18 @@
           "stringUnit": {
             "state": "translated",
             "value": "Some unexpected outputs were encountered"
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "needs_review",
+            "value": "Some unexpected outputs were encountered"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "遇到一些意外输出"
           }
         }
       }
@@ -16848,6 +16932,18 @@
             "state": "translated",
             "value": "Unexpected outputs"
           }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "needs_review",
+            "value": "Unexpected outputs"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "意外输出"
+          }
         }
       }
     },
@@ -16865,6 +16961,18 @@
           "stringUnit": {
             "state": "translated",
             "value": "There was an unexpected output"
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "needs_review",
+            "value": "There was an unexpected output"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "存在一个意外输出"
           }
         }
       }
@@ -17285,6 +17393,18 @@
           "stringUnit": {
             "state": "translated",
             "value": "Couldn’t find anything"
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "needs_review",
+            "value": "Couldn’t find anything"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "找不到任何内容"
           }
         }
       }
@@ -18306,6 +18426,18 @@
             "state": "translated",
             "value": "%@ downloads"
           }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "needs_review",
+            "value": "%@ downloads"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "下载%@个"
+          }
         }
       }
     },
@@ -18548,6 +18680,12 @@
         "zh-Hans": {
           "variations": {
             "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "下载了%lld个"
+                }
+              },
               "other": {
                 "stringUnit": {
                   "state": "needs_review",
@@ -29109,6 +29247,18 @@
             "state": "translated",
             "value": "downloading"
           }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "needs_review",
+            "value": "downloading"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "下载中"
+          }
         }
       }
     },
@@ -39075,6 +39225,42 @@
               }
             }
           }
+        },
+        "en-GB": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "needs_review",
+                  "value": "One orphaned package was removed"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "needs_review",
+                  "value": "%lld orphaned packages were removed"
+                }
+              }
+            }
+          }
+        },
+        "zh-Hans": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "已移除 1 个孤立的软件包"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "已移除 %lld 个孤立的软件包"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -39092,6 +39278,18 @@
           "stringUnit": {
             "state": "translated",
             "value": "This action was not performed"
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "needs_review",
+            "value": "This action was not performed"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "该操作没有被执行"
           }
         }
       }
@@ -39208,6 +39406,18 @@
           "stringUnit": {
             "state": "translated",
             "value": "Couldn’t determine how much space was freed"
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "needs_review",
+            "value": "Couldn’t determine how much space was freed"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法确定释放了多少存储空间"
           }
         }
       }
@@ -39526,6 +39736,18 @@
           "stringUnit": {
             "state": "translated",
             "value": "Show problems"
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "needs_review",
+            "value": "Show problems"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "展示问题"
           }
         }
       }
@@ -39865,6 +40087,12 @@
         "zh-Hans": {
           "variations": {
             "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "已移除 %lld 个孤立的软件包"
+                }
+              },
               "other": {
                 "stringUnit": {
                   "state": "needs_review",
@@ -40857,6 +41085,12 @@
         "zh-Hans": {
           "variations": {
             "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "由于 %@ 和其余%lld 个软件包未更新，一些缓存未被清除"
+                }
+              },
               "other": {
                 "stringUnit": {
                   "state": "needs_review",
@@ -42604,6 +42838,18 @@
             "state": "translated",
             "value": "Version %@ is required, but version %@ is installed"
           }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "needs_review",
+            "value": "Version %@ is required, but version %@ is installed"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "要求满足版本 %@，但当前安装的为版本 %@"
+          }
         }
       }
     },
@@ -42618,6 +42864,12 @@
         "en": {
           "stringUnit": {
             "state": "translated",
+            "value": "Couldn’t read the selected adoption candidate for %@"
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "needs_review",
             "value": "Couldn’t read the selected adoption candidate for %@"
           }
         }
@@ -44602,6 +44854,12 @@
         "zh-Hans": {
           "variations": {
             "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "已安装 %lld 个软件包"
+                }
+              },
               "other": {
                 "stringUnit": {
                   "state": "needs_review",
@@ -46883,6 +47141,12 @@
         "zh-Hans": {
           "variations": {
             "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "当前有 %lld 个过时的软件包"
+                }
+              },
               "other": {
                 "stringUnit": {
                   "state": "needs_review",
@@ -51732,6 +51996,18 @@
             "state": "translated",
             "value": "Dependency of..."
           }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "needs_review",
+            "value": "Dependency of..."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "依赖于..."
+          }
         }
       }
     },
@@ -55706,6 +55982,12 @@
         "zh-Hans": {
           "variations": {
             "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "有 %lld 个正在运行的服务"
+                }
+              },
               "other": {
                 "stringUnit": {
                   "state": "needs_review",
@@ -56086,6 +56368,12 @@
         "zh-Hans": {
           "variations": {
             "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "有 %lld 个服务存在错误"
+                }
+              },
               "other": {
                 "stringUnit": {
                   "state": "needs_review",
@@ -56460,6 +56748,12 @@
         "zh-Hans": {
           "variations": {
             "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "有 %lld 个停用服务"
+                }
+              },
               "other": {
                 "stringUnit": {
                   "state": "needs_review",
@@ -57140,6 +57434,12 @@
         "zh-Hans": {
           "variations": {
             "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "有 %lld 个状态未知的服务"
+                }
+              },
               "other": {
                 "stringUnit": {
                   "state": "needs_review",
@@ -58708,6 +59008,12 @@
         "zh-Hans": {
           "variations": {
             "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "找到 %lld 个服务"
+                }
+              },
               "other": {
                 "stringUnit": {
                   "state": "needs_review",
@@ -71244,8 +71550,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "较为高级"
+            "state": "translated",
+            "value": "较高级"
           }
         },
         "zh-Hant": {
@@ -71344,8 +71650,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "较为基础"
+            "state": "translated",
+            "value": "较基础"
           }
         },
         "zh-Hant": {
@@ -71646,8 +71952,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "已安装 Tap"
+            "state": "translated",
+            "value": "已添加的扩展仓库"
           }
         },
         "zh-Hant": {
@@ -72810,6 +73116,12 @@
         "zh-Hans": {
           "variations": {
             "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "添加了 %lld 个扩展仓库"
+                }
+              },
               "other": {
                 "stringUnit": {
                   "state": "needs_review",
@@ -80600,6 +80912,12 @@
             "state": "translated",
             "value": "Installing updates..."
           }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "needs_review",
+            "value": "Installing updates..."
+          }
         }
       }
     },
@@ -81222,6 +81540,12 @@
             "state": "translated",
             "value": "Unsuccessful updates"
           }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "needs_review",
+            "value": "Unsuccessful updates"
+          }
         }
       }
     },
@@ -81240,6 +81564,12 @@
             "state": "translated",
             "value": "Some updates were not successful.\nCheck below for more information on which packages couldn’t be updated, and why those updates failed."
           }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "needs_review",
+            "value": "Some updates were not successful. Check below for more information on which packages couldn’t be updated, and why those updates failed."
+          }
         }
       }
     },
@@ -81256,6 +81586,12 @@
         "en": {
           "stringUnit": {
             "state": "translated",
+            "value": "Couldn’t update some packages"
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "needs_review",
             "value": "Couldn’t update some packages"
           }
         }
@@ -82093,6 +82429,12 @@
             "state": "translated",
             "value": "Updating packages"
           }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "needs_review",
+            "value": "Updating packages"
+          }
         }
       }
     },
@@ -82109,6 +82451,12 @@
         "en": {
           "stringUnit": {
             "state": "translated",
+            "value": "Unexpected Homebrew outputs"
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "needs_review",
             "value": "Unexpected Homebrew outputs"
           }
         }
@@ -82129,6 +82477,12 @@
             "state": "translated",
             "value": "The updating process encountered some outputs it did not expect.\nThis does not necessarily mean the update was not successful. See the unexpected outputs below and decide if they seem serious."
           }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "needs_review",
+            "value": "The updating process encountered some outputs it did not expect. This does not necessarily mean the update was not successful. See the unexpected outputs below and decide if they seem serious."
+          }
         }
       }
     },
@@ -82145,6 +82499,12 @@
         "en": {
           "stringUnit": {
             "state": "translated",
+            "value": "Encountered unexpected Homebrew outputs"
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "needs_review",
             "value": "Encountered unexpected Homebrew outputs"
           }
         }
