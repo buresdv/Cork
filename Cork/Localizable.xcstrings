@@ -6093,8 +6093,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "Loading outdated packages"
+            "state": "translated",
+            "value": "正在加载已过时的软件包"
           }
         },
         "zh-Hant": {
@@ -6193,8 +6193,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "Package of Cask type"
+            "state": "translated",
+            "value": "Cask 类型软件包"
           }
         },
         "zh-Hant": {
@@ -6293,8 +6293,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "Package of Formula type"
+            "state": "translated",
+            "value": "Formula 类型软件包"
           }
         },
         "zh-Hant": {
@@ -6393,8 +6393,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "Package of an unimplemented type"
+            "state": "translated",
+            "value": "未实现类型的软件包"
           }
         },
         "zh-Hant": {
@@ -6493,8 +6493,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "Package of an unknown type"
+            "state": "translated",
+            "value": "未知类型的软件包"
           }
         },
         "zh-Hant": {
@@ -6593,8 +6593,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "Return to status page"
+            "state": "translated",
+            "value": "返回状态页面"
           }
         },
         "zh-Hant": {
@@ -6694,8 +6694,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "List of installed packages"
+            "state": "translated",
+            "value": "已安装的软件包列表"
           }
         },
         "zh-Hant": {
@@ -6794,8 +6794,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "List of installed Casks"
+            "state": "translated",
+            "value": "已安装的 Cask 列表"
           }
         },
         "zh-Hant": {
@@ -6894,8 +6894,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "List of installed Formulae"
+            "state": "translated",
+            "value": "已安装的 Formulae 软件包列表"
           }
         },
         "zh-Hant": {
@@ -6994,8 +6994,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "%lld outdated packages managed by Homebrew and %lld outdated packages not managed by Homebrew"
+            "state": "translated",
+            "value": "%lld 个由 Homebrew 管理的过时的软件包和 %lld 个不由 Homebrew 管理的过时的软件包"
           }
         },
         "zh-Hant": {
@@ -7196,8 +7196,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "Adopt"
+            "state": "translated",
+            "value": "接管"
           }
         },
         "zh-Hant": {
@@ -7297,8 +7297,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "Adopt %@"
+            "state": "translated",
+            "value": "接管 %@"
           }
         },
         "zh-Hant": {
@@ -7399,8 +7399,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "Add"
+            "state": "translated",
+            "value": "添加"
           }
         },
         "zh-Hant": {
@@ -7499,8 +7499,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "Add apps to Homebrew"
+            "state": "translated",
+            "value": "添加程序至 Homebrew"
           }
         },
         "zh-Hant": {
@@ -7761,13 +7761,13 @@
               "one": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "添加%lld个应用"
+                  "value": "添加 %lld 个应用"
                 }
               },
               "other": {
                 "stringUnit": {
-                  "state": "needs_review",
-                  "value": "Add %lld apps"
+                  "state": "translated",
+                  "value": "添加 %lld 个应用"
                 }
               }
             }
@@ -8075,8 +8075,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "Cancel and disable mass app adoption"
+            "state": "translated",
+            "value": "取消并停止批量应用接管"
           }
         },
         "zh-Hant": {
@@ -8175,8 +8175,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "Check for Updates…"
+            "state": "translated",
+            "value": "正在检查更新…"
           }
         },
         "zh-Hant": {
@@ -8275,8 +8275,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "Check for outdated packages"
+            "state": "translated",
+            "value": "检查过时软件包"
           }
         },
         "zh-Hant": {
@@ -8977,8 +8977,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "在终端中继续"
+            "state": "translated",
+            "value": "切换至终端中完成"
           }
         },
         "zh-Hant": {
@@ -9379,8 +9379,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "Hide section…"
+            "state": "translated",
+            "value": "隐藏部分…"
           }
         },
         "zh-Hant": {
@@ -9479,8 +9479,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "Hide section"
+            "state": "translated",
+            "value": "隐藏部分"
           }
         },
         "zh-Hant": {
@@ -9781,8 +9781,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "Installed packages"
+            "state": "translated",
+            "value": "已安装的软件包"
           }
         },
         "zh-Hant": {
@@ -9816,7 +9816,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "打开%@"
+            "value": "打开 %@"
           }
         }
       }
@@ -9844,7 +9844,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "打开%@详情"
+            "value": "打开 %@ 详情"
           }
         }
       }
@@ -10039,8 +10039,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "Ignore %@"
+            "state": "translated",
+            "value": "忽略 %@"
           }
         },
         "zh-Hant": {
@@ -10141,8 +10141,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "Stop ignoring %@"
+            "state": "translated",
+            "value": "停止忽略 %@"
           }
         },
         "zh-Hant": {
@@ -10243,8 +10243,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "Preview %@"
+            "state": "translated",
+            "value": "预览 %@"
           }
         },
         "zh-Hant": {
@@ -10278,7 +10278,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "预览%@"
+            "value": "预览 %@"
           }
         }
       }
@@ -11576,8 +11576,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "Reveal %@ in Finder"
+            "state": "translated",
+            "value": "在 Finder 中显示 %@"
           }
         },
         "zh-Hant": {
@@ -11677,8 +11677,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "在访达中显示应用程序"
+            "state": "translated",
+            "value": "在 Finder 中显示应用程序"
           }
         },
         "zh-Hant": {
@@ -11777,8 +11777,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "在访达中显示 %@"
+            "state": "translated",
+            "value": "在 Finder 中显示 %@"
           }
         },
         "zh-Hant": {
@@ -11877,8 +11877,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "在访达中显示"
+            "state": "translated",
+            "value": "在 Finder 中显示"
           }
         },
         "zh-Hant": {
@@ -12179,8 +12179,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "Show less"
+            "state": "translated",
+            "value": "显示更少"
           }
         },
         "zh-Hant": {
@@ -12281,8 +12281,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "Show more"
+            "state": "translated",
+            "value": "显示更多"
           }
         },
         "zh-Hant": {
@@ -12383,7 +12383,7 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
+            "state": "translated",
             "value": "显示搜索框"
           }
         },
@@ -12485,8 +12485,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "显示可接管软件包搜索框"
+            "state": "translated",
+            "value": "显示可接管软件包的搜索框"
           }
         },
         "zh-Hant": {
@@ -12586,8 +12586,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "显示终端输出"
+            "state": "translated",
+            "value": "显示 Homebrew 输出"
           }
         },
         "zh-Hant": {
@@ -12988,8 +12988,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "更新 Homebrew 及所有包"
+            "state": "translated",
+            "value": "更新 Homebrew 及所有软件包"
           }
         },
         "zh-Hant": {
@@ -13426,7 +13426,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "无法安装%@ %@"
+            "value": "无法安装 %@ %@"
           }
         }
       }
@@ -13456,7 +13456,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "尽管%@可能并未安装失败，仍建议检查下方的意外输出列表"
+            "value": "尽管 %@ 可能并未安装失败，仍建议检查下方的意外输出列表"
           }
         }
       }
@@ -13687,7 +13687,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "无法安装包"
+            "value": "无法安装软件包"
           }
         }
       }
@@ -13942,8 +13942,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "请尝试重新安装软件包或重启 Cork\n如果问题仍然存在，请重启您的 Mac"
+            "state": "translated",
+            "value": "尝试重新安装软件包或重启 Cork，如果问题仍然存在，请重启您的 Mac"
           }
         },
         "zh-Hant": {
@@ -14043,8 +14043,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "needs_review",
-            "value": "安装过程出现错误"
+            "state": "translated",
+            "value": "安装过程中出现错误"
           }
         },
         "zh-Hant": {
