@@ -270,6 +270,15 @@ struct MaintenanceFinishedView: View
                             List(problems, id: \.self)
                             { problem in
                                 Text(problem)
+                                    .contextMenu
+                                    {
+                                        Button
+                                        {
+                                            problem.copyToClipboard()
+                                        } label: {
+                                            Label("action.copy", systemImage: "document.on.document")
+                                        }
+                                    }
                             }
                             .listStyle(.bordered)
                             .alternatingRowBackgrounds()
