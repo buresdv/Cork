@@ -22,7 +22,7 @@ jobs:
       - name: Sync catalog from main and export
         run: |
           git checkout origin/main -- Cork/Localizable.xcstrings
-          python3 tools/Localization/xcstrings_export.py Cork/Localizable.xcstrings xliff
+          python3 tools/Localization/xcstrings_export.py Cork/Localizable.xcstrings json
       - name: Validate catalog against xcstrings schema
         run: |
           pip install jsonschema
@@ -40,6 +40,6 @@ jobs:
         run: |
           git config user.name "l10n-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add xliff Cork/Localizable.xcstrings
+          git add json Cork/Localizable.xcstrings
           git diff --cached --quiet || git commit -m "Sync XLIFF from string catalog"
           git push origin l10n
