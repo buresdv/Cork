@@ -2,7 +2,7 @@ name: l10n-import
 on:
   push:
     branches: [l10n]
-    paths: ["xliff/**"]
+    paths: ["json/**"]
 permissions:
   contents: write
   pull-requests: write
@@ -21,8 +21,8 @@ jobs:
           git submodule update --init tools
       - name: Take XLIFF and catalog from l10n, merge
         run: |
-          git checkout origin/l10n -- xliff Cork/Localizable.xcstrings
-          python3 tools/Localization/xcstrings_import.py Cork/Localizable.xcstrings xliff
+          git checkout origin/l10n -- json Cork/Localizable.xcstrings
+          python3 tools/Localization/xcstrings_import.py Cork/Localizable.xcstrings json
       - name: Validate catalog against xcstrings schema
         run: |
           pip install jsonschema
