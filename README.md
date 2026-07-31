@@ -142,8 +142,8 @@ In my case, it was `echo "eval \"\$(/Users/david/.local/bin/mise activate zsh)\"
 
 #### Compiling Cork
 
-0. I recommend you pick a version marked by one of the version tags. Those are released versions. If you decide to compile the current state of any of the branches, you might encounter experience-breaking bugs and unfinished features
-1. Use the command `git clone https://github.com/buresdv/Cork.git && cd Cork && mise exec tuist@4.50.2 -- tuist install && mise exec tuist@4.50.2 -- tuist generate --no-binary-cache`.
+0. I recommend you pick a version of Cork marked by one of the version tags which define released versions. If you decide to compile the current state of any of the branches, you might encounter experience-breaking bugs and unfinished features
+1. Use the command `git clone https://github.com/buresdv/Cork.git && cd Cork && git checkout <VERSION TAG>; mise exec tuist@4.50.2 -- tuist install && mise exec tuist@4.50.2 -- tuist generate --no-binary-cache`.
   - Mise will ask you to trust the local [`.mise.toml`](.mise.toml).
   - You can either:
     - Say yes, to always use `tuist` version 4.50.2 in this directory.
