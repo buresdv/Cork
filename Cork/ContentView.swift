@@ -32,7 +32,7 @@ struct ContentView: View, Sendable
     @Environment(\.openWindow) var openWindow: OpenWindowAction
 
     @InjectedObservable(\.appState) var appState: AppState
-    @InjectedObservable(\.navigationManager) var navigationManager
+    @InjectedObservable(\.navigationManager) var navigationManager: NavigationManager
 
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @Environment(TapTracker.self) var tapTracker: TapTracker

@@ -11,7 +11,7 @@ import CorkTerminalFunctions
 
 extension ServicesTracker
 {
-    func startService(_ serviceToStart: HomebrewService, servicesState: ServicesState, serviceModificationProgress: ServiceModificationProgress) async
+    func startService(_ serviceToStart: HomebrewService, servicesState: ServicesState, serviceModificationProgress: ServiceModificationProgress) async throws(ServicesFatalError)
     {
         for await output in shell(AppConstants.shared.brewExecutablePath, ["services", "start", serviceToStart.name])
         {
@@ -35,12 +35,12 @@ extension ServicesTracker
                 case _ where errorLine.contains("must be run as root"):
                     AppConstants.shared.logger.debug("Service must be run as root")
 
-                    servicesState.showError(.couldNotStartService(offendingService: serviceToStart.name, errorThrown: String(localized: "services.error.must-be-run-as-root")))
+                    throw .couldNotStartService(offendingService: serviceToStart.name, errorThrown: String(localized: "services.error.must-be-run-as-root"))
 
                 default:
                     AppConstants.shared.logger.warning("Could not start service: \(errorLine)")
 
-                    servicesState.showError(.couldNotStartService(offendingService: serviceToStart.name, errorThrown: errorLine))
+                    throw .couldNotStartService(offendingService: serviceToStart.name, errorThrown: errorLine)
                 }
             }
         }
@@ -48,14 +48,14 @@ extension ServicesTracker
         do
         {
             serviceModificationProgress.progress = 5.0
-
+            
             try await synchronizeServices(preserveIDs: true)
         }
         catch let servicesSynchronizationError
         {
             AppConstants.shared.logger.error("Could not synchronize services: \(servicesSynchronizationError.localizedDescription)")
-
-            servicesState.showError(.couldNotSynchronizeServices(errorThrown: servicesSynchronizationError.localizedDescription))
+            
+            throw .couldNotSynchronizeServices(errorThrown: servicesSynchronizationError.localizedDescription)
         }
     }
 }

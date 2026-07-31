@@ -10,8 +10,10 @@ import Foundation
 @Observable @MainActor
 class ServicesTracker
 {
+    
     var services: Set<HomebrewService> = .init()
 
+    /*
     /// Replace a service in the tracker.
     /// Use `performInPlaceReplacement` to preserve the UUID of the original service so the UI doesn't completely reset
     func replaceServiceInTracker(_ serviceToChange: HomebrewService, with newService: HomebrewService, performInPlaceReplacement: Bool)
@@ -50,4 +52,5 @@ class ServicesTracker
             performInPlaceReplacement: true
         )
     }
+     */
 }

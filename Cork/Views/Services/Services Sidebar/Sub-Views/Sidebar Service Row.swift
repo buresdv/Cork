@@ -13,7 +13,7 @@ struct SidebarServiceRow: View
 
     var body: some View
     {
-        NavigationLink(value: service)
+        NavigationLink(value: ServicesNavigationManager.DetailDestination.service(service: service))
         {
             Text(service.name)
         }

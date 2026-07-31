@@ -19,7 +19,7 @@ struct ServiceModificationButtons: View
     @Environment(ServicesTracker.self) var servicesTracker: ServicesTracker
     @Environment(ServicesState.self) var servicesState: ServicesState
 
-    let service: HomebrewService
+    var service: HomebrewService
 
     @State private var serviceModificationProgress: ServiceModificationProgress = .init()
 
@@ -50,7 +50,18 @@ struct ServiceModificationButtons: View
                                 isModifyingService = false
                             }
 
-                            await servicesTracker.stopService(service, servicesState: servicesState, serviceModificationProgress: serviceModificationProgress)
+                            do throws(ServicesFatalError)
+                            {
+                                try await servicesTracker.stopService(
+                                    service,
+                                    servicesState: servicesState,
+                                    serviceModificationProgress: serviceModificationProgress
+                                )
+                                
+                                service.changeStatus(to: .stopped)
+                            } catch let serviceStoppingError {
+                                servicesState.showError(serviceStoppingError)
+                            }
                         }
                     } label: {
                         HStack(alignment: .center)
@@ -71,15 +82,27 @@ struct ServiceModificationButtons: View
                         Task
                         {
                             isModifyingDestructively = false
-
+                            
                             isModifyingService = true
-
+                            
                             defer
                             {
                                 isModifyingService = false
                             }
-
-                            await servicesTracker.startService(service, servicesState: servicesState, serviceModificationProgress: serviceModificationProgress)
+                            
+                            do throws(ServicesFatalError)
+                            {
+                                try await servicesTracker.startService(
+                                    service,
+                                    servicesState: servicesState,
+                                    serviceModificationProgress: serviceModificationProgress
+                                )
+                                
+                                service.changeStatus(to: .started)
+                                
+                            } catch let serviceStartError {
+                                servicesState.showError(serviceStartError)
+                            }
                         }
                     } label: {
                         HStack(alignment: .center)

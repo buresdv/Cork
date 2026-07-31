@@ -14,9 +14,29 @@ enum ReasonsForServiceLoadingFailure
     case couldNotParseJSON
 }
 
-struct ServiceDetailView: View
+struct ServiceDetailView: View, DismissablePane
 {
+    @Environment(ServicesTracker.self) var servicesTracker: ServicesTracker
+    
     let service: HomebrewService
+    
+    private var dynamicService: HomebrewService?
+    {
+        return servicesTracker.services.first(where: { $0.id == service.id })
+
+    }
+
+    private var serviceObjectToUse: HomebrewService
+    {
+        if dynamicService != nil
+        {
+            return dynamicService!
+        }
+        else
+        {
+            return service
+        }
+    }
 
     @State private var serviceDetails: ServiceDetails?
 
@@ -48,11 +68,17 @@ struct ServiceDetailView: View
                 {
                     FullSizeGroupedForm
                     {
-                        ServiceHeaderComplex(service: service)
+                        ServiceHeaderComplex(service: serviceObjectToUse)
 
-                        BasicServiceInfoView(service: service, serviceDetails: serviceDetails)
+                        BasicServiceInfoView(
+                            service: serviceObjectToUse,
+                            serviceDetails: serviceDetails
+                        )
 
-                        ServiceLocationsView(service: service, serviceDetails: serviceDetails)
+                        ServiceLocationsView(
+                            service: serviceObjectToUse,
+                            serviceDetails: serviceDetails
+                        )
                     }
 
                     Spacer()

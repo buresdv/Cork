@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ServiceDetails: Hashable, Codable
+public struct ServiceDetails: Hashable, Codable
 {
     let name: String
     let serviceName: String

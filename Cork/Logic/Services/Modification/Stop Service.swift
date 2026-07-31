@@ -25,7 +25,7 @@ enum ServiceStoppingError: LocalizedError
 
 extension ServicesTracker
 {
-    func stopService(_ serviceToStop: HomebrewService, servicesState: ServicesState, serviceModificationProgress: ServiceModificationProgress) async
+    func stopService(_ serviceToStop: HomebrewService, servicesState: ServicesState, serviceModificationProgress: ServiceModificationProgress) async throws(ServicesFatalError)
     {
         for await output in shell(AppConstants.shared.brewExecutablePath, ["services", "stop", serviceToStop.name])
         {
@@ -51,7 +51,7 @@ extension ServicesTracker
             case .standardError(let errorLine):
                 AppConstants.shared.logger.error("Service stopping error: \(errorLine)")
 
-                servicesState.showError(.couldNotStopService(offendingService: serviceToStop.name, errorThrown: errorLine))
+                throw .couldNotStopService(offendingService: serviceToStop.name, errorThrown: errorLine)
             }
         }
 

@@ -14,7 +14,7 @@ extension HomebrewService
     @MainActor
     func loadDetails() async throws(ServicesTracker.HomebrewServiceLoadingError) -> ServiceDetails?
     {
-        AppConstants.shared.logger.debug("Will try to load up service details for service \(name)")
+        AppConstants.shared.logger.debug("Will try to load up service details for service \(self.name)")
 
         let rawOutput: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["services", "info", name, "--json"])
 

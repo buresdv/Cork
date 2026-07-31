@@ -8,21 +8,47 @@
 import AppKit
 import Foundation
 
-struct HomebrewService: Identifiable, Hashable, Codable
+public class HomebrewService: Identifiable, Codable, Equatable, Hashable
 {
-    var id: UUID = .init()
+    init(name: String, status: ServiceStatus, user: String? = nil, location: URL, exitCode: Int? = nil) {
+        self.id = .init()
+        self.name = name
+        self.status = status
+        self.user = user
+        self.location = location
+        self.exitCode = exitCode
+    }
+    
+    public var id: UUID
 
-    let name: String
-    var status: ServiceStatus
+    public let name: String
+    public var status: ServiceStatus
 
-    let user: String?
+    public let user: String?
 
-    let location: URL
+    public let location: URL
 
-    let exitCode: Int?
+    public let exitCode: Int?
+    
+    public var details: ServiceDetails?
 
-    func revealInFinder()
+    public func revealInFinder()
     {
         location.revealInFinder(.openParentDirectoryAndHighlightTarget)
+    }
+
+    func changeStatus(to newStatus: ServiceStatus)
+    {
+        self.status = newStatus
+    }
+
+    public static func == (lhs: HomebrewService, rhs: HomebrewService) -> Bool
+    {
+        return lhs.id == rhs.id
+    }
+
+    public func hash(into hasher: inout Hasher)
+    {
+        hasher.combine(id)
     }
 }

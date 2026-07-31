@@ -14,6 +14,7 @@ struct HomebrewServicesView: View
     @Environment(\.controlActiveState) var controlActiveState: ControlActiveState
     
     @InjectedObservable(\.appState) var appState: AppState
+    @InjectedObservable(\.servicesNavigationManager) var servicesNavigationManager: ServicesNavigationManager
 
     @Environment(AppDelegate.self) var appDelegate: AppDelegate
 
@@ -30,14 +31,12 @@ struct HomebrewServicesView: View
         NavigationSplitView
         {
             ServicesSidebarView()
-                .navigationDestination(for: HomebrewService.self)
-                { service in
-                    ServiceDetailView(service: service)
-                        .id(service.id)
-                }
         } detail: {
-            NavigationStack
+            switch servicesNavigationManager.openedScreen
             {
+            case .service(let service):
+                ServiceDetailView(service: service)
+            case nil:
                 ServicesStartPage()
             }
         }

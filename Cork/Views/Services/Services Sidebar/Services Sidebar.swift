@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import FactoryKit
 
 struct ServicesSidebarView: View
 {
+    @InjectedObservable(\.servicesNavigationManager) var servicesNavigationManager: ServicesNavigationManager
+    
     @Environment(ServicesState.self) var servicesState: ServicesState
     @Environment(ServicesTracker.self) var servicesTracker: ServicesTracker
 
@@ -18,7 +21,7 @@ struct ServicesSidebarView: View
 
     var body: some View
     {
-        List(selection: $localNavigationTargetId)
+        List(selection: Bindable(servicesNavigationManager).openedScreen)
         {
             ForEach(displayedServices.sorted(by: { $0.name < $1.name }))
             { homebrewService in
@@ -31,22 +34,16 @@ struct ServicesSidebarView: View
             {
                 Button
                 {
-                    servicesState.navigationTargetId = nil
+                    servicesNavigationManager.dismissScreen()
                 } label: {
                     Label("action.go-to-status-page", systemImage: "house")
                 }
                 .help("action.go-to-status-page")
-                .disabled(servicesState.navigationTargetId == nil)
+                .disabled(!servicesNavigationManager.isAnyScreenOpened)
             }
             .defaultCustomization(.visible, options: .alwaysAvailable)
         }
         .searchable(text: $searchText, placement: .sidebar, prompt: Text("services-sidebar.search.prompt"))
-        .onChange(of: localNavigationTargetId)
-        { _, newValue in
-            if servicesState.navigationTargetId != newValue {
-                servicesState.navigationTargetId = newValue
-            }
-        }
     }
 
     private var displayedServices: Set<HomebrewService>

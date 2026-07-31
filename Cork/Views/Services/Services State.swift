@@ -10,10 +10,6 @@ import Foundation
 @Observable @MainActor
 class ServicesState
 {
-    // MARK: - Navigation
-
-    var navigationTargetId: UUID?
-
     // MARK: - State
 
     var isLoadingServices: Bool = true
