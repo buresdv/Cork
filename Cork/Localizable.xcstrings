@@ -14083,14 +14083,14 @@
       "localizations" : {
         "cs" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "add-package.install.conflicting-cask-installed.%1$@-conflicts-with-%2$@"
           }
         },
         "en" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "add-package.install.conflicting-cask-installed.%1$@-conflicts-with-%2$@"
+            "state" : "translated",
+            "value" : "Cask %1$@ conflicts with %2$@"
           }
         }
       }
@@ -14105,8 +14105,8 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "add-package.install.conflicting-cask-installed.%1$@-conflicts-with-%2$@.recovery-suggestion"
+            "state" : "translated",
+            "value" : "Pick one of the casks to keep"
           }
         }
       }
@@ -28915,7 +28915,14 @@
       }
     },
     "error.app-already-exists-at.%@" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App is already installed at %@"
+          }
+        }
+      }
     },
     "error.brewfile.export.could-not-determine-working-directory" : {
       "extractionState" : "stale",
@@ -82331,8 +82338,8 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "update-packages.incremental.package-count.%1$lld-of-%2$lld"
+            "state" : "translated",
+            "value" : "Updating package (%1$lld/%2$lld)"
           }
         }
       }
