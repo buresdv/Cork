@@ -8530,9 +8530,21 @@
           }
         },
         "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Add %lld app"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Add %lld apps"
+                }
+              }
+            }
           }
         },
         "it": {
@@ -8590,9 +8602,21 @@
           }
         },
         "pa": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Add %lld app"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Add %lld apps"
+                }
+              }
+            }
           }
         },
         "pt-PT": {
@@ -21924,9 +21948,21 @@
           }
         },
         "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "%lld download"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "%lld downloads"
+                }
+              }
+            }
           }
         },
         "it": {
@@ -21984,9 +22020,21 @@
           }
         },
         "pa": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "%lld download"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "%lld downloads"
+                }
+              }
+            }
           }
         },
         "pt-PT": {
@@ -45257,9 +45305,21 @@
           }
         },
         "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "One orphaned package was removed"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "%lld orphaned packages were removed"
+                }
+              }
+            }
           }
         },
         "it": {
@@ -45317,9 +45377,21 @@
           }
         },
         "pa": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "One orphaned package was removed"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "%lld orphaned packages were removed"
+                }
+              }
+            }
           }
         },
         "pt-PT": {
@@ -46263,7 +46335,7 @@
               },
               "zero": {
                 "stringUnit": {
-                  "state": "needs_review",
+                  "state": "translated",
                   "value": "Nebyly nalezeny žádné osiřelé balíčky"
                 }
               }
@@ -46391,9 +46463,27 @@
           }
         },
         "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "%lld orphaned package removed"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "%lld orphaned packages removed"
+                }
+              },
+              "zero": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "No orphaned packages found"
+                }
+              }
+            }
           }
         },
         "it": {
@@ -46469,9 +46559,27 @@
           }
         },
         "pa": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "%lld orphaned package removed"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "%lld orphaned packages removed"
+                }
+              },
+              "zero": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "No orphaned packages found"
+                }
+              }
+            }
           }
         },
         "pt-PT": {
@@ -47551,9 +47659,21 @@
           }
         },
         "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Some caches weren't purged because of %@ and %lld other package not being updated"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Some caches weren't purged because of %@ and %lld other packages not being updated"
+                }
+              }
+            }
           }
         },
         "it": {
@@ -47611,9 +47731,21 @@
           }
         },
         "pa": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Some caches weren't purged because of %@ and %lld other package not being updated"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Some caches weren't purged because of %@ and %lld other packages not being updated"
+                }
+              }
+            }
           }
         },
         "pt-PT": {
@@ -51944,9 +52076,21 @@
           }
         },
         "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "%lld package installed"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "%lld packages installed"
+                }
+              }
+            }
           }
         },
         "it": {
@@ -52004,9 +52148,21 @@
           }
         },
         "pa": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "%lld package installed"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "%lld packages installed"
+                }
+              }
+            }
           }
         },
         "pt-PT": {
@@ -54507,9 +54663,21 @@
           }
         },
         "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %lld outdated package"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %lld outdated packages"
+                }
+              }
+            }
           }
         },
         "it": {
@@ -54567,9 +54735,21 @@
           }
         },
         "pa": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %lld outdated package"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %lld outdated packages"
+                }
+              }
+            }
           }
         },
         "pt-PT": {
@@ -64488,9 +64668,21 @@
           }
         },
         "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %lld active service"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %lld active services"
+                }
+              }
+            }
           }
         },
         "it": {
@@ -64548,9 +64740,21 @@
           }
         },
         "pa": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %lld active service"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %lld active services"
+                }
+              }
+            }
           }
         },
         "pt-PT": {
@@ -64922,9 +65126,21 @@
           }
         },
         "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %lld service with errors"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %lld services with errors"
+                }
+              }
+            }
           }
         },
         "it": {
@@ -64982,9 +65198,21 @@
           }
         },
         "pa": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %lld service with errors"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %lld services with errors"
+                }
+              }
+            }
           }
         },
         "pt-PT": {
@@ -65356,9 +65584,21 @@
           }
         },
         "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %lld inactive service"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %lld inactive services"
+                }
+              }
+            }
           }
         },
         "it": {
@@ -65416,9 +65656,21 @@
           }
         },
         "pa": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %lld inactive service"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %lld inactive services"
+                }
+              }
+            }
           }
         },
         "pt-PT": {
@@ -66126,9 +66378,21 @@
           }
         },
         "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %lld service with an unknown status"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %lld services with an unknown status"
+                }
+              }
+            }
           }
         },
         "it": {
@@ -66186,9 +66450,21 @@
           }
         },
         "pa": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %lld service with an unknown status"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %lld services with an unknown status"
+                }
+              }
+            }
           }
         },
         "pt-PT": {
@@ -67904,9 +68180,21 @@
           }
         },
         "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "%lld service found"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "%lld services found"
+                }
+              }
+            }
           }
         },
         "it": {
@@ -67964,9 +68252,21 @@
           }
         },
         "pa": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "%lld service found"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "%lld services found"
+                }
+              }
+            }
           }
         },
         "pt-PT": {
@@ -83704,9 +84004,21 @@
           }
         },
         "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %lld Tap added"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %lld Taps added"
+                }
+              }
+            }
           }
         },
         "it": {
@@ -83764,9 +84076,21 @@
           }
         },
         "pa": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %lld Tap added"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %lld Taps added"
+                }
+              }
+            }
           }
         },
         "pt-PT": {
@@ -84134,9 +84458,21 @@
           }
         },
         "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "There is %lld installed app that can be added to Homebrew"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "There are %lld installed apps that can be added to Homebrew"
+                }
+              }
+            }
           }
         },
         "it": {
@@ -84194,9 +84530,21 @@
           }
         },
         "pa": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "There is %lld installed app that can be added to Homebrew"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "There are %lld installed apps that can be added to Homebrew"
+                }
+              }
+            }
           }
         },
         "pt-PT": {
@@ -84452,9 +84800,21 @@
           }
         },
         "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "There is %lld additional app that is ignored"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "There are %lld additional apps that are ignored"
+                }
+              }
+            }
           }
         },
         "it": {
@@ -84512,9 +84872,21 @@
           }
         },
         "pa": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "There is %lld additional app that is ignored"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "There are %lld additional apps that are ignored"
+                }
+              }
+            }
           }
         },
         "pt-PT": {
@@ -84768,9 +85140,21 @@
           }
         },
         "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "There is %lld ignored adoptable apps"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "There are %lld ignored adoptable apps"
+                }
+              }
+            }
           }
         },
         "it": {
@@ -84828,9 +85212,21 @@
           }
         },
         "pa": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "There is %lld ignored adoptable apps"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "There are %lld ignored adoptable apps"
+                }
+              }
+            }
           }
         },
         "pt-PT": {
@@ -86320,9 +86716,21 @@
           }
         },
         "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %lld Cask installed"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %lld Casks installed"
+                }
+              }
+            }
           }
         },
         "it": {
@@ -86380,9 +86788,21 @@
           }
         },
         "pa": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %lld Cask installed"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %lld Casks installed"
+                }
+              }
+            }
           }
         },
         "pt-PT": {
@@ -86748,9 +87168,21 @@
           }
         },
         "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %lld Formula installed"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %lld Formulae installed"
+                }
+              }
+            }
           }
         },
         "it": {
@@ -86808,9 +87240,21 @@
           }
         },
         "pa": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %lld Formula installed"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %lld Formulae installed"
+                }
+              }
+            }
           }
         },
         "pt-PT": {
@@ -87632,9 +88076,21 @@
           }
         },
         "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "There’s %lld Cask that couldn't be loaded"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "There are %lld Casks that couldn't be loaded"
+                }
+              }
+            }
           }
         },
         "it": {
@@ -87692,9 +88148,21 @@
           }
         },
         "pa": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "There’s %lld Cask that couldn't be loaded"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "There are %lld Casks that couldn't be loaded"
+                }
+              }
+            }
           }
         },
         "pt-PT": {
@@ -87948,9 +88416,21 @@
           }
         },
         "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "There’s %lld Formula that couldn’t be loaded"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "There are %lld Formulae that couldn't be loaded"
+                }
+              }
+            }
           }
         },
         "it": {
@@ -88008,9 +88488,21 @@
           }
         },
         "pa": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "There’s %lld Formula that couldn’t be loaded"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "There are %lld Formulae that couldn't be loaded"
+                }
+              }
+            }
           }
         },
         "pt-PT": {
@@ -88264,9 +88756,21 @@
           }
         },
         "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Update %lld package"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Update %lld packages"
+                }
+              }
+            }
           }
         },
         "it": {
@@ -88324,9 +88828,21 @@
           }
         },
         "pa": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Update %lld package"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Update %lld packages"
+                }
+              }
+            }
           }
         },
         "pt-PT": {
@@ -88922,9 +89438,21 @@
           }
         },
         "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "There is %lld outdated package"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "There are %lld outdated packages"
+                }
+              }
+            }
           }
         },
         "it": {
@@ -88982,9 +89510,21 @@
           }
         },
         "pa": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "There is %lld outdated package"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "There are %lld outdated packages"
+                }
+              }
+            }
           }
         },
         "pt-PT": {
@@ -89692,9 +90232,21 @@
           }
         },
         "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "There is %lld unmanaged outdated package"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "There are %lld unmanaged outdated packages"
+                }
+              }
+            }
           }
         },
         "it": {
@@ -89752,9 +90304,21 @@
           }
         },
         "pa": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "There is %lld unmanaged outdated package"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "There are %lld unmanaged outdated packages"
+                }
+              }
+            }
           }
         },
         "pt-PT": {
@@ -90014,9 +90578,21 @@
           }
         },
         "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "There is 1 additional package not managed by Homebrew"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "There are %lld additional packages not managed by Homebrew"
+                }
+              }
+            }
           }
         },
         "it": {
@@ -90074,9 +90650,21 @@
           }
         },
         "pa": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "There is 1 additional package not managed by Homebrew"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "There are %lld additional packages not managed by Homebrew"
+                }
+              }
+            }
           }
         },
         "pt-PT": {
