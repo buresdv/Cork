@@ -7,10 +7,13 @@
 
 import AppKit
 import Foundation
+import SwiftUI
 
-public class HomebrewService: Identifiable, Codable, Equatable, Hashable
+@Observable
+public class HomebrewService: Identifiable, Codable, Equatable, Hashable, @unchecked Sendable
 {
-    init(name: String, status: ServiceStatus, user: String? = nil, location: URL, exitCode: Int? = nil) {
+    init(name: String, status: ServiceStatus, user: String? = nil, location: URL, exitCode: Int? = nil)
+    {
         self.id = .init()
         self.name = name
         self.status = status
@@ -18,7 +21,7 @@ public class HomebrewService: Identifiable, Codable, Equatable, Hashable
         self.location = location
         self.exitCode = exitCode
     }
-    
+
     public var id: UUID
 
     public let name: String
@@ -28,9 +31,11 @@ public class HomebrewService: Identifiable, Codable, Equatable, Hashable
 
     public let location: URL
 
-    public let exitCode: Int?
-    
+    public var exitCode: Int?
+
     public var details: ServiceDetails?
+    
+    var isLoadingDetails: Bool = true
 
     public func revealInFinder()
     {

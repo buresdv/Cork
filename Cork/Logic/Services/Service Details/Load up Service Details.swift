@@ -5,18 +5,24 @@
 //  Created by David Bureš on 21.03.2024.
 //
 
-import Foundation
 import CorkShared
 import CorkTerminalFunctions
+import Foundation
 
 extension HomebrewService
 {
-    @MainActor
-    func loadDetails() async throws(ServicesTracker.HomebrewServiceLoadingError) -> ServiceDetails?
+    func loadDetails() async throws(ServicesTracker.HomebrewServiceLoadingError)
     {
         AppConstants.shared.logger.debug("Will try to load up service details for service \(self.name)")
 
-        let rawOutput: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["services", "info", name, "--json"])
+        self.isLoadingDetails = true
+
+        defer
+        {
+            self.isLoadingDetails = false
+        }
+
+        let rawOutput: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["services", "info", self.name, "--json"])
 
         let decoder: JSONDecoder = {
             let decoder: JSONDecoder = .init()
@@ -27,7 +33,8 @@ extension HomebrewService
 
         // MARK: - Error checking
 
-        guard !rawOutput.containsErrors else
+        guard !rawOutput.containsErrors
+        else
         {
             AppConstants.shared.logger.error("Failed while loading up service details: Standard Error not empty")
             throw .standardErrorNotEmpty(standardError: rawOutput.standardErrors.formatted(.list(type: .and)))
@@ -35,19 +42,20 @@ extension HomebrewService
 
         do
         {
-            guard let decodableOutput: Data = rawOutput.getJsonFromOutput(failOnAnyErrorsPresent: false)
+            guard let decodableOutput: Data = rawOutput.getJsonFromOutput(failOnAnyErrorsPresent: false),
+                  let decodedOutput: ServiceDetails = try decoder.decode(
+                    [ServiceDetails].self,
+                    from: decodableOutput
+                  ).first
             else
             {
-                return nil
+                AppConstants.shared.logger.error("Loading details for \(self.name) returned no data")
+                return
             }
 
-            guard let decodedOutput: ServiceDetails = try decoder.decode([ServiceDetails].self, from: decodableOutput).first
-            else
-            {
-                return nil
-            }
+            print("Final details: \(decodedOutput)")
 
-            return decodedOutput
+            self.details = decodedOutput
         }
         catch let parsingError
         {

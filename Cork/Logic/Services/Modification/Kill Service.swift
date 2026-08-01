@@ -28,7 +28,7 @@ extension ServicesTracker
         {
             serviceModificationProgress.progress = 5.0
 
-            try await synchronizeServices(preserveIDs: true)
+            try await loadServices()
         }
         catch let servicesSynchronizationError
         {

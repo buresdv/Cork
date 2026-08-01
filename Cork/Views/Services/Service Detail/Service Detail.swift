@@ -19,28 +19,8 @@ struct ServiceDetailView: View, DismissablePane
     @Environment(ServicesTracker.self) var servicesTracker: ServicesTracker
     
     let service: HomebrewService
-    
-    private var dynamicService: HomebrewService?
-    {
-        return servicesTracker.services.first(where: { $0.id == service.id })
-
-    }
-
-    private var serviceObjectToUse: HomebrewService
-    {
-        if dynamicService != nil
-        {
-            return dynamicService!
-        }
-        else
-        {
-            return service
-        }
-    }
 
     @State private var serviceDetails: ServiceDetails?
-
-    @State private var isLoadingDetails: Bool = true
 
     @State private var erroredOutWhileLoadingServiceDetails: Bool = false
 
@@ -51,8 +31,9 @@ struct ServiceDetailView: View, DismissablePane
     {
         VStack(alignment: .leading, spacing: 0)
         {
-            if isLoadingDetails
+            if service.isLoadingDetails
             {
+                // TODO: Move this progress into the form itself so the whole thing doesn't flash weirdly
                 ProgressView
                 {
                     Text("service-details.contents.loading")
@@ -68,16 +49,14 @@ struct ServiceDetailView: View, DismissablePane
                 {
                     FullSizeGroupedForm
                     {
-                        ServiceHeaderComplex(service: serviceObjectToUse)
+                        ServiceHeaderComplex(service: service)
 
                         BasicServiceInfoView(
-                            service: serviceObjectToUse,
-                            serviceDetails: serviceDetails
+                            service: service
                         )
 
                         ServiceLocationsView(
-                            service: serviceObjectToUse,
-                            serviceDetails: serviceDetails
+                            service: service
                         )
                     }
 
@@ -93,12 +72,12 @@ struct ServiceDetailView: View, DismissablePane
 
             defer
             {
-                isLoadingDetails = false
+                service.isLoadingDetails = false
             }
 
             do
             {
-                serviceDetails = try await service.loadDetails()
+                try await service.loadDetails()
             }
             catch let servicesLoadingError
             {

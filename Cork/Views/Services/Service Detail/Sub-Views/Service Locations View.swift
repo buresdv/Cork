@@ -11,8 +11,6 @@ struct ServiceLocationsView: View
 {
     let service: HomebrewService
 
-    let serviceDetails: ServiceDetails?
-
     var body: some View
     {
         Section
@@ -24,7 +22,7 @@ struct ServiceLocationsView: View
                 Text("service.location.label")
             }
 
-            if let serviceDetails
+            if let serviceDetails = service.details
             {
                 LabeledContent
                 {
