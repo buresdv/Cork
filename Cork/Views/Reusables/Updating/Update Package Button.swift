@@ -42,7 +42,7 @@ struct UpdatePackageButton: View
             }
             
         } label: {
-            Text("action.update-\(packageToUpdate.name(withPrecision: .precise))")
+            Label("action.update-\(packageToUpdate.name(withPrecision: .precise))", systemImage: "square.and.arrow.down")
         }
 
     }

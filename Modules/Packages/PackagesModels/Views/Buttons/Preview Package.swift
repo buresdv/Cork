@@ -27,7 +27,7 @@ public struct PreviewPackageButton: View
         {
             openWindow(value: packageToPreview)
         } label: {
-            Label("action.preview-package.\(packageToPreview.name(withPrecision: .precise))", systemImage: "eye")
+            Label("action.preview-package.\(packageToPreview.name(withPrecision: .inlineFormatted))", systemImage: "eye")
         }
         .keyboardShortcut("p", modifiers: [.command, .option])
     }

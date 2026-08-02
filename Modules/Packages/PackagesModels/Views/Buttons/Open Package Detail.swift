@@ -21,7 +21,7 @@ struct OpenPackageDetailButton: View
         {
             navigationManager.openedScreen = .package(package: packageToOpenDetailFor)
         } label: {
-            Text("action.open-detail-for-\(packageToOpenDetailFor.name(withPrecision: .inlineFormatted))")
+            Label("action.open-detail-for-\(packageToOpenDetailFor.name(withPrecision: .inlineFormatted))", systemImage: "arrow.up.right")
         }
     }
 }
