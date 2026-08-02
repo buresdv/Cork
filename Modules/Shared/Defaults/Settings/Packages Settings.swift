@@ -43,4 +43,10 @@ public extension Defaults.Keys
     
     /// Whether the list of adoptable packages, along with the mass package adoption feature, are enabled
     static let allowMassPackageAdoption: Key<Bool> = .init("allowMassPackageAdoption", default: true)
+    
+    /// Whether to display interactable package names in a capsule
+    static let showInteractiveCapsule: Key<Bool> = .init("showInteractiveCapsuleAroundPackages", default: false)
+    
+    /// Whether to add an icon of the package type to the interactive capsule
+    static let showPackageTypeNextToInteractiveCapsule: Key<Bool> = .init("showPackageTypeNextToInteractiveCapsule", default: false)
 }

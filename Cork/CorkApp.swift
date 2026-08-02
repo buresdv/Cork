@@ -311,6 +311,15 @@ struct CorkApp: App
             }
         }
         .windowToolbarStyle(.unifiedCompact)
+        
+        WindowGroup(id: .fullPackageListWindowID, for: [MinimalHomebrewPackage].self)
+        { $fullPackageList in
+            if let fullPackageList
+            {
+                FullPackageList(packages: fullPackageList)
+            }
+        }
+        .windowToolbarStyle(.unifiedCompact)
 
         Settings
         {

@@ -10,17 +10,23 @@ import SwiftUI
 
 struct PackagesIncludedInTapList: View
 {
+    @Environment(\.openWindow) var openWindow: OpenWindowAction
+    
     @Environment(\.selectedTap) var selectedTap: BrewTap?
 
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
     let packages: [MinimalHomebrewPackage]
 
-    @State private var searchString: String = ""
+    @State private var searchText: String = ""
+
+    @State private var isShowingSearchField: Bool = false
+
+    @State private var isSearchFieldFocused: Bool = false
 
     var packagesToDisplay: [MinimalHomebrewPackage]
     {
-        if searchString.isEmpty
+        if searchText.isEmpty
         {
             return packages.sorted
             {
@@ -29,7 +35,7 @@ struct PackagesIncludedInTapList: View
         }
         else
         {
-            return packages.filter { $0.name(withPrecision: .precise).localizedCaseInsensitiveContains(searchString) }.sorted
+            return packages.filter { $0.name(withPrecision: .precise).localizedCaseInsensitiveContains(searchText) }.sorted
             {
                 $0.internalName < $1.internalName
             }
@@ -38,49 +44,65 @@ struct PackagesIncludedInTapList: View
 
     var body: some View
     {
-        VStack(spacing: 5)
+        List
         {
-            CustomSearchField(search: $searchString, customPromptText: "tap-details.included-packages.search.prompt")
-            List(packagesToDisplay)
-            { minimalPackage in
-                HStack(alignment: .center)
-                {
-                    if let initializedBrewPackageForDisplayInList: BrewPackage = .init(using: minimalPackage)
+            Section
+            {
+                ForEach(packagesToDisplay.prefix(7))
+                { minimalPackage in
+                    HStack(alignment: .center)
                     {
-                        initializedBrewPackageForDisplayInList.nameView(withComponents: .boundVersion)
+                        if let initializedBrewPackageForDisplayInList: BrewPackage = .init(using: minimalPackage)
+                        {
+                            initializedBrewPackageForDisplayInList.nameView(withComponents: .boundVersion)
 
-                        var isPackageAlreadyInstalled: Bool
-                        {
-                            var packageContainedInFormulae: Bool {
-                                return brewPackagesTracker.successfullyLoadedFormulae.contains { installedPackage in
-                                    installedPackage.internalName == minimalPackage.internalName
+                            var isPackageAlreadyInstalled: Bool
+                            {
+                                var packageContainedInFormulae: Bool
+                                {
+                                    return brewPackagesTracker.successfullyLoadedFormulae.contains
+                                    { installedPackage in
+                                        installedPackage.internalName == minimalPackage.internalName
+                                    }
                                 }
-                            }
-                            
-                            var packageContainedInCasks: Bool {
-                                return brewPackagesTracker.successfullyLoadedCasks.contains { installedPackage in
-                                    installedPackage.internalName == minimalPackage.internalName
+
+                                var packageContainedInCasks: Bool
+                                {
+                                    return brewPackagesTracker.successfullyLoadedCasks.contains
+                                    { installedPackage in
+                                        installedPackage.internalName == minimalPackage.internalName
+                                    }
                                 }
+
+                                return packageContainedInFormulae || packageContainedInCasks
                             }
-                              
-                            return packageContainedInFormulae || packageContainedInCasks
-                        }
-                        
-                        if isPackageAlreadyInstalled
-                        {
-                            PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
+
+                            if isPackageAlreadyInstalled
+                            {
+                                PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
+                            }
                         }
                     }
+                    .contextMenu
+                    {
+                        contextMenu(packageToPreview: minimalPackage)
+                    }
                 }
-                .contextMenu
+            } header: {
+                CustomSearchField(search: $searchText, isFocused: $isSearchFieldFocused, customPromptText: nil)
+            } footer: {
+                Button
                 {
-                    contextMenu(packageToPreview: minimalPackage)
+                    openWindow(value: packages)
+                } label: {
+                    Label("action.show-more", systemImage: "list.bullet.badge.ellipsis")
                 }
+                .buttonStyle(.accessoryBar)
             }
-            .frame(height: 150)
-            .listStyle(.bordered(alternatesRowBackgrounds: true))
-            .scrollDisabled(false)
         }
+        // .frame(height: 150)
+        .listStyle(.bordered(alternatesRowBackgrounds: true))
+        .scrollDisabled(false)
     }
 
     @ViewBuilder

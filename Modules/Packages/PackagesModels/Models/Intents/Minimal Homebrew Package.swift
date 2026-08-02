@@ -36,6 +36,8 @@ public struct MinimalHomebrewPackage: Identifiable, Hashable, AppEntity, Codable
     public var internalName: BrewPackageName
 
     public var type: BrewPackage.PackageType
+    
+    public var displayableType: BrewPackage.PackageType? { type }
 
     public var installedOn: Date?
 

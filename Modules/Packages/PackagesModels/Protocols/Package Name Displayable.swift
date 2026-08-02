@@ -8,6 +8,7 @@
 import CorkShared
 import Foundation
 import SwiftUI
+import Defaults
 
 /// Adds support for parsing, storing and displaying a Brew package name in a friendly manner
 public protocol PackageNameDisplayable
@@ -17,6 +18,9 @@ public protocol PackageNameDisplayable
 
     /// The internal name, consisting of the raw name being split into re-constructable sections
     var internalName: BrewPackageName { get set }
+    
+    /// Type of the package
+    var displayableType: BrewPackage.PackageType? { get }
 
     /// Reconstruct the internal name into a Brew-compatible format
     func name(withPrecision precision: NameRetrievalPrecision) -> String
@@ -196,6 +200,52 @@ public extension PackageNameDisplayable
         @ViewBuilder contextMenuExtras: () -> some View = { EmptyView() }
     ) -> some View
     {
+        Group
+        {
+            if Defaults[.showInteractiveCapsule]
+            {
+                GroupBox
+                {
+                    HStack(alignment: .center, spacing: 3)
+                    {
+                        if Defaults[.showPackageTypeNextToInteractiveCapsule]
+                        {
+                            if let displayableType
+                            {
+                                displayableType.icon
+                            }
+                        }
+                        
+                        nameViewInternalWithoutTheCapsule(withComponents: displayComponents)
+                    }
+                }
+            }
+            else
+            {
+                nameViewInternalWithoutTheCapsule(withComponents: displayComponents)
+            }
+        }
+        .contextMenu
+        {
+            self.previewSelfButton
+            
+            self.openDetailForSelfButton
+            
+            Divider()
+            
+            contextMenuExtras()
+            
+            Divider()
+            
+            self.revealSelfInFinderButton
+        }
+    }
+    
+    @ViewBuilder
+    private func nameViewInternalWithoutTheCapsule(
+        withComponents displayComponents: [NameComponents]
+    ) -> some View
+    {
         HStack(alignment: .firstTextBaseline, spacing: 5)
         {
             Text(self.internalName.packageIdentifier)
@@ -223,20 +273,6 @@ public extension PackageNameDisplayable
                     .font(.subheadline)
                     .layoutPriority(-Double(3))
             }
-        }
-        .contextMenu
-        {
-            self.previewSelfButton
-            
-            self.openDetailForSelfButton
-            
-            Divider()
-            
-            contextMenuExtras()
-            
-            Divider()
-            
-            self.revealSelfInFinderButton
         }
     }
 }

@@ -74,6 +74,9 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable,
     public var internalName: BrewPackageName
 
     public var type: PackageType
+    
+    public var displayableType: BrewPackage.PackageType? { type }
+    
     public var isTagged: Bool = false
 
     public var isPinned: Bool
@@ -123,6 +126,17 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable,
                 return "package-details.type.formula"
             case .cask:
                 return "package-details.type.cask"
+            }
+        }
+        
+        /// Icon for the package type
+        public var icon: Image
+        {
+            switch self {
+            case .formula:
+                return .init(systemName: "apple.terminal")
+            case .cask:
+                return .init(systemName: "pointer.arrow.click")
             }
         }
 

@@ -15,4 +15,5 @@ public extension String
     static let servicesWindowID: String = "services"
     static let aboutWindowID: String = "about"
     static let errorInspectorWindowID: String = "error-inspector"
+    static let fullPackageListWindowID: String = "full-package-list"
 }
