@@ -122,6 +122,7 @@ struct DependantsList: View
                 }
 
             } label: {
+                // TODO: In the string catalog, mark this as a plural
                 Text("package-details.dependants.\(dependants.count)")
             }
 

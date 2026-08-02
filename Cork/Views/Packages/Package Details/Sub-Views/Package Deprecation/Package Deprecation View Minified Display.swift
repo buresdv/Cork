@@ -23,10 +23,12 @@ struct PackageDeprecationViewMinifiedDisplay: View
     {
         if deprecationReason == nil
         {
+            // TODO: Replace the inline SF symbol with a reference
             return "package-details.deprecation.notice.minified.no-reason-for-deprecation-provided"
         }
         else
         {
+            // TODO: Replace the inline SF symbol with a reference
             return "package-details.deprecation.notice.minified.reason-for-deprecation-provided"
         }
     }
