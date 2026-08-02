@@ -65901,6 +65901,16 @@
         }
       }
     },
+    "package-list-inspector.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Package List"
+          }
+        }
+      }
+    },
     "preview-package.action" : {
       "localizations" : {
         "cs" : {
@@ -94963,6 +94973,7 @@
       }
     },
     "tap-details.included-packages.search.prompt" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
