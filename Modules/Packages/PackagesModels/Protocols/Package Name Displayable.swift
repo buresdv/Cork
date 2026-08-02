@@ -28,6 +28,10 @@ public protocol PackageNameDisplayable
     associatedtype OpenDetailForSelfButton: View
     /// Button for opening a package's detail
     var openDetailForSelfButton: OpenDetailForSelfButton { get }
+    
+    associatedtype RevealSelfInFinderButton: View
+    /// Button for revealing the package in Finder
+    var revealSelfInFinderButton: RevealSelfInFinderButton { get }
 }
 
 /// The package's name parsed into chunks
@@ -229,6 +233,10 @@ public extension PackageNameDisplayable
             Divider()
             
             contextMenuExtras()
+            
+            Divider()
+            
+            self.revealSelfInFinderButton
         }
     }
 }

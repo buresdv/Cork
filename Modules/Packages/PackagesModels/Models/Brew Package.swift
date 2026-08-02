@@ -413,6 +413,13 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable,
             #endif
         }
     }
+    
+    // TODO: Implement the "Reveal in Finder" button in a reusable way
+    @ViewBuilder
+    public var revealSelfInFinderButton: some View
+    {
+        EmptyView()
+    }
 }
 
 /// Convert between ``MinimalHomebrewPackage`` and ``BrewPackage``
