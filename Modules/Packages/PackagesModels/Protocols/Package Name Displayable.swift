@@ -185,35 +185,12 @@ public enum BuiltInContextMenuItems
 
 public extension PackageNameDisplayable
 {
-    /// Context menu for the package's actions
-    @ViewBuilder
-    func contextMenu(
-        builtInContent: BuiltInContextMenuItems...,
-        @ViewBuilder extraContent: () -> some View = { EmptyView() }
-    ) -> some View
-    {
-        ForEach(builtInContent, id: \.self)
-        { builtInItem in
-            switch builtInItem
-            {
-            case .previewSelfButton:
-                self.previewSelfButton
-            case .openPackageDetailButton:
-                self.openDetailForSelfButton
-            }
-        }
-
-        Divider()
-
-        extraContent()
-    }
-}
-
-public extension PackageNameDisplayable
-{
     /// SwiftUI view for displaying the package's name
     @ViewBuilder
-    func nameView(withComponents displayComponents: NameComponents...) -> some View
+    func nameView(
+        withComponents displayComponents: NameComponents...,
+        @ViewBuilder contextMenuExtras: () -> some View = { EmptyView() }
+    ) -> some View
     {
         HStack(alignment: .firstTextBaseline, spacing: 5)
         {
@@ -223,10 +200,15 @@ public extension PackageNameDisplayable
             {
                 if let boundVersion = self.internalName.boundVersion
                 {
-                    Text("􀎡 \(boundVersion)")
-                        .foregroundColor(Color(nsColor: .tertiaryLabelColor))
-                        .font(.subheadline)
-                        .layoutPriority(-Double(2))
+                    HStack(alignment: .lastTextBaseline, spacing: 3)
+                    {
+                        Image(systemName: "lock.fill")
+
+                        Text(boundVersion)
+                    }
+                    .foregroundColor(Color(nsColor: .tertiaryLabelColor))
+                    .font(.subheadline)
+                    .layoutPriority(-Double(2))
                 }
             }
 
@@ -237,6 +219,16 @@ public extension PackageNameDisplayable
                     .font(.subheadline)
                     .layoutPriority(-Double(3))
             }
+        }
+        .contextMenu
+        {
+            self.previewSelfButton
+            
+            self.openDetailForSelfButton
+            
+            Divider()
+            
+            contextMenuExtras()
         }
     }
 }

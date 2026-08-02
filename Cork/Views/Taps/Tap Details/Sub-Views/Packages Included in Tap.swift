@@ -79,6 +79,7 @@ struct PackagesIncludedInTapList: View
             }
             .frame(height: 150)
             .listStyle(.bordered(alternatesRowBackgrounds: true))
+            .scrollDisabled(false)
         }
     }
 

@@ -140,10 +140,6 @@ struct OutdatedPackagesList_Table: View
                 ForEach(filteredRelevantPackages)
                 { outdatedPackage in
                     TableRow(outdatedPackage)
-                        .contextMenu
-                        {
-                            outdatedPackage.package.contextMenu(builtInContent: .openPackageDetailButton)
-                        }
                 }
             }
             .tableStyle(.bordered)

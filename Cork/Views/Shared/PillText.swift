@@ -49,7 +49,8 @@ struct OutlinedPillText: View
     {
         Text(text)
             .font(.caption2)
-            .padding(.horizontal, 4)
+            .padding(.horizontal, 6)
+            .padding(.vertical, 2)
             .foregroundColor(color)
             .overlay(RoundedRectangle(cornerRadius: 7).stroke(color, lineWidth: 1))
     }
@@ -64,7 +65,8 @@ struct OutlinedPill<Content: View>: View
     {
         content
             .font(.caption2)
-            .padding(.horizontal, 4)
+            .padding(.horizontal, 6)
+            .padding(.vertical, 2)
             .foregroundStyle(color)
             .overlay(RoundedRectangle(cornerRadius: 7).stroke(color, lineWidth: 1))
     }

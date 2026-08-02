@@ -54,10 +54,6 @@ struct DependencyList: View
                         if let dependencyFromTracker: BrewPackage = brewPackagesTracker.successfullyLoadedFormulae.first(where: { $0.internalName == BrewPackageName(from: dependency.name) })
                         {
                             dependencyFromTracker.nameView(withComponents: .boundVersion)
-                                .contextMenu
-                                {
-                                    dependencyFromTracker.contextMenu(builtInContent: .openPackageDetailButton)
-                                }
                         }
                         else
                         {

@@ -193,10 +193,6 @@ struct SearchResultRow: View, Sendable
                 }
             }
         }
-        .contextMenu
-        {
-            extractedRelevantPackage.contextMenu()
-        }
     }
     
     enum Context {

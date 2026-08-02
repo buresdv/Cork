@@ -32,10 +32,6 @@ struct OutdatedPackageListBoxRow: View
                 EmptyView()
             }
         }
-        .contextMenu
-        {
-            outdatedPackage.package.contextMenu(builtInContent: .openPackageDetailButton)
-        }
     }
 
     // MARK: - Various types of outdated package displays
@@ -44,10 +40,6 @@ struct OutdatedPackageListBoxRow: View
     var outdatedPackageDetails_none: some View
     {
         outdatedPackage.package.nameView(withComponents: .boundVersion)
-            .contextMenu
-            {
-                outdatedPackage.package.contextMenu(builtInContent: .openPackageDetailButton)
-            }
     }
 
     @ViewBuilder
@@ -74,10 +66,6 @@ struct OutdatedPackageListBoxRow: View
                     PillText(text: "\(newerVersion)", backgroundColor: pillBackgroundColor, textColor: pillForegroundColor)
                 }
             }
-        }
-        .contextMenu
-        {
-            outdatedPackage.package.contextMenu(builtInContent: .openPackageDetailButton)
         }
     }
 }

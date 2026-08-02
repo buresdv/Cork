@@ -396,14 +396,7 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable,
     @ViewBuilder
     public var previewSelfButton: some View
     {
-        if !isInstalled
-        {
-            PreviewPackageButton(packageToPreview: .init(fromFullPackage: self))
-        }
-        else
-        {
-            EmptyView()
-        }
+        PreviewPackageButton(packageToPreview: .init(fromFullPackage: self))
     }
     
     @ViewBuilder

@@ -43,14 +43,7 @@ public struct MinimalHomebrewPackage: Identifiable, Hashable, AppEntity, Codable
     @ViewBuilder
     public var previewSelfButton: some View
     {
-        if let installedOn
-        {
-            EmptyView()
-        }
-        else
-        {
-            PreviewPackageButton(packageToPreview: self)
-        }
+        PreviewPackageButton(packageToPreview: self)
     }
     
     @ViewBuilder

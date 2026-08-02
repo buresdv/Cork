@@ -23,12 +23,10 @@ struct PackageDeprecationViewMinifiedDisplay: View
     {
         if deprecationReason == nil
         {
-            // TODO: Replace the inline SF symbol with a reference
             return "package-details.deprecation.notice.minified.no-reason-for-deprecation-provided"
         }
         else
         {
-            // TODO: Replace the inline SF symbol with a reference
             return "package-details.deprecation.notice.minified.reason-for-deprecation-provided"
         }
     }
@@ -39,7 +37,9 @@ struct PackageDeprecationViewMinifiedDisplay: View
         {
             if caveatDisplayOptions == .mini
             {
-                OutlinedPillText(text: outlinedPillText, color: .orange)
+                OutlinedPill(content: {
+                    Label(outlinedPillText, systemImage: "exclamationmark.triangle.fill")
+                }, color: .orange)
                     .onTapGesture
                     {
                         isShowingDeprecationReason = true
@@ -52,6 +52,7 @@ struct PackageDeprecationViewMinifiedDisplay: View
                                 .popover(isPresented: $isShowingDeprecationReason)
                                 {
                                     Text(deprecationReason)
+                                        .padding()
                                 }
                         }
                         else

@@ -106,8 +106,7 @@ struct InstallationAndUninstallationPane: View
 
                             HStack(alignment: .top)
                             {
-                                Text("􀇾")
-                                Text("settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.warning")
+                                Label("settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.warning", systemImage: "exclamationmark.triangle")
                             }
                             .font(.caption)
                             .foregroundColor(Color(nsColor: NSColor.systemGray))
@@ -131,8 +130,7 @@ struct InstallationAndUninstallationPane: View
 
                             HStack(alignment: .top)
                             {
-                                Text("􀇾")
-                                Text("settings.install-uninstall.installation.enable-automatic-cleanup.warning")
+                                Label("settings.install-uninstall.installation.enable-automatic-cleanup.warning", systemImage: "exclamationmark.triangle")
                             }
                             .font(.caption)
                             .foregroundColor(Color(nsColor: NSColor.systemGray))

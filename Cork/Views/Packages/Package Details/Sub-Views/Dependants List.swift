@@ -108,10 +108,6 @@ struct DependantsList: View
                         TableColumn("package-details.dependencies.results.name")
                         { dependant in
                             dependant.nameView(withComponents: .boundVersion)
-                                .contextMenu
-                                {
-                                    dependant.contextMenu(builtInContent: .openPackageDetailButton)
-                                }
                         }
                         TableColumn("package-details.dependencies.results.version")
                         { dependant in
