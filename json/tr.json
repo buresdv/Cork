@@ -781,9 +781,5 @@
   "update-packages.updating.updating-outdated-package": "Paket önbellekleri güncelleniyor",
   "v. %@": "Sürüm %@",
   "window.about": "Hakkında",
-  "window.services": "Servisler",
-  "⚠️": "⚠️",
-  "􀇾": "􀇾",
-  "􀎧": "􀎧",
-  "􀐫": "􀐫"
+  "window.services": "Servisler"
 }

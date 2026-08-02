@@ -779,9 +779,5 @@
   "update-packages.updating.updating-outdated-package": "正在更新套件快取",
   "v. %@": "v. %@",
   "window.about": "關於",
-  "window.services": "服務",
-  "⚠️": "⚠️",
-  "􀇾": "􀇾",
-  "􀎧": "􀎧",
-  "􀐫": "􀐫"
+  "window.services": "服務"
 }

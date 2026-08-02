@@ -802,9 +802,5 @@
   "update-packages.updating.updating-outdated-package": "Updating package caches",
   "v. %@": "v. %@",
   "window.about": "Om",
-  "window.services": "Tjänster",
-  "⚠️": "⚠️",
-  "􀇾": "􀇾",
-  "􀎧": "􀎧",
-  "􀐫": "􀐫"
+  "window.services": "Tjänster"
 }

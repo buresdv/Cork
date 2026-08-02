@@ -824,9 +824,5 @@
   "update-packages.updating.updating-outdated-package": "Обновление кеша пакетов",
   "v. %@": "v. %@",
   "window.about": "О приложении",
-  "window.services": "Службы",
-  "⚠️": "⚠️",
-  "􀇾": "􀇾",
-  "􀎧": "􀎧",
-  "􀐫": "􀐫"
+  "window.services": "Службы"
 }

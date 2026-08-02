@@ -800,9 +800,5 @@
   "update-packages.updating.updating-outdated-package": "Aggiorno cache pacchetti",
   "v. %@": "v. %@",
   "window.about": "Informazioni",
-  "window.services": "Servizi",
-  "⚠️": "⚠️",
-  "􀇾": "􀇾",
-  "􀎧": "􀎧",
-  "􀐫": "􀐫"
+  "window.services": "Servizi"
 }

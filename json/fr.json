@@ -801,9 +801,5 @@
   "update-packages.updating.updating-outdated-package": "Mise à jour des caches de paquets",
   "v. %@": "v. %@",
   "window.about": "À propos de",
-  "window.services": "Services",
-  "⚠️": "⚠️",
-  "􀇾": "􀇾",
-  "􀎧": "􀎧",
-  "􀐫": "􀐫"
+  "window.services": "Services"
 }

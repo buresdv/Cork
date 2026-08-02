@@ -882,9 +882,5 @@
   "update-packages.updating.updating-outdated-package": "Aktualizace mezipaměti balíčků",
   "v. %@": "v. %@",
   "window.about": "O aplikaci Cork",
-  "window.services": "Služby",
-  "⚠️": "⚠️",
-  "􀇾": "􀇾",
-  "􀎧": "􀎧",
-  "􀐫": "􀐫"
+  "window.services": "Služby"
 }

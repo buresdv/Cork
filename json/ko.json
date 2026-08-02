@@ -779,9 +779,5 @@
   "update-packages.updating.updating-outdated-package": "패키지 캐시 업데이트",
   "v. %@": "v. %@",
   "window.about": "About",
-  "window.services": "Services",
-  "⚠️": "⚠️",
-  "􀇾": "􀇾",
-  "􀎧": "􀎧",
-  "􀐫": "􀐫"
+  "window.services": "Services"
 }

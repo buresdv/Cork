@@ -800,9 +800,5 @@
   "update-packages.updating.updating-outdated-package": "Aktualisiere Paketzwischenspeicher",
   "v. %@": "v. %@",
   "window.about": "Über",
-  "window.services": "Dienste",
-  "⚠️": "⚠️",
-  "􀇾": "􀇾",
-  "􀎧": "􀎧",
-  "􀐫": "􀐫"
+  "window.services": "Dienste"
 }

@@ -811,9 +811,5 @@
   "update-packages.updating.updating-outdated-package": "正在更新软件包缓存",
   "v. %@": "v. %@",
   "window.about": "关于",
-  "window.services": "服务",
-  "⚠️": "⚠️",
-  "􀇾": "􀇾",
-  "􀎧": "􀎧",
-  "􀐫": "􀐫"
+  "window.services": "服务"
 }

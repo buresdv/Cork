@@ -814,9 +814,5 @@
   "update-packages.updating.updating-outdated-package": "Оновлення кешу пакетів",
   "v. %@": "v. %@",
   "window.about": "Відомості",
-  "window.services": "Послуги",
-  "⚠️": "⚠️",
-  "􀇾": "􀇾",
-  "􀎧": "􀎧",
-  "􀐫": "􀐫"
+  "window.services": "Послуги"
 }

@@ -802,9 +802,5 @@
   "update-packages.updating.updating-outdated-package": "A atualizar caches de bibliotecas…",
   "v. %@": "v. %@",
   "window.about": "Sobre",
-  "window.services": "Serviços",
-  "⚠️": "⚠️",
-  "􀇾": "􀇾",
-  "􀎧": "􀎧",
-  "􀐫": "􀐫"
+  "window.services": "Serviços"
 }
