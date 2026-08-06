@@ -122,6 +122,7 @@ public extension OutdatedPackagesTracker
             relevantOutdatedPackages = outdatedPackages.filter { $0.updatingManagedBy == .homebrew }
         }
 
+        // TODO: This still shows pinned packages
         if displayOnlyIntentionallyInstalledPackagesByDefault
         {
             return relevantOutdatedPackages.filter(\.package.installedIntentionally)

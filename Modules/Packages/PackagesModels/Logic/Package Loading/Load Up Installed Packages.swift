@@ -107,27 +107,8 @@ private extension BrewPackagesTracker
             let namesOfTaggedPackages: Set<String>? = try? await getNamesOfTaggedPackages()
 
             /// Filter out symlinks and non-directory items before spawning tasks
-            let packageURLsToProcess: [URL] = urlsInParentFolder.filter
-            { packageURL in
-                /// Check if the package folder is just a symlink - If so, it is just a renamed package and we don't have to parse it
-                // TODO: Create a more robust system for showing what the package was renamed to - see stash "Skeleton for more complete renamed package support"
-                guard packageURL.isSymlink() != true
-                else
-                {
-                    AppConstants.shared.logger.debug("Hit symlink: \(packageURL)")
-                    return false
-                }
-
-                /// Check if the item is actually a directory
-                guard packageURL.isDirectory
-                else
-                {
-                    AppConstants.shared.logger.warning("Skipping non-directory item in package folder: \(packageURL)")
-                    return false
-                }
-
-                return true
-            }
+            // TODO: Create a more robust system for showing what the package was renamed to - see stash "Skeleton for more complete renamed package support"
+            let packageURLsToProcess: [URL] = urlsInParentFolder.filter(\.isActualPackageFolder)
 
             let packageLoader: BrewPackages = await withTaskGroup(of: Result<BrewPackage, BrewPackage.PackageLoadingError>.self)
             { taskGroup in

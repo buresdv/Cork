@@ -91,13 +91,16 @@ struct PackagesIncludedInTapList: View
             } header: {
                 CustomSearchField(search: $searchText, isFocused: $isSearchFieldFocused, customPromptText: nil)
             } footer: {
-                Button
+                if packages.count > 7
                 {
-                    openWindow(value: packages)
-                } label: {
-                    Label("action.show-more", systemImage: "list.bullet.badge.ellipsis")
+                    Button
+                    {
+                        openWindow(value: packages)
+                    } label: {
+                        Label("action.show-more", systemImage: "list.bullet.badge.ellipsis")
+                    }
+                    .buttonStyle(.accessoryBar)
                 }
-                .buttonStyle(.accessoryBar)
             }
         }
         // .frame(height: 150)
