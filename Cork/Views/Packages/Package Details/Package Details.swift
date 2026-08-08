@@ -186,6 +186,13 @@ struct PackageDetailView: View, Sendable, DismissablePane
                     caskExecutable = try? .init(from: packageURL)
                 }
             }
+            else
+            { /// Purge the cask executable. Without this, when switching from a Cask view to a Formula view, the executable would stay shown
+                if caskExecutable != nil
+                {
+                    caskExecutable = nil
+                }
+            }
         }
     }
 }
