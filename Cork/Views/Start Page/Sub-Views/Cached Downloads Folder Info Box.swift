@@ -14,7 +14,7 @@ struct CachedDownloadsFolderInfoBox: View
 {
     @InjectedObservable(\.appState) var appState: AppState
 
-    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
+    @InjectedObservable(\.cachedDownloadsTracker) var cachedDownloadsTracker: CachedDownloadsTracker
 
     var body: some View
     {

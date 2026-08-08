@@ -15,7 +15,7 @@ struct AddTapFinishedView: View
 {
     @InjectedObservable(\.appState) var appState: AppState
 
-    @Environment(TapTracker.self) var tapTracker: TapTracker
+    @InjectedObservable(\.tapTracker) var tapTracker: TapTracker
 
     let requestedTap: String
 

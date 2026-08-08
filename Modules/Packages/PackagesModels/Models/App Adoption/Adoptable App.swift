@@ -9,6 +9,7 @@ import ApplicationInspector
 import CorkShared
 import Foundation
 import SwiftData
+import SwiftUI
 
 public extension BrewPackagesTracker
 {
@@ -19,10 +20,12 @@ public extension BrewPackagesTracker
 
         /// A Cask which might be a match for the found executable
         @Observable
-        public class AdoptionCandidate: Identifiable, Hashable
+        public class AdoptionCandidate: Identifiable, Hashable, PackageNameDisplayable
         {
             /// The Cask name of the adoptable app - `discord-canary`
-            public let caskName: String
+            public var internalName: BrewPackageName
+            
+            public let displayableType: BrewPackage.PackageType? = .cask
 
             /// Description for the cask of the installation candidate
             public let caskDescription: String?
@@ -32,21 +35,41 @@ public extension BrewPackagesTracker
 
             public init(caskName: String, caskDescription: String?)
             {
-                self.caskName = caskName
                 self.caskDescription = caskDescription
                 self.isSelectedForAdoption = true
+                self.internalName = .init(from: caskName)
             }
 
             public nonisolated
             func hash(into hasher: inout Hasher)
             {
-                hasher.combine(self.caskName)
+                hasher.combine(self.internalName)
             }
 
             public nonisolated
             static func == (rhs: AdoptionCandidate, lhs: AdoptionCandidate) -> Bool
             {
-                return rhs.caskName == lhs.caskName
+                return rhs.internalName == lhs.internalName
+            }
+            
+            // MARK: - Conformance stuff
+            // Safe to ignore
+            @ViewBuilder
+            public var previewSelfButton: some View
+            {
+                EmptyView()
+            }
+            
+            @ViewBuilder
+            public var openDetailForSelfButton: some View
+            {
+                EmptyView()
+            }
+            
+            @ViewBuilder
+            public var revealSelfInFinderButton: some View
+            {
+                EmptyView()
             }
         }
 
@@ -60,7 +83,7 @@ public extension BrewPackagesTracker
         
         public var selectedAdoptionCandidateCaskName: String?
         {
-            return self.selectedAdoptionCandidate?.caskName
+            return self.selectedAdoptionCandidate?.name(withPrecision: .precise)
         }
         
         /// The name of the installed executable - `Discord.app`

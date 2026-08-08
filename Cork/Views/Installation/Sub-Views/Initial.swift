@@ -23,7 +23,7 @@ struct InstallationInitialView: View
 
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
-    @Environment(TopPackagesTracker.self) var topPackagesTracker: TopPackagesTracker
+    @InjectedObservable(\.topPackagesTracker) var topPackagesTracker: TopPackagesTracker
 
     @Environment(PackageInstallationProcessStepTracker.self) var packageInstallationProcessStepTracker
 

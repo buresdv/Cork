@@ -9,6 +9,7 @@ import CorkModels
 import CorkShared
 import Defaults
 import SwiftUI
+import FactoryKit
 
 struct SearchResultRow: View, Sendable
 {
@@ -16,7 +17,8 @@ struct SearchResultRow: View, Sendable
     @Default(.showCompatibilityWarning) var showCompatibilityWarning: Bool
 
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
-    @Environment(TopPackagesTracker.self) var topPackagesTracker: TopPackagesTracker
+    
+    @InjectedObservable(\.topPackagesTracker) var topPackagesTracker: TopPackagesTracker
     
     let context: Self.Context
     

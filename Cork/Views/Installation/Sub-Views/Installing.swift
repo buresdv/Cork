@@ -20,7 +20,7 @@ struct InstallingPackageView: View
 
     @Environment(PackageInstallationProcessStepTracker.self) var packageInstallationProcessStepTracker: PackageInstallationProcessStepTracker
 
-    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
+    @InjectedObservable(\.cachedDownloadsTracker) var cachedDownloadsTracker: CachedDownloadsTracker
 
     let packageToInstall: MinimalHomebrewPackage
 

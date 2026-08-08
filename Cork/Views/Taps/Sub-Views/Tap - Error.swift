@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CorkModels
 
 struct AddTapErrorView: View
 {
@@ -24,43 +25,49 @@ struct AddTapErrorView: View
                 {
                     switch tappingError
                     {
-                    case .repositoryNotFound:
-                        Text("add-tap.error.repository-not-found-\(requestedTap)")
-                            .font(.headline)
-                        Text("add-tap.error.repository-not-found.description")
-
-                    case .other:
+                    case .implemented(let implementedError):
+                        switch implementedError
+                        {
+                        case .repositoryNotFound:
+                            Text("add-tap.error.repository-not-found-\(requestedTap)")
+                                .font(.headline)
+                            Text("add-tap.error.repository-not-found.description")
+                        }
+                    case .unimplemented(let rawOutput):
                         Text("add-tap.error.other-\(requestedTap)")
                             .font(.headline)
                         Text("add-tap.error.other.description")
+                        
+                        DisclosureGroup("action.show-more")
+                        {
+                            rawOutput.outputView
+                        }
                     }
                 }
             }
-            .frame(width: 320)
-            .fixedSize(horizontal: false, vertical: true)
-            .toolbar
+        }
+        .frame(width: 320)
+        .fixedSize(horizontal: false, vertical: true)
+        .toolbar
+        {
+            ToolbarItem(placement: .primaryAction)
             {
-                ToolbarItem(placement: .primaryAction)
+                Button
                 {
-                    Button
-                    {
-                        progress = .ready
-                    } label: {
-                        Text("add-tap.error.action")
-                    }
-                    .keyboardShortcut(.defaultAction)
+                    progress = .ready
+                } label: {
+                    Text("add-tap.error.action")
                 }
-                
-                if tappingError == .repositoryNotFound
+                .keyboardShortcut(.defaultAction)
+            }
+
+            ToolbarItem(placement: .primaryAction)
+            {
+                Button
                 {
-                    ToolbarItem(placement: .primaryAction) {
-                        Button
-                        {
-                            progress = .manuallyInputtingTapRepoAddress
-                        } label: {
-                            Text("add-tap.manual-repo-address.show")
-                        }
-                    }
+                    progress = .manuallyInputtingTapRepoAddress
+                } label: {
+                    Text("add-tap.manual-repo-address.show")
                 }
             }
         }

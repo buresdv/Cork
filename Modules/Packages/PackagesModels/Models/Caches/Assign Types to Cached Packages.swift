@@ -5,19 +5,27 @@
 //  Created by David Bureš - P on 16.01.2025.
 //
 
-import Foundation
 import CorkShared
+import Foundation
 
 public extension CachedDownloadsTracker
 {
-    func assignPackageTypeToCachedDownloads(brewPackagesTracker: BrewPackagesTracker)
+    func assignPackageTypeToCachedDownloads(
+        cachedDownloads: [CachedDownload],
+        brewPackagesTracker: BrewPackagesTracker
+    ) -> [CachedDownload]
     {
-        var cachedDownloadsTracker: [CachedDownload] = .init()
-
         AppConstants.shared.logger.debug("Package tracker in cached download assignment function has \(brewPackagesTracker.installedFormulae.count + brewPackagesTracker.installedCasks.count) packages")
 
-        for cachedDownload in cachedDownloads
-        {
+        return cachedDownloads.map
+        { cachedDownload in
+            // So the package doesn§t get assigned twice
+            guard cachedDownload.packageType != .other
+            else
+            {
+                return cachedDownload
+            }
+
             let normalizedCachedPackageName: String = cachedDownload.packageName.onlyLetters
 
             if brewPackagesTracker.successfullyLoadedFormulae.contains(where: {
@@ -26,7 +34,7 @@ public extension CachedDownloadsTracker
                     || normalizedCachedPackageName.localizedCaseInsensitiveContains(packageName)
             }) { /// The cached package is a formula
                 AppConstants.shared.logger.debug("Cached package \(cachedDownload.packageName) (\(normalizedCachedPackageName)) is a formula")
-                cachedDownloadsTracker.append(.init(packageName: cachedDownload.packageName, sizeInBytes: cachedDownload.sizeInBytes, packageType: .formula))
+                return .init(packageName: cachedDownload.packageName, sizeInBytes: cachedDownload.sizeInBytes, packageType: .formula)
             }
             else if brewPackagesTracker.successfullyLoadedCasks.contains(where: {
                 let packageName = $0.name(withPrecision: .general)
@@ -34,15 +42,13 @@ public extension CachedDownloadsTracker
                     || normalizedCachedPackageName.localizedCaseInsensitiveContains(packageName)
             }) { /// The cached package is a cask
                 AppConstants.shared.logger.debug("Cached package \(cachedDownload.packageName) (\(normalizedCachedPackageName)) is a cask")
-                cachedDownloadsTracker.append(.init(packageName: cachedDownload.packageName, sizeInBytes: cachedDownload.sizeInBytes, packageType: .cask))
+                return .init(packageName: cachedDownload.packageName, sizeInBytes: cachedDownload.sizeInBytes, packageType: .cask)
             }
             else
-            { /// The cached package cannot be found
+            {
                 AppConstants.shared.logger.debug("Cached package \(cachedDownload.packageName) (\(normalizedCachedPackageName)) is unknown")
-                cachedDownloadsTracker.append(.init(packageName: cachedDownload.packageName, sizeInBytes: cachedDownload.sizeInBytes, packageType: .unknown))
+                return .init(packageName: cachedDownload.packageName, sizeInBytes: cachedDownload.sizeInBytes, packageType: .unknown)
             }
         }
-
-        cachedDownloads = cachedDownloadsTracker
     }
 }

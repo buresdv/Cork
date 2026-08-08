@@ -35,7 +35,6 @@ struct PackageSystemInfo: View
     @ViewBuilder
     var caskInstalledAsLine: some View
     {
-        
         if let caskExecutable
         {
             LabeledContent

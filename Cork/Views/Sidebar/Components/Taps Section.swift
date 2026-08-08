@@ -16,7 +16,7 @@ struct TapsSection: View
     @InjectedObservable(\.appState) var appState: AppState
     @InjectedObservable(\.navigationManager) var navigationManager
     
-    @Environment(TapTracker.self) var tapTracker: TapTracker
+    @InjectedObservable(\.tapTracker) var tapTracker: TapTracker
 
     let searchText: String
 
@@ -57,13 +57,13 @@ struct TapsSection: View
                         }
                         .contextMenu
                         {
-                            AsyncButton
+                            AsyncButton(role: .destructive)
                             {
                                 AppConstants.shared.logger.debug("Would remove \(tap.name(withPrecision: .full), privacy: .public)")
 
                                 try await tapTracker.removeTap(tapToRemove: tap, purpose: .removeFromHomebrewAndTracker)
                             } label: {
-                                Text("sidebar.section.added-taps.contextmenu.remove-\(tap.name(withPrecision: .full))")
+                                Label("sidebar.section.added-taps.contextmenu.remove-\(tap.name(withPrecision: .full))", systemImage: "trash")
                             }
                             .asyncButtonStyle(.plainStyle)
                         }

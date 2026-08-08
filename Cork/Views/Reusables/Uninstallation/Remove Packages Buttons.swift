@@ -47,7 +47,7 @@ private struct RemovePackageButton: View
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @InjectedObservable(\.appState) var appState: AppState
     @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
-    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
+    @InjectedObservable(\.cachedDownloadsTracker) var cachedDownloadsTracker: CachedDownloadsTracker
 
     var package: BrewPackage
 

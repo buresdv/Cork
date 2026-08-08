@@ -17,7 +17,9 @@ public class BrewPackagesTracker: @MainActor Loadable
 {
     @LazyInjected(\.appConstants) @ObservationIgnored private var appConstants: AppConstants
     
-    @ObservationIgnored @InjectedObservable(\.appState) var appState
+    @InjectedObservable(\.appState) @ObservationIgnored var appState
+    
+    @LazyInjected(\.cachedDownloadsTracker) @ObservationIgnored var cachedDownloadsTracker
     
     public init() {}
     

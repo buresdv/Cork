@@ -185,3 +185,19 @@ public extension [TerminalOutput]
         return firstElementInOutputArray.data(using: .utf8)
     }
 }
+
+public extension [TerminalOutput]
+{
+    /// Standardized look for 
+    @ViewBuilder
+    var outputView: some View
+    {
+        List(self)
+        { rawOutput in
+            rawOutput.outputView
+        }
+        .listStyle(.bordered)
+        .alternatingRowBackgrounds(.enabled)
+        .frame(minWidth: 200, minHeight: 100)
+    }
+}

@@ -16,7 +16,7 @@ struct MaintenanceRunningView: View
     @InjectedObservable(\.appState) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
-    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
+    @InjectedObservable(\.cachedDownloadsTracker) var cachedDownloadsTracker: CachedDownloadsTracker
     
     @State var currentMaintenanceStepText: LocalizedStringKey = "maintenance.step.initial"
     

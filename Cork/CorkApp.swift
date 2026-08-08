@@ -89,9 +89,6 @@ struct CorkApp: App
                         .interactiveDismissDisabled()
                 })
                 .environment(brewPackagesTracker)
-                .environment(tapTracker)
-                .environment(cachedDownloadsTracker)
-                .environment(topPackagesTracker)
                 .modelContainer(for: [
                     SavedTaggedPackage.self,
                     ExcludedAdoptableApp.self
@@ -297,7 +294,6 @@ struct CorkApp: App
             
             PackagePreview(packageToPreview: convertedMinimalPackage)
                 .navigationTitle(packageToPreview?.name(withPrecision: .precise) ?? "")
-                .environment(appState)
                 .environment(brewPackagesTracker)
         }
         .windowResizability(.contentSize)
@@ -324,7 +320,6 @@ struct CorkApp: App
         Settings
         {
             SettingsView()
-                .environment(appState)
         }
         .windowResizability(.contentSize)
 
@@ -333,10 +328,7 @@ struct CorkApp: App
         MenuBarExtra("app-name", systemImage: outdatedPackagesTracker.allDisplayableOutdatedPackages.isEmpty ? "mug" : "mug.fill", isInserted: $showInMenuBar)
         {
             MenuBarItem()
-                .environment(appState)
                 .environment(brewPackagesTracker)
-                .environment(tapTracker)
-                .environment(cachedDownloadsTracker)
         }
     }
 
@@ -546,8 +538,6 @@ struct CorkApp: App
 
         CheckForOutdatedPackagesButton()
             .keyboardShortcut("r")
-            .environment(appState)
-            .environment(outdatedPackagesTracker)
         
         UpgradePackagesButton(appState: appState)
             .keyboardShortcut("r", modifiers: [.control, .command])

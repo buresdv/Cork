@@ -8,21 +8,16 @@
 import SwiftUI
 import CorkModels
 import FactoryKit
+import CorkTerminalFunctions
 
-enum TapAddingStates
+enum TapAddingStates: Equatable
 {
-    case ready, tapping, finished, error, manuallyInputtingTapRepoAddress
+    case ready, tapping, finished, error(TappingError), manuallyInputtingTapRepoAddress
 }
 
 enum TapInputErrors
 {
     case empty, missingSlash
-}
-
-enum TappingError: String
-{
-    case repositoryNotFound = "Repository not found"
-    case other = "An error occurred while tapping"
 }
 
 struct AddTapView: View
@@ -33,11 +28,9 @@ struct AddTapView: View
 
     @State private var requestedTap: String = ""
 
-    @State private var forcedRepoAddress: String = ""
+    @State private var forcedRepoAddress: URL?
 
-    @State private var tappingError: TappingError = .other
-
-    @Environment(TapTracker.self) var tapTracker: TapTracker
+    @InjectedObservable(\.tapTracker) var tapTracker: TapTracker
     @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     var isDismissable: Bool
@@ -89,8 +82,7 @@ struct AddTapView: View
                         AddTapAddingView(
                             requestedTap: requestedTap,
                             forcedRepoAddress: forcedRepoAddress,
-                            progress: $progress,
-                            tappingError: $tappingError
+                            progress: $progress
                         )
 
                     case .finished:
@@ -98,9 +90,9 @@ struct AddTapView: View
                             requestedTap: requestedTap
                         )
 
-                    case .error:
+                    case .error(let error):
                         AddTapErrorView(
-                            tappingError: tappingError,
+                            tappingError: error,
                             requestedTap: requestedTap,
                             progress: $progress
                         )

@@ -8,14 +8,16 @@
 import SwiftUI
 import CorkShared
 import CorkModels
+import FactoryKit
 
 struct AddTapAddingView: View
 {
+    @InjectedObservable(\.tapTracker) var tapTracker: TapTracker
+    
     let requestedTap: String
-    let forcedRepoAddress: String
+    let forcedRepoAddress: URL?
 
     @Binding var progress: TapAddingStates
-    @Binding var tappingError: TappingError
 
     var body: some View
     {
@@ -25,35 +27,16 @@ struct AddTapAddingView: View
         }
         .task
         {
-            var tapResult: String
 
-            if forcedRepoAddress.isEmpty
+            do throws(TappingError)
             {
-                tapResult = await addTap(name: requestedTap)
-            }
-            else
-            {
-                tapResult = await addTap(name: requestedTap, forcedRepoAddress: forcedRepoAddress)
-            }
-
-            AppConstants.shared.logger.debug("Result: \(tapResult, privacy: .public)")
-
-            if tapResult.contains("Tapped")
-            {
-                AppConstants.shared.logger.info("Tapping was successful!")
+                try await tapTracker.addTap(name: requestedTap, forcedRepoAddress: forcedRepoAddress)
+                
                 progress = .finished
             }
-            else
+            catch let tapAddingError
             {
-                progress = .error
-                tappingError = .other
-
-                if tapResult.contains("Repository not found")
-                {
-                    AppConstants.shared.logger.error("Repository was not found")
-
-                    tappingError = .repositoryNotFound
-                }
+                progress = .error(tapAddingError)
             }
         }
     }

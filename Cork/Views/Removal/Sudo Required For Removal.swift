@@ -16,7 +16,7 @@ struct SudoRequiredForRemovalSheet: View, Sendable
 
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @InjectedObservable(\.appState) var appState: AppState
-    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
+    @InjectedObservable(\.cachedDownloadsTracker) var cachedDownloadsTracker: CachedDownloadsTracker
 
     var body: some View
     {
@@ -46,14 +46,7 @@ struct SudoRequiredForRemovalSheet: View, Sendable
                     {
                         dismiss()
 
-                        do
-                        {
-                            try await brewPackagesTracker.synchronizeInstalledPackages(cachedDownloadsTracker: cachedDownloadsTracker)
-                        }
-                        catch let synchronizationError
-                        {
-                            appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
-                        }
+                        await brewPackagesTracker.synchronizeInstalledPackages()
                     } label: {
                         Text("action.close")
                     }

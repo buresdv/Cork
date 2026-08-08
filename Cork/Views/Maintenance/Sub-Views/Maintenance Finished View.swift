@@ -48,7 +48,7 @@ struct MaintenanceFinishedView: View
     @InjectedObservable(\.appState) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
-    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
+    @InjectedObservable(\.cachedDownloadsTracker) var cachedDownloadsTracker: CachedDownloadsTracker
 
     @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
 
@@ -114,14 +114,7 @@ struct MaintenanceFinishedView: View
         }
         .task
         {
-            do
-            {
-                try await brewPackagesTracker.synchronizeInstalledPackages(cachedDownloadsTracker: cachedDownloadsTracker)
-            }
-            catch let synchronizationError
-            {
-                appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
-            }
+            await brewPackagesTracker.synchronizeInstalledPackages()
         }
     }
 

@@ -36,7 +36,7 @@ extension InstallationProgressTracker
             throw implementedError
         }
 
-        await brewPackagesTracker.synchronizeInstalledPackages(cachedDownloadsTracker: cachedDownloadsTracker)
+        await brewPackagesTracker.synchronizeInstalledPackages()
 
     }
 }

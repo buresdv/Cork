@@ -36,8 +36,8 @@ struct AdoptablePackagesList: View
                 let appExecutableMatches: Bool = adoptableApp.appExecutable.localizedCaseInsensitiveContains(searchText)
 
                 let adoptionCandidateMatches: Bool = adoptableApp.adoptionCandidates.contains
-                { adoptionCandidate in
-                    let caskNameMatches: Bool = adoptionCandidate.caskName.localizedCaseInsensitiveContains(searchText)
+                { (adoptionCandidate: BrewPackagesTracker.AdoptableApp.AdoptionCandidate) in
+                    let caskNameMatches: Bool = adoptionCandidate.name(withPrecision: .precise).localizedCaseInsensitiveContains(searchText)
 
                     let caskDescriptionMatches: Bool = adoptionCandidate.caskDescription?.localizedCaseInsensitiveContains(searchText) ?? false
 
@@ -75,13 +75,6 @@ struct AdoptablePackagesList: View
                     .labelsHidden()
 
                     AdoptablePackageListItem(adoptableCask: adoptableCask, exclusionButtonType: .excludeOnly)
-                    /* .onTapGesture
-                     {
-                         if let index = brewPackagesTracker.adoptableApps.firstIndex(where: { $0.id == adoptableCask.id })
-                         {
-                             brewPackagesTracker.adoptableApps[index].changeSelectedState()
-                         }
-                     } */
                 }
             }
         } sectionHeaderContent: {

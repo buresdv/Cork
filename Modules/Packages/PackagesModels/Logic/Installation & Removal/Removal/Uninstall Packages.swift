@@ -81,7 +81,7 @@ public extension BrewPackagesTracker
         {
             do
             {
-                try await self.synchronizeInstalledPackages(cachedDownloadsTracker: cachedDownloadsTracker)
+                await self.synchronizeInstalledPackages()
                 
                 if uninstallCommandOutput.containsErrors && uninstallCommandOutput.standardErrors.contains("Error:")
                 {

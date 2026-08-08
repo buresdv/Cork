@@ -40,7 +40,7 @@ struct InstallPackageView: View
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @InjectedObservable(\.appState) var appState: AppState
 
-    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
+    @InjectedObservable(\.cachedDownloadsTracker) var cachedDownloadsTracker: CachedDownloadsTracker
 
     @State var packageInstallTrackingNumber: Float = 0
 
@@ -128,14 +128,7 @@ struct InstallPackageView: View
                                 dismiss()
                                 installationProgressTracker?.cancel()
 
-                                do
-                                {
-                                    try await brewPackagesTracker.synchronizeInstalledPackages(cachedDownloadsTracker: cachedDownloadsTracker)
-                                }
-                                catch let synchronizationError
-                                {
-                                    appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
-                                }
+                                await brewPackagesTracker.synchronizeInstalledPackages()
                             } label: {
                                 if let customDismissText = packageInstallationProcessStepTracker.currentStep.customDismissButtonText
                                 {
@@ -156,10 +149,13 @@ struct InstallPackageView: View
         .environment(packageInstallationProcessStepTracker)
         .onDisappear
         {
-            cachedDownloadsTracker.assignPackageTypeToCachedDownloads(brewPackagesTracker: brewPackagesTracker)
             Task
             {
-                try? await brewPackagesTracker.synchronizeInstalledPackages(cachedDownloadsTracker: cachedDownloadsTracker)
+                await brewPackagesTracker.synchronizeInstalledPackages()
+                
+                await cachedDownloadsTracker.loadCachedDownloadedPackages(
+                    brewPackagesTracker: brewPackagesTracker
+                )
             }
         }
     }

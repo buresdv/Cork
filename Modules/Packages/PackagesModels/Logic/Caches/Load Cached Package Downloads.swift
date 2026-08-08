@@ -5,8 +5,8 @@
 //  Created by David Bureš - P on 16.01.2025.
 //
 
-import Foundation
 import CorkShared
+import Foundation
 
 public extension CachedDownloadsTracker
 {
@@ -16,67 +16,92 @@ public extension CachedDownloadsTracker
     {
         AppConstants.shared.logger.info("Will load cached downloaded packages")
         
-        self.cachedDownloads = .init()
-        
-        let smallestDispalyableSize: Int = .init(AppConstants.shared.brewCachedDownloadsPath.directorySize / 50)
+        let currentSizeOfCachedPackageFolder: Int64 = appConstants.brewCachedDownloadsPath.directorySize
 
-        var packagesThatAreTooSmallToDisplaySize: Int = 0
+        AppConstants.shared.logger.info("Last size: \(self.lastSizeOfCachedPackageFolder), new size: \(currentSizeOfCachedPackageFolder)")
 
-        guard let cachedDownloadsFolderContents: [URL] = try? FileManager.default.contentsOfDirectory(at: AppConstants.shared.brewCachedDownloadsPath, includingPropertiesForKeys: [.isRegularFileKey], options: [.skipsHiddenFiles])
+        guard self.lastSizeOfCachedPackageFolder != currentSizeOfCachedPackageFolder
         else
         {
+            AppConstants.shared.logger.info("Size of cached downloads has not changed, no need to reload.")
+            return
+        }
+
+        AppConstants.shared.logger.info("Size of cached downloads has changed. Will reload.")
+
+        guard let cachedDownloadsFolderContents: [URL] = try? FileManager.default.contentsOfDirectory(
+            at: AppConstants.shared.brewCachedDownloadsPath,
+            includingPropertiesForKeys: [.isRegularFileKey],
+            options: [.skipsHiddenFiles]
+        )
+        else
+        {
+            self.cachedDownloads = .init()
+            
+            self.lastSizeOfCachedPackageFolder = currentSizeOfCachedPackageFolder
+            
             return
         }
 
         let usableCachedDownloads: [URL] = cachedDownloadsFolderContents.filter { $0.pathExtension != "json" }
+        
+        let smallestDisplayableSize: Int = .init(currentSizeOfCachedPackageFolder / 50)
+        
+        var packagesThatAreTooSmallToDisplaySize: Int = 0
+        
+        var consolidatedCachedDownloads: [CachedDownload] = .init()
 
         for usableCachedDownload in usableCachedDownloads
         {
-            guard var itemName: String = try? usableCachedDownload.lastPathComponent.regexMatch("(?<=--)(.*?)(?=\\.)")
-            else
+            guard var itemName: String = try? usableCachedDownload.lastPathComponent.regexMatch("(?<=--)(.*?)(?=\\.)") else
             {
-                return
+                continue
             }
-
-            AppConstants.shared.logger.debug("Temp item name: \(itemName, privacy: .public)")
 
             if itemName.contains("--")
             {
-                do
+                if let strippedName = try? itemName.regexMatch(".*?(?=--)")
                 {
-                    itemName = try itemName.regexMatch(".*?(?=--)")
+                    itemName = strippedName
                 }
-                catch {}
             }
 
-            guard let itemAttributes = try? FileManager.default.attributesOfItem(atPath: usableCachedDownload.path)
-            else
+            guard let itemAttributes = try? FileManager.default.attributesOfItem(atPath: usableCachedDownload.path),
+                  let itemSize = itemAttributes[.size] as? Int else
             {
-                return
+                continue
             }
 
-            guard let itemSize = itemAttributes[.size] as? Int
-            else
+            if itemSize < smallestDisplayableSize
             {
-                return
-            }
-
-            if itemSize < smallestDispalyableSize
-            {
-                packagesThatAreTooSmallToDisplaySize = packagesThatAreTooSmallToDisplaySize + itemSize
+                packagesThatAreTooSmallToDisplaySize += itemSize
             }
             else
             {
-                cachedDownloads.append(CachedDownload(packageName: itemName, sizeInBytes: itemSize))
+                consolidatedCachedDownloads.append(.init(packageName: itemName, sizeInBytes: itemSize))
             }
-
-            AppConstants.shared.logger.debug("Others size: \(packagesThatAreTooSmallToDisplaySize, privacy: .public)")
         }
 
-        cachedDownloads = cachedDownloads.sorted(by: { $0.sizeInBytes < $1.sizeInBytes })
+        consolidatedCachedDownloads.sort(by: { $0.sizeInBytes < $1.sizeInBytes })
 
-        cachedDownloads.append(.init(packageName: String(localized: "start-page.cached-downloads.graph.other-smaller-packages"), sizeInBytes: packagesThatAreTooSmallToDisplaySize, packageType: .other))
+        if packagesThatAreTooSmallToDisplaySize > 0
+        {
+            consolidatedCachedDownloads.append(.init(
+                packageName: String(localized: "start-page.cached-downloads.graph.other-smaller-packages"),
+                sizeInBytes: packagesThatAreTooSmallToDisplaySize,
+                packageType: .other
+            ))
+        }
+
+        let cachedDownloadsWithTheirTypesAssigned = assignPackageTypeToCachedDownloads(
+            cachedDownloads: consolidatedCachedDownloads,
+            brewPackagesTracker: brewPackagesTracker
+        )
+
+        self.cachedDownloads = cachedDownloadsWithTheirTypesAssigned
         
-        self.assignPackageTypeToCachedDownloads(brewPackagesTracker: brewPackagesTracker)
+        self.lastSizeOfCachedPackageFolder = currentSizeOfCachedPackageFolder
+
+        AppConstants.shared.logger.info("Finished reload. Cached downloads count: \(cachedDownloadsWithTheirTypesAssigned.count)")
     }
 }

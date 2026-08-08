@@ -9,20 +9,21 @@ import SwiftUI
 import CorkShared
 import Defaults
 import CorkModels
+import FactoryKit
 
 struct PackageAndTapOverviewBox: View
 {
     @Default(.displayOnlyIntentionallyInstalledPackagesByDefault) var displayOnlyIntentionallyInstalledPackagesByDefault: Bool
 
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
-    @Environment(TapTracker.self) var tapTracker: TapTracker
+    @InjectedObservable(\.tapTracker) var tapTracker: TapTracker
 
     var body: some View
     {
         VStack(alignment: .leading)
         {
-            GroupBoxHeadlineGroup(
-                image: "terminal",
+            GroupBoxHeadlineGroupWithArbitraryImage(
+                image: BrewPackage.PackageType.formula.icon,
                 title: LocalizedStringKey("start-page.installed-formulae.count-\(brewPackagesTracker.numberOfInstalledFormulae)"),
                 mainText: "start-page.installed-formulae.description",
                 animateNumberChanges: true
@@ -37,8 +38,8 @@ struct PackageAndTapOverviewBox: View
 
             Divider()
 
-            GroupBoxHeadlineGroup(
-                image: "macwindow",
+            GroupBoxHeadlineGroupWithArbitraryImage(
+                image: BrewPackage.PackageType.cask.icon,
                 title: LocalizedStringKey("start-page.installed-casks.count-\(brewPackagesTracker.numberOfInstalledCasks)"),
                 mainText: "start-page.installed-casks.description",
                 animateNumberChanges: true

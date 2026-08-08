@@ -10,7 +10,7 @@ import SwiftUI
 struct AddTapInitialView: View
 {
     @Binding var requestedTap: String
-    @Binding var forcedRepoAddress: String
+    @Binding var forcedRepoAddress: URL?
     @Binding var progress: TapAddingStates
 
     @State private var isShowingErrorPopover: Bool = false
@@ -48,18 +48,13 @@ struct AddTapInitialView: View
                     .padding()
                 }
 
-            if isShowingManualRepoAddressInputField
+            DisclosureGroup("")
             {
                 VStack(alignment: .leading, spacing: 5)
                 {
                     Text("add-tap.manual-repo-address.label")
                         .font(.subheadline)
-                    TextField("https://gitea.com/some-cool-address", text: $forcedRepoAddress)
-                        .focused($isForcedAddressFieldFocused)
-                        .onAppear
-                        {
-                            isForcedAddressFieldFocused = true
-                        }
+                    TextField("https://github.com/", value: $forcedRepoAddress, format: .url)
                 }
             }
         }

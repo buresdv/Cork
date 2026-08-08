@@ -136,7 +136,7 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable,
             case .formula:
                 return .init(systemName: "apple.terminal")
             case .cask:
-                return .init(systemName: "pointer.arrow.click")
+                return .init(systemName: "pointer.arrow.click.2")
             }
         }
 

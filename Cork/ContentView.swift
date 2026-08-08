@@ -35,11 +35,11 @@ struct ContentView: View, Sendable
     @InjectedObservable(\.navigationManager) var navigationManager: NavigationManager
 
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
-    @Environment(TapTracker.self) var tapTracker: TapTracker
+    @InjectedObservable(\.tapTracker) var tapTracker: TapTracker
 
-    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
+    @InjectedObservable(\.cachedDownloadsTracker) var cachedDownloadsTracker: CachedDownloadsTracker
 
-    @Environment(TopPackagesTracker.self) var topPackagesTracker: TopPackagesTracker
+    @InjectedObservable(\.topPackagesTracker) var topPackagesTracker: TopPackagesTracker
 
     @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
 
@@ -252,8 +252,8 @@ private extension View
 
                 view.brewPackagesTracker.installedFormulae = await availableFormulae ?? .init()
                 view.brewPackagesTracker.installedCasks = await availableCasks ?? .init()
-
-                view.cachedDownloadsTracker.assignPackageTypeToCachedDownloads(brewPackagesTracker: view.brewPackagesTracker)
+                
+                view.cachedDownloadsTracker.cachedDownloads = view.cachedDownloadsTracker.assignPackageTypeToCachedDownloads(cachedDownloads: view.cachedDownloadsTracker.cachedDownloads, brewPackagesTracker: view.brewPackagesTracker)
             }
     }
 
@@ -422,6 +422,10 @@ private extension View
                     UpdatePackagesView(outdatedPackagesTrackerToUse: view.outdatedPackagesTracker)
                         .onDisappear
                         {
+                            Task.detached
+                            {
+                                await view.brewPackagesTracker.synchronizeInstalledPackages()
+                            }
                             view.outdatedPackagesTracker.checkForUpdates()
                         }
 

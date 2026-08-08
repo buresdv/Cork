@@ -93,7 +93,7 @@ struct MassAppAdoptionView: View
     @Environment(\.dismiss) var dismiss: DismissAction
 
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
-    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
+    @InjectedObservable(\.cachedDownloadsTracker) var cachedDownloadsTracker: CachedDownloadsTracker
 
     let appsToAdopt: [BrewPackagesTracker.AdoptableApp]
 
@@ -264,7 +264,7 @@ struct MassAppAdoptionView: View
         {
             Task
             {
-                try? await brewPackagesTracker.synchronizeInstalledPackages(cachedDownloadsTracker: cachedDownloadsTracker)
+                try? await brewPackagesTracker.synchronizeInstalledPackages()
             }
         }
     }
