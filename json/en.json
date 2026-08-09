@@ -220,7 +220,7 @@
   "add-tap.error.other.description": "Try adding it again in a few minutes",
   "add-tap.error.repository-not-found-%@": "%@ doesn't exist",
   "add-tap.error.repository-not-found.description": "Double-check that you wrote the name right",
-  "add-tap.manual-repo-address.label": "Tap address:",
+  "add-tap.manual-repo-address.label": "Tap host",
   "add-tap.manual-repo-address.show": "Use external address",
   "add-tap.manual-repo-address.title": "Add a tap from an external address ",
   "add-tap.progress-%@": "Adding %@",
