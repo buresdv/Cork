@@ -884,5 +884,8 @@
     "v. %@": "v. %@",
     "window.about": "O aplikaci Cork",
     "window.services": "Služby",
-    "package-list-inspector.title": "Seznam balíčků"
+    "add-tap.customize-tap.label": "Upravit pípu…",
+    "add-tap.typing.error.invalid-host": "Neplatný hostitel pípy",
+    "add-tap.typing.error.invalid-host.description": "Tato pípa neexistuje. Zkuste jinou.",
+    "add-tap.typing.error.invalid-name": "Neplatný název pípy"
 }
