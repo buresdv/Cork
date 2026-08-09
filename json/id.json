@@ -821,5 +821,19 @@
     "Main Window": "Jendela Utama",
     "about.contributor.service.mastodon": "Mastodon",
     "about.contributors.4.name": "Oscar Bazaldua",
-    "%@": "%@"
+    "%@": "%@",
+    "about.contributors.5.name": "",
+    "about.contributors.7.name": "",
+    "about.packages.1.name": "",
+    "about.packages.3.name": "",
+    "about.thanks.1.name": "",
+    "about.thanks.2.name": "",
+    "about.thanks.3.name": "",
+    "about.translator.1.name": "",
+    "about.translator.4.name": "",
+    "about.translator.5.name": "",
+    "about.translator.6.name": "",
+    "debug.action.activate-demo": "",
+    "debug.action.licensing": "",
+    "debug.action.reset-license-state": ""
 }
