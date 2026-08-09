@@ -14,8 +14,7 @@ struct AddTapAddingView: View
 {
     @InjectedObservable(\.tapTracker) var tapTracker: TapTracker
     
-    let requestedTap: String
-    let forcedRepoAddress: URL?
+    let requestedTap: BrewTap
 
     @Binding var progress: TapAddingStates
 
@@ -23,14 +22,16 @@ struct AddTapAddingView: View
     {
         ProgressView
         {
-            Text("add-tap.progress-\(requestedTap)")
+            Text("add-tap.progress-\(requestedTap.name(withPrecision: .full))")
         }
         .task
         {
 
             do throws(TappingError)
             {
-                try await tapTracker.addTap(name: requestedTap, forcedRepoAddress: forcedRepoAddress)
+                try await tapTracker.addTap(
+                    tap: requestedTap
+                )
                 
                 progress = .finished
             }

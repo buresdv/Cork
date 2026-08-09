@@ -46,7 +46,7 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
+            "state": "translated",
             "value": "%@"
           }
         },
@@ -158,7 +158,7 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
+            "state": "translated",
             "value": "(%@)"
           }
         },
@@ -271,8 +271,8 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
-            "value": "DEBUG: Log packages to be adopted"
+            "state": "translated",
+            "value": "DEBUG: Catat paket yang akan diadopsi"
           }
         },
         "it": {
@@ -384,7 +384,7 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
+            "state": "translated",
             "value": "GitHub"
           }
         },
@@ -496,8 +496,8 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
-            "value": "Hello, World!"
+            "state": "translated",
+            "value": "Halo, Dunia!"
           }
         },
         "it": {
@@ -609,8 +609,8 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
-            "value": "Installing %@"
+            "state": "translated",
+            "value": "Memasang %@"
           }
         },
         "it": {
@@ -721,8 +721,8 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
-            "value": "Loading info…"
+            "state": "translated",
+            "value": "memuat info…"
           }
         },
         "it": {
@@ -833,8 +833,8 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
-            "value": "Loading top packages… "
+            "state": "translated",
+            "value": "memuat paket terpopuler... "
           }
         },
         "it": {
@@ -945,8 +945,8 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
-            "value": "Main Window"
+            "state": "translated",
+            "value": "Jendela Utama"
           }
         },
         "it": {
@@ -1169,8 +1169,8 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
-            "value": "Contact Me"
+            "state": "translated",
+            "value": "Hubungi Saya"
           }
         },
         "it": {
@@ -1281,8 +1281,8 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
-            "value": "Contribute"
+            "state": "translated",
+            "value": "Kontribusi"
           }
         },
         "it": {
@@ -1393,7 +1393,7 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
+            "state": "translated",
             "value": "GitHub"
           }
         },
@@ -1505,7 +1505,7 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
+            "state": "translated",
             "value": "Mastodon"
           }
         },
@@ -1617,8 +1617,8 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
-            "value": "Website"
+            "state": "translated",
+            "value": "Situs Web"
           }
         },
         "it": {
@@ -1729,8 +1729,8 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
-            "value": "Acknowledged Contributors"
+            "state": "translated",
+            "value": "Apresiasi Kontributor"
           }
         },
         "it": {
@@ -1841,7 +1841,7 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
+            "state": "translated",
             "value": "Rob Napier"
           }
         },
@@ -1954,8 +1954,8 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
-            "value": "Gave invaluable help with all sorts of problems, from async Swift to blocking package installations"
+            "state": "translated",
+            "value": "Memberikan bantuan yang sangat berharga untuk berbagai masalah, mulai dari Swift asinkron hingga pemblokiran instalasi paket"
           }
         },
         "it": {
@@ -2066,7 +2066,7 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
+            "state": "translated",
             "value": "Łukasz Rutkowski"
           }
         },
@@ -2179,8 +2179,8 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
-            "value": "Fixed many async and SwiftUI problems"
+            "state": "translated",
+            "value": "Memperbaiki banyak masalah async dan SwiftUI"
           }
         },
         "it": {
@@ -2291,7 +2291,7 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
+            "state": "translated",
             "value": "Jierong Li"
           }
         },
@@ -2404,8 +2404,8 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
-            "value": "Fixed package counts on the start page not updating"
+            "state": "translated",
+            "value": "Memperbaiki jumlah paket di halaman awal yang tidak diperbarui"
           }
         },
         "it": {
@@ -2516,7 +2516,7 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
+            "state": "translated",
             "value": "Oscar Bazaldua"
           }
         },
@@ -25103,7 +25103,7 @@
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Adresa pípy:"
+            "value": "Hostitel pípy"
           }
         },
         "de": {
