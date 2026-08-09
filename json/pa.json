@@ -843,5 +843,21 @@
     "v. %@": "",
     "window.about": "",
     "window.services": "",
-    "start-page.status": ""
+    "start-page.status": "",
+    "debug.action.licensing": "",
+    "debug.action.reset-license-state": "",
+    "debug.action.activate-demo": "",
+    "about.packages.1.name": "",
+    "about.contributor.service.mastodon": "",
+    "about.contributors.4.name": "",
+    "about.contributors.5.name": "",
+    "about.contributors.7.name": "",
+    "about.packages.3.name": "",
+    "about.thanks.1.name": "",
+    "about.thanks.2.name": "",
+    "about.thanks.3.name": "",
+    "about.translator.1.name": "",
+    "about.translator.4.name": "",
+    "about.translator.5.name": "",
+    "about.translator.6.name": ""
 }
