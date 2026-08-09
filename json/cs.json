@@ -222,7 +222,7 @@
     "add-tap.error.other.description": "Zkuste to znovu za pár minut",
     "add-tap.error.repository-not-found-%@": "Pípa %@ neexistuje",
     "add-tap.error.repository-not-found.description": "Zjistěte se, že jste její název napsali správně",
-    "add-tap.manual-repo-address.label": "Adresa pípy:",
+    "add-tap.manual-repo-address.label": "Hostitel pípy",
     "add-tap.manual-repo-address.show": "Použít jinou adresu",
     "add-tap.manual-repo-address.title": "Přidat pípu z externí adresy ",
     "add-tap.progress-%@": "Přidávání %@",
