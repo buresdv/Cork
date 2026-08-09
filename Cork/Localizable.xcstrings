@@ -23644,7 +23644,14 @@
       }
     },
     "add-tap.customize-tap.label" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Customise tap…"
+          }
+        }
+      }
     },
     "add-tap.error.action" : {
       "localizations" : {
@@ -24879,13 +24886,34 @@
       }
     },
     "add-tap.typing.error.invalid-host" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid Tap host"
+          }
+        }
+      }
     },
     "add-tap.typing.error.invalid-host.description" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This Tap host doesn’t exist. Try a different one."
+          }
+        }
+      }
     },
     "add-tap.typing.error.invalid-name" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid Tap name"
+          }
+        }
+      }
     },
     "add-tap.typing.error.slash" : {
       "localizations" : {
