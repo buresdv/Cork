@@ -35,11 +35,11 @@ public enum TappingError: LocalizedError, Equatable
 
 public extension TapTracker
 {
-    func addTap(tap: BrewTap, forcedRepoAddress: URL? = nil) async throws(TappingError)
+    func addTap(tap: BrewTap) async throws(TappingError)
     {
         let tappingOutputs: [TerminalOutput]
         
-        if let forcedRepoAddress, !forcedRepoAddress.pathComponents.contains("github")
+        if let forcedRepoAddress = tap.nameInternal.repoAddress
         {
             appConstants.logger.info("Will use forced URL: \(forcedRepoAddress.absoluteString, privacy: .public)")
             
@@ -58,7 +58,7 @@ public extension TapTracker
         if tappingOutputs.containsErrors
         {
             // If the outputs are empty, it means the tap is already added. No need to do anything
-            if !tappingOutputs.isEmpty
+            if !tappingOutputs.filter({ !$0.description.contains("Tapped") }).isEmpty
             {
                 if tappingOutputs.contains("Repository not found", in: .standardErrors)
                 {

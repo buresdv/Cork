@@ -22,7 +22,7 @@ struct AddTapInitialView: View
 
     @FocusState var isForcedAddressFieldFocused: Bool
 
-    static private let tapNameValidityRegex: Regex = try! .init(".+\\/.+")
+    private static let tapNameValidityRegex: Regex = try! .init(".+\\/.+")
 
     private var isSubmitButtonDisabled: Bool
     {
@@ -63,22 +63,17 @@ struct AddTapInitialView: View
 
             DisclosureGroup("add-tap.customize-tap.label")
             {
-                VStack(alignment: .leading, spacing: 5)
+                Form
                 {
-                    // Text("add-tap.manual-repo-address.label")
-                    // .font(.subheadline)
-                    
                     LabeledContent
                     {
                         TextField(text: $forcedRepoAddress)
                         {
-                            Text("https://github.com")
+                            EmptyView()
                         }
                     } label: {
-                        Text("")
+                        Text("add-tap.manual-repo-address.label")
                     }
-
-                    // TextField("https://github.com/", value: $forcedRepoAddress, format: .urlEnforcingTrailingSlash)
                 }
             }
         }
@@ -91,7 +86,9 @@ struct AddTapInitialView: View
                     do throws(TapInputErrors)
                     {
                         try submitTapName(tapName: requestedTap, forcedHost: forcedRepoAddress)
-                    } catch let tapValidationError {
+                    }
+                    catch let tapValidationError
+                    {
                         self.tapInputError = tapValidationError
                     }
                 } label: {
@@ -128,7 +125,21 @@ struct AddTapInitialView: View
 
         var finalHost: Host
 
-        if constructedHost == AppConstants.shared.gitHubURL
+        guard
+            let disassembledConstructedHost: URLComponents = .init(
+                url: constructedHost,
+                resolvingAgainstBaseURL: false
+            ),
+            let disassembledGitHubHost: URLComponents = .init(
+                url: AppConstants.shared.gitHubURL,
+                resolvingAgainstBaseURL: false
+            )
+        else
+        {
+            throw .invalidHost
+        }
+
+        if disassembledConstructedHost.host == disassembledGitHubHost.host && disassembledConstructedHost.path == disassembledGitHubHost.path
         {
             finalHost = .gitHub
         }
@@ -146,9 +157,11 @@ struct AddTapInitialView: View
         do
         {
             let constructedTap: BrewTap = try .init(externalRepo: externalRepo, name: tapName)
-            
+
             progress = .tapping(tap: constructedTap)
-        } catch let tapInitializationError {
+        }
+        catch let tapInitializationError
+        {
             throw .invalidName(tapInitializationError)
         }
     }
