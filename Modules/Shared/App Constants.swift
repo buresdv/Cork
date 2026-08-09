@@ -85,6 +85,14 @@ public struct AppConstants: Sendable
     
     public static let shared: AppConstants = .init()
     
+    public let gitHubURL: URL = {
+        var components: URLComponents = .init()
+        components.scheme = "https"
+        components.host = "github.com"
+        
+        return components.url ?? URL(string: "https://github.com")!
+    }()
+    
     // MARK: - Persistence
     public let modelContainer: ModelContainer
     

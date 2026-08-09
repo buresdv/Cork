@@ -44,28 +44,7 @@ struct TapsSection: View
                     { tap in
                         NavigationLink(value: NavigationManager.DetailDestination.tap(tap: tap))
                         {
-                            Text(tap.name(withPrecision: .full))
-
-                            if tap.isBeingModified
-                            {
-                                Spacer()
-
-                                ProgressView()
-                                    .frame(height: 5)
-                                    .scaleEffect(0.5)
-                            }
-                        }
-                        .contextMenu
-                        {
-                            AsyncButton(role: .destructive)
-                            {
-                                AppConstants.shared.logger.debug("Would remove \(tap.name(withPrecision: .full), privacy: .public)")
-
-                                try await tapTracker.removeTap(tapToRemove: tap, purpose: .removeFromHomebrewAndTracker)
-                            } label: {
-                                Label("sidebar.section.added-taps.contextmenu.remove-\(tap.name(withPrecision: .full))", systemImage: "trash")
-                            }
-                            .asyncButtonStyle(.plainStyle)
+                            TapListItem(tap: tap)
                         }
                     }
                 }

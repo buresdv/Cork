@@ -26,6 +26,14 @@ struct TapDetailsTitle: View
                 {
                     Image(systemName: "checkmark.shield")
                         .help("tap-details.official-\(tap.name(withPrecision: .full))")
+                        .foregroundStyle(.gray)
+                }
+                
+                if tap.isSpeakeasySupported
+                {
+                    Image(systemName: "hare.fill")
+                        .help("tap-details.speakeasy-supported-\(tap.name(withPrecision: .full))")
+                        .foregroundStyle(.blue)
                 }
             }
         }

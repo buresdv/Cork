@@ -35,17 +35,21 @@ public enum TappingError: LocalizedError, Equatable
 
 public extension TapTracker
 {
-    func addTap(name: String, forcedRepoAddress: URL? = nil) async throws(TappingError)
+    func addTap(tap: BrewTap, forcedRepoAddress: URL? = nil) async throws(TappingError)
     {
         let tappingOutputs: [TerminalOutput]
         
-        if let forcedRepoAddress
+        if let forcedRepoAddress, !forcedRepoAddress.pathComponents.contains("github")
         {
-            tappingOutputs = await shell(AppConstants.shared.brewExecutablePath, ["tap", name, forcedRepoAddress.absoluteString])
+            appConstants.logger.info("Will use forced URL: \(forcedRepoAddress.absoluteString, privacy: .public)")
+            
+            tappingOutputs = await shell(AppConstants.shared.brewExecutablePath, ["tap", tap.name(withPrecision: .full), forcedRepoAddress.absoluteString])
         }
         else
         {
-            tappingOutputs = await shell(AppConstants.shared.brewExecutablePath, ["tap", name])
+            appConstants.logger.info("Will not use a forced URL")
+            
+            tappingOutputs = await shell(AppConstants.shared.brewExecutablePath, ["tap", tap.name(withPrecision: .full)])
         }
         
 
@@ -60,6 +64,10 @@ public extension TapTracker
                 {
                     throw .implemented(.repositoryNotFound)
                 }
+                else if tappingOutputs.contains("could not read Username", in: .standardErrors)
+                {
+                    throw .implemented(.repositoryNotFound)
+                }
                 else
                 {
                     throw .unimplemented(rawOutput: tappingOutputs)
@@ -68,14 +76,7 @@ public extension TapTracker
         }
         else
         {
-            do
-            {
-                self.addedTaps.insert(.success(try .init(externalRepo: forcedRepoAddress, name: name)))
-            }
-            catch let intoTrackerAdditionError
-            {
-                AppConstants.shared.logger.error("Failed while adding tap to tracker: \(intoTrackerAdditionError)")
-            }
+            self.addedTaps.insert(.success(tap))
         }
     }
 
