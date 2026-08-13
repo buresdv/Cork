@@ -1057,8 +1057,8 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
-            "value": "Tap"
+            "state": "translated",
+            "value": "Ketuk"
           }
         },
         "it": {
@@ -2629,8 +2629,8 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
-            "value": "Made the first approved pull request; fixed package counts, along with Jierong Li"
+            "state": "translated",
+            "value": "Membuat pull request pertama yang disetujui; memperbaiki hitungan paket, bersama dengan Jierong Li"
           }
         },
         "it": {
@@ -2741,7 +2741,7 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
+            "state": "translated",
             "value": "Andrey Radchishin"
           }
         },
@@ -2854,8 +2854,8 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
-            "value": "Added a way of going back to the Homebrew Status page"
+            "state": "translated",
+            "value": "Menambahkan cara untuk kembali ke halaman Status Homebrew"
           }
         },
         "it": {
@@ -2966,7 +2966,7 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
+            "state": "translated",
             "value": "Christian Tietze"
           }
         },
@@ -3079,8 +3079,8 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
-            "value": "Came up with many advanced logic optimizations, as well as continously offering valuable Swift support"
+            "state": "translated",
+            "value": "Mencetuskan banyak optimasi logika tingkat lanjut, serta terus memberikan dukungan Swift yang berharga"
           }
         },
         "it": {
@@ -3191,7 +3191,7 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
+            "state": "translated",
             "value": "Mike Simons"
           }
         },
@@ -3304,8 +3304,8 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
-            "value": "Created the Tuist configuration for compiling self-hosted versions"
+            "state": "translated",
+            "value": "Membuat konfigurasi Tuist untuk mengompilasi versi self-hosted"
           }
         },
         "it": {
@@ -3416,8 +3416,8 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
-            "value": "© %@ David Bureš and contributors"
+            "state": "translated",
+            "value": "© %@ David Bureš dan para kontributor"
           }
         },
         "it": {
@@ -3528,8 +3528,8 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
-            "value": "© %lld David Bureš and contributors"
+            "state": "translated",
+            "value": "© %lld David Bureš dan para kontributor"
           }
         },
         "it": {
@@ -3640,8 +3640,8 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
-            "value": "Packages Used"
+            "state": "translated",
+            "value": "Paket yang Digunakan"
           }
         },
         "it": {
@@ -3752,7 +3752,7 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
+            "state": "translated",
             "value": "DavidFoundation"
           }
         },
@@ -3865,8 +3865,8 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
-            "value": "My own package that provides some basic convenience features"
+            "state": "translated",
+            "value": "Paket saya sendiri yang menyediakan beberapa fitur kenyamanan dasar"
           }
         },
         "it": {
@@ -3977,7 +3977,7 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
+            "state": "translated",
             "value": "LaunchAtLogin"
           }
         },
@@ -4090,8 +4090,8 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
-            "value": "A package that lets Cork start when you log in"
+            "state": "translated",
+            "value": "Paket yang membuat Cork otomatis terbuka begitu Anda masuk ke sistem"
           }
         },
         "it": {
