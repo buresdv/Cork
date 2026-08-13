@@ -35,15 +35,15 @@ public extension OutdatedPackagesTracker
             case alreadyUpToDate
             case other
 
-            public var patterns: [String]
+            public var patterns: [Regex<AnyRegexOutput>]
             {
                 switch self
                 {
                 case .alreadyUpToDate:
-                    ["Already up-to-date"]
+                    [.init(#/Already up-to-date/#)]
                 case .other:
                     // Catch-all — any unrecognised stdout still increments progress
-                    [""]
+                    [.init(#/""/#)]
                 }
             }
         }
@@ -56,20 +56,20 @@ public extension OutdatedPackagesTracker
             case alreadyUpToDate
             case noChecksumDefined
 
-            public var patterns: [String]
+            public var patterns: [Regex<AnyRegexOutput>]
             {
                 switch self
                 {
                 case .anotherUpdateInProgress:
-                    ["Another active Homebrew update process is already in progress"]
+                    [.init(#/Another active Homebrew update process is already in progress/#)]
                 case .emptyError:
-                    ["Error: "]
+                    [.init(#/Error: /#)]
                 case .updatedTap:
-                    ["Updated"]
+                    [.init(#/Updated/#)]
                 case .alreadyUpToDate:
-                    ["Already up-to-date"]
+                    [.init(#/Already up-to-date/#)]
                 case .noChecksumDefined:
-                    ["No checksum defined"]
+                    [.init(#/No checksum defined/#)]
                 }
             }
         }
@@ -78,12 +78,12 @@ public extension OutdatedPackagesTracker
         {
             case updatingHomebrew
 
-            public var patterns: [String]
+            public var patterns: [Regex<AnyRegexOutput>]
             {
                 switch self
                 {
                 case .updatingHomebrew:
-                    ["==> Updating Homebrew..."]
+                    [.init(#/==> Updating Homebrew.../#)]
                 }
             }
         }

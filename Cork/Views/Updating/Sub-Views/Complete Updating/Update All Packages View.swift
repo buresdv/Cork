@@ -39,7 +39,15 @@ struct UpdateAllPackagesView: View
     {
         VStack(alignment: .leading)
         {
-            ProgressView(updateProgressTracker.updateProgress)
+            if case .downloading = fullUpdateStageTracker.currentStage
+            { // Show indeterminate progress if we're downloading
+                ProgressView("update-packages.detail-stage.downloading")
+                    .progressViewStyle(.linear)
+            }
+            else
+            {
+                ProgressView(updateProgressTracker.updateProgress)
+            }
 
             updateProgressTracker.streamedOutputsDisplay
         }

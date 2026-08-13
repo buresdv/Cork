@@ -27,6 +27,8 @@ public class BrewPackagesTracker: @MainActor Loadable
     public var installedCasks: BrewPackages = .init()
     
     public var isBeingLoaded: Bool = true
+    
+    var isPackageSynchronizationRunning: Bool = false
 
     // MARK: - Successfully loaded packages
     /// Formulae that were successfuly loaded from disk

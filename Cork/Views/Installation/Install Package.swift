@@ -48,7 +48,7 @@ struct InstallPackageView: View
 
     @State private var packageInstallationProcessStepTracker: PackageInstallationProcessStepTracker = .init()
 
-    @State private var installationProgressTracker: InstallationProgressTracker?
+    @State private var installationProgressTracker: InstallationProgressTracker? = nil
 
     @Default(.notifyAboutPackageInstallationResults) var notifyAboutPackageInstallationResults: Bool
 
@@ -63,60 +63,9 @@ struct InstallPackageView: View
         {
             SheetTemplate(isShowingTitle: true)
             {
-                Group
-                {
-                    switch packageInstallationProcessStepTracker.currentStep
-                    {
-                    case .ready:
-                        InstallationInitialView()
-                    case .searching(let forSearchString):
-                        InstallationSearchingView(
-                            packageRequested: forSearchString
-                        )
-                    case .presentingSearchResults(let forSearchString, let foundFormulae, let foundCasks):
-                        PresentingSearchResultsView(
-                            oldSearchString: forSearchString,
-                            foundFormulae: foundFormulae,
-                            foundCasks: foundCasks
-                        )
-                    case .installing(let package):
-                        // TODO: Fix this hideous shit
-                        /// This is here because I need the binding to be optional here, but not optional in the child
-                        let trackerBinding: Binding<InstallationProgressTracker> = .init(
-                            get: {
-                                if let existingTracker = installationProgressTracker
-                                {
-                                    return existingTracker
-                                }
-                                else
-                                {
-                                    let newTracker: InstallationProgressTracker = .init(packageToInstall: package)
-                                    installationProgressTracker = newTracker // How about this line undefines my behavior
-                                    return newTracker
-                                }
-                            },
-                            set: { installationProgressTracker = $0 }
-                        )
-                        InstallingPackageView(packageToInstall: package, installationProgressTracker: trackerBinding)
-                    case .finished:
-                        InstallationFinishedSuccessfullyView()
-                    case .unexpectedTerminalOutput(let unexpectedOutputType):
-                        // TODO: Implement the unexpected output views
-                        switch unexpectedOutputType
-                        {
-                        case .containedErrors(let rawOutputThatContainsErrors):
-                            EmptyView()
-                        case .didNotContainErrors(let rawOutputThatDidNotContainErrors):
-                            EmptyView()
-                        }
-                    case .erroredOut(let package, let withError):
-                        ErroredOutView(
-                            error: withError,
-                            packageThatWasBeingInstalled: package
-                        )
-                    }
-                }
+                sheetContent
                 .navigationTitle(sheetTitle)
+                .environment(installationProgressTracker)
                 .toolbar
                 {
                     if packageInstallationProcessStepTracker.currentStep.isDismissable
@@ -158,5 +107,57 @@ struct InstallPackageView: View
                 )
             }
         }
+    }
+    
+    @ViewBuilder
+    private var sheetContent: some View
+    {
+        switch packageInstallationProcessStepTracker.currentStep
+        {
+        case .ready:
+            InstallationInitialView(
+                packageRequested: $packageRequested,
+                onInstallationStart: startInstallation
+            )
+        case .searching(let forSearchString):
+            InstallationSearchingView(
+                packageRequested: forSearchString
+            )
+        case .presentingSearchResults(let forSearchString, let foundFormulae, let foundCasks):
+            PresentingSearchResultsView(
+                searchString: $packageRequested,
+                foundFormulae: foundFormulae,
+                foundCasks: foundCasks,
+                onInstallationStart: startInstallation
+            )
+        case .installing(let package):
+            if let installationProgressTracker
+            {
+                InstallingPackageView(packageToInstall: package, installationProgressTracker: installationProgressTracker)
+            }
+        case .finished:
+            InstallationFinishedSuccessfullyView()
+        case .unexpectedTerminalOutput(let unexpectedOutputType):
+            if let installationProgressTracker
+            {
+                UnexpectedOutputsDuringPackageInstall(
+                    unexpectedOutputType: unexpectedOutputType,
+                    installationProgressTracker: installationProgressTracker
+                )
+            }
+            
+        case .erroredOut(let package, let withError):
+            ErroredOutView(
+                error: withError,
+                packageThatWasBeingInstalled: package
+            )
+        }
+    }
+    
+    // Assign the package properly, because `.onAppear` fucking flashes
+    private func startInstallation(for package: MinimalHomebrewPackage) {
+        installationProgressTracker = InstallationProgressTracker(packageToInstall: package)
+        
+        packageInstallationProcessStepTracker.advanceStep(to: .installing(package: package))
     }
 }

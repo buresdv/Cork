@@ -66,7 +66,7 @@ struct ReinstallCorruptedPackageView: View
             case .finished:
                 DisappearableSheet
                 {
-                    ComplexWithIcon(systemName: "checkmark.seal")
+                    ComplexWithImage(image: .init(systemName: "checkmark.seal"))
                     {
                         HeadlineWithSubheadline(
                             headline: "repair-package.repairing-finished.headline-\(corruptedPackageToReinstall.name)",

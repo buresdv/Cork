@@ -79,7 +79,7 @@ struct PackagesIncludedInTapList: View
 
                             if isPackageAlreadyInstalled
                             {
-                                PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
+                                PackageAlreadyInstalledPill()
                             }
                         }
                     }

@@ -21,7 +21,7 @@ struct MassAdoptionStage_Success: View
     {
         DisappearableSheet
         {
-            ComplexWithIcon(systemName: "checkmark.seal")
+            ComplexWithImage(image: .init(systemName: "checkmark.seal"))
             {
                 HeadlineWithSubheadline(
                     headline: "mass-adoption.finished",

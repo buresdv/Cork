@@ -5,15 +5,15 @@
 //  Created by David Bureš - P on 28.10.2025.
 //
 
+import CorkShared
 import Foundation
 import SwiftUI
-import CorkShared
 
 public enum TerminalOutput: Identifiable, Hashable, Equatable, Sendable, CustomStringConvertible
 {
-    public var id: Self
+    public var id: UUID
     {
-        return self
+        return .init()
     }
 
     case standardOutput(String)
@@ -35,48 +35,47 @@ public enum TerminalOutput: Identifiable, Hashable, Equatable, Sendable, CustomS
         if case .standardError = self { return true }
         return false
     }
-    
+
     @ViewBuilder
     public var outputView: some View
     {
-        Group
+        TerminalOutputLineView(outputLine: self)
+    }
+}
+
+private struct TerminalOutputLineView: View
+{
+    let outputLine: TerminalOutput
+
+    var body: some View
+    {
+        VStack(alignment: .leading, spacing: 5)
         {
-            switch self
+            HStack(alignment: .center, spacing: 3)
             {
-            case .standardOutput(let string):
-                HStack(alignment: .center, spacing: 5)
+                Spacer()
+
+                if case .standardError = outputLine
                 {
-                    Text(string)
-                }
-            case .standardError(let string):
-                HStack(alignment: .center, spacing: 5)
-                {
-                    if let cautionImage = NSImage(named: NSImage.cautionName)
-                    {
-                        Image(nsImage: cautionImage)
-                    }
-                    else
-                    {
-                        Image(systemName: "exclamationmark.triangle")
-                            .foregroundStyle(.orange)
-                    }
-                    
-                    Text(string)
+                    Label("error.label", systemImage: "exclamationmark.triangle")
+                        .labelStyle(.pill(color: .init(text: .white, background: .init(nsColor: .systemOrange)), iconStyle: .iconIsHidden))
                 }
             }
+
+            Text(outputLine.description)
         }
         .lineLimit(nil)
         .fixedSize(horizontal: false, vertical: true)
-        .contextMenu {
+        .contextMenu
+        {
             Button
             {
-                let pasteboard: NSPasteboard = NSPasteboard.general
+                let pasteboard: NSPasteboard = .general
                 pasteboard.declareTypes([.string], owner: nil)
-                pasteboard.setString(self.description, forType: .string)
+                pasteboard.setString(outputLine.description, forType: .string)
             } label: {
                 Text("action.copy")
             }
-
         }
     }
 }
@@ -188,16 +187,27 @@ public extension [TerminalOutput]
 
 public extension [TerminalOutput]
 {
-    /// Standardized look for 
+    /// Standardized look for a list of terminal outputs
     @ViewBuilder
     var outputView: some View
     {
-        List(self)
+        TerminalOutputList(allOutputs: self)
+    }
+}
+
+private struct TerminalOutputList: View
+{
+    
+    let allOutputs: [TerminalOutput]
+    
+    var body: some View
+    {
+        List(allOutputs)
         { rawOutput in
-            rawOutput.outputView
+            TerminalOutputLineView(outputLine: rawOutput)
         }
         .listStyle(.bordered)
         .alternatingRowBackgrounds(.enabled)
-        .frame(minWidth: 200, minHeight: 100)
+        .frame(minWidth: 200, minHeight: 150, idealHeight: 200, maxHeight: 400)
     }
 }

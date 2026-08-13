@@ -86,9 +86,7 @@ struct PackageDetailHeaderComplex: View
     {
         if packageDetails.outdated
         {
-            OutlinedPill(content: {
-                Label("package-details.outdated", systemImage: "clock")
-            }, color: .teal)
+            StatusPill(localizedText: "package-details.outdated", systemImage: "clock", color: .teal)
         }
     }
 }

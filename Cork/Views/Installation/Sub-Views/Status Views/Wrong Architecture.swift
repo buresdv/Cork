@@ -20,7 +20,7 @@ struct WrongArchitectureView: View, Sendable
 
     var body: some View
     {
-        ComplexWithIcon(systemName: "cpu")
+        ComplexWithImage(image: .init(systemName: "cpu")
         {
             VStack(alignment: .leading, spacing: 10)
             {

@@ -78,7 +78,7 @@ extension InstallationProgressTracker
                         )
                     }
                 }
-                else if outputLine.contains(/Fetching downloads for:/)
+                else if outputLine.contains("Fetching downloads for:")
                 {
                     AppConstants.shared.logger.info("Will download package!")
 
@@ -166,12 +166,21 @@ extension InstallationProgressTracker
                     AppConstants.shared.logger.warning("Install requires sudo")
 
                     installError = .implemented(.requiresSudoPassword)
+                } else if errorLine.contains("Fetching downloads for:")
+                {
+                    // This is duplicated in the standard cases verbatim because this line is sometimes in STDOUT, sometimes in STDERR
+                    AppConstants.shared.logger.info("Will download package!")
+
+                    self.installStage = .formula(.downloadingPackage(package: formulaToInstall))
+
+                    dependencyInstallProgress = nil
+                    self.installProgress.completedUnitCount = 3
                 }
                 else
                 {
-                    AppConstants.shared.logger.warning("Install encountered a critical unimplemented error")
+                    AppConstants.shared.logger.warning("Install encountered an unimplemented error")
 
-                    installError = .unimplelented(rawOutput: [.standardError(errorLine)])
+                    consolidatedUnimplementedOutput.append(.standardError(errorLine))
                 }
             }
         }
@@ -191,7 +200,7 @@ extension InstallationProgressTracker
 
         if !consolidatedUnimplementedOutput.isEmpty
         {
-            throw .implemented(.couldNotInstallFormula(.unimplelented(rawOutput: consolidatedUnimplementedOutput)))
+            throw .implemented(.containedUnexpectedOutputs(unexpectedOutputs: consolidatedUnimplementedOutput))
         }
 
         self.installProgress.completedUnitCount = self.installProgress.totalUnitCount

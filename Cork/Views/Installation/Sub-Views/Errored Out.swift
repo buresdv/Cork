@@ -14,10 +14,10 @@ struct ErroredOutView: View
 {
     let error: InstallationProgressTracker.InstallationError.ImplementedError
     let packageThatWasBeingInstalled: MinimalHomebrewPackage
-
+    
     var body: some View
     {
-        ComplexWithIcon(systemName: "xmark.seal")
+        ComplexWithImage(image: .init(systemName: "xmark.seal"))
         {
             HeadlineWithArbitraryContent(headline: "add-\(packageThatWasBeingInstalled.type.description)-\(packageThatWasBeingInstalled.name(withPrecision: .inlineFormatted)).error.title")
             {
@@ -37,7 +37,7 @@ struct ErroredOutView: View
                             {
                                 Text("DEBUG: Unexpected missing string")
                             }
-
+                            
                             if let recoverySuggestion = implementedFormulaInstallError.recoverySuggestion
                             {
                                 Text(recoverySuggestion)
@@ -51,9 +51,9 @@ struct ErroredOutView: View
                     case .unimplelented(let rawOutputs):
                         unimplementedErrorView(rawOutputs: rawOutputs)
                     }
-
+                    
                     // MARK: - Cask Errors
-
+                    
                 case .couldNotInstallCask(let caskInstallError):
                     switch caskInstallError
                     {
@@ -68,7 +68,7 @@ struct ErroredOutView: View
                             {
                                 Text("DEBUG: Unexpected missing string")
                             }
-
+                            
                             if let recoverySuggestion = implementedCaskInstallError.recoverySuggestion
                             {
                                 Text(recoverySuggestion)
@@ -82,12 +82,12 @@ struct ErroredOutView: View
                     case .unimplelented(let rawOutputs):
                         unimplementedErrorView(rawOutputs: rawOutputs)
                     }
-
-                case .couldNotSynchronizePackages:
-                    EmptyView()
+                case .containedUnexpectedOutputs(unexpectedOutputs: let unexpectedOutputs):
+                    EmptyView() /// This will never get shown here, instead, this branch is routed in the file `InstallingPackageView` to `case .unexpectedTerminalOutput(let unexpectedOutputType):` in `InstallPackageView`
                 }
             }
         }
+        
     }
     
     @ViewBuilder
@@ -96,7 +96,7 @@ struct ErroredOutView: View
         VStack(alignment: .leading)
         {
             Text("add-package.\(packageThatWasBeingInstalled.name(withPrecision: .general)).error.unimplemented-outputs.message")
-
+            
             DisclosureGroup("add-package.error.unimplemented-outputs.dropdown.label")
             {
                 List(rawOutputs)

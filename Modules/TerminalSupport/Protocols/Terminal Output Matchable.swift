@@ -11,7 +11,9 @@ import Foundation
 
 public protocol TerminalOutputCase: CaseIterable, Equatable
 {
-    var patterns: [String] { get }
+    /// Type-erased REGEX
+    // TODO: Make this not type-erased
+    var patterns: [Regex<AnyRegexOutput>] { get }
 }
 
 // MARK: - Matchable Protocol
@@ -25,31 +27,42 @@ public protocol TerminalOutputMatchable
 
 // MARK: - Sentinels
 
-/// Use as `ExpectsNoErrors` for matchables that have no error cases
+/// Use as `ErrorCases` for matchables that have no error cases
 public enum ExpectsNoErrors: TerminalOutputCase
 {
-    public var patterns: [String] { [] }
+    public var patterns: [Regex<AnyRegexOutput>] { [] }
 }
 
-/// Use as `MatchesNoStandardOutputs` for matchables that have no standard cases
+/// Use as `StandardCases` for matchables that have no standard cases
 public enum MatchesNoStandardOutputs: TerminalOutputCase
 {
-    public var patterns: [String] { [] }
+    public var patterns: [Regex<AnyRegexOutput>] { [] }
 }
 
-/// Use as `IgnoresNoOutputs` for matchables that have no ignored cases
+/// Use as `IgnoredCases` for matchables that have no ignored cases
 public enum IgnoresNoOutputs: TerminalOutputCase
 {
-    public var patterns: [String] { [] }
+    public var patterns: [Regex<AnyRegexOutput>] { [] }
 }
 
 /// Just pass the output itself without doing any matching
 public struct PassesOutputWithoutMatching: TerminalOutputCase
 {
     public let string: String
-    public var patterns: [String] { [] }
+    public var patterns: [Regex<AnyRegexOutput>] { [] }
 
     public static var allCases: [PassesOutputWithoutMatching] { [] }
+}
+
+// MARK: - Regex Matching
+
+private extension String
+{
+    /// REGEX-match **any** part of the output
+    func matchesAny(of patterns: [Regex<AnyRegexOutput>]) -> Bool
+    {
+        patterns.contains { firstMatch(of: $0) != nil }
+    }
 }
 
 // MARK: - Matching on Single Output
@@ -57,6 +70,7 @@ public struct PassesOutputWithoutMatching: TerminalOutputCase
 public extension TerminalOutput
 {
     /// Match a single streamed output line against a ``TerminalOutputMatchable`` type
+    /// Because Homebrew is fucked in their output routing, when it matches an STDERR, it tries to match it against any STDOUT first before throwing it in unimplemented
     @discardableResult
     func match<Type: TerminalOutputMatchable, Result>(
         as _: Type.Type,
@@ -65,7 +79,7 @@ public extension TerminalOutput
         onUnimplementedOutput: ((TerminalOutput) -> Result?)? = nil
     ) -> Result?
     {
-        if Type.IgnoredCases.allCases.contains(where: { $0.patterns.contains(where: { description.contains($0) }) })
+        if Type.IgnoredCases.allCases.contains(where: { description.matchesAny(of: $0.patterns) })
         {
             return nil
         }
@@ -73,7 +87,7 @@ public extension TerminalOutput
         switch self
         {
         case .standardOutput(let string):
-            if let matched = Type.StandardCases.allCases.first(where: { $0.patterns.contains(where: { string.contains($0) }) })
+            if let matched = Type.StandardCases.allCases.first(where: { string.matchesAny(of: $0.patterns) })
             {
                 return onStandardOutput?(matched) ?? nil
             }
@@ -83,9 +97,13 @@ public extension TerminalOutput
             }
 
         case .standardError(let string):
-            if let matched = Type.ErrorCases.allCases.first(where: { $0.patterns.contains(where: { string.contains($0) }) })
+            if let matched = Type.ErrorCases.allCases.first(where: { string.matchesAny(of: $0.patterns) })
             {
                 return onErrorOutput?(matched) ?? nil
+            }
+            else if let matched = Type.StandardCases.allCases.first(where: { string.matchesAny(of: $0.patterns) })
+            {
+                return onStandardOutput?(matched) ?? nil
             }
             else
             {

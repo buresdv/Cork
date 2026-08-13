@@ -16,6 +16,11 @@ public extension BrewPackagesTracker
     nonisolated
     func synchronizeInstalledPackages() async
     {
+        guard await !self.isPackageSynchronizationRunning else {
+            AppConstants.shared.logger.info("Package synchronization was already in progress - will not start another process")
+            return
+        }
+        
         AppConstants.shared.logger.debug("Will start synchronization process")
         
         async let wasFormulaSynchronizationNeeded: Bool = await synchronizeInstalledFormulaeIfNeeded()
