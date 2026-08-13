@@ -40,6 +40,8 @@ private struct DidNotContainErrors: View {
     
     let installationProgressTracker: InstallationProgressTracker
     
+    @State private var isExpanded: Bool = true
+    
     var body: some View {
         ComplexWithImage(image: .init(systemName: "checkmark.seal.text.page"))
         {
@@ -48,7 +50,7 @@ private struct DidNotContainErrors: View {
                 {
                     Text("add-package.probably-installed.no-errors.description")
                     
-                    DisclosureGroup("add-package.error.unimplemented-outputs.dropdown.label") {
+                    DisclosureGroup("add-package.error.unimplemented-outputs.dropdown.label", isExpanded: $isExpanded) {
                         outputs.outputView
                     }
                 }
@@ -63,6 +65,8 @@ private struct ContainedErrors: View {
     
     let installationProgressTracker: InstallationProgressTracker
     
+    @State private var isExpanded: Bool = true
+    
     var body: some View {
         ComplexWithImage(image: .init(systemName: "info.circle.text.page"))
         {
@@ -72,7 +76,7 @@ private struct ContainedErrors: View {
                 {
                     Text("add-package.probably-installed.had-errors.description")
                     
-                    DisclosureGroup("add-package.error.unimplemented-outputs.dropdown.label") {
+                    DisclosureGroup("add-package.error.unimplemented-outputs.dropdown.label", isExpanded: $isExpanded) {
                         outputs.outputView
                     }
                 }

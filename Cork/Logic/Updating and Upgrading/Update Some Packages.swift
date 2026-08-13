@@ -87,7 +87,7 @@ extension OutdatedPackagesTracker
                 case .standardError(let standardError):
                     processError = .unimplemented(
                         failedPackage: packageToUpdate,
-                        rawOutput: standardError
+                        rawOutput: standardError.rawOutput
                     )
                 }
             }

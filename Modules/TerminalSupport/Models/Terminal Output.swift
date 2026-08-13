@@ -13,21 +13,54 @@ public enum TerminalOutput: Identifiable, Hashable, Equatable, Sendable, CustomS
 {
     public var id: UUID
     {
-        return .init()
+        switch self
+        {
+        case .standardOutput(let terminalOutputLine), .standardError(let terminalOutputLine):
+            return terminalOutputLine.id
+        }
     }
 
-    case standardOutput(String)
-    case standardError(String)
+    public struct TerminalOutputLine: Identifiable, Hashable, Equatable, Sendable, CustomStringConvertible
+    {
+        public let id: UUID
+
+        public let rawOutput: String
+
+        public let timestamp: Date
+
+        public init(rawOutput: String)
+        {
+            self.id = .init()
+            self.rawOutput = rawOutput
+            self.timestamp = .now
+        }
+
+        public var description: String
+        {
+            return self.rawOutput
+        }
+    }
+
+    case standardOutput(TerminalOutputLine)
+    case standardError(TerminalOutputLine)
 
     public var description: String
     {
         switch self
         {
-        case .standardOutput(let outputString):
-            return outputString
-        case .standardError(let errorString):
-            return errorString
+        case .standardOutput(let output): return output.rawOutput
+        case .standardError(let output): return output.rawOutput
         }
+    }
+
+    public init(standardOutput rawOutput: String)
+    {
+        self = .standardOutput(.init(rawOutput: rawOutput))
+    }
+
+    public init(standardError rawOutput: String)
+    {
+        self = .standardError(.init(rawOutput: rawOutput))
     }
 
     public var containsErrors: Bool
@@ -43,6 +76,39 @@ public enum TerminalOutput: Identifiable, Hashable, Equatable, Sendable, CustomS
     }
 }
 
+// MARK: - Formatter
+
+public struct TerminalOutputLineFormatStyle: FormatStyle, Sendable
+{
+    public typealias FormatInput = TerminalOutput.TerminalOutputLine
+    public typealias FormatOutput = String
+
+    public init() {}
+
+    public func format(_ value: FormatInput) -> FormatOutput
+    {
+        return value.rawOutput
+    }
+}
+
+public extension FormatStyle where Self == TerminalOutputLineFormatStyle
+{
+    static var terminalOutputLine: TerminalOutputLineFormatStyle
+    {
+        return TerminalOutputLineFormatStyle()
+    }
+}
+
+public extension TerminalOutput.TerminalOutputLine
+{
+    func formatted() -> String
+    {
+        return TerminalOutputLineFormatStyle().format(self)
+    }
+}
+
+// MARK: - Views
+
 private struct TerminalOutputLineView: View
 {
     let outputLine: TerminalOutput
@@ -53,6 +119,13 @@ private struct TerminalOutputLineView: View
         {
             HStack(alignment: .center, spacing: 3)
             {
+                switch outputLine {
+                case .standardOutput(let terminalOutputLine), .standardError(let terminalOutputLine):
+                    Text(terminalOutputLine.timestamp.formatted(date: .omitted, time: .shortened))
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+                
                 Spacer()
 
                 if case .standardError = outputLine
@@ -87,9 +160,9 @@ public extension [TerminalOutput]
     {
         return self.compactMap
         { terminalOutput in
-            if case .standardOutput(let outputString) = terminalOutput
+            if case .standardOutput(let terminalOutputLine) = terminalOutput
             {
-                return outputString
+                return terminalOutputLine.rawOutput
             }
             else
             {
@@ -103,9 +176,9 @@ public extension [TerminalOutput]
     {
         return self.compactMap
         { terminalError in
-            if case .standardError(let errorString) = terminalError
+            if case .standardError(let terminalOutputLine) = terminalError
             {
-                return errorString
+                return terminalOutputLine.rawOutput
             }
             else
             {
@@ -143,15 +216,15 @@ public extension [TerminalOutput]
         { terminalOutput in
             switch terminalOutput
             {
-            case .standardOutput(let outputString):
+            case .standardOutput(let outputLine):
                 let shouldSearchInStandardOutputs: Bool = outputTypes.contains(.standardOutputs)
-                let outputContainsSearchString: Bool = outputString.contains(searchString)
+                let outputContainsSearchString: Bool = outputLine.rawOutput.contains(searchString)
 
                 return shouldSearchInStandardOutputs && outputContainsSearchString
 
-            case .standardError(let errorString):
+            case .standardError(let errorLine):
                 let shouldSearchInErrorOutputs: Bool = outputTypes.contains(.standardErrors)
-                let outputContainsSearchString: Bool = errorString.contains(searchString)
+                let outputContainsSearchString: Bool = errorLine.rawOutput.contains(searchString)
 
                 return shouldSearchInErrorOutputs && outputContainsSearchString
             }
@@ -197,17 +270,20 @@ public extension [TerminalOutput]
 
 private struct TerminalOutputList: View
 {
-    
     let allOutputs: [TerminalOutput]
-    
+
     var body: some View
     {
-        List(allOutputs)
-        { rawOutput in
-            TerminalOutputLineView(outputLine: rawOutput)
+        List
+        {
+            ForEach(allOutputs)
+            { rawOutput in
+                TerminalOutputLineView(outputLine: rawOutput)
+                    .id(rawOutput.id)
+            }
         }
         .listStyle(.bordered)
         .alternatingRowBackgrounds(.enabled)
-        .frame(minWidth: 200, minHeight: 150, idealHeight: 200, maxHeight: 400)
+        .frame(minWidth: 200, minHeight: 150, maxHeight: 400)
     }
 }

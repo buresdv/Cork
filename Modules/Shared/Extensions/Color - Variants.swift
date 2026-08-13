@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 
-extension Color
+public extension Color
 {
     func lighter(by amount: CGFloat = 0.4) -> Self
     {

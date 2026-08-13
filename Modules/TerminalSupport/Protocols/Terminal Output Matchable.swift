@@ -86,8 +86,8 @@ public extension TerminalOutput
 
         switch self
         {
-        case .standardOutput(let string):
-            if let matched = Type.StandardCases.allCases.first(where: { string.matchesAny(of: $0.patterns) })
+        case .standardOutput(let outputLine):
+            if let matched = Type.StandardCases.allCases.first(where: { outputLine.rawOutput.matchesAny(of: $0.patterns) })
             {
                 return onStandardOutput?(matched) ?? nil
             }
@@ -96,12 +96,12 @@ public extension TerminalOutput
                 return onUnimplementedOutput?(self) ?? nil
             }
 
-        case .standardError(let string):
-            if let matched = Type.ErrorCases.allCases.first(where: { string.matchesAny(of: $0.patterns) })
+        case .standardError(let outputLine):
+            if let matched = Type.ErrorCases.allCases.first(where: { outputLine.rawOutput.matchesAny(of: $0.patterns) })
             {
                 return onErrorOutput?(matched) ?? nil
             }
-            else if let matched = Type.StandardCases.allCases.first(where: { string.matchesAny(of: $0.patterns) })
+            else if let matched = Type.StandardCases.allCases.first(where: { outputLine.rawOutput.matchesAny(of: $0.patterns) })
             {
                 return onStandardOutput?(matched) ?? nil
             }

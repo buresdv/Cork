@@ -35683,7 +35683,7 @@
       "localizations" : {
         "cs" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Aplikace je již nainstalována jako %@"
           }
         },
@@ -35696,12 +35696,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "App is already installed at %@"
+            "value" : "Cork needs additional permissions to update this Cask. Check the notification from System Settings that you got. "
           }
         },
         "en-GB" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "App is already installed at %@"
           }
         },

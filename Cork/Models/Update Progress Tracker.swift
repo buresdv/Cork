@@ -218,6 +218,7 @@ public class UpdateProgressTracker: @MainActor TerminalOutputStreamable
         public enum IgnoredCases: TerminalOutputCase
         {
             case caveats
+            case overridingSuccessfully
 
             public var patterns: [Regex<AnyRegexOutput>]
             {
@@ -225,6 +226,8 @@ public class UpdateProgressTracker: @MainActor TerminalOutputStreamable
                 {
                 case .caveats:
                     [.init(#/Caveats/#)]
+                case .overridingSuccessfully:
+                    [.init(#/It seems there is already an App at.*overwriting/#)]
                 }
             }
         }

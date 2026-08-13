@@ -14,7 +14,7 @@ import Foundation
 public func shell(
     _ launchPath: URL,
     _ arguments: [String],
-    environment: [String: String]? = nil,
+    environment _: [String: String]? = nil,
     workingDirectory: URL? = nil
 ) async -> [TerminalOutput]
 {
@@ -25,7 +25,7 @@ public func shell(
     // Disable trust until I can implement a UI for it
     // TODO: Implement trusting and remove this
     finalEnvironment["HOMEBREW_NO_REQUIRE_TAP_TRUST"] = "1"
-    
+
     // MARK: - Set up mirrors if the environment variables exist
 
     if let brewApiDomain = ProcessInfo.processInfo.environment["HOMEBREW_API_DOMAIN"]
@@ -97,14 +97,14 @@ public func shell(
        !output.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
        !output.containsAny(of: Container.shared.appConstants().disqualifyingSymbolsForTerminalOutputs)
     {
-        allOutputs.append(.standardOutput(output))
+        allOutputs.append(.standardOutput(.init(rawOutput: output)))
     }
 
     if let output = String(data: standardError, encoding: .utf8),
        !output.isEmpty,
        !output.containsAny(of: Container.shared.appConstants().disqualifyingSymbolsForTerminalOutputs)
     {
-        allOutputs.append(.standardError(output))
+        allOutputs.append(.standardError(.init(rawOutput: output)))
     }
 
     AppConstants.shared.logger.debug("Consolidated outputs: \(allOutputs)")
@@ -126,18 +126,18 @@ public func shell(
 public func shell(
     _ launchPath: URL,
     _ arguments: [String],
-    environment: [String: String]? = nil,
+    environment _: [String: String]? = nil,
     workingDirectory: URL? = nil
 ) -> AsyncStream<TerminalOutput>
 {
     let task: Process = .init()
-    
+
     var finalEnvironment: [String: String] = ProcessInfo.processInfo.environment
-    
+
     // Disable trust until I can implement a UI for it
     // TODO: Implement trusting and remove this
     finalEnvironment["HOMEBREW_NO_REQUIRE_TAP_TRUST"] = "1"
-    
+
     // MARK: - Set up mirrors if the environment variables exist
 
     if let brewApiDomain = ProcessInfo.processInfo.environment["HOMEBREW_API_DOMAIN"]
@@ -212,15 +212,15 @@ public func shell(
             else
             {
                 AppConstants.shared.logger.debug("""
-Hit an empty or disqualified output.
-Command: \(launchPath.absoluteString) \(arguments)
-""")
+                Hit an empty or disqualified output.
+                Command: \(launchPath.absoluteString) \(arguments)
+                """)
                 return
             }
-            
+
             AppConstants.shared.logger.debug("Async terminal output yielded with: \(standardOutput)")
 
-            continuation.yield(.standardOutput(standardOutput))
+            continuation.yield(.standardOutput(.init(rawOutput: standardOutput)))
         }
 
         errorPipe.fileHandleForReading.readabilityHandler = { handler in
@@ -232,7 +232,7 @@ Command: \(launchPath.absoluteString) \(arguments)
 
             guard !errorOutput.isEmpty, !errorOutput.containsAny(of: Container.shared.appConstants().disqualifyingSymbolsForTerminalOutputs) else { return }
 
-            continuation.yield(.standardError(errorOutput))
+            continuation.yield(.standardError(.init(rawOutput: errorOutput)))
         }
 
         task.terminationHandler = { _ in
@@ -244,19 +244,14 @@ Command: \(launchPath.absoluteString) \(arguments)
 public func shell(
     _ launchPath: URL,
     _ arguments: [String],
-    environment: [String: String]? = nil,
+    environment _: [String: String]? = nil,
     workingDirectory: URL? = nil
 ) -> (stream: AsyncStream<TerminalOutput>, process: Process)
 {
     let task: Process = .init()
 
     var finalEnvironment: [String: String] = ProcessInfo.processInfo.environment
-
-    // Disable trust until I can implement a UI for it
-    // TODO: Implement trusting and remove this
     finalEnvironment["HOMEBREW_NO_REQUIRE_TAP_TRUST"] = "1"
-    
-    // MARK: - Set up mirrors if the environment variables exist
 
     if let brewApiDomain = ProcessInfo.processInfo.environment["HOMEBREW_API_DOMAIN"]
     {
@@ -267,22 +262,16 @@ public func shell(
         finalEnvironment["HOMEBREW_BOTTLE_DOMAIN"] = brewBottleDomain
     }
 
-    // MARK: - Set up proxy if it's enabled
-
     if let proxySettings = AppConstants.shared.proxySettings
     {
         AppConstants.shared.logger.info("Proxy is enabled")
         finalEnvironment["ALL_PROXY"] = "\(proxySettings.host):\(proxySettings.port)"
     }
 
-    // MARK: - Block automatic cleanup is configured
-
     if Defaults[.isAutomaticCleanupEnabled]
     {
         finalEnvironment["HOMEBREW_NO_INSTALL_CLEANUP"] = "TRUE"
     }
-
-    // MARK: - Automatically accept EULA if enabled
 
     if UserDefaults.standard.bool(forKey: "automaticallyAcceptEULA")
     {
@@ -291,8 +280,6 @@ public func shell(
 
     AppConstants.shared.logger.debug("Final environment: \(finalEnvironment)")
 
-    // MARK: - Set working directory if provided
-
     if let workingDirectory
     {
         AppConstants.shared.logger.info("Working directory configured: \(workingDirectory)")
@@ -300,13 +287,10 @@ public func shell(
     }
 
     let sudoHelperURL: URL = Bundle.main.resourceURL!.appendingPathComponent("Sudo Helper", conformingTo: .executable)
-
     finalEnvironment["SUDO_ASKPASS"] = sudoHelperURL.path
 
     task.environment = finalEnvironment
     task.launchPath = launchPath.absoluteString
-
-    /// Filter out empty things from the arguments so they don't fuck it up
     task.arguments = arguments.filter { $0 != "" }
 
     let pipe: Pipe = .init()
@@ -327,38 +311,61 @@ public func shell(
     let stream: AsyncStream<TerminalOutput> = AsyncStream
     { continuation in
         pipe.fileHandleForReading.readabilityHandler = { handler in
-            guard let standardOutput = String(data: handler.availableData, encoding: .utf8)
+            let data = handler.availableData
+            if data.isEmpty
+            {
+                handler.readabilityHandler = nil
+                return
+            }
+
+            guard let standardOutput = String(data: data, encoding: .utf8)
             else
             {
                 return
             }
 
-            guard !standardOutput.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty, !standardOutput.containsAny(of: Container.shared.appConstants().disqualifyingSymbolsForTerminalOutputs)
+            guard !standardOutput.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
+                  !standardOutput.containsAny(of: Container.shared.appConstants().disqualifyingSymbolsForTerminalOutputs)
             else
             {
                 return
             }
 
             AppConstants.shared.logger.debug("Async terminal output yielded with: \(standardOutput)")
-            
-            continuation.yield(.standardOutput(standardOutput))
+
+            continuation.yield(.standardOutput(.init(rawOutput: standardOutput)))
         }
 
         errorPipe.fileHandleForReading.readabilityHandler = { handler in
-            guard let errorOutput = String(data: handler.availableData, encoding: .utf8)
+            let data = handler.availableData
+            if data.isEmpty
+            {
+                handler.readabilityHandler = nil
+                return
+            }
+
+            guard let errorOutput = String(data: data, encoding: .utf8)
             else
             {
                 return
             }
 
-            guard !errorOutput.isEmpty, !errorOutput.containsAny(of: Container.shared.appConstants().disqualifyingSymbolsForTerminalOutputs) else { return }
+            guard !errorOutput.isEmpty,
+                  !errorOutput.containsAny(of: Container.shared.appConstants().disqualifyingSymbolsForTerminalOutputs)
+            else
+            {
+                return
+            }
 
-            continuation.yield(.standardError(errorOutput))
+            continuation.yield(.standardError(.init(rawOutput: errorOutput)))
         }
 
         task.terminationHandler = { _ in
+            pipe.fileHandleForReading.readabilityHandler = nil
+            errorPipe.fileHandleForReading.readabilityHandler = nil
             continuation.finish()
         }
     }
+
     return (stream, task)
 }

@@ -17,7 +17,7 @@ struct PackageAlreadyInstalledPill: View
                     text: .green,
                     background: .green.opacity(0.15)
                 ),
-                iconStyle: .iconIsShown
+                iconStyle: .iconIsHidden
             ))
     }
 }
