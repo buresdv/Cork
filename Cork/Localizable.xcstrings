@@ -332,7 +332,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "调试：记录待采用的软件包"
+            "value": "调试：记录即将纳入管理的软件包"
           }
         },
         "zh-Hant": {
@@ -1057,8 +1057,8 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
-            "value": "Tap"
+            "state": "translated",
+            "value": "Ketuk"
           }
         },
         "it": {
@@ -2629,8 +2629,8 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
-            "value": "Made the first approved pull request; fixed package counts, along with Jierong Li"
+            "state": "translated",
+            "value": "Membuat pull request pertama yang disetujui; memperbaiki hitungan paket, bersama dengan Jierong Li"
           }
         },
         "it": {
@@ -2741,7 +2741,7 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
+            "state": "translated",
             "value": "Andrey Radchishin"
           }
         },
@@ -2854,8 +2854,8 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
-            "value": "Added a way of going back to the Homebrew Status page"
+            "state": "translated",
+            "value": "Menambahkan cara untuk kembali ke halaman Status Homebrew"
           }
         },
         "it": {
@@ -2966,7 +2966,7 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
+            "state": "translated",
             "value": "Christian Tietze"
           }
         },
@@ -3079,8 +3079,8 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
-            "value": "Came up with many advanced logic optimizations, as well as continously offering valuable Swift support"
+            "state": "translated",
+            "value": "Mencetuskan banyak optimasi logika tingkat lanjut, serta terus memberikan dukungan Swift yang berharga"
           }
         },
         "it": {
@@ -3191,7 +3191,7 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
+            "state": "translated",
             "value": "Mike Simons"
           }
         },
@@ -3304,8 +3304,8 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
-            "value": "Created the Tuist configuration for compiling self-hosted versions"
+            "state": "translated",
+            "value": "Membuat konfigurasi Tuist untuk mengompilasi versi self-hosted"
           }
         },
         "it": {
@@ -3416,8 +3416,8 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
-            "value": "© %@ David Bureš and contributors"
+            "state": "translated",
+            "value": "© %@ David Bureš dan para kontributor"
           }
         },
         "it": {
@@ -3528,8 +3528,8 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
-            "value": "© %lld David Bureš and contributors"
+            "state": "translated",
+            "value": "© %lld David Bureš dan para kontributor"
           }
         },
         "it": {
@@ -3640,8 +3640,8 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
-            "value": "Packages Used"
+            "state": "translated",
+            "value": "Paket yang Digunakan"
           }
         },
         "it": {
@@ -3752,7 +3752,7 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
+            "state": "translated",
             "value": "DavidFoundation"
           }
         },
@@ -3865,8 +3865,8 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
-            "value": "My own package that provides some basic convenience features"
+            "state": "translated",
+            "value": "Paket saya sendiri yang menyediakan beberapa fitur kenyamanan dasar"
           }
         },
         "it": {
@@ -3977,7 +3977,7 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
+            "state": "translated",
             "value": "LaunchAtLogin"
           }
         },
@@ -4090,8 +4090,8 @@
         },
         "id": {
           "stringUnit": {
-            "state": "new",
-            "value": "A package that lets Cork start when you log in"
+            "state": "translated",
+            "value": "Paket yang membuat Cork otomatis terbuka begitu Anda masuk ke sistem"
           }
         },
         "it": {
@@ -4151,7 +4151,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "一个允许 Cork 登录时启动的软件包"
+            "value": "一个允许 Cork 在登录时启动的软件包"
           }
         },
         "zh-Hant": {
@@ -6624,7 +6624,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Status of outdated packaes"
+            "value": "可更新软件包状态"
           }
         },
         "zh-Hant": {
@@ -6736,7 +6736,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "List of outdated packages"
+            "value": "可更新软件包列表"
           }
         },
         "zh-Hant": {
@@ -6848,7 +6848,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Loading outdated packages"
+            "value": "正在加载可更新的软件包"
           }
         },
         "zh-Hant": {
@@ -6960,7 +6960,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Package of Cask type"
+            "value": "图形化应用软件包"
           }
         },
         "zh-Hant": {
@@ -7072,7 +7072,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Package of Formula type"
+            "value": "命令行工具软件包"
           }
         },
         "zh-Hant": {
@@ -7184,7 +7184,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Package of an unimplemented type"
+            "value": "未实现类型的软件包"
           }
         },
         "zh-Hant": {
@@ -7296,7 +7296,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Package of an unknown type"
+            "value": "未知类型的软件包"
           }
         },
         "zh-Hant": {
@@ -7408,7 +7408,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Return to status page"
+            "value": "返回状态页面"
           }
         },
         "zh-Hant": {
@@ -7521,7 +7521,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "List of installed packages"
+            "value": "已安装软件包列表"
           }
         },
         "zh-Hant": {
@@ -7633,7 +7633,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "List of installed Casks"
+            "value": "已安装图形化应用列表"
           }
         },
         "zh-Hant": {
@@ -7745,7 +7745,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "List of installed Formulae"
+            "value": "已安装命令行工具列表"
           }
         },
         "zh-Hant": {
@@ -7857,7 +7857,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lld outdated packages managed by Homebrew and %lld outdated packages not managed by Homebrew"
+            "value": "Homebrew 管理的可更新软件包 %lld 个，非 Homebrew 管理的可更新软件包 %lld 个"
           }
         },
         "zh-Hant": {
@@ -8083,7 +8083,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Adopt"
+            "value": "接管"
           }
         },
         "zh-Hant": {
@@ -8196,7 +8196,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Adopt %@"
+            "value": "接管 %@"
           }
         },
         "zh-Hant": {
@@ -8310,7 +8310,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Add"
+            "value": "添加"
           }
         },
         "zh-Hant": {
@@ -8422,7 +8422,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Add apps to Homebrew"
+            "value": "添加应用到 Homebrew"
           }
         },
         "zh-Hant": {
@@ -8749,7 +8749,7 @@
               "other": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "Add %lld apps"
+                  "value": "添加 %lld 个应用"
                 }
               }
             }
@@ -9100,7 +9100,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Cancel and disable mass app adoption"
+            "value": "取消并禁用批量应用接管"
           }
         },
         "zh-Hant": {
@@ -9212,7 +9212,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Check for Updates…"
+            "value": "正在检查更新…"
           }
         },
         "zh-Hant": {
@@ -9324,7 +9324,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Check for outdated packages"
+            "value": "检查可更新软件包"
           }
         },
         "zh-Hant": {
@@ -10560,7 +10560,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Hide section…"
+            "value": "隐藏区域…"
           }
         },
         "zh-Hant": {
@@ -10672,7 +10672,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Hide section"
+            "value": "隐藏区域"
           }
         },
         "zh-Hant": {
@@ -10786,7 +10786,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "隐藏可接管软件包搜索框"
+            "value": "隐藏可接管软件包的搜索栏"
           }
         },
         "zh-Hant": {
@@ -11010,7 +11010,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Installed packages"
+            "value": "已安装的软件包"
           }
         },
         "zh-Hant": {
@@ -11122,7 +11122,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "打开%@"
+            "value": "打开 %@"
           }
         },
         "zh-Hant": {
@@ -11234,7 +11234,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "打开%@详情"
+            "value": "打开 %@ 详情"
           }
         },
         "zh-Hant": {
@@ -11460,7 +11460,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ignore %@"
+            "value": "忽略 %@"
           }
         },
         "zh-Hant": {
@@ -11574,7 +11574,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Stop ignoring %@"
+            "value": "停止忽略 %@"
           }
         },
         "zh-Hant": {
@@ -11688,7 +11688,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Preview %@"
+            "value": "预览 %@"
           }
         },
         "zh-Hant": {
@@ -11800,7 +11800,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "预览%@"
+            "value": "预览 %@"
           }
         },
         "zh-Hant": {
@@ -13035,7 +13035,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "将可执行文件重置为默认路径"
+            "value": "将可执行文件路径重置为默认位置"
           }
         },
         "zh-Hant": {
@@ -13261,7 +13261,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Reveal %@ in Finder"
+            "value": "在访达中显示 %@"
           }
         },
         "zh-Hant": {
@@ -13936,7 +13936,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Show less"
+            "value": "显示更少"
           }
         },
         "zh-Hant": {
@@ -14050,7 +14050,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Show more"
+            "value": "显示更多"
           }
         },
         "zh-Hant": {
@@ -14164,7 +14164,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "显示搜索框"
+            "value": "显示搜索栏"
           }
         },
         "zh-Hant": {
@@ -14278,7 +14278,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "显示可接管软件包搜索框"
+            "value": "显示可接管软件包的搜索栏"
           }
         },
         "zh-Hant": {
@@ -14841,7 +14841,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "更新 Homebrew 及所有包"
+            "value": "更新 Homebrew 及所有软件包"
           }
         },
         "zh-Hant": {
@@ -15065,7 +15065,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "在没有通知的情况下使用 Cork"
+            "value": "在不开启通知的情况下使用 Cork"
           }
         },
         "zh-Hant": {
@@ -15177,7 +15177,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "此操作无法撤销"
+            "value": "此操作无法被撤销"
           }
         },
         "zh-Hant": {
@@ -15404,7 +15404,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "无法安装%@ %@"
+            "value": "无法安装 %@ %@"
           }
         },
         "zh-Hant": {
@@ -15518,7 +15518,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "尽管%@可能并未安装失败，仍建议检查下方的意外输出列表"
+            "value": "虽然这不一定表示 %@ 未安装，但你应该检查下面的意外输出"
           }
         },
         "zh-Hant": {
@@ -15857,7 +15857,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "无法安装包"
+            "value": "无法安装软件包"
           }
         },
         "zh-Hant": {
@@ -16311,7 +16311,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "请尝试重新安装软件包或重启 Cork\n如果问题仍然存在，请重启您的 Mac"
+            "value": "请尝试重新安装软件包或重启 Cork\n如果问题仍然存在，请重启你的 Mac"
           }
         },
         "zh-Hant": {
@@ -17097,8 +17097,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "Package was installed outside of Homebrew"
+            "state": "translated",
+            "value": "软件包未通过 Homebrew 安装"
           }
         },
         "zh-Hant": {
@@ -17322,8 +17322,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "You can either delete the app from the Applications folder and install it as a Cask, or adopt it from Cork’s Start Page.\nIf you decide to adopt the app into Homebrew, you must first turn on App Adoption in Cork’s Settings. This option is available under “Discoverability”"
+            "state": "translated",
+            "value": "你可以从应用程序文件夹中删除该应用，然后以图形化应用的形式重新安装，或者从 Cork 的起始页中将其接管。\n如果你决定将该应用接管至 Homebrew，则必须先在 Cork 的设置中开启应用接管功能。该选项位于“自动检测”中"
           }
         },
         "zh-Hant": {
