@@ -119,7 +119,8 @@ private struct TerminalOutputLineView: View
         {
             HStack(alignment: .center, spacing: 3)
             {
-                switch outputLine {
+                switch outputLine
+                {
                 case .standardOutput(let terminalOutputLine), .standardError(let terminalOutputLine):
                     Text(terminalOutputLine.timestamp.formatted(date: .omitted, time: .shortened))
                         .font(.caption)
@@ -130,8 +131,22 @@ private struct TerminalOutputLineView: View
 
                 if case .standardError = outputLine
                 {
-                    Label("error.label", systemImage: "exclamationmark.triangle")
+                    Image(nsImage: NSImage(named: NSImage.cautionName)!)
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                    
+                    // TODO: Implement this nicer look
+                    /*
+                    Label
+                    {
+                        Text(LocalizedStringResource("error.label", table: "Localizable-Terminal"))
+                    } icon: {
+                        Image(systemName: "exclamationmark.triangle")
+                    }
                         .labelStyle(.pill(color: .init(text: .white, background: .init(nsColor: .systemOrange)), iconStyle: .iconIsHidden))
+                     */
+                    
+                    
                 }
             }
 

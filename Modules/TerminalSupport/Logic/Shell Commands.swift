@@ -202,13 +202,21 @@ public func shell(
     return AsyncStream
     { continuation in
         pipe.fileHandleForReading.readabilityHandler = { handler in
-            guard let standardOutput = String(data: handler.availableData, encoding: .utf8)
+            let data = handler.availableData
+            if data.isEmpty
+            {
+                handler.readabilityHandler = nil
+                return
+            }
+
+            guard let standardOutput = String(data: data, encoding: .utf8)
             else
             {
                 return
             }
 
-            guard !standardOutput.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty, !standardOutput.containsAny(of: Container.shared.appConstants().disqualifyingSymbolsForTerminalOutputs)
+            guard !standardOutput.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
+                  !standardOutput.containsAny(of: Container.shared.appConstants().disqualifyingSymbolsForTerminalOutputs)
             else
             {
                 AppConstants.shared.logger.debug("""
@@ -224,18 +232,32 @@ public func shell(
         }
 
         errorPipe.fileHandleForReading.readabilityHandler = { handler in
-            guard let errorOutput = String(data: handler.availableData, encoding: .utf8)
+            let data = handler.availableData
+            if data.isEmpty
+            {
+                handler.readabilityHandler = nil
+                return
+            }
+
+            guard let errorOutput = String(data: data, encoding: .utf8)
             else
             {
                 return
             }
 
-            guard !errorOutput.isEmpty, !errorOutput.containsAny(of: Container.shared.appConstants().disqualifyingSymbolsForTerminalOutputs) else { return }
+            guard !errorOutput.isEmpty,
+                  !errorOutput.containsAny(of: Container.shared.appConstants().disqualifyingSymbolsForTerminalOutputs)
+            else
+            {
+                return
+            }
 
             continuation.yield(.standardError(.init(rawOutput: errorOutput)))
         }
 
         task.terminationHandler = { _ in
+            pipe.fileHandleForReading.readabilityHandler = nil
+            errorPipe.fileHandleForReading.readabilityHandler = nil
             continuation.finish()
         }
     }

@@ -14645,10 +14645,24 @@
       }
     },
     "add-package.%@.probably-installed.had-errors.title" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Package %@ was likely installed"
+          }
+        }
+      }
     },
     "add-package.%@.probably-installed.no-errors.title" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Package %@ was likely installed"
+          }
+        }
+      }
     },
     "add-package.clear-brew-locks" : {
       "extractionState" : "stale",
@@ -20164,10 +20178,24 @@
       }
     },
     "add-package.probably-installed.had-errors.description" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "There were some unexpected outputs, and some of them were errors.\nYou can read them below to decide if they are serious."
+          }
+        }
+      }
     },
     "add-package.probably-installed.no-errors.description" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "There were some unexpected outputs.\nYou can read them below to decide if they are serious."
+          }
+        }
+      }
     },
     "add-package.result.already-installed" : {
       "localizations" : {
@@ -34776,7 +34804,7 @@
       }
     },
     "DEBUG: Unexpected missing string" : {
-
+      "shouldTranslate" : false
     },
     "debug.action.activate-demo" : {
       "localizations" : {
@@ -34891,7 +34919,7 @@
       }
     },
     "debug.action.insert-debug-element-into-outdated-package-tracker" : {
-
+      "shouldTranslate" : false
     },
     "debug.action.licensing" : {
       "localizations" : {

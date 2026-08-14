@@ -126,6 +126,9 @@ let corkTerminalFunctionsTarget: ProjectDescription.Target = .target(
     sources: [
         .glob("Modules/TerminalSupport/**/*.swift", excluding: ["Modules/TerminalSupport/Tests/**"])
     ],
+    resources: [
+        "Modules/TerminalSupport/**/*.xcstrings"
+    ],
     dependencies: [
         .target(corkSharedTarget),
         .external(name: "FactoryKit")

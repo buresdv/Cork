@@ -39,7 +39,8 @@ struct ComplexWithImage<Content: View>: View
         {
             image
                 .resizable()
-                .frame(width: 75, height: 75)
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 50)
                 .foregroundColor(.secondary)
 
             content

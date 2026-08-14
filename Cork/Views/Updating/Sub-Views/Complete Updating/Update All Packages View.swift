@@ -114,7 +114,7 @@ struct UpdateAllPackagesView: View
                 return .none
             }
             
-            if splitError.error.contains("It seems there is already an App at")
+            if splitError.error.contains("It seems there is already an App at") || splitError.error.contains("Permission denied @ dir")
             {
                 let pathRetrievalRegex: Regex = /'(.*?)'/
                 
@@ -124,12 +124,18 @@ struct UpdateAllPackagesView: View
                         error: .thereIsAlreadyAppAtPath(path: String(match.1))
                     )
                 } else {
-                    return .unimplemented(failedPackage: packageFromTracker, rawOutput: splitError.error)
+                    let probableFullErrorLine: String = errorTextWithoutContextLine.first(where: { $0.contains(packageFromTracker.package.name(withPrecision: .general)) }) ?? splitErrorText.joined(separator: "\n")
+                    
+                    return .unimplemented(
+                        failedPackage: packageFromTracker,
+                        rawOutput: probableFullErrorLine)
                 }
             }
             else
             {
-                return .unimplemented(failedPackage: packageFromTracker, rawOutput: splitError.error)
+                let probableFullErrorLine: String = errorTextWithoutContextLine.first(where: { $0.contains(packageFromTracker.package.name(withPrecision: .general)) }) ?? splitErrorText.joined(separator: "\n")
+                
+                return .unimplemented(failedPackage: packageFromTracker, rawOutput: probableFullErrorLine)
             }
         }
         

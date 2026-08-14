@@ -21,4 +21,3 @@ struct SheetTemplate<Content: View>: View
             .frame(minWidth: 300)
     }
 }
-

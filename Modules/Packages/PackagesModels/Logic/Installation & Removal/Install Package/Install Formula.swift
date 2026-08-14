@@ -145,7 +145,14 @@ extension InstallationProgressTracker
                 }
                 else
                 {
-                    consolidatedUnimplementedOutput.append(output)
+                    if !output.description.containsAny(of: ["Downloading bottle manifests"])
+                    {
+                        consolidatedUnimplementedOutput.append(output)
+                    }
+                    else
+                    {
+                        AppConstants.shared.logger.info("Hit disqualifying output: \(output.description)")
+                    }
                 }
 
                 switch self.installStage
