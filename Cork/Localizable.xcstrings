@@ -15518,7 +15518,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "虽然这不一定表示 %@ 未安装，但你应该检查下面的意外输出"
+            "value": "虽然这不一定表示 %@ 未安装，但你应该检查下方的意外输出"
           }
         },
         "zh-Hant": {
@@ -17547,8 +17547,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "Cask %1$@ conflicts with %2$@"
+            "state": "translated",
+            "value": "图形化应用 %1$@ 与 %2$@ 发生冲突"
           }
         },
         "zh-Hant": {
@@ -17659,8 +17659,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "Pick one of the casks to keep"
+            "state": "translated",
+            "value": "选择并保留其中的一个图形化应用"
           }
         },
         "zh-Hant": {
@@ -17771,8 +17771,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "An already-installed Cask conflicts with the Cask you were trying to install"
+            "state": "translated",
+            "value": "一个已安装的图像化应用与你尝试安装的图形化应用发生冲突"
           }
         },
         "zh-Hant": {
@@ -17883,8 +17883,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "Uninstall any Cask that shares a similar name with the Cask you were trying to install, then try again."
+            "state": "translated",
+            "value": "卸载任何与你尝试安装的图形化应用具有相似名称的图形化应用，随后再尝试一次。"
           }
         },
         "zh-Hant": {
@@ -17995,8 +17995,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "The installation process encountered unexpected outputs."
+            "state": "translated",
+            "value": "安装过程中遇到意外输出。"
           }
         },
         "zh-Hant": {
@@ -18107,8 +18107,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "Inspect the outputs below, then try again after you resolve the issues."
+            "state": "translated",
+            "value": "检查下方的输出，随后在你解决这些问题后重新尝试。"
           }
         },
         "zh-Hant": {
@@ -18220,7 +18220,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "下载 %@ 中…"
+            "value": "正在下载 %@…"
           }
         },
         "zh-Hant": {
@@ -18331,8 +18331,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "Downloading %@"
+            "state": "translated",
+            "value": "正在下载 %@"
           }
         },
         "zh-Hant": {
@@ -18444,7 +18444,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "获取依赖中…"
+            "value": "正在获取依赖…"
           }
         },
         "zh-Hant": {
@@ -19008,7 +19008,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "包安装意外停止"
+            "value": "软件包安装意外停止"
           }
         },
         "zh-Hant": {
@@ -19120,7 +19120,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "安装 %@…"
+            "value": "正在安装 %@…"
           }
         },
         "zh-Hant": {
@@ -19456,8 +19456,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "Installing %@"
+            "state": "translated",
+            "value": "正在安装 %@"
           }
         },
         "zh-Hant": {
@@ -19570,7 +19570,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "链接二进制文件…"
+            "value": "正在链接二进制文件…"
           }
         },
         "zh-Hant": {
@@ -19681,8 +19681,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "Linking %@"
+            "state": "translated",
+            "value": "正在链接 %@"
           }
         },
         "zh-Hant": {
@@ -19794,7 +19794,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "加载依赖…"
+            "value": "正在加载依赖…"
           }
         },
         "zh-Hant": {
@@ -20018,7 +20018,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "构建依赖关系图…"
+            "value": "正在构建依赖关系图…"
           }
         },
         "zh-Hant": {
@@ -20129,8 +20129,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "Superuser password is required to complete the install process"
+            "state": "translated",
+            "value": "需要管理员密码以完成安装过程"
           }
         },
         "zh-Hant": {
@@ -20356,7 +20356,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "您需要通过终端安装此软件包。\n请使用下方的命令。"
+            "value": "你需要通过终端安装此软件包。\n使用下方的命令。"
           }
         },
         "zh-Hant": {
@@ -20467,8 +20467,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "There are many reasons why Homebrew might not have received your password, but it’s usually due to an unimplemented change in Homebrew itself.\nTry installing the Package again, or using the Terminal to install it."
+            "state": "translated",
+            "value": "Homebrew 无法接收到你的密码，原因有很多种，但通常是因为 Homebrew 本身存在某项未实现的改动导致的。\n尝试重新安装软件包，或通过终端安装。"
           }
         },
         "zh-Hant": {
@@ -20691,8 +20691,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "The Package you’re trying to install is made for a different Mac architecture."
+            "state": "translated",
+            "value": "你正在尝试安装的软件包是为另一种苹果电脑架构设计的。"
           }
         },
         "zh-Hant": {
@@ -21366,8 +21366,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "There were too many outputs to safely read the Package’s description.\nPlease check the received output for more information:\n%@"
+            "state": "translated",
+            "value": "该软件包的简介因输出内容过多而无法安全读取。\n请查看以下收到的输出以获取更多信息：\n%@"
           }
         },
         "zh-Hant": {
@@ -21478,8 +21478,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "There were too many outputs."
+            "state": "translated",
+            "value": "输出过多。"
           }
         },
         "zh-Hant": {
@@ -21819,7 +21819,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "加载简介…"
+            "value": "正在加载简介…"
           }
         },
         "zh-Hant": {
@@ -21932,7 +21932,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "无法载入详细信息"
+            "value": "无法载入简介"
           }
         },
         "zh-Hant": {
@@ -22495,7 +22495,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "找到以下 Cask"
+            "value": "找到以下图形化应用"
           }
         },
         "zh-Hant": {
@@ -22607,7 +22607,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "未找到 Cask"
+            "value": "未找到图形化应用"
           }
         },
         "zh-Hant": {
