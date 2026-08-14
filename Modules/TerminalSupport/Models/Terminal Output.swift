@@ -5,29 +5,62 @@
 //  Created by David Bureš - P on 28.10.2025.
 //
 
+import CorkShared
 import Foundation
 import SwiftUI
-import CorkShared
 
 public enum TerminalOutput: Identifiable, Hashable, Equatable, Sendable, CustomStringConvertible
 {
-    public var id: Self
+    public var id: UUID
     {
-        return self
+        switch self
+        {
+        case .standardOutput(let terminalOutputLine), .standardError(let terminalOutputLine):
+            return terminalOutputLine.id
+        }
     }
 
-    case standardOutput(String)
-    case standardError(String)
+    public struct TerminalOutputLine: Identifiable, Hashable, Equatable, Sendable, CustomStringConvertible
+    {
+        public let id: UUID
+
+        public let rawOutput: String
+
+        public let timestamp: Date
+
+        public init(rawOutput: String)
+        {
+            self.id = .init()
+            self.rawOutput = rawOutput
+            self.timestamp = .now
+        }
+
+        public var description: String
+        {
+            return self.rawOutput
+        }
+    }
+
+    case standardOutput(TerminalOutputLine)
+    case standardError(TerminalOutputLine)
 
     public var description: String
     {
         switch self
         {
-        case .standardOutput(let outputString):
-            return outputString
-        case .standardError(let errorString):
-            return errorString
+        case .standardOutput(let output): return output.rawOutput
+        case .standardError(let output): return output.rawOutput
         }
+    }
+
+    public init(standardOutput rawOutput: String)
+    {
+        self = .standardOutput(.init(rawOutput: rawOutput))
+    }
+
+    public init(standardError rawOutput: String)
+    {
+        self = .standardError(.init(rawOutput: rawOutput))
     }
 
     public var containsErrors: Bool
@@ -35,48 +68,102 @@ public enum TerminalOutput: Identifiable, Hashable, Equatable, Sendable, CustomS
         if case .standardError = self { return true }
         return false
     }
-    
+
     @ViewBuilder
     public var outputView: some View
     {
-        Group
+        TerminalOutputLineView(outputLine: self)
+    }
+}
+
+// MARK: - Formatter
+
+public struct TerminalOutputLineFormatStyle: FormatStyle, Sendable
+{
+    public typealias FormatInput = TerminalOutput.TerminalOutputLine
+    public typealias FormatOutput = String
+
+    public init() {}
+
+    public func format(_ value: FormatInput) -> FormatOutput
+    {
+        return value.rawOutput
+    }
+}
+
+public extension FormatStyle where Self == TerminalOutputLineFormatStyle
+{
+    static var terminalOutputLine: TerminalOutputLineFormatStyle
+    {
+        return TerminalOutputLineFormatStyle()
+    }
+}
+
+public extension TerminalOutput.TerminalOutputLine
+{
+    func formatted() -> String
+    {
+        return TerminalOutputLineFormatStyle().format(self)
+    }
+}
+
+// MARK: - Views
+
+private struct TerminalOutputLineView: View
+{
+    let outputLine: TerminalOutput
+
+    var body: some View
+    {
+        VStack(alignment: .leading, spacing: 5)
         {
-            switch self
+            HStack(alignment: .center, spacing: 3)
             {
-            case .standardOutput(let string):
-                HStack(alignment: .center, spacing: 5)
+                switch outputLine
                 {
-                    Text(string)
+                case .standardOutput(let terminalOutputLine), .standardError(let terminalOutputLine):
+                    Text(terminalOutputLine.timestamp.formatted(date: .omitted, time: .shortened))
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
                 }
-            case .standardError(let string):
-                HStack(alignment: .center, spacing: 5)
+                
+                Spacer()
+
+                if case .standardError = outputLine
                 {
-                    if let cautionImage = NSImage(named: NSImage.cautionName)
-                    {
-                        Image(nsImage: cautionImage)
-                    }
-                    else
-                    {
-                        Image(systemName: "exclamationmark.triangle")
-                            .foregroundStyle(.orange)
-                    }
+                    Image(nsImage: NSImage(named: NSImage.cautionName)!)
+                        .resizable()
+                        .frame(width: 20, height: 20)
                     
-                    Text(string)
+                    // TODO: Implement this nicer look
+                    /*
+                    Label
+                    {
+                        Text(LocalizedStringResource("error.label", table: "Localizable-Terminal"))
+                    } icon: {
+                        Image(systemName: "exclamationmark.triangle")
+                    }
+                        .labelStyle(.pill(color: .init(text: .white, background: .init(nsColor: .systemOrange)), iconStyle: .iconIsHidden))
+                     */
+                    
+                    
                 }
             }
+
+            Text(outputLine.description)
         }
         .lineLimit(nil)
         .fixedSize(horizontal: false, vertical: true)
-        .contextMenu {
+        .contextMenu
+        {
             Button
             {
-                let pasteboard: NSPasteboard = NSPasteboard.general
+                let pasteboard: NSPasteboard = .general
                 pasteboard.declareTypes([.string], owner: nil)
-                pasteboard.setString(self.description, forType: .string)
+                pasteboard.setString(outputLine.description, forType: .string)
             } label: {
                 Text("action.copy")
             }
-
         }
     }
 }
@@ -88,9 +175,9 @@ public extension [TerminalOutput]
     {
         return self.compactMap
         { terminalOutput in
-            if case .standardOutput(let outputString) = terminalOutput
+            if case .standardOutput(let terminalOutputLine) = terminalOutput
             {
-                return outputString
+                return terminalOutputLine.rawOutput
             }
             else
             {
@@ -104,9 +191,9 @@ public extension [TerminalOutput]
     {
         return self.compactMap
         { terminalError in
-            if case .standardError(let errorString) = terminalError
+            if case .standardError(let terminalOutputLine) = terminalError
             {
-                return errorString
+                return terminalOutputLine.rawOutput
             }
             else
             {
@@ -144,15 +231,15 @@ public extension [TerminalOutput]
         { terminalOutput in
             switch terminalOutput
             {
-            case .standardOutput(let outputString):
+            case .standardOutput(let outputLine):
                 let shouldSearchInStandardOutputs: Bool = outputTypes.contains(.standardOutputs)
-                let outputContainsSearchString: Bool = outputString.contains(searchString)
+                let outputContainsSearchString: Bool = outputLine.rawOutput.contains(searchString)
 
                 return shouldSearchInStandardOutputs && outputContainsSearchString
 
-            case .standardError(let errorString):
+            case .standardError(let errorLine):
                 let shouldSearchInErrorOutputs: Bool = outputTypes.contains(.standardErrors)
-                let outputContainsSearchString: Bool = errorString.contains(searchString)
+                let outputContainsSearchString: Bool = errorLine.rawOutput.contains(searchString)
 
                 return shouldSearchInErrorOutputs && outputContainsSearchString
             }
@@ -188,16 +275,30 @@ public extension [TerminalOutput]
 
 public extension [TerminalOutput]
 {
-    /// Standardized look for 
+    /// Standardized look for a list of terminal outputs
     @ViewBuilder
     var outputView: some View
     {
-        List(self)
-        { rawOutput in
-            rawOutput.outputView
+        TerminalOutputList(allOutputs: self)
+    }
+}
+
+private struct TerminalOutputList: View
+{
+    let allOutputs: [TerminalOutput]
+
+    var body: some View
+    {
+        List
+        {
+            ForEach(allOutputs)
+            { rawOutput in
+                TerminalOutputLineView(outputLine: rawOutput)
+                    .id(rawOutput.id)
+            }
         }
         .listStyle(.bordered)
         .alternatingRowBackgrounds(.enabled)
-        .frame(minWidth: 200, minHeight: 100)
+        .frame(minWidth: 200, minHeight: 150, maxHeight: 400)
     }
 }

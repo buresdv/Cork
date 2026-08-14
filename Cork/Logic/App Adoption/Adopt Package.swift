@@ -70,12 +70,12 @@ extension MassAppAdoptionView.MassAppAdoptionTacker
                 {
                     case mismatchedVersions
 
-                    var patterns: [String]
+                    var patterns: [Regex<AnyRegexOutput>]
                     {
                         switch self
                         {
                         case .mismatchedVersions:
-                            ["It seems the existing App is different from the one being installed"]
+                            [.init(#/It seems the existing App is different from the one being installed/#)]
                         }
                     }
                 }

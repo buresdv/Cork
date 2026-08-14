@@ -17,7 +17,7 @@ struct AddTapErrorView: View
 
     var body: some View
     {
-        ComplexWithIcon(systemName: "xmark.seal")
+        ComplexWithImage(image: .init(systemName: "xmark.seal"))
         {
             VStack(alignment: .leading, spacing: 10)
             {

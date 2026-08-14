@@ -82,14 +82,14 @@ struct SearchResultRow: View, Sendable
                     {
                         if brewPackagesTracker.successfullyLoadedFormulae.contains(where: { $0.getCompletePackageName() == package.internalName })
                         {
-                            PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
+                            PackageAlreadyInstalledPill()
                         }
                     }
                     else
                     {
                         if brewPackagesTracker.successfullyLoadedCasks.contains(where: { $0.getCompletePackageName() == package.internalName })
                         {
-                            PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
+                            PackageAlreadyInstalledPill()
                         }
                     }
 

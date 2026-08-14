@@ -80,7 +80,8 @@ extension InstallationProgressTracker
 
         if !consolidatedUnimplementedOutput.isEmpty
         {
-            throw .implemented(.couldNotInstallCask(.unimplelented(rawOutput: consolidatedUnimplementedOutput)))
+            
+            throw .implemented(.containedUnexpectedOutputs(unexpectedOutputs: consolidatedUnimplementedOutput))
         }
     }
 

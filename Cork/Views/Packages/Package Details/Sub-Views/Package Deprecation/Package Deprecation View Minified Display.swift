@@ -37,9 +37,7 @@ struct PackageDeprecationViewMinifiedDisplay: View
         {
             if caveatDisplayOptions == .mini
             {
-                OutlinedPill(content: {
-                    Label(outlinedPillText, systemImage: "exclamationmark.triangle.fill")
-                }, color: .orange)
+                StatusPill(localizedText: outlinedPillText, systemImage: "exclamationmark.triangle.fill", color: .orange)
                     .onTapGesture
                     {
                         isShowingDeprecationReason = true

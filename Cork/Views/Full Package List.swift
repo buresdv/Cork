@@ -58,7 +58,7 @@ struct FullPackageList: View
 
                             if isPackageAlreadyInstalled
                             {
-                                PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
+                                PackageAlreadyInstalledPill()
                             }
                         }
                     }

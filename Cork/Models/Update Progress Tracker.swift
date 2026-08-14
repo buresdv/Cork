@@ -93,20 +93,20 @@ public class UpdateProgressTracker: @MainActor TerminalOutputStreamable
             case backingUp = "update-packages.detail-stage.backing-up"
             case linking = "update-packages.detail-stage.linking"
 
-            public var patterns: [String]
+            public var patterns: [Regex<AnyRegexOutput>]
             {
                 switch self
                 {
                 case .downloading:
-                    ["Downloading", "Fetching"]
+                    [.init(#/Downloading/#), .init(#/Fetching/#)]
                 case .pouring:
-                    ["Pouring", "Running installer", "Upgrading"]
+                    [.init(#/Pouring/#), .init(#/Running installer/#), .init(#/Upgrading/#)]
                 case .cleanup:
-                    ["cleanup", "Removing", "Unlinking", "Uninstalling", "Purging"]
+                    [.init(#/cleanup/#), .init(#/Removing/#), .init(#/Unlinking/#), .init(#/Uninstalling/#), .init(#/Purging/#)]
                 case .backingUp:
-                    ["Backing"]
+                    [.init(#/Backing/#)]
                 case .linking:
-                    ["Moving", "Linking"]
+                    [.init(#/Moving/#), .init(#/Linking/#)]
                 }
             }
 
@@ -119,13 +119,13 @@ public class UpdateProgressTracker: @MainActor TerminalOutputStreamable
         public enum ErrorCases: TerminalOutputCase
         {
             case multipleUpdatesFailed
-            
-            public var patterns: [String]
+
+            public var patterns: [Regex<AnyRegexOutput>]
             {
                 switch self
                 {
                 case .multipleUpdatesFailed:
-                    ["Problems with multiple casks", "Problems with multiple formulae"]
+                    [.init(#/Problems with multiple casks/#), .init(#/Problems with multiple formulae/#)]
                 }
             }
         }
@@ -142,19 +142,19 @@ public class UpdateProgressTracker: @MainActor TerminalOutputStreamable
             case applicationQuitSuccessfully
             case reopeningApplication
 
-            public var patterns: [String]
+            public var patterns: [Regex<AnyRegexOutput>]
             {
                 switch self
                 {
-                case .updateOverview: ["Would upgrade \\d+ outdated packages", "Upgrading \\d+ outdated packages"]
-                case .tapUpdate: ["tap"]
-                case .noChecksumDefined: ["No checksum defined for"]
-                case .updateResultsSummary: ["Upgraded \\d+ outdated packages"]
-                case .additionalTools: ["includes additional tools and libraries not included in the regular"]
-                case .completionsInstalledToPath: ["completions have been installed to"]
-                case .quittingApplication: ["Quitting application"]
-                case .applicationQuitSuccessfully: ["quit successfully"]
-                case .reopeningApplication: ["application closed during upgrade"]
+                case .updateOverview: [.init(#/Would upgrade \d+ outdated packages/#), .init(#/Upgrading \d+ outdated packages/#)]
+                case .tapUpdate: [.init(#/tap/#)]
+                case .noChecksumDefined: [.init(#/No checksum defined for/#)]
+                case .updateResultsSummary: [.init(#/Upgraded \d+ outdated packages/#)]
+                case .additionalTools: [.init(#/includes additional tools and libraries not included in the regular/#)]
+                case .completionsInstalledToPath: [.init(#/completions have been installed to/#)]
+                case .quittingApplication: [.init(#/Quitting application/#)]
+                case .applicationQuitSuccessfully: [.init(#/quit successfully/#)]
+                case .reopeningApplication: [.init(#/application closed during upgrade/#)]
                 }
             }
         }
@@ -168,16 +168,16 @@ public class UpdateProgressTracker: @MainActor TerminalOutputStreamable
             case installingUpdate
             case cleaningUp
 
-            public var patterns: [String]
+            public var patterns: [Regex<AnyRegexOutput>]
             {
                 switch self
                 {
                 case .downloading:
-                    ["Fetching"]
+                    [.init(#/Fetching/#)]
                 case .installingUpdate:
-                    ["Reinstalling", "Installing", "Pouring"]
+                    [.init(#/Reinstalling/#), .init(#/Installing/#), .init(#/Pouring/#)]
                 case .cleaningUp:
-                    ["cleanup", "Uninstalling Cask", "Uninstalling Formula", "Removing App"]
+                    [.init(#/cleanup/#), .init(#/Uninstalling Cask/#), .init(#/Uninstalling Formula/#), .init(#/Removing App/#)]
                 }
             }
 
@@ -203,23 +203,32 @@ public class UpdateProgressTracker: @MainActor TerminalOutputStreamable
             /// Expects password
             case terminalRequired
 
-            public var patterns: [String]
+            public var patterns: [Regex<AnyRegexOutput>]
             {
                 switch self
                 {
                 case .postInstallStepFailed:
-                    ["post-install step did not complete successfully"]
+                    [.init(#/post-install step did not complete successfully/#)]
                 case .terminalRequired:
-                    ["a terminal is required to read the password"]
+                    [.init(#/a terminal is required to read the password/#)]
                 }
             }
         }
 
         public enum IgnoredCases: TerminalOutputCase
         {
-            public var patterns: [String]
+            case caveats
+            case overridingSuccessfully
+
+            public var patterns: [Regex<AnyRegexOutput>]
             {
-                ["Caveats"]
+                switch self
+                {
+                case .caveats:
+                    [.init(#/Caveats/#)]
+                case .overridingSuccessfully:
+                    [.init(#/It seems there is already an App at.*overwriting/#)]
+                }
             }
         }
     }

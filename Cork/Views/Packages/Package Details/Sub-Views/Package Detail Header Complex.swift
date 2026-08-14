@@ -29,15 +29,8 @@ struct PackageDetailHeaderComplex: View
         {
             HStack(alignment: .firstTextBaseline, spacing: 5)
             {
-                SanitizedPackageName(package: package, shouldShowVersion: false)
+                package.nameView(withComponents: .boundVersion, .installedVersions(package.versions))
                     .font(.title)
-                
-                if !package.versions.isEmpty
-                {
-                    Text("v. \(package.getFormattedVersions())")
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                }
 
                 if let dynamicPinnedStatus = brewPackagesTracker.successfullyLoadedFormulae.filter({ $0.id == package.id }).first {
                     if dynamicPinnedStatus.isPinned
@@ -86,9 +79,7 @@ struct PackageDetailHeaderComplex: View
     {
         if packageDetails.outdated
         {
-            OutlinedPill(content: {
-                Label("package-details.outdated", systemImage: "clock")
-            }, color: .teal)
+            StatusPill(localizedText: "package-details.outdated", systemImage: "clock", color: .teal)
         }
     }
 }

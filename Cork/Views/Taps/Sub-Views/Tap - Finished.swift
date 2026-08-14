@@ -21,7 +21,7 @@ struct AddTapFinishedView: View
 
     var body: some View
     {
-        ComplexWithIcon(systemName: "checkmark.seal")
+        ComplexWithImage(image: .init(systemName: "checkmark.seal"))
         {
             DisappearableSheet
             {

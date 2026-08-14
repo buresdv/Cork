@@ -55,15 +55,33 @@ struct OutdatedPackageListBoxRow: View
                 let newerVersion: String = outdatedPackage.newerVersion
 
                 let pillForegroundColor: NSColor = .secondaryLabelColor
-                let pillBackgroundColor: NSColor = .quinaryLabel
+                let pillBackgroundColor: NSColor = .secondarySystemFill
 
                 if showOldVersionsInOutdatedPackageList
                 {
-                    PillText(text: "\(installedVersions) → \(newerVersion)", backgroundColor: pillBackgroundColor, textColor: pillForegroundColor)
+                    Label("\(installedVersions) → \(newerVersion)", systemImage: "arrow.up")
+                        .labelStyle(
+                            .pill(
+                                color: .init(
+                                    text: .init(nsColor: pillForegroundColor),
+                                    background: .init(nsColor: pillBackgroundColor)
+                                ),
+                                iconStyle: .iconIsHidden
+                            )
+                        )
                 }
                 else
                 {
-                    PillText(text: "\(newerVersion)", backgroundColor: pillBackgroundColor, textColor: pillForegroundColor)
+                    Label("\(newerVersion)", systemImage: "arrow.up")
+                        .labelStyle(
+                            .pill(
+                                color: .init(
+                                    text: .init(nsColor: pillForegroundColor),
+                                    background: .init(nsColor: pillBackgroundColor)
+                                ),
+                                iconStyle: .iconIsHidden
+                            )
+                        )
                 }
             }
         }

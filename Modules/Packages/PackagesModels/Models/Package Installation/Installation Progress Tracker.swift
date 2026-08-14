@@ -102,9 +102,9 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
                 case unimplelented(rawOutput: [TerminalOutput])
             }
 
-            case couldNotSynchronizePackages(PackageSynchronizationError)
             case couldNotInstallFormula(FormulaInstallError)
             case couldNotInstallCask(CaskInstallError)
+            case containedUnexpectedOutputs(unexpectedOutputs: [TerminalOutput])
         }
 
         case implemented(ImplementedError)
@@ -149,20 +149,21 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
                 package: MinimalHomebrewPackage
             )
 
-            public var patterns: [String]
+            // TODO: Add the vars back into the REGEX matching?
+            public var patterns: [Regex<AnyRegexOutput>]
             {
                 switch self
                 {
                 case .findingDependencies:
-                    ["Fetching dependencies"]
+                    [.init(#/Fetching dependencies/#)]
                 case .downloadingDependencies(let dependencyName):
-                    ["Fetching \(dependencyName)"]
+                    [.init(#/Fetching/#)]
                 case .installingDependencies(let dependencyName, _, _):
-                    ["Installing \(dependencyName)"]
+                    [.init(#/Installing/#)]
                 case .downloadingPackage(let package):
-                    ["Fetching \(package.name(withPrecision: .precise))"]
+                    [.init(#/Fetching/#)]
                 case .installingPackage(let package):
-                    ["Installing \(package.name(withPrecision: .precise))"]
+                    [.init(#/Installing/#)]
                 }
             }
 
@@ -188,12 +189,12 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
         {
             case requiresPassword
 
-            public var patterns: [String]
+            public var patterns: [Regex<AnyRegexOutput>]
             {
                 switch self
                 {
                 case .requiresPassword:
-                    ["a password is required"]
+                    [.init(#/A password is required/#)]
                 }
             }
         }
@@ -225,18 +226,18 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
                 }
             }
 
-            public var patterns: [String]
+            public var patterns: [Regex<AnyRegexOutput>]
             {
                 switch self
                 {
                 case .downloadingCask:
-                    ["Downloading", "Fetching downloads"]
+                    [.init(#/Downloading/#), .init(#/Fetching downloads/#)]
                 case .installingCask:
-                    ["Installing Cask", "Purging files"]
+                    [.init(#/Installing Cask/#), .init(#/Purging files/#)]
                 case .movingCask:
-                    ["Moving App"]
+                    [.init(#/Moving App/#)]
                 case .linkingAppToCask:
-                    ["Linking"]
+                    [.init(#/Linking/#)]
                 }
             }
 
@@ -263,18 +264,18 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
             case wrongArchitecture
             case conflictingCaskInstalled
 
-            public var patterns: [String]
+            public var patterns: [Regex<AnyRegexOutput>]
             {
                 switch self
                 {
                 case .requiresSudoPassword:
-                    ["a password is required"]
+                    [.init(#/a password is required/#)]
                 case .binaryAlreadyExists:
-                    ["there is already an App at"]
+                    [.init(#/there is already an App at/#)]
                 case .wrongArchitecture:
-                    ["/depends on hardware architecture being.+but you are running/"]
+                    [.init(#/depends on hardware architecture being.+but you are running/#)]
                 case .conflictingCaskInstalled:
-                    ["conflicts with"]
+                    [.init(#/conflicts with/#)]
                 }
             }
         }
@@ -284,14 +285,14 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
             case trustWarning
             case installOverview
 
-            public var patterns: [String]
+            public var patterns: [Regex<AnyRegexOutput>]
             {
                 switch self
                 {
                 case .trustWarning:
-                    ["The following taps are not trusted"]
+                    [.init(#/The following taps are not trusted/#)]
                 case .installOverview:
-                    ["Would install 1 cask"]
+                    [.init(#/Would install 1 cask/#)]
                 }
             }
         }

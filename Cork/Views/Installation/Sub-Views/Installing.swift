@@ -24,13 +24,7 @@ struct InstallingPackageView: View
 
     let packageToInstall: MinimalHomebrewPackage
 
-    @Binding var installationProgressTracker: InstallationProgressTracker
-
-    init(packageToInstall: MinimalHomebrewPackage, installationProgressTracker: Binding<InstallationProgressTracker>)
-    {
-        self.packageToInstall = packageToInstall
-        self._installationProgressTracker = installationProgressTracker
-    }
+    @Bindable var installationProgressTracker: InstallationProgressTracker
 
     var body: some View
     {
@@ -57,10 +51,16 @@ struct InstallingPackageView: View
                 switch installationError
                 {
                 case .implemented(let implementedError):
-                    packageInstallationProcessStepTracker.advanceStep(to: .erroredOut(
-                        package: packageToInstall,
-                        withError: implementedError
-                    ))
+                    if case .containedUnexpectedOutputs(let unexpectedOutputs) = implementedError {
+                        packageInstallationProcessStepTracker.advanceStep(to: .unexpectedTerminalOutput(unexpectedOutputs.containsErrors ? .containedErrors(rawOutput: unexpectedOutputs) : .didNotContainErrors(rawOutput: unexpectedOutputs)))
+                    }
+                    else
+                    {
+                        packageInstallationProcessStepTracker.advanceStep(to: .erroredOut(
+                            package: packageToInstall,
+                            withError: implementedError
+                        ))
+                    }
                 case .unimplemented(let rawOutput):
                     packageInstallationProcessStepTracker.advanceStep(to:
                         .unexpectedTerminalOutput(rawOutput.containsErrors ? .containedErrors(rawOutput: rawOutput) : .didNotContainErrors(rawOutput: rawOutput))

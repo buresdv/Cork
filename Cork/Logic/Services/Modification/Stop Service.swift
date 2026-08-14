@@ -36,10 +36,10 @@ extension ServicesTracker
 
                 switch outputLine
                 {
-                case _ where outputLine.contains("Stopping"):
+                case _ where outputLine.rawOutput.contains("Stopping"):
                     AppConstants.shared.logger.debug("Stopping \(serviceToStop.name)")
 
-                case _ where outputLine.contains("Successfully stopped"):
+                case _ where outputLine.rawOutput.contains("Successfully stopped"):
                     AppConstants.shared.logger.debug("Stopped \(serviceToStop.name)")
 
                 default:
@@ -51,7 +51,7 @@ extension ServicesTracker
             case .standardError(let errorLine):
                 AppConstants.shared.logger.error("Service stopping error: \(errorLine)")
 
-                throw .couldNotStopService(offendingService: serviceToStop.name, errorThrown: errorLine)
+                throw .couldNotStopService(offendingService: serviceToStop.name, errorThrown: errorLine.rawOutput)
             }
         }
 

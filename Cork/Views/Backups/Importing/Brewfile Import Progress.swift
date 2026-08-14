@@ -34,7 +34,7 @@ struct BrewfileImportProgressView: View
             case .finished:
                 DisappearableSheet
                 {
-                    ComplexWithIcon(systemName: "checkmark.seal")
+                    ComplexWithImage(image: .init(systemName: "checkmark.seal"))
                     {
                         HeadlineWithSubheadline(headline: "brewfile.import.finished.title", subheadline: "brewfile.import.finished.message", alignment: .leading)
                     }

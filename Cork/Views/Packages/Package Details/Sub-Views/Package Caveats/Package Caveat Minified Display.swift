@@ -25,9 +25,7 @@ struct PackageCaveatMinifiedDisplayView: View
             {
                 if caveatDisplayOptions == .mini
                 {
-                    OutlinedPill(content: {
-                        Label("package-details.caveats.available", systemImage: "text.pad.header")
-                    }, color: .indigo)
+                    StatusPill(localizedText: "package-details.caveats.available", systemImage: "text.pad.header", color: .indigo)
                         .onTapGesture
                         {
                             isShowingCaveatPopover.toggle()

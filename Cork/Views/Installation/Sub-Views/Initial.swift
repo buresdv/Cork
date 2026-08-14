@@ -30,11 +30,13 @@ struct InstallationInitialView: View
     @State private var isTopFormulaeSectionCollapsed: Bool = false
     @State private var isTopCasksSectionCollapsed: Bool = false
 
-    @State private var packageRequested: String = ""
+    @Binding var packageRequested: String
 
     @State private var foundPackageSelection: MinimalHomebrewPackage?
 
     @State var isSearchFieldFocused: Bool = true
+    
+    let onInstallationStart: (MinimalHomebrewPackage) -> Void
 
     var body: some View
     {
@@ -106,7 +108,7 @@ struct InstallationInitialView: View
                 return
             }
 
-            packageInstallationProcessStepTracker.advanceStep(to: .installing(package: packageToInstall))
+            onInstallationStart(packageToInstall)
 
         } label: {
             Text("add-package.install.action")

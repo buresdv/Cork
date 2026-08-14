@@ -11,9 +11,9 @@ import CorkModels
 import SwiftUI
 import CorkTerminalFunctions
 
-enum PackageInstallationProcessSteps: Equatable
+public enum PackageInstallationProcessSteps: Equatable
 {
-    enum UnexpectedTerminalOutputType: Equatable
+    public enum UnexpectedTerminalOutputType: Equatable
     {
         /// The unexpected outputs did NOT contain any STDERR outputs
         case containedErrors(rawOutput: [TerminalOutput])
