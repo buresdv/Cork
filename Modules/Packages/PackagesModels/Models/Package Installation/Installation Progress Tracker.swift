@@ -284,15 +284,18 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
         {
             case trustWarning
             case installOverview
+            case noChecksumDefined // TODO: In the future, instead of ignoring this, make it a note
 
             public var patterns: [Regex<AnyRegexOutput>]
             {
                 switch self
                 {
                 case .trustWarning:
-                    [.init(#/The following taps are not trusted/#)]
+                    [.init(#/The following taps are not trusted/#), .init(#/Trusted cask/#)]
                 case .installOverview:
                     [.init(#/Would install 1 cask/#)]
+                case .noChecksumDefined:
+                    [.init(#/No checksum defined/#)]
                 }
             }
         }
