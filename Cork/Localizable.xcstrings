@@ -16647,7 +16647,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "请尝试重新安装软件包或重启 Cork\n如果问题仍然存在，请重启你的 Mac"
+            "value": "请尝试重新安装软件包或重启 Cork\n如果问题仍然存在，重启你的 Mac"
           }
         },
         "zh-Hant": {
@@ -17772,7 +17772,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "应用程序文件夹中已存在此 Cask\n请先卸载它，然后重试"
+            "value": "应用程序文件夹中已存在此图形化应用\n先卸载它，然后重试"
           }
         },
         "zh-Hant": {
@@ -21253,8 +21253,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "Get in touch with the developer of the app that you’re trying to install to find out if they offer the app for you Mac’s architecture."
+            "state": "translated",
+            "value": "联系你正在尝试安装的应用的开发者，以确认该应用是否支持你的苹果电脑的架构。"
           }
         },
         "zh-Hant": {
@@ -21478,8 +21478,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "There were some unexpected Homebrew outputs, and some of them were errors.\nCheck below for more information, and decide if they seem important."
+            "state": "translated",
+            "value": "有一些意外的包管理器输出，且其中一部分为错误。\n检查下方内容以获取更多信息，并判断它们是否重要。"
           }
         },
         "zh-Hant": {
@@ -23279,7 +23279,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "找到以下 Formula"
+            "value": "找到的命令行工具"
           }
         },
         "zh-Hant": {
@@ -23391,7 +23391,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "未找到 Formula"
+            "value": "未找到命令行工具"
           }
         },
         "zh-Hant": {
@@ -24067,7 +24067,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "下载%@个"
+            "value": "%@ 次下载"
           }
         },
         "zh-Hant": {
@@ -24637,7 +24637,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "您需要通过终端卸载此软件包。\n请使用下方的命令。"
+            "value": "你需要通过终端卸载此软件包。\n请使用下方的命令。"
           }
         },
         "zh-Hant": {
@@ -24751,7 +24751,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "添加 Tap"
+            "value": "添加扩展仓库"
           }
         },
         "zh-Hant": {
@@ -25198,8 +25198,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "Customise tap…"
+            "state": "translated",
+            "value": "自定义扩展仓库…"
           }
         },
         "zh-Hant": {
@@ -25423,7 +25423,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "在添加 Tap %@ 时出现了错误"
+            "value": "在添加 %@ 时出现了错误"
           }
         },
         "zh-Hant": {
@@ -25759,7 +25759,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "请仔细检查你输入的名称是否正确"
+            "value": "重复检查你输入的名称是否正确"
           }
         },
         "zh-Hant": {
@@ -25871,7 +25871,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tap 链接: "
+            "value": "扩展仓库托管平台"
           }
         },
         "zh-Hant": {
@@ -26095,7 +26095,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "使用外部链接添加 Tap"
+            "value": "使用外部链接添加扩展仓库 "
           }
         },
         "zh-Hant": {
@@ -26207,7 +26207,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "添加 Tap %@"
+            "value": "添加扩展仓库 %@"
           }
         },
         "zh-Hant": {
@@ -26319,7 +26319,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "未输入 Tap 名称"
+            "value": "扩展仓库名称为空"
           }
         },
         "zh-Hant": {
@@ -26431,7 +26431,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "你未输入任何 Tap 名称"
+            "value": "你未输入任何扩展仓库名称"
           }
         },
         "zh-Hant": {
@@ -26879,7 +26879,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tap 名称需要包含斜杠"
+            "value": "扩展仓库名称需要包含斜杠"
           }
         },
         "zh-Hant": {
@@ -26991,7 +26991,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tap 名称必须包含斜杠"
+            "value": "扩展仓库名称总是必须包含斜杠"
           }
         },
         "zh-Hant": {
@@ -27215,8 +27215,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "Couldn’t create pattern for reading the Package’s description."
+            "state": "translated",
+            "value": "无法创建用于读取该软件包简介的模式。"
           }
         },
         "zh-Hant": {
