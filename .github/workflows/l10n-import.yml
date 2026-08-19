@@ -15,11 +15,11 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-python@v5
         with: { python-version: "3.x" }
-      - name: Fetch tools submodule
+      - name: Fetch "tools" submodule
         run: |
           git config --global url."https://x-access-token:${{ secrets.TOOLS_PAT }}@github.com/".insteadOf "git@github.com:"
           git submodule update --init tools
-      - name: Take XLIFF and catalog from l10n, merge
+      - name: Take JSON and catalog from l10n & merge
         run: |
           git checkout origin/l10n -- json Cork/Localizable.xcstrings
           python3 tools/Localization/xcstrings_import.py Cork/Localizable.xcstrings json
@@ -42,7 +42,7 @@ jobs:
           title: "Merge translations into string catalog"
           commit-message: "Merge translations into string catalog"
           branch: l10n-import
-          base: l10n
+          base: main
           delete-branch: true
           add-paths: Cork/Localizable.xcstrings
           labels: l10n
