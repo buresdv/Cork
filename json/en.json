@@ -844,7 +844,7 @@
   "update-packages.detail-stage.pouring": "Updating…",
   "update-packages.error": "Packages updated with errors",
   "update-packages.error.description": "There were some errors during updating.\nCheck below for more information",
-  "update-packages.error.sudo-required": "Action is needed to finish the update",
+  "update-packages.error.sudo-required": "Action is needed to finish the whatever",
   "update-packages.error.sudo-required.description": "Some of your packages can only be updated through the Terminal\nClick \"Finish in Terminal\" below\nUse ⌘+V to insert the command, and then press ↩ (Return) to execute the command and follow the instructions\nAfter the command finishes, return to Cork",
   "update-packages.failed.details-dropdown.label": "Unsuccessful updates",
   "update-packages.failed.message": "Some updates were not successful.\nCheck below for more information on which packages couldn’t be updated, and why those updates failed.",
