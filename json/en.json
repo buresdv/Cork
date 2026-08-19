@@ -330,7 +330,7 @@
   "error.brewfile.export.could-not-determine-working-directory": "Could not determine which folder the brewfile export process was initiated from",
   "error.brewfile.export.could-not-dump-with-error.%@": "Could not dump the brewfile into the provided location with error: %@",
   "error.brewfile.importing.could-not-get-selected-brewfile-location": "Could not get the location of the selected brewfile",
-  "error.brewfile.importing.could-not-import.%@": "Could not import brewfile: %@",
+  "error.brewfile.importing.could-not-import.%@": "Couldn’t import brewfile: %@",
   "error.cache-deletion.could-not-read-contents-of-cached-casks-downloads-folder": "Couldn’t read contents of cached Cask downloads folder",
   "error.cache-deletion.could-not-read-contents-of-cached-downloads-folder": "Couldn’t read contents of cached downloads folder",
   "error.cache-deletion.could-not-read-contents-of-cached-formulae-downloads-folder": "Couldn’t read contents of cached Formulae downloads folder",
