@@ -15,13 +15,13 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-python@v5
         with: { python-version: "3.x" }
-      - name: Fetch tools submodule
+      - name: Fetch "tools" submodule
         run: |
           git config --global url."https://x-access-token:${{ secrets.TOOLS_PAT }}@github.com/".insteadOf "git@github.com:"
-          git submodule update --init tools
-      - name: Sync catalog from main and export
+          git submodule update --init --remote tools
+      - name: Sync catalog and workflows from main & export
         run: |
-          git checkout origin/main -- Cork/Localizable.xcstrings
+          git checkout origin/main -- Cork/Localizable.xcstrings .github/workflows
           python3 tools/Localization/xcstrings_export.py Cork/Localizable.xcstrings json
       - name: Validate catalog against xcstrings schema
         run: |
@@ -40,6 +40,18 @@ jobs:
         run: |
           git config user.name "l10n-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add json Cork/Localizable.xcstrings
-          git diff --cached --quiet || git commit -m "Sync XLIFF from string catalog"
+          git add json tools .github/workflows Cork/Localizable.xcstrings
+          git diff --cached --quiet || git commit -m "Sync translations from string catalog"
+          git pull --rebase origin l10n
           git push origin l10n
+      - name: Flag changed source strings in Weblate
+        env:
+          WEBLATE_URL: "https://localization.code.rikidar.eu"
+          WEBLATE_API_TOKEN: ${{ secrets.WEBLATE_API_TOKEN }}
+          WEBLATE_PROJECT: cork
+          WEBLATE_COMPONENT: process-translations
+          L10N_SOURCE_LANG: en
+        run: >
+          python3 tools/Localization/weblate_flag_stale.py
+          "$WEBLATE_PROJECT" "$WEBLATE_COMPONENT" "$L10N_SOURCE_LANG"
+          json/changed_keys.txt
