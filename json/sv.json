@@ -868,5 +868,6 @@
     "mass-adoption.failed.implemented.mismatched-versions.expected-%@.installed%@": "",
     "mass-adoption.failed.implemented.no-adoption-candidate-for-%@-selected": "",
     "package-details.dependants.%lld": "",
-    "tap-details.speakeasy-supported-%@": ""
+    "tap-details.speakeasy-supported-%@": "",
+    "add-package.probably-installed.had-errors.description": ""
 }
