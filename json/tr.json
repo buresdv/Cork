@@ -868,5 +868,6 @@
     "add-package.search.failed": "",
     "add-tap.typing.error.invalid-host.description": "",
     "add-tap.typing.error.invalid-name": "",
-    "add.package.result.description.regex-construction-failed": ""
+    "add.package.result.description.regex-construction-failed": "",
+    "add-package.probably-installed.had-errors.description": ""
 }
