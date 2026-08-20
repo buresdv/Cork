@@ -834,5 +834,15 @@
     "maintenance.results.orphans-count-%lld_other": "",
     "maintenance.results.orphans-removed": "",
     "maintenance.results.orphans.failure": "",
-    "menubar.open.cork": ""
+    "menubar.open.cork": "",
+    "about.thanks.1.name": "",
+    "about.thanks.2.name": "",
+    "about.thanks.3.name": "",
+    "about.translator.1.name": "",
+    "about.translator.4.name": "",
+    "about.translator.5.name": "",
+    "about.translator.6.name": "",
+    "debug.action.activate-demo": "",
+    "debug.action.licensing": "",
+    "debug.action.reset-license-state": ""
 }
