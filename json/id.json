@@ -844,5 +844,6 @@
     "about.translator.6.name": "",
     "debug.action.activate-demo": "",
     "debug.action.licensing": "",
-    "debug.action.reset-license-state": ""
+    "debug.action.reset-license-state": "",
+    "add-package.probably-installed.had-errors.description": ""
 }
