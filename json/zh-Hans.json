@@ -841,5 +841,9 @@
     "update-packages.unexpected-outputs.message": "",
     "update-packages.unexpected-outputs.title": "",
     "update-packages.sheet-title": "",
-    "update-packages.unexpected-outputs.details-dropdown.label": ""
+    "update-packages.unexpected-outputs.details-dropdown.label": "",
+    "add-package.probably-installed.had-errors.description": "",
+    "add-package.install.wrong-architecture.recovery-suggestion": "",
+    "add.package.result.description.regex-construction-failed": "",
+    "add-tap.customize-tap.label": ""
 }
