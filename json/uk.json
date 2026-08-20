@@ -892,5 +892,6 @@
     "add-package.install.conflicting-cask-installed.%@-conflicts-with-%@": "",
     "add-package.install.conflicting-cask-installed.%@-conflicts-with-%@.recovery-suggestion": "",
     "add-tap.typing.error.invalid-host.description": "",
-    "add-tap.typing.error.invalid-name": ""
+    "add-tap.typing.error.invalid-name": "",
+    "add-package.probably-installed.had-errors.description": ""
 }
