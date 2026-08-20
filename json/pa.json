@@ -868,5 +868,6 @@
     "about.translator.4.name": "",
     "about.translator.5.name": "",
     "about.translator.6.name": "",
-    "debug.action.activate-demo": ""
+    "debug.action.activate-demo": "",
+    "add-package.probably-installed.had-errors.description": ""
 }
