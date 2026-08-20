@@ -859,5 +859,14 @@
     "update-packages.updating.updating-outdated-package": "Updating package caches",
     "v. %@": "v. %@",
     "window.about": "About",
-    "window.services": "Services"
+    "window.services": "Services",
+    "%@ → %@": "",
+    "add-package.%@.probably-installed.had-errors.title": "",
+    "add-package.%@.probably-installed.no-errors.title": "",
+    "add-package.probably-installed.no-errors.description": "",
+    "tap-details.speakeasy-supported-%@": "",
+    "add-tap.customize-tap.label": "",
+    "add-tap.typing.error.invalid-host": "",
+    "add-tap.typing.error.invalid-host.description": "",
+    "add-tap.typing.error.invalid-name": ""
 }
