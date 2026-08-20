@@ -892,5 +892,6 @@
     "update-packages.failed.title": "",
     "update-packages.sheet-title": "",
     "update-packages.unexpected-outputs.message": "",
-    "update-packages.unexpected-outputs.title": ""
+    "update-packages.unexpected-outputs.title": "",
+    "add-package.probably-installed.had-errors.description": ""
 }
