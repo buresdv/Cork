@@ -892,5 +892,6 @@
     "update-packages.unexpected-outputs.message": "",
     "update-packages.unexpected-outputs.title": "",
     "package-details.dependants": "",
-    "package-details.dependants.%lld": ""
+    "package-details.dependants.%lld": "",
+    "add-package.probably-installed.had-errors.description": ""
 }
