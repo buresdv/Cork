@@ -844,5 +844,6 @@
     "add-tap.typing.error.invalid-host.description": "",
     "add-tap.typing.error.invalid-name": "",
     "update-packages.incremental.package-count.%lld-of-%lld": "",
-    "add-tap.customize-tap.label": ""
+    "add-tap.customize-tap.label": "",
+    "add-package.probably-installed.had-errors.description": ""
 }
