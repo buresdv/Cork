@@ -892,5 +892,6 @@
     "update-packages.incremental.update-in-progress.unknown-package": "",
     "add-package.top-packages.list-item-%@": "",
     "error.json-parsing.no-tap-info-in-info-list": "",
-    "error.task-cancelled": ""
+    "error.task-cancelled": "",
+    "add-package.probably-installed.had-errors.description": ""
 }
