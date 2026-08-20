@@ -868,5 +868,6 @@
     "add-tap.customize-tap.label": "",
     "add-tap.typing.error.invalid-host": "",
     "add-tap.typing.error.invalid-host.description": "",
-    "add-tap.typing.error.invalid-name": ""
+    "add-tap.typing.error.invalid-name": "",
+    "add-package.probably-installed.had-errors.description": ""
 }
