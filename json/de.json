@@ -868,5 +868,6 @@
     "action.open-%@": "",
     "update-packages.incremental.package-count.%lld-of-%lld": "",
     "add-package.install.linking-cask-binary.%@": "",
-    "error.task-cancelled": ""
+    "error.task-cancelled": "",
+    "add-package.probably-installed.had-errors.description": ""
 }
