@@ -122,7 +122,7 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
+            "state": "translated",
             "value": "%1$@ → %2$@"
           }
         },
@@ -15645,8 +15645,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Package %@ was likely installed"
+            "state": "translated",
+            "value": "Balíček %@ byl nejspíš nainstalován"
           }
         },
         "de": {
@@ -15757,8 +15757,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Package %@ was likely installed"
+            "state": "translated",
+            "value": "Balíček %@ byl nejspíš nainstalován"
           }
         },
         "de": {
@@ -21382,8 +21382,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "There were some unexpected Homebrew outputs, and some of them were errors.\nCheck below for more information, and decide if they seem important."
+            "state": "translated",
+            "value": "Při instalaci balíčku se vyskytly neočekávané výstupy Homebrew, a některé z nich byly chyby.\nNíže je seznam těchto výstupů."
           }
         },
         "de": {
@@ -21494,8 +21494,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "There were some unexpected Homebrew outputs.\nCheck below for more information, and decide if they seem important."
+            "state": "translated",
+            "value": "Při instalaci se vyskytly neočekávané výstupy Homebrew.\nNíže je seznam těchto výstupů."
           }
         },
         "de": {
@@ -96749,8 +96749,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "%@ is managed by Speakeasy, a solution by Graham Hall designed to make Homebrew better. Speakeasy helps us load Taps and Packages much faster, load their descriptions more efficiently, and decouple our community from the worsening state of Homebrew.\nSee Acknowledged Contributors for more information on Graham."
+            "state": "translated",
+            "value": "Pípa %@ je spravována skrze Speakeasy, což je software, který pro účely zlepšení Homebrew vyvíjí Graham Hall. Speakeasy nám pomáhá mnohem rychleji načítat balíčky a pípy, lépe načítat jejich popisy, a odstřihnout naši komunitu od stále se zhoršujícího stavu Homebrew."
           }
         },
         "de": {
