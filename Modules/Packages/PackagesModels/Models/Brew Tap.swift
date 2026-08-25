@@ -26,7 +26,7 @@ public final actor BrewTap: Identifiable, Hashable, ModifiableActor, LoadableAct
 {
     @Injected(\.appConstants) var appConstants: AppConstants
     
-    public struct BrewTapName: Hashable, Equatable, Comparable, Sendable
+    public struct BrewTapName: Hashable, Equatable, Codable, Comparable, Sendable
     {
         public static func < (lhs: BrewTap.BrewTapName, rhs: BrewTap.BrewTapName) -> Bool
         {
@@ -61,7 +61,7 @@ public final actor BrewTap: Identifiable, Hashable, ModifiableActor, LoadableAct
         }
 
         /// Whether the repo is first-party (`homebrew/[name]`) or third-party (`[anything]/[anything]`)
-        public enum BrewRepo: Hashable, Equatable, Sendable
+        public enum BrewRepo: Hashable, Equatable, Codable, Sendable
         {
             /// First-party repo, resolves to `homebrew`
             case homebrew

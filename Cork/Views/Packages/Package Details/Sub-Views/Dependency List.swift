@@ -53,7 +53,10 @@ struct DependencyList: View
                         // Find the dependency in the tracker to show it in a more complete way
                         if let dependencyFromTracker: BrewPackage = brewPackagesTracker.successfullyLoadedFormulae.first(where: { $0.internalName == BrewPackageName(from: dependency.name) })
                         {
-                            dependencyFromTracker.nameView(withComponents: .boundVersion)
+                            dependencyFromTracker.nameView(
+                                withComponents: .boundVersion,
+                                isExemptFromHighlighting: false
+                            )
                         }
                         else
                         {

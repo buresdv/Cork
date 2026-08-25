@@ -39,7 +39,7 @@ struct InstallationAndUninstallationPane: View
         {
             Form
             {
-            // TODO: Implement this
+                // TODO: Implement this
                 /*
                 LabeledContent
                 {
@@ -54,8 +54,7 @@ struct InstallationAndUninstallationPane: View
                 } label: {
                     Text("settings.packages-design.label")
                 }
-
-                 */
+                */
                 
                 LabeledContent
                 {

@@ -117,7 +117,10 @@ struct OutdatedPackagesList_Table: View
 
                 TableColumn("package-details.dependencies.results.name")
                 { outdatedPackage in
-                    outdatedPackage.package.nameView(withComponents: .boundVersion)
+                    outdatedPackage.package.nameView(
+                        withComponents: .boundVersion,
+                        isExemptFromHighlighting: false
+                    )
                 }
         
 
