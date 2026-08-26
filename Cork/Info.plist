@@ -51,6 +51,23 @@
 				</array>
 			</dict>
 		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.plain-text</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>Homebrew Tap</string>
+			<key>UTTypeIdentifier</key>
+			<string>eu.davidbures.cork-tap</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>brewtap</string>
+				</array>
+			</dict>
+		</dict>
 	</array>
 </dict>
 </plist>

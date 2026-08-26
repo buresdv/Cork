@@ -131,6 +131,11 @@ struct StartPage: View
                               */
                         }
                     }
+
+                    Section
+                    {
+                        TapTrustBox()
+                    }
                     
                     if !issues.isEmpty
                     {
