@@ -15,7 +15,7 @@ public class TapTracker: @MainActor Loadable
 {
     @LazyInjected(\.appConstants) @ObservationIgnored var appConstants
 
-    @Injected(\.appState) @ObservationIgnored var appState
+    @Injected(\.appState) @ObservationIgnored public var appState
     
     public var isBeingLoaded: Bool
 
@@ -55,6 +55,22 @@ public class TapTracker: @MainActor Loadable
                 return nil
             }
         })
+    }
+    
+    /// Taps that can be trusted - those excluding first-party taps
+    public var tapsEligibleForTrustModification: Set<BrewTap>
+    {
+        return self.successfullyLoadedTaps.filter
+        { candidateForFiltering in
+            if case .external = candidateForFiltering.nameInternal.repo
+            {
+                return true
+            }
+            else
+            {
+                return false
+            }
+        }
     }
 }
 

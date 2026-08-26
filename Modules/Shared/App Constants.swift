@@ -16,7 +16,6 @@ public struct AppConstants: Sendable
     // MARK: - Initializer
     init()
     {
-        
         let internalLogger: Logger = .init(subsystem: "com.davidbures.cork", category: "Cork")
         
         // MARK: - Initialize proxy settings
@@ -163,6 +162,25 @@ public struct AppConstants: Sendable
             return URL(filePath: "/usr/local/Homebrew/Library/Taps")
         }
     }()
+    
+    /// `.json` file that contains a list of the trusted packages and taps
+    ///
+    /// If no package or tap is trusted, the file is not there. Re-evaluate on every access.
+    public var tapTrustPath: URL? {
+        
+        let expectedTrustFileLocation: URL = .homeDirectory.appending(path: ".homebrew").appendingPathComponent("trust", conformingTo: .json)
+        
+        if FileManager.default.fileExists(atPath: expectedTrustFileLocation.path)
+        {
+            self.logger.debug("Recomputed the presence of tap trust file: EXISTS")
+            return expectedTrustFileLocation
+        }
+        else
+        {
+            self.logger.debug("Recomputed the presence of tap trust file: DOES NOT EXIST")
+            return nil
+        }
+    }
     
     public let homebrewVariablesPath: URL
     
