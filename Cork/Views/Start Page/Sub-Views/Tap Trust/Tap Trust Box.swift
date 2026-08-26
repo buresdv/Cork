@@ -6,27 +6,15 @@
 //
 
 import CorkModels
+import CorkShared
 import FactoryKit
 import SwiftUI
 
 struct TapTrustBox: View
 {
-    @InjectedObservable(\.tapTracker) var tapTracker: TapTracker
+    @LazyInjected(\.appConstants) var appConstants: AppConstants
 
-    var relevantTapsForTrustModification: Set<BrewTap>
-    {
-        return self.tapTracker.successfullyLoadedTaps.filter
-        { candidateForFiltering in
-            if case .external = candidateForFiltering.nameInternal.repo
-            {
-                return true
-            }
-            else
-            {
-                return false
-            }
-        }
-    }
+    @InjectedObservable(\.tapTracker) var tapTracker: TapTracker
 
     var body: some View
     {
@@ -45,33 +33,45 @@ struct TapTrustBox: View
                         {
                             Text("start-page.trust.trust-zone.title")
                                 .font(.subheadline)
-                            
+
                             Text("start-page.trust.trust-zone.instructions")
                                 .font(.caption)
                         }
                         .dropDestination(for: BrewTap.self)
                         { items, _ in
-                            print(items)
-                            guard let tap = items.first else { return false }
 
-                            print(tap.name(withPrecision: .full))
+                            
+                            
+                            Task {
+                                guard let tap = items.first else { return false }
+                                do
+                                {
+                                    try await tapTracker.modifyTrust()
+                                } catch let tapTrustModificationError {
+                                    AppConstants.shared.logger.info("Tap trust modification error: \(tapTrustModificationError)")
+                                }
 
+                                print(tap.name(withPrecision: .full))
+
+                                return true
+                            }
+                            
                             return true
                         }
-                            
+
                         Divider()
 
                         VStack(alignment: .center, spacing: 3)
                         {
                             Text("start-page.trust.untrust-zone.title")
                                 .font(.subheadline)
-                            
+
                             Text("start-page.trust.untrust-zone.instructions")
                                 .font(.caption)
-                            
+
                             LazyHStack
                             {
-                                ForEach(relevantTapsForTrustModification.sorted(by: { $0.nameInternal < $1.nameInternal }))
+                                ForEach(tapTracker.tapsEligibleForTrustModification.sorted(by: { $0.nameInternal < $1.nameInternal }))
                                 { loadedTap in
                                     TapDraggableView(tap: loadedTap)
                                 }

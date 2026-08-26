@@ -8,6 +8,7 @@
 import CorkModels
 import FactoryKit
 import SwiftUI
+import CorkShared
 
 typealias AdoptionProcessResult = Result<BrewPackagesTracker.AdoptableApp, MassAppAdoptionView.AdoptionAttemptFailure>
 
@@ -16,7 +17,7 @@ struct MassAppAdoptionView: View
     @Observable
     final class MassAppAdoptionTacker
     {
-        @Injected(\.appConstants) @ObservationIgnored var appConstants
+        @Injected(\.appConstants) @ObservationIgnored var appConstants: AppConstants
 
         @ObservationIgnored
         var adoptionProcess: Process?
