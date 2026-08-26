@@ -9,6 +9,7 @@ import CorkShared
 import FactoryKit
 import Foundation
 import SwiftUI
+import UniformTypeIdentifiers
 
 public extension BrewTap.BrewTapName
 {
@@ -22,36 +23,46 @@ public extension BrewTap
     static let homebrewCask: BrewTap = .init(name: .homebrewCask)
 }
 
-public final actor BrewTap: Identifiable, Hashable, ModifiableActor, LoadableActor
+public extension UTType
+{
+    static let brewTap: UTType = .init(exportedAs: "eu.davidbures.cork-tap", conformingTo: .plainText)
+}
+
+public final actor BrewTap: Identifiable, Hashable, Codable, Transferable, ModifiableActor, LoadableActor
 {
     @Injected(\.appConstants) var appConstants: AppConstants
-    
+
+    public static var transferRepresentation: some TransferRepresentation
+    {
+        CodableRepresentation(contentType: .brewTap)
+    }
+
     public struct BrewTapName: Hashable, Equatable, Codable, Comparable, Sendable
     {
         public static func < (lhs: BrewTap.BrewTapName, rhs: BrewTap.BrewTapName) -> Bool
         {
             switch (lhs.repo, rhs.repo)
             {
-                case (.external, .homebrew): /// Third party comes first
-                    return true
+            case (.external, .homebrew): /// Third party comes first
+                return true
 
-                case (.homebrew, .external): /// First party comes last
-                    return false
+            case (.homebrew, .external): /// First party comes last
+                return false
 
-                case (.homebrew, .homebrew): /// Both first party - sort alphabetically
-                    return lhs.tapName < rhs.tapName
+            case (.homebrew, .homebrew): /// Both first party - sort alphabetically
+                return lhs.tapName < rhs.tapName
 
-                case (.external(let lhsRepoName), .external(let rhsRepoName)): /// Both third party - sort alphabetically by repo name first, then by tap name is needed
-                    if lhsRepoName != rhsRepoName
-                    {
-                        return lhsRepoName < rhsRepoName
-                    }
+            case (.external(let lhsRepoName), .external(let rhsRepoName)): /// Both third party - sort alphabetically by repo name first, then by tap name is needed
+                if lhsRepoName != rhsRepoName
+                {
+                    return lhsRepoName < rhsRepoName
+                }
 
-                    return lhs.tapName < rhs.tapName
+                return lhs.tapName < rhs.tapName
             }
         }
-        
-        public enum NameRetrievalPrecision: Sendable
+
+        public enum NameRetrievalPrecision: Codable, Sendable
         {
             /// All parts: `marsanne/cask`
             case full
@@ -80,9 +91,9 @@ public final actor BrewTap: Identifiable, Hashable, ModifiableActor, LoadableAct
             }
         }
 
-        let repoAddress: URL?
-        let repo: BrewRepo
-        let tapName: String
+        public let repoAddress: URL?
+        public let repo: BrewRepo
+        public let tapName: String
 
         /// Initialize a tap name from components
         public init(
@@ -173,7 +184,7 @@ public final actor BrewTap: Identifiable, Hashable, ModifiableActor, LoadableAct
     public nonisolated let id: UUID = .init()
 
     public nonisolated let nameInternal: BrewTapName
-    
+
     /// Check if the tap is supported by Speakeasy
     ///
     /// - Third-party taps aren't supported
@@ -191,7 +202,7 @@ public final actor BrewTap: Identifiable, Hashable, ModifiableActor, LoadableAct
             {
                 return false
             }
-        case .external(_):
+        case .external:
             return false
         }
     }
@@ -249,6 +260,28 @@ public final actor BrewTap: Identifiable, Hashable, ModifiableActor, LoadableAct
     public nonisolated func hash(into hasher: inout Hasher)
     {
         hasher.combine(self.nameInternal)
+    }
+}
+
+public extension BrewTap
+{
+    private enum CodingKeys: String, CodingKey
+    {
+        case nameInternal
+    }
+
+    nonisolated init(from decoder: any Decoder) throws
+    {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        try self.init(name: container.decode(BrewTapName.self, forKey: .nameInternal))
+    }
+
+    nonisolated func encode(to encoder: any Encoder) throws
+    {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(self.nameInternal, forKey: .nameInternal)
     }
 }
 

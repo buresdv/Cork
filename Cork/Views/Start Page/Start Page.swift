@@ -106,6 +106,11 @@ struct StartPage: View
                         }
                     }
 
+                    Section
+                    {
+                        TapTrustBox()
+                    }
+                    
                     AdoptablePackagesSection()
                     
                     if !brewPackagesTracker.unsuccessfullyLoadedFormulaeErrors.isEmpty || !brewPackagesTracker.unsuccessfullyLoadedCasksErrors.isEmpty

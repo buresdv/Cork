@@ -91677,6 +91677,49 @@
         }
       }
     },
+    "start-page.trust.title" : {
+
+    },
+    "start-page.trust.trust-zone.instructions" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Drag your added taps here to mark them as trusted"
+          }
+        }
+      }
+    },
+    "start-page.trust.trust-zone.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trusted taps"
+          }
+        }
+      }
+    },
+    "start-page.trust.untrust-zone.instructions" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "These taps might have some features disabled until you trust them"
+          }
+        }
+      }
+    },
+    "start-page.trust.untrust-zone.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Untrusted taps"
+          }
+        }
+      }
+    },
     "start-page.unloaded-casks.count-%lld" : {
       "localizations" : {
         "cs" : {
