@@ -15,7 +15,17 @@ struct TapTrustBox: View
     @LazyInjected(\.appConstants) var appConstants: AppConstants
 
     @InjectedObservable(\.tapTracker) var tapTracker: TapTracker
+    
+    var explicitlyTrustedTaps: [BrewTap]
+    {
+        return tapTracker.tapsEligibleForTrustModification.filter({ $0.isTrusted == .explicit(.trusted) }).sorted(by: { $0.nameInternal < $1.nameInternal })
+    }
 
+    var tapsRequiringAdditionalManualTrust: [BrewTap]
+    {
+        return tapTracker.tapsEligibleForTrustModification.filter({ $0.isTrusted != .explicit(.trusted) }).sorted(by: { $0.nameInternal < $1.nameInternal })
+    }
+    
     var body: some View
     {
         GroupBoxHeadlineGroupWithArbitraryContent(image: "rosette")
@@ -36,6 +46,14 @@ struct TapTrustBox: View
 
                             Text("start-page.trust.trust-zone.instructions")
                                 .font(.caption)
+                            
+                            LazyHStack
+                            {
+                                ForEach(explicitlyTrustedTaps)
+                                { trustedTap in
+                                    TapDraggableView(tap: trustedTap)
+                                }
+                            }
                         }
                         .dropDestination(for: BrewTap.self)
                         { items, _ in
@@ -43,7 +61,9 @@ struct TapTrustBox: View
                             Task {
                                 guard let tap = items.first else { return false }
 
-                                print(tap.name(withPrecision: .full))
+                                await tapTracker.tapsEligibleForTrustModification.filter({ $0 == tap }).first!.changeTrust(to: .explicit(.trusted))
+                                
+                                return true
                             }
                             
                             return true
@@ -61,7 +81,7 @@ struct TapTrustBox: View
 
                             LazyHStack
                             {
-                                ForEach(tapTracker.tapsEligibleForTrustModification.sorted(by: { $0.nameInternal < $1.nameInternal }))
+                                ForEach(tapsRequiringAdditionalManualTrust)
                                 { loadedTap in
                                     TapDraggableView(tap: loadedTap)
                                 }
@@ -70,14 +90,6 @@ struct TapTrustBox: View
                     }
                     .padding()
                 }
-            }
-        }
-        .task {
-            do
-            {
-                let trustFileContents: TrustFileContents = try await tapTracker.readTrustFile()
-            } catch let trustFileReadingError {
-                AppConstants.shared.logger.error("Failed to read contents of trust file on start page load: \(trustFileReadingError.localizedDescription)")
             }
         }
     }
