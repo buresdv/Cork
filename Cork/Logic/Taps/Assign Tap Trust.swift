@@ -23,7 +23,9 @@ public extension TapTracker
         for tapToChangeTrustFor in self.tapsEligibleForTrustModification.filter({ potentiallyEligibleTap in
             trustedTapNames.contains(potentiallyEligibleTap.nameInternal)
         }) {
-            print("Change tap trust for: \(tapToChangeTrustFor)")
+            print("Change tap trust for: \(tapToChangeTrustFor.name(withPrecision: .full))")
+            
+            await tapToChangeTrustFor.changeTrust(to: .explicit(.trusted))
         }
     }
 }

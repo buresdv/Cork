@@ -141,7 +141,14 @@ struct StartPage: View
                 }
                 .transition(.push(from: .top))
                 .task {
-                    await tapTracker.assignTapTrust(fromParsedTrustFile: <#T##TrustFileContents#>)
+                    do
+                    {
+                        let trustFileContents: TrustFileContents = try await tapTracker.readTrustFile()
+                        
+                        await tapTracker.assignTapTrust(fromParsedTrustFile: trustFileContents)
+                    } catch let trustFileReadingError {
+                        AppConstants.shared.logger.error("Failed to read contents of trust file on start page load: \(trustFileReadingError.localizedDescription)")
+                    }
                 }
                 .task(priority: .background)
                 {
