@@ -43301,6 +43301,42 @@
         }
       }
     },
+    "error.tap-trust.could-not-initialize-object.cask.%@" : {
+
+    },
+    "error.tap-trust.could-not-initialize-object.command.%@" : {
+
+    },
+    "error.tap-trust.could-not-initialize-object.formula.%@" : {
+
+    },
+    "error.tap-trust.could-not-initialize-object.tap.%@" : {
+
+    },
+    "error.tap-trust.field-does-not-exist.cask" : {
+
+    },
+    "error.tap-trust.field-does-not-exist.command" : {
+
+    },
+    "error.tap-trust.field-does-not-exist.formula" : {
+
+    },
+    "error.tap-trust.field-does-not-exist.tap" : {
+
+    },
+    "error.tap-trust.field-is-empty.cask" : {
+
+    },
+    "error.tap-trust.field-is-empty.command" : {
+
+    },
+    "error.tap-trust.field-is-empty.formula" : {
+
+    },
+    "error.tap-trust.field-is-empty.tap" : {
+
+    },
     "error.tap.untap.could-not-untap.tap-%@.failure-reason-%@" : {
       "localizations" : {
         "cs" : {

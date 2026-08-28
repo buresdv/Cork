@@ -9,11 +9,12 @@ import FactoryKit
 import Foundation
 import Observation
 import SwiftUI
+import CorkShared
 
 @Observable @MainActor
 public class TapTracker: @MainActor Loadable
 {
-    @LazyInjected(\.appConstants) @ObservationIgnored var appConstants
+    @LazyInjected(\.appConstants) @ObservationIgnored public var appConstants
 
     @Injected(\.appState) @ObservationIgnored public var appState
     

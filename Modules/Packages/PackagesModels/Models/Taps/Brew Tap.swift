@@ -28,7 +28,7 @@ public extension UTType
     static let brewTap: UTType = .init(exportedAs: "eu.davidbures.cork-tap", conformingTo: .plainText)
 }
 
-public final actor BrewTap: Identifiable, Hashable, Codable, Transferable, ModifiableActor, LoadableActor
+public final actor BrewTap: Identifiable, Hashable, Codable, Transferable, Trustable, ModifiableActor, LoadableActor
 {
     @Injected(\.appConstants) var appConstants: AppConstants
 
@@ -164,10 +164,25 @@ public final actor BrewTap: Identifiable, Hashable, Codable, Transferable, Modif
         name: String
     ) throws(BrewTapName.BrewTapNameInitializationError)
     {
-        self.nameInternal = try .init(repoAddress: externalRepo, tapNameString: name)
+        let initializedInternalName: BrewTapName = try .init(repoAddress: externalRepo, tapNameString: name)
+        
+        self.nameInternal = initializedInternalName
 
         self.isBeingModified = false
         self.isBeingLoaded = false
+        
+        let isImplicitlyTrusted: TrustType = {
+            if initializedInternalName.repo == .homebrew
+            {
+                return .implicit
+            }
+            else
+            {
+                return .explicit(nil)
+            }
+        }()
+        
+        self.isTrusted = isImplicitlyTrusted
     }
 
     /// Initialize the tap with a chunked name
@@ -179,11 +194,26 @@ public final actor BrewTap: Identifiable, Hashable, Codable, Transferable, Modif
 
         self.isBeingModified = false
         self.isBeingLoaded = false
+        
+        let isImplicitlyTrusted: TrustType = {
+            if name.repo == .homebrew
+            {
+                return .implicit
+            }
+            else
+            {
+                return .explicit(nil)
+            }
+        }()
+        
+        self.isTrusted = isImplicitlyTrusted
     }
 
     public nonisolated let id: UUID = .init()
 
     public nonisolated let nameInternal: BrewTapName
+    
+    public var isTrusted: TrustType?
 
     /// Check if the tap is supported by Speakeasy
     ///
@@ -206,7 +236,7 @@ public final actor BrewTap: Identifiable, Hashable, Codable, Transferable, Modif
             return false
         }
     }
-
+    
     public nonisolated func name(
         withPrecision precision: BrewTapName.NameRetrievalPrecision
     ) -> String

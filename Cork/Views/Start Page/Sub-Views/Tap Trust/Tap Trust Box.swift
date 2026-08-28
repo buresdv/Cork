@@ -39,21 +39,11 @@ struct TapTrustBox: View
                         }
                         .dropDestination(for: BrewTap.self)
                         { items, _ in
-
-                            
                             
                             Task {
                                 guard let tap = items.first else { return false }
-                                do
-                                {
-                                    try await tapTracker.modifyTrust()
-                                } catch let tapTrustModificationError {
-                                    AppConstants.shared.logger.info("Tap trust modification error: \(tapTrustModificationError)")
-                                }
 
                                 print(tap.name(withPrecision: .full))
-
-                                return true
                             }
                             
                             return true
@@ -80,6 +70,14 @@ struct TapTrustBox: View
                     }
                     .padding()
                 }
+            }
+        }
+        .task {
+            do
+            {
+                let trustFileContents: TrustFileContents = try await tapTracker.readTrustFile()
+            } catch let trustFileReadingError {
+                AppConstants.shared.logger.error("Failed to read contents of trust file on start page load: \(trustFileReadingError.localizedDescription)")
             }
         }
     }
