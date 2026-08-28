@@ -177,7 +177,10 @@ struct StartPage: View
                     }
                 }
                 .transition(.push(from: .top))
-                .task
+                .task {
+                    await tapTracker.assignTapTrust(fromParsedTrustFile: <#T##TrustFileContents#>)
+                }
+                .task(priority: .background)
                 {
                     await getAdoptablePackages()
                 }
