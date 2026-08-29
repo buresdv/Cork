@@ -7,18 +7,29 @@
 
 import SwiftUI
 import CorkModels
+import FactoryKit
 
 struct TapDraggableView: View
 {
-    var tap: BrewTap
+    @InjectedObservable(\.tapTracker) var tapTracker: TapTracker
+    
+    let tapName: BrewTap.BrewTapName
+    
+    private let relevantTapFromTracker: BrewTap
+    
+    public init(tapName: BrewTap.BrewTapName)
+    {
+        self.tapName = tapName
+        self.relevantTapFromTracker = Container.shared.tapTracker.resolve().tapsEligibleForTrustModification.filter({ $0.nameInternal == tapName }).first!
+    }
     
     var body: some View
     {
         GroupBox
         {
-            Text(tap.name(withPrecision: .full))
+            Text(relevantTapFromTracker.name(withPrecision: .full))
                 .padding()
         }
-        .draggable(tap)
+        .draggable(relevantTapFromTracker)
     }
 }
