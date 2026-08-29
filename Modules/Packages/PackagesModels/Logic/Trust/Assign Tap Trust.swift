@@ -6,15 +6,15 @@
 //
 
 import Foundation
-import CorkModels
 import CorkShared
 
-public extension TapTracker
+public extension TrustTracker
 {
+    /*
     /// Take the parsed trust file and assign the loaded taps the appropriate trust
     func assignTapTrust(fromParsedTrustFile trustFile: TrustFileContents) async
     {
-        guard let trustedTapNames: [BrewTap.BrewTapName] = trustFile.trustedTaps else {
+        guard let trustedTapNames: [BrewTap.BrewTapName] = trustFile.trustedTapNames else {
             appConstants.logger.info("There are no taps in the trusted file, nothing to assign")
             
             return
@@ -28,4 +28,5 @@ public extension TapTracker
             await tapToChangeTrustFor.changeTrust(to: .explicit(.trusted))
         }
     }
+     */
 }

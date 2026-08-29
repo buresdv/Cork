@@ -15,16 +15,7 @@ struct TapTrustBox: View
     @LazyInjected(\.appConstants) var appConstants: AppConstants
 
     @InjectedObservable(\.tapTracker) var tapTracker: TapTracker
-    
-    var explicitlyTrustedTaps: [BrewTap]
-    {
-        return tapTracker.tapsEligibleForTrustModification.filter({ $0.isTrusted == .explicit(.trusted) }).sorted(by: { $0.nameInternal < $1.nameInternal })
-    }
-
-    var tapsRequiringAdditionalManualTrust: [BrewTap]
-    {
-        return tapTracker.tapsEligibleForTrustModification.filter({ $0.isTrusted != .explicit(.trusted) }).sorted(by: { $0.nameInternal < $1.nameInternal })
-    }
+    @InjectedObservable(\.trustTracker) var trustTracker: TrustTracker
     
     var body: some View
     {
@@ -49,21 +40,20 @@ struct TapTrustBox: View
                             
                             LazyHStack
                             {
-                                ForEach(explicitlyTrustedTaps)
+                                ForEach(trustTracker.trustedTapNames, id: \.tapName)
                                 { trustedTap in
-                                    TapDraggableView(tap: trustedTap)
+                                    TapDraggableView(tapName: trustedTap)
                                 }
                             }
                         }
                         .dropDestination(for: BrewTap.self)
                         { items, _ in
                             
-                            Task {
-                                guard let tap = items.first else { return false }
+                            guard let tap = items.first else { return false }
 
-                                await tapTracker.tapsEligibleForTrustModification.filter({ $0 == tap }).first!.changeTrust(to: .explicit(.trusted))
-                                
-                                return true
+                            withAnimation
+                            {
+                                trustTracker.trustedTapNames.append(tap.nameInternal)
                             }
                             
                             return true
@@ -78,14 +68,34 @@ struct TapTrustBox: View
 
                             Text("start-page.trust.untrust-zone.instructions")
                                 .font(.caption)
-
+                            
+                            var tapNamesThatRequireAdditionalTrust: [BrewTap.BrewTapName] {
+                                return Array(Set(tapTracker.tapsEligibleForTrustModification.map( \.nameInternal )).subtracting(Set(trustTracker.trustedTapNames)))
+                            }
+                            
                             LazyHStack
                             {
-                                ForEach(tapsRequiringAdditionalManualTrust)
+                                
+                                ForEach(tapNamesThatRequireAdditionalTrust, id: \.self)
                                 { loadedTap in
-                                    TapDraggableView(tap: loadedTap)
+                                    TapDraggableView(tapName: loadedTap)
                                 }
                             }
+                             
+                        }
+                        .dropDestination(for: BrewTap.self)
+                        { items, _ in
+                            guard let tap = items.first else { return false }
+
+                            withAnimation
+                            {
+                                trustTracker.trustedTapNames.removeAll
+                                { tapInTrustTrackerName in
+                                    tapInTrustTrackerName == tap.nameInternal
+                                }
+                            }
+                            
+                            return true
                         }
                     }
                     .padding()

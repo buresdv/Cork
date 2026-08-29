@@ -28,6 +28,7 @@ struct StartPage: View
     
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @InjectedObservable(\.tapTracker) var tapTracker: TapTracker
+    @InjectedObservable(\.trustTracker) var trustTracker: TrustTracker
 
     @InjectedObservable(\.cachedDownloadsTracker) var cachedDownloadsTracker: CachedDownloadsTracker
     
@@ -143,9 +144,10 @@ struct StartPage: View
                 .task {
                     do
                     {
-                        let trustFileContents: TrustFileContents = try await tapTracker.readTrustFile()
+                        let trustFileContents: TrustFileContents = try await TrustTracker.readTrustFile()
                         
-                        await tapTracker.assignTapTrust(fromParsedTrustFile: trustFileContents)
+                        trustTracker.trustedTapNames = trustFileContents.trustedTapNames ?? .init()
+                        
                     } catch let trustFileReadingError {
                         AppConstants.shared.logger.error("Failed to read contents of trust file on start page load: \(trustFileReadingError.localizedDescription)")
                     }
