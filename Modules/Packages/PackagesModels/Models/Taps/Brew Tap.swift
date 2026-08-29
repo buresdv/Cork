@@ -28,7 +28,7 @@ public extension UTType
     static let brewTap: UTType = .init(exportedAs: "eu.davidbures.cork-tap", conformingTo: .plainText)
 }
 
-public final actor BrewTap: Identifiable, Hashable, Codable, Transferable, Trustable, ModifiableActor, LoadableActor
+public final actor BrewTap: Identifiable, Hashable, Codable, Transferable, ModifiableActor, LoadableActor
 {
     @Injected(\.appConstants) var appConstants: AppConstants
 
@@ -170,19 +170,6 @@ public final actor BrewTap: Identifiable, Hashable, Codable, Transferable, Trust
 
         self.isBeingModified = false
         self.isBeingLoaded = false
-        
-        let isImplicitlyTrusted: TrustType = {
-            if initializedInternalName.repo == .homebrew
-            {
-                return .implicit
-            }
-            else
-            {
-                return .explicit(nil)
-            }
-        }()
-        
-        self.isTrusted = isImplicitlyTrusted
     }
 
     /// Initialize the tap with a chunked name
@@ -194,26 +181,11 @@ public final actor BrewTap: Identifiable, Hashable, Codable, Transferable, Trust
 
         self.isBeingModified = false
         self.isBeingLoaded = false
-        
-        let isImplicitlyTrusted: TrustType = {
-            if name.repo == .homebrew
-            {
-                return .implicit
-            }
-            else
-            {
-                return .explicit(nil)
-            }
-        }()
-        
-        self.isTrusted = isImplicitlyTrusted
     }
 
     public nonisolated let id: UUID = .init()
 
     public nonisolated let nameInternal: BrewTapName
-    
-    public var isTrusted: TrustType?
 
     /// Check if the tap is supported by Speakeasy
     ///

@@ -56,15 +56,15 @@ public struct TrustFileContents
 {
     @Injected(\.appConstants) var appConstants: AppConstants
 
-    public var trustedTaps: [BrewTap.BrewTapName]?
+    public var trustedTapNames: [BrewTap.BrewTapName]?
     // TODO: Implement the rest
     
     public init(from decodedFileContents: TrustFileContentsCodable) async {
-        self.trustedTaps = await self.convertRawTrustedTapsToInternalObjects(decodedFileContents.trustedTaps)
+        self.trustedTapNames = await self.convertRawTrustedTapsToInternalObjects(decodedFileContents.trustedTaps)
     }
     
     public init() {
-        self.trustedTaps = .init()
+        self.trustedTapNames = .init()
     }
 }
 
@@ -92,7 +92,7 @@ private extension TrustFileContents
     }
 }
 
-public extension TapTracker
+public extension TrustTracker
 {
     enum TrustFileReadingError: LocalizedError
     {
@@ -173,7 +173,7 @@ public extension TapTracker
         }
     }
 
-    func readTrustFile() async throws(TrustFileReadingError) -> TrustFileContents
+    static nonisolated func readTrustFile() async throws(TrustFileReadingError) -> TrustFileContents
     {
         guard let trustFilePath: URL = AppConstants.shared.tapTrustPath
         else
