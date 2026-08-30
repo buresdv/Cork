@@ -25,12 +25,6 @@ struct AboutView: View
 
     private let specialThanks: [AcknowledgedContributor] = [
         AcknowledgedContributor(
-            name: "about.thanks.1.name",
-            reasonForAcknowledgement: "about.thanks.1.purpose",
-            profileService: .github,
-            profileURL: URL(string: "https://github.com/sebj")!
-        ),
-        AcknowledgedContributor(
             name: "about.thanks.2.name",
             reasonForAcknowledgement: "about.thanks.2-3.purpose",
             profileService: .github,
@@ -61,30 +55,6 @@ struct AboutView: View
             reasonForAcknowledgement: "about.contributors.7.purpose",
             profileService: .github,
             profileURL: URL(string: "https://github.com/waltflanagan")!
-        ),
-        AcknowledgedContributor(
-            name: "about.contributors.5.name",
-            reasonForAcknowledgement: "about.contributors.5.purpose",
-            profileService: .website,
-            profileURL: URL(string: "https://andreyrd.com")!
-        ),
-        AcknowledgedContributor(
-            name: "about.contributors.2.name",
-            reasonForAcknowledgement: "about.contributors.2.purpose",
-            profileService: .mastodon,
-            profileURL: URL(string: "https://mastodon.world/@luckkerr")!
-        ),
-        AcknowledgedContributor(
-            name: "about.contributors.3.name",
-            reasonForAcknowledgement: "about.contributors.3.purpose",
-            profileService: .mastodon,
-            profileURL: URL(string: "https://mastodon.social/@jierongli")!
-        ),
-        AcknowledgedContributor(
-            name: "about.contributors.4.name",
-            reasonForAcknowledgement: "about.contributors.4.purpose",
-            profileService: .mastodon,
-            profileURL: URL(string: "https://hachyderm.io/@oscb")!
         )
     ]
 
@@ -240,6 +210,7 @@ struct AboutView: View
                         Text("about.contributors")
                     }
 
+                    /*
                     DisclosureGroup
                     {
                         List
@@ -271,7 +242,7 @@ struct AboutView: View
                     } label: {
                         Text("about.translators")
                     }
-
+*/
                     Text("about.privacy-policy")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
