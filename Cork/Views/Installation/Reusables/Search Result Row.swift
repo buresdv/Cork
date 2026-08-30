@@ -63,7 +63,10 @@ struct SearchResultRow: View, Sendable
         {
             HStack(alignment: .center)
             {
-                relevantPackage.nameView(withComponents: .boundVersion)
+                relevantPackage.nameView(
+                    withComponents: .boundVersion,
+                    isExemptFromHighlighting: false
+                )
                 
                 switch context
                 {

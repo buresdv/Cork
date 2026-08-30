@@ -54,7 +54,10 @@ struct PackagesIncludedInTapList: View
                     {
                         if let initializedBrewPackageForDisplayInList: BrewPackage = .init(using: minimalPackage)
                         {
-                            initializedBrewPackageForDisplayInList.nameView(withComponents: .boundVersion)
+                            initializedBrewPackageForDisplayInList.nameView(
+                                withComponents: .boundVersion,
+                                isExemptFromHighlighting: false
+                            )
 
                             var isPackageAlreadyInstalled: Bool
                             {

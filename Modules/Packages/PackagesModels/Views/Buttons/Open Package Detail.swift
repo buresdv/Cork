@@ -7,7 +7,6 @@
 
 import FactoryKit
 import SwiftUI
-import CorkModels
 
 struct OpenPackageDetailButton: View
 {

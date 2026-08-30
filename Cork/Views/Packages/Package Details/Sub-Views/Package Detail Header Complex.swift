@@ -5,34 +5,39 @@
 //  Created by David Bureš on 03.10.2023.
 //
 
-import SwiftUI
-import CorkShared
 import CorkModels
+import CorkShared
 import FactoryKit
+import SwiftUI
 
 struct PackageDetailHeaderComplex: View
-{    
+{
     @InjectedObservable(\.appState) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
-    
+
     let package: BrewPackage
-    
+
     var isInPreviewWindow: Bool
-    
+
     @Bindable var packageDetails: BrewPackage.BrewPackageDetails
 
     let isLoadingDetails: Bool
-    
+
     var body: some View
     {
         VStack(alignment: .leading, spacing: 5)
         {
             HStack(alignment: .firstTextBaseline, spacing: 5)
             {
-                package.nameView(withComponents: .boundVersion, .installedVersions(package.versions))
-                    .font(.title)
+                package.nameView(
+                    withComponents: .boundVersion,
+                    .installedVersions(package.versions),
+                    isExemptFromHighlighting: true
+                )
+                .font(.title)
 
-                if let dynamicPinnedStatus = brewPackagesTracker.successfullyLoadedFormulae.filter({ $0.id == package.id }).first {
+                if let dynamicPinnedStatus = brewPackagesTracker.successfullyLoadedFormulae.filter({ $0.id == package.id }).first
+                {
                     if dynamicPinnedStatus.isPinned
                     {
                         Image(systemName: "pin.fill")
@@ -49,7 +54,7 @@ struct PackageDetailHeaderComplex: View
                     {
                         packageDetailsPill
                     }
-                    
+
                     PackageDeprecationViewMinifiedDisplay(
                         isDeprecated: packageDetails.deprecated,
                         deprecationReason: packageDetails.deprecationReason
@@ -73,7 +78,7 @@ struct PackageDetailHeaderComplex: View
             }
         }
     }
-    
+
     @ViewBuilder
     var packageDetailsPill: some View
     {

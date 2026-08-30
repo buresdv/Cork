@@ -64,7 +64,11 @@ struct PackageListItem: View
                         .transition(.scale)
                 }
 
-                packageItem.nameView(withComponents: .boundVersion, .installedVersions(packageItem.versions))
+                packageItem.nameView(
+                    withComponents: .boundVersion,
+                    .installedVersions(packageItem.versions),
+                    isExemptFromHighlighting: true
+                )
                 {
                     SidebarContextMenu(package: packageItem)
                 }

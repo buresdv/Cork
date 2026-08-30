@@ -107,7 +107,10 @@ struct DependantsList: View
                     {
                         TableColumn("package-details.dependencies.results.name")
                         { dependant in
-                            dependant.nameView(withComponents: .boundVersion)
+                            dependant.nameView(
+                                withComponents: .boundVersion,
+                                isExemptFromHighlighting: false
+                            )
                         }
                         TableColumn("package-details.dependencies.results.version")
                         { dependant in

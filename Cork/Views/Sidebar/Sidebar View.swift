@@ -16,7 +16,7 @@ struct SidebarView: View
     @Default(.allowMoreCompleteUninstallations) var allowMoreCompleteUninstallations: Bool
 
     @InjectedObservable(\.appState) var appState: AppState
-    @InjectedObservable(\.navigationManager) var navigationManager
+    @InjectedObservable(\.navigationManager) var navigationManager: NavigationManager
 
     @State private var isShowingSearchField: Bool = false
     @State private var searchText: String = ""

@@ -193,7 +193,7 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable,
         case inlineFormatted
     }
 
-    public enum NameDisplayComponents: Equatable
+    public enum NameDisplayComponents: Equatable, Sendable
     {
         case installedVersions([String])
         case boundVersion

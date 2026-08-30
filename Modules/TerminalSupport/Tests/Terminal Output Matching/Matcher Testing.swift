@@ -17,14 +17,14 @@ func streamTestingOutputs(
     { continuation in
         for debugOutput in outputs
         {
-            continuation.yield(.standardOutput(debugOutput))
+            continuation.yield(.standardOutput(.init(rawOutput: debugOutput)))
         }
 
         if let errors
         {
             for debugError in errors
             {
-                continuation.yield(.standardError(debugError))
+                continuation.yield(.standardError(.init(rawOutput: debugError)))
             }
         }
 
@@ -50,16 +50,16 @@ struct MatcherTesting
                 case installing
                 case done
 
-                var patterns: [String]
+                var patterns: [Regex<AnyRegexOutput>]
                 {
                     switch self
                     {
                     case .downloading:
-                        ["Downloading"]
+                        [.init(#/Downloading/#)]
                     case .installing:
-                        ["Downloaded"]
+                        [.init(#/Downloaded/#)]
                     case .done:
-                        ["Finished installing"]
+                        [.init(#/Finished installing/#)]
                     }
                 }
             }
@@ -117,16 +117,16 @@ struct MatcherTesting
                 case installing
                 case done
 
-                var patterns: [String]
+                var patterns: [Regex<AnyRegexOutput>]
                 {
                     switch self
                     {
                     case .downloading:
-                        ["Downloading"]
+                        [.init(#/Downloading/#)]
                     case .installing:
-                        ["Installing", "Linking"]
+                        [.init(#/Installing/#), .init(#/Linking/#)]
                     case .done:
-                        ["Installed", "Finished"]
+                        [.init(#/Installed/#), .init(#/Finished/#)]
                     }
                 }
             }
@@ -136,14 +136,14 @@ struct MatcherTesting
                 case noResponseFromServer
                 case noPermissions
 
-                var patterns: [String]
+                var patterns: [Regex<AnyRegexOutput>]
                 {
                     switch self
                     {
                     case .noResponseFromServer:
-                        ["Timed out"]
+                        [.init(#/Timed out/#)]
                     case .noPermissions:
-                        ["Couldn't get permissions"]
+                        [.init(#/Couldn't get permissions/#)]
                     }
                 }
             }
@@ -152,12 +152,12 @@ struct MatcherTesting
             {
                 case cacheRefreshed
 
-                var patterns: [String]
+                var patterns: [Regex<AnyRegexOutput>]
                 {
                     switch self
                     {
                     case .cacheRefreshed:
-                        ["Refreshing cache"]
+                        [.init(#/Refreshing cache/#)]
                     }
                 }
             }
@@ -223,46 +223,76 @@ struct MatcherTesting
 @Suite("Adoptable App Output Matching")
 struct AdoptableAppOutputMatching
 {
-    @Test func testErrorParsing() async throws
+    @Test("Test error parsing - mismatched app versions")
+    func testErrorParsing() async throws
     {
-        let output: [TerminalOutput] = [
-            .standardError("The bundle short version of /opt/homebrew/Caskroom/balenaetcher/2.1.4/balenaEtcher.app is 2.1.4 but is 2.1.2 for /Applications/balenaEtcher.app!"),
-            .standardOutput("This will not be matched"),
-            .standardOutput("This will be ignored"),
-            .standardError("This will be ignored as well")
-        ]
-        
         enum AdoptableAppOutputMatcher: TerminalOutputMatchable
         {
             typealias StandardCases = MatchesNoStandardOutputs
-            
+
             enum ErrorCases: TerminalOutputCase
             {
                 case mismatchedVersions
-                
-                var patterns: [String]
+
+                var patterns: [Regex<AnyRegexOutput>]
                 {
                     switch self
                     {
                     case .mismatchedVersions:
-                        ["The bundle short version of .+ is .+ but is .+ for .+!"]
+                        [.init(#/The bundle short version of .+ is .+ but is .+ for .+!/#)]
                     }
                 }
             }
-            
+
             enum IgnoredCases: TerminalOutputCase
             {
-                var patterns: [String]
+                case ignorableLine
+
+                var patterns: [Regex<AnyRegexOutput>]
                 {
-                    ["This will be ignored"]
+                    switch self
+                    {
+                    case .ignorableLine:
+                        [.init(#/This will be ignored/#)]
+                    }
                 }
             }
         }
-        
-        let matchResult: BatchedTerminalOutputMatchResult = output.match(as: AdoptableAppOutputMatcher.self)
-        
-        #expect(matchResult.standardOutputs.isEmpty)
-        #expect(matchResult.errorOutputs == [.mismatchedVersions])
-        #expect(matchResult.unimplementedOutputs.count == 1)
+
+        let testingOutputs: [String] = [
+            "This will not be matched",
+            "This will be ignored"
+        ]
+
+        let testingErrors: [String] = [
+            "The bundle short version of /opt/homebrew/Caskroom/balenaetcher/2.1.4/balenaEtcher.app is 2.1.4 but is 2.1.2 for /Applications/balenaEtcher.app!",
+            "This will be ignored as well"
+        ]
+
+        var collectedResultsArray: [AdoptableAppOutputMatcher.StandardCases] = .init()
+        var errorsArray: [AdoptableAppOutputMatcher.ErrorCases] = .init()
+        var unimplementedResultsArray: [TerminalOutput] = .init()
+
+        for await output in streamTestingOutputs(outputs: testingOutputs, errors: testingErrors)
+        {
+            output.match(as: AdoptableAppOutputMatcher.self)
+            { matchedOutput in
+                collectedResultsArray.append(matchedOutput)
+            } onErrorOutput: { matchedError in
+                switch matchedError
+                {
+                case .mismatchedVersions:
+                    errorsArray.append(.mismatchedVersions)
+                }
+            } onUnimplementedOutput: { unimplementedOutput in
+                unimplementedResultsArray.append(unimplementedOutput)
+            }
+        }
+
+        print("Results array: \(collectedResultsArray)")
+
+        #expect(collectedResultsArray.isEmpty)
+        #expect(errorsArray == [.mismatchedVersions])
+        #expect(unimplementedResultsArray.count == 1)
     }
 }

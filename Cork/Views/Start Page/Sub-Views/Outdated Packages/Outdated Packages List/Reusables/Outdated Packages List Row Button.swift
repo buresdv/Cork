@@ -39,7 +39,10 @@ struct OutdatedPackageListBoxRow: View
     @ViewBuilder
     var outdatedPackageDetails_none: some View
     {
-        outdatedPackage.package.nameView(withComponents: .boundVersion)
+        outdatedPackage.package.nameView(
+            withComponents: .boundVersion,
+            isExemptFromHighlighting: false
+        )
     }
 
     @ViewBuilder
@@ -47,7 +50,10 @@ struct OutdatedPackageListBoxRow: View
     {
         HStack(alignment: .center)
         {
-            outdatedPackage.package.nameView(withComponents: .boundVersion)
+            outdatedPackage.package.nameView(
+                withComponents: .boundVersion,
+                isExemptFromHighlighting: false
+            )
 
             HStack(alignment: .center)
             {
