@@ -107,8 +107,9 @@ public extension OutdatedPackagesTracker
 
         if rawOutput.containsErrors
         {
-            AppConstants.shared.logger.error("Standard error for package updating is not empty: \(rawOutput.standardErrors)")
-            throw OutdatedPackageRetrievalError.otherError(rawOutput.standardErrors.formatted(.list(type: .and)))
+            // Homebrew writes harmless warning information to stderr
+            // Also might exist successfully with valid stdout
+            AppConstants.shared.logger.warning("`brew outdated` wrote to stderr, but its JSON output is still expected to be valid: \(rawOutput.standardErrors)")
         }
 
         // MARK: - Decoding
@@ -127,7 +128,9 @@ public extension OutdatedPackagesTracker
             {
                 AppConstants.shared.logger.error("Could not convert raw output of decoding function to data for the decoder")
 
-                throw OutdatedPackageRetrievalError.otherError("There was a failure encoding data")
+                let failureReason: String = rawOutput.standardErrors.isEmpty ? "There was a failure encoding data" : rawOutput.standardErrors.formatted(.list(type: .and))
+
+                throw OutdatedPackageRetrievalError.otherError(failureReason)
             }
             let rawDecodedOutdatedPackages: OutdatedPackageCommandOutput = try outdatedPackagesOutputDecoder.decode(OutdatedPackageCommandOutput.self, from: decodableOutput)
 

@@ -290,7 +290,7 @@ public func shell(
         finalEnvironment["ALL_PROXY"] = "\(proxySettings.host):\(proxySettings.port)"
     }
 
-    if Defaults[.isAutomaticCleanupEnabled]
+    if !Defaults[.isAutomaticCleanupEnabled]
     {
         finalEnvironment["HOMEBREW_NO_INSTALL_CLEANUP"] = "TRUE"
     }

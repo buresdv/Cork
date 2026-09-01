@@ -58,7 +58,9 @@ extension OutdatedPackagesTracker
         
         var processError: UpdateAllPackagesView.CompleteUpdatingError?
 
-        for await output in shell(AppConstants.shared.brewExecutablePath, ["upgrade", includeGreedyPackages ? "--greedy" : ""])
+        let (updateStream, updateProcess): (AsyncStream<TerminalOutput>, Process) = shell(AppConstants.shared.brewExecutablePath, ["upgrade", includeGreedyPackages ? "--greedy" : ""])
+
+        for await output in updateStream
         {
             updateProgressTracker.insertOutput(output)
 
@@ -100,14 +102,22 @@ extension OutdatedPackagesTracker
             }
         }
 
+        /// Use exit code to judge stream final status
+        let brewExitCode: Int32 = updateProcess.terminationStatus
+
         if let processError
         {
             throw processError
         }
+
+        if brewExitCode != 0
+        {
+            throw .containsUnexpectedOutputs(consolidatedUnexpectedOutputs)
+        }
         
         if !consolidatedUnexpectedOutputs.isEmpty
         {
-            throw .containsUnexpectedOutputs(consolidatedUnexpectedOutputs)
+            self.appConstants.logger.warning("Upgrade finished successfully with unrecognised output: \(consolidatedUnexpectedOutputs.map(\.description), privacy: .public)")
         }
     }
 }
