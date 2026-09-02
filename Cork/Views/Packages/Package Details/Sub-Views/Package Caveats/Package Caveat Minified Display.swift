@@ -5,9 +5,9 @@
 //  Created by David Bureš on 01.10.2023.
 //
 
-import SwiftUI
 import CorkShared
 import Defaults
+import SwiftUI
 
 struct PackageCaveatMinifiedDisplayView: View
 {
@@ -25,7 +25,7 @@ struct PackageCaveatMinifiedDisplayView: View
             {
                 if caveatDisplayOptions == .mini
                 {
-                    OutlinedPillText(text: "package-details.caveats.available", color: .indigo)
+                    StatusPill(localizedText: "package-details.caveats.available", systemImage: "text.pad.header", color: .indigo)
                         .onTapGesture
                         {
                             isShowingCaveatPopover.toggle()

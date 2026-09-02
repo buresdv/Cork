@@ -29,7 +29,7 @@ struct TapDetailView: View, Sendable
     let tap: BrewTap
 
     @InjectedObservable(\.appState) var appState: AppState
-    @Environment(TapTracker.self) var tapTracker: TapTracker
+    @InjectedObservable(\.tapTracker) var tapTracker: TapTracker
 
     @State private var loadingState: TapDetailsLoadingState = .loading
 

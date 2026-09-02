@@ -15,7 +15,7 @@ struct InstallationFatalErrorView: View
 
     var body: some View
     {
-        ComplexWithIcon(systemName: "exclamationmark.triangle")
+        ComplexWithImage(image: .init(systemName: "exclamationmark.triangle")
         {
             HeadlineWithSubheadline(
                 headline: "add-package.fatal-error-\(packageBeingInstalled.name(withPrecision: .precise))",

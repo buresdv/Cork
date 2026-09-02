@@ -27,9 +27,9 @@ struct StartPage: View
     @Default(.allowMassPackageAdoption) var allowMassPackageAdoption: Bool
     
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
-    @Environment(TapTracker.self) var tapTracker: TapTracker
+    @InjectedObservable(\.tapTracker) var tapTracker: TapTracker
 
-    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
+    @InjectedObservable(\.cachedDownloadsTracker) var cachedDownloadsTracker: CachedDownloadsTracker
     
     @InjectedObservable(\.appState) var appState: AppState
 

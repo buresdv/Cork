@@ -81,7 +81,7 @@ public extension BrewPackagesTracker
         {
             do
             {
-                try await self.synchronizeInstalledPackages(cachedDownloadsTracker: cachedDownloadsTracker)
+                await self.synchronizeInstalledPackages()
                 
                 if uninstallCommandOutput.containsErrors && uninstallCommandOutput.standardErrors.contains("Error:")
                 {
@@ -103,6 +103,13 @@ public extension BrewPackagesTracker
         appState.isShowingUninstallationProgressView = false
 
         AppConstants.shared.logger.info("Package uninstallation process output:\nStandard output: \(uninstallCommandOutput.standardOutputs, privacy: .public)\nStandard error: \(uninstallCommandOutput.standardErrors, privacy: .public)")
+        
+        if uninstallCommandOutput.containsErrors
+        {
+            appConstants.logger.error("Errors occured while uninstalling \(package.name(withPrecision: .general)): \(uninstallCommandOutput.standardErrors)")
+            
+            appState.showAlert(errorToShow: .fatalPackageUninstallationError(packageName: package.name(withPrecision: .inlineFormatted), errorDetails: uninstallCommandOutput.standardErrors.last!.trimmingCharacters(in: .whitespacesAndNewlines)))
+        }
 
         /// If the user removed a package that was outdated, remove it from the outdated package tracker
         if let index = outdatedPackagesTracker.outdatedPackages.firstIndex(where: { $0.package.name(withPrecision: .precise) == package.name(withPrecision: .precise) })

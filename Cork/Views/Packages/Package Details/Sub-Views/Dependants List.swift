@@ -107,11 +107,10 @@ struct DependantsList: View
                     {
                         TableColumn("package-details.dependencies.results.name")
                         { dependant in
-                            dependant.nameView(withComponents: .boundVersion)
-                                .contextMenu
-                                {
-                                    dependant.contextMenu(builtInContent: .openPackageDetailButton)
-                                }
+                            dependant.nameView(
+                                withComponents: .boundVersion,
+                                isExemptFromHighlighting: false
+                            )
                         }
                         TableColumn("package-details.dependencies.results.version")
                         { dependant in
@@ -122,6 +121,7 @@ struct DependantsList: View
                 }
 
             } label: {
+                // TODO: In the string catalog, mark this as a plural
                 Text("package-details.dependants.\(dependants.count)")
             }
 

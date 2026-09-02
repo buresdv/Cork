@@ -13,7 +13,7 @@ import SwiftUI
 @Observable @MainActor
 public class TapTracker: @MainActor Loadable
 {
-    @Injected(\.appConstants) @ObservationIgnored var appConstants
+    @LazyInjected(\.appConstants) @ObservationIgnored var appConstants
 
     @Injected(\.appState) @ObservationIgnored var appState
     
@@ -71,5 +71,18 @@ public extension TapTracker
     static var loadingView: some View
     {
         ProgressView()
+    }
+}
+
+public extension Container
+{
+    @MainActor
+    var tapTracker: Factory<TapTracker>
+    {
+        Factory(self)
+        {
+            TapTracker()
+        }
+        .singleton
     }
 }

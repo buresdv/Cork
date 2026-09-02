@@ -11,9 +11,10 @@ import CorkShared
 import Defaults
 import DefaultsMacros
 import CorkModels
+import FactoryKit
 
 @Observable @MainActor
-class TopPackagesTracker
+public class TopPackagesTracker
 {
     @ObservableDefault(.sortTopPackagesBy) @ObservationIgnored var sortTopPackagesBy: TopPackageSorting
 
@@ -72,5 +73,18 @@ class TopPackagesTracker
         case .random:
             return topCasks.shuffled()
         }
+    }
+}
+
+public extension Container
+{
+    @MainActor
+    var topPackagesTracker: Factory<TopPackagesTracker>
+    {
+        Factory(self)
+        {
+            TopPackagesTracker()
+        }
+        .singleton
     }
 }

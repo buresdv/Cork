@@ -7,26 +7,6 @@
 
 import SwiftUI
 
-struct ComplexWithIcon<Content: View>: View
-{
-    let systemName: String
-
-    @ViewBuilder var content: Content
-
-    var body: some View
-    {
-        HStack(alignment: .top, spacing: 10)
-        {
-            Image(systemName: systemName)
-                .resizable()
-                .frame(width: 50, height: 50)
-                .foregroundColor(.secondary)
-
-            content
-        }
-    }
-}
-
 struct ComplexWithIconWithSystemImage<Content: View>: View
 {
     let imageName: NSImage.Name
@@ -59,7 +39,8 @@ struct ComplexWithImage<Content: View>: View
         {
             image
                 .resizable()
-                .frame(width: 75, height: 75)
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 50)
                 .foregroundColor(.secondary)
 
             content

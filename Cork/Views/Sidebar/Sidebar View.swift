@@ -16,7 +16,7 @@ struct SidebarView: View
     @Default(.allowMoreCompleteUninstallations) var allowMoreCompleteUninstallations: Bool
 
     @InjectedObservable(\.appState) var appState: AppState
-    @InjectedObservable(\.navigationManager) var navigationManager
+    @InjectedObservable(\.navigationManager) var navigationManager: NavigationManager
 
     @State private var isShowingSearchField: Bool = false
     @State private var searchText: String = ""
@@ -41,9 +41,6 @@ struct SidebarView: View
 
     var body: some View
     {
-        let _ = print("Sidebar appState: \(ObjectIdentifier(appState))")
-        let _ = print("Sidebar navigationManager \(ObjectIdentifier(navigationManager))")
-        /// Navigation selection enables "Home" button behaviour. [2023.09]
         List(selection: Bindable(navigationManager).openedScreen)
         {
             if currentTokens.isEmpty || currentTokens.contains(.formula) || currentTokens.contains(.intentionallyInstalledPackage)

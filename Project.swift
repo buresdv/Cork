@@ -2,8 +2,8 @@ import ProjectDescription
 
 let settings = Environment.selfCompiled.getBoolean(default: false)
 
-let version: String = "2.0.0"
-let build: String = "118BETA"
+let version: String = "2.0.1"
+let build: String = "141"
 
 func corkTarget(configureWithSelfCompiled: Bool) -> ProjectDescription.Target {
     var additionalCompilationConditions = [String]()
@@ -125,6 +125,9 @@ let corkTerminalFunctionsTarget: ProjectDescription.Target = .target(
     deploymentTargets: .macOS("14.0.0"),
     sources: [
         .glob("Modules/TerminalSupport/**/*.swift", excluding: ["Modules/TerminalSupport/Tests/**"])
+    ],
+    resources: [
+        "Modules/TerminalSupport/**/*.xcstrings"
     ],
     dependencies: [
         .target(corkSharedTarget),

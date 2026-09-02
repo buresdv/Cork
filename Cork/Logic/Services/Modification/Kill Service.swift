@@ -11,7 +11,11 @@ import CorkTerminalFunctions
 
 extension ServicesTracker
 {
-    func killService(_ serviceToKill: HomebrewService, servicesState: ServicesState, serviceModificationProgress: ServiceModificationProgress) async
+    func killService(
+        _ serviceToKill: HomebrewService,
+        servicesState: ServicesState,
+        serviceModificationProgress: ServiceModificationProgress
+    ) async
     {
         for await output in shell(AppConstants.shared.brewExecutablePath, ["services", "kill", serviceToKill.name])
         {
@@ -28,7 +32,7 @@ extension ServicesTracker
         {
             serviceModificationProgress.progress = 5.0
 
-            try await synchronizeServices(preserveIDs: true)
+            try await loadServices()
         }
         catch let servicesSynchronizationError
         {

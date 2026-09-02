@@ -7,22 +7,53 @@
 
 import AppKit
 import Foundation
+import SwiftUI
 
-struct HomebrewService: Identifiable, Hashable, Codable
+@Observable
+public class HomebrewService: Identifiable, Codable, Equatable, Hashable, @unchecked Sendable
 {
-    var id: UUID = .init()
+    init(name: String, status: ServiceStatus, user: String? = nil, location: URL, exitCode: Int? = nil)
+    {
+        self.id = .init()
+        self.name = name
+        self.status = status
+        self.user = user
+        self.location = location
+        self.exitCode = exitCode
+    }
 
-    let name: String
-    var status: ServiceStatus
+    public var id: UUID
 
-    let user: String?
+    public let name: String
+    public var status: ServiceStatus
 
-    let location: URL
+    public let user: String?
 
-    let exitCode: Int?
+    public let location: URL
 
-    func revealInFinder()
+    public var exitCode: Int?
+
+    public var details: ServiceDetails?
+    
+    var isLoadingDetails: Bool = true
+
+    public func revealInFinder()
     {
         location.revealInFinder(.openParentDirectoryAndHighlightTarget)
+    }
+
+    func changeStatus(to newStatus: ServiceStatus)
+    {
+        self.status = newStatus
+    }
+
+    public static func == (lhs: HomebrewService, rhs: HomebrewService) -> Bool
+    {
+        return lhs.id == rhs.id
+    }
+
+    public func hash(into hasher: inout Hasher)
+    {
+        hasher.combine(id)
     }
 }

@@ -1,17 +1,23 @@
 name: Test Application
 on:
-  pull_request:
-    branches:
-      - main
   push:
-    branches:
-      - main
+    branches-ignore:
+      - l10n
+      - l10n-import
+    paths:
+      - "**.swift"
+  pull_request:
+    branches-ignore:
+      - l10n
+    paths:
+      - "**.swift"
+      - l10n-import
 jobs:
   test:
     runs-on: macos-15
     steps:
-      - uses: actions/checkout@v3
-      - uses: jdx/mise-action@v2
+      - uses: actions/checkout@v6
+      - uses: jdx/mise-action@v4
       - name: Select Xcode
         run: sudo xcode-select -switch /Applications/Xcode_26.0.app
       - name: Fix plugins

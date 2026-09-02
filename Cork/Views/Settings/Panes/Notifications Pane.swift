@@ -67,7 +67,7 @@ struct NotificationsPane: View
 
                     if appState.notificationAuthStatus == .denied
                     {
-                        Text("settings.notifications.notifications-disabled-in-settings.tooltip")
+                        Label("settings.notifications.notifications-disabled-in-settings.tooltip", systemImage: "info.circle")
                             .font(.caption)
                             .foregroundColor(Color(nsColor: NSColor.systemGray))
                     }

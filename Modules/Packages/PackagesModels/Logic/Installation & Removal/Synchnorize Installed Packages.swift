@@ -8,38 +8,80 @@
 import CorkShared
 import Foundation
 import SwiftUI
+import FactoryKit
 
 public extension BrewPackagesTracker
 {
     /// Synchronizes installed packages and cached downloads
-    func synchronizeInstalledPackages(
-        cachedDownloadsTracker: CachedDownloadsTracker
-    ) async throws(PackageSynchronizationError)
+    nonisolated
+    func synchronizeInstalledPackages() async
     {
+        guard await !self.isPackageSynchronizationRunning else {
+            AppConstants.shared.logger.info("Package synchronization was already in progress - will not start another process")
+            return
+        }
+        
         AppConstants.shared.logger.debug("Will start synchronization process")
         
-        /// Save the old casks, we will compare them to see if we need to reload adoptable apps later
-        let oldLoadedCasks: Set<BrewPackage> = self.successfullyLoadedCasks
+        async let wasFormulaSynchronizationNeeded: Bool = await synchronizeInstalledFormulaeIfNeeded()
+        async let wasCaskSynchronizationNeeded: Bool = await synchronizeInstalledCasksIfNeeded()
         
-        async let updatedFormulaeTracker: BrewPackages? = await self.loadInstalledPackages(packageTypeToLoad: .formula, appState: AppState())
-        async let updatedCasksTracker: BrewPackages? = await self.loadInstalledPackages(packageTypeToLoad: .cask, appState: AppState())
-        
-        guard let safeUpdatedFormulaeTracker = await updatedFormulaeTracker, let safeUpdatedCasksTracker = await updatedCasksTracker else
-        {
-            throw .synchronizationReturnedNil
-        }
-        
-        withAnimation
-        {
-            self.installedFormulae = safeUpdatedFormulaeTracker
-            self.installedCasks = safeUpdatedCasksTracker
-        }
+        await synchronizeAdoptablePackagesIfNeeded(
+            wasCaskSynchronizationNeeded: wasCaskSynchronizationNeeded
+        )
         
         await cachedDownloadsTracker.loadCachedDownloadedPackages(brewPackagesTracker: self)
+    }
+    
+    @discardableResult
+    private func synchronizeInstalledFormulaeIfNeeded() async -> Bool
+    {
+        let isFormulaReloadNeeded: Bool = await self.checkIfReloadIsNeeded(for: .formula)
         
-        AppConstants.shared.logger.debug("Number of old packages: \(oldLoadedCasks.count), Number of new packages: \(self.successfullyLoadedCasks.count)")
+        AppConstants.shared.logger.info("Is Formula reload needed? \(isFormulaReloadNeeded)")
         
-        if self.successfullyLoadedCasks.count != oldLoadedCasks.count
+        if isFormulaReloadNeeded
+        {
+            async let updatedFormulaeTracker: BrewPackages? = await self.loadInstalledPackages(packageTypeToLoad: .formula, appState: AppState())
+            
+            if let updatedFormulaeTracker = await updatedFormulaeTracker
+            {
+                withAnimation
+                {
+                    self.installedFormulae = updatedFormulaeTracker
+                }
+            }
+        }
+        
+        return isFormulaReloadNeeded
+    }
+    
+    @discardableResult
+    private func synchronizeInstalledCasksIfNeeded() async -> Bool
+    {
+        let isCaskReloadNeeded: Bool = await self.checkIfReloadIsNeeded(for: .cask)
+        
+        AppConstants.shared.logger.info("Is Cask reload needed? \(isCaskReloadNeeded)")
+        
+        if isCaskReloadNeeded
+        {
+            async let updatedCasksTracker: BrewPackages? = await self.loadInstalledPackages(packageTypeToLoad: .cask, appState: AppState())
+            
+            if let updatedCasksTracker = await updatedCasksTracker
+            {
+                withAnimation
+                {
+                    self.installedCasks = updatedCasksTracker
+                }
+            }
+        }
+        
+        return isCaskReloadNeeded
+    }
+    
+    private func synchronizeAdoptablePackagesIfNeeded(wasCaskSynchronizationNeeded: Bool) async
+    {
+        if wasCaskSynchronizationNeeded
         {
             do
             {
@@ -51,7 +93,7 @@ public extension BrewPackagesTracker
         }
         else
         {
-            AppConstants.shared.logger.error("No changes to packages. No need to reload the adoptable apps.")
+            AppConstants.shared.logger.error("Is Adoptable Packages reload needed? \(wasCaskSynchronizationNeeded)")
         }
     }
 }

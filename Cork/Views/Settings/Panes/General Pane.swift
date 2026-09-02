@@ -81,7 +81,7 @@ struct GeneralPane: View
                 .pickerStyle(.radioGroup)
                 if caveatDisplayOptions == .mini
                 {
-                    Text("settings.general.package-caveats.minified.info")
+                    Label("settings.general.package-caveats.minified.info", systemImage: "info.circle")
                         .font(.caption)
                         .foregroundColor(Color(nsColor: NSColor.systemGray))
                 }

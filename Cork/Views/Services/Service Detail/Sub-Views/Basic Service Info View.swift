@@ -11,8 +11,6 @@ struct BasicServiceInfoView: View
 {
     let service: HomebrewService
 
-    let serviceDetails: ServiceDetails?
-
     var body: some View
     {
         Section
@@ -27,7 +25,7 @@ struct BasicServiceInfoView: View
                 }
             }
 
-            if let serviceDetails
+            if let serviceDetails = service.details
             {
                 LabeledContent
                 {

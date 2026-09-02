@@ -63,7 +63,7 @@ struct AdoptingAlreadyInstalledCaskView: View
         case .finished:
             DisappearableSheet
             {
-                ComplexWithIcon(systemName: "checkmark.seal")
+                ComplexWithImage(image: .init(systemName: "checkmark.seal")
                 {
                     HeadlineWithSubheadline(
                         headline: "adopt-cask.finished-\(caskToAdopt.name(withPrecision: .precise))",
@@ -73,7 +73,7 @@ struct AdoptingAlreadyInstalledCaskView: View
                 }
             }
         case .failed:
-            ComplexWithIcon(systemName: "exclamationmark.triangle")
+            ComplexWithImage(image: .init(systemName: "exclamationmark.triangle")
             {
                 HeadlineWithSubheadline(
                     headline: "adopt-cask.fatal-error-\(caskToAdopt.name(withPrecision: .precise))",

@@ -78,9 +78,9 @@ struct TapDecodingTest
     
     private func parseTapInfoForSpeficiedTap(tapName: String) async -> TapInfo?
     {
-        let coreTapRawOutput: String = await shell(AppConstants.shared.brewExecutablePath, ["tap-info", "--json", tapName]).standardOutput
+        let coreTapRawOutput: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["tap-info", "--json", tapName])
         
-        guard let tapInfoAsData: Data = coreTapRawOutput.data(using: .utf8) else
+        guard let tapInfoAsData: Data = coreTapRawOutput.first?.description.data(using: .utf8) else
         {
             fatalError("Couldn't convert the demo data from String to Data - the testing environment is fucked")
         }

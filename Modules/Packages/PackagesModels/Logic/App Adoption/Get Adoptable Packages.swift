@@ -197,7 +197,7 @@ public extension BrewPackagesTracker
         { adoptableApp in
             !caskNamesOfInstalledPackages.contains
             { installedCaskName in
-                let candidateCaskName = adoptableApp.adoptionCandidate.caskName
+                let candidateCaskName = adoptableApp.adoptionCandidate.name(withPrecision: .precise)
                 
                 // Check both directions for substring match
                 return candidateCaskName.contains(installedCaskName) || installedCaskName.contains(candidateCaskName)
@@ -265,26 +265,27 @@ public extension BrewPackagesTracker
                     let candidates = adoptableApp.adoptionCandidates
 
                     let sorted = candidates.sorted
-                    { lhs, rhs in
-                        let lhsHasAt = lhs.caskName.contains("@")
-                        let rhsHasAt = rhs.caskName.contains("@")
+                    { (lhs: BrewPackagesTracker.AdoptableApp.AdoptionCandidate, rhs: BrewPackagesTracker.AdoptableApp.AdoptionCandidate) in
+                        
+                        let lhsHasBoundVersion = lhs.internalName.boundVersion != nil
+                        let rhsHasBoundVersion = rhs.internalName.boundVersion != nil
 
-                        if lhsHasAt != rhsHasAt
+                        if lhsHasBoundVersion != rhsHasBoundVersion
                         {
-                            return !lhsHasAt
+                            return !lhsHasBoundVersion
                         }
 
-                        if lhsHasAt && rhsHasAt
+                        if lhsHasBoundVersion && rhsHasBoundVersion
                         {
-                            let lhsHasBeta = lhs.caskName.lowercased().contains("beta")
-                            let rhsHasBeta = rhs.caskName.lowercased().contains("beta")
+                            let lhsHasBeta = lhs.name(withPrecision: .precise).lowercased().contains("beta")
+                            let rhsHasBeta = rhs.name(withPrecision: .precise).lowercased().contains("beta")
                             if lhsHasBeta != rhsHasBeta
                             {
                                 return !lhsHasBeta
                             }
                         }
 
-                        return lhs.caskName < rhs.caskName
+                        return lhs.internalName < rhs.internalName
                     }
 
                     for i in candidates.indices

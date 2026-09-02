@@ -36,16 +36,7 @@ extension InstallationProgressTracker
             throw implementedError
         }
 
-        do
-        {
-            try await brewPackagesTracker.synchronizeInstalledPackages(cachedDownloadsTracker: cachedDownloadsTracker)
-        }
-        catch let synchronizationError
-        {
-            throw InstallationError.implemented(
-                .couldNotSynchronizePackages(synchronizationError)
-            )
-        }
+        await brewPackagesTracker.synchronizeInstalledPackages()
 
     }
 }

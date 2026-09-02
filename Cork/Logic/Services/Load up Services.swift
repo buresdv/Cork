@@ -8,6 +8,7 @@
 import CorkShared
 import CorkTerminalFunctions
 import Foundation
+import SwiftUI
 
 extension ServicesTracker
 {
@@ -117,7 +118,29 @@ extension ServicesTracker
                 ))
             }
 
-            services = finalServices
+            // Update existing whatever the fuck in place and only insert/remove what changed
+            // I don't even gve a shit anymore, I just want to release this cursed update
+            withAnimation
+            {
+                for loadedService in finalServices
+                {
+                    guard let existingService = services.first(where: { $0.name == loadedService.name })
+                    else
+                    {
+                        services.insert(loadedService)
+                        continue
+                    }
+
+                    // There's more than this but these are the only vars in the service definition
+                    existingService.status = loadedService.status
+                    existingService.exitCode = loadedService.exitCode
+                }
+
+                services = services.filter
+                { existingService in
+                    finalServices.contains(where: { $0.name == existingService.name })
+                }
+            }
         }
         catch let servicesParsingError
         {

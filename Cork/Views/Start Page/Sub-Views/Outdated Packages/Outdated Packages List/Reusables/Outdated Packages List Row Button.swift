@@ -32,10 +32,6 @@ struct OutdatedPackageListBoxRow: View
                 EmptyView()
             }
         }
-        .contextMenu
-        {
-            outdatedPackage.package.contextMenu(builtInContent: .openPackageDetailButton)
-        }
     }
 
     // MARK: - Various types of outdated package displays
@@ -43,11 +39,10 @@ struct OutdatedPackageListBoxRow: View
     @ViewBuilder
     var outdatedPackageDetails_none: some View
     {
-        outdatedPackage.package.nameView(withComponents: .boundVersion)
-            .contextMenu
-            {
-                outdatedPackage.package.contextMenu(builtInContent: .openPackageDetailButton)
-            }
+        outdatedPackage.package.nameView(
+            withComponents: .boundVersion,
+            isExemptFromHighlighting: false
+        )
     }
 
     @ViewBuilder
@@ -55,7 +50,10 @@ struct OutdatedPackageListBoxRow: View
     {
         HStack(alignment: .center)
         {
-            outdatedPackage.package.nameView(withComponents: .boundVersion)
+            outdatedPackage.package.nameView(
+                withComponents: .boundVersion,
+                isExemptFromHighlighting: false
+            )
 
             HStack(alignment: .center)
             {
@@ -63,21 +61,35 @@ struct OutdatedPackageListBoxRow: View
                 let newerVersion: String = outdatedPackage.newerVersion
 
                 let pillForegroundColor: NSColor = .secondaryLabelColor
-                let pillBackgroundColor: NSColor = .quinaryLabel
+                let pillBackgroundColor: NSColor = .secondarySystemFill
 
                 if showOldVersionsInOutdatedPackageList
                 {
-                    PillText(text: "\(installedVersions) → \(newerVersion)", backgroundColor: pillBackgroundColor, textColor: pillForegroundColor)
+                    Label("\(installedVersions) → \(newerVersion)", systemImage: "arrow.up")
+                        .labelStyle(
+                            .pill(
+                                color: .init(
+                                    text: .init(nsColor: pillForegroundColor),
+                                    background: .init(nsColor: pillBackgroundColor)
+                                ),
+                                iconStyle: .iconIsHidden
+                            )
+                        )
                 }
                 else
                 {
-                    PillText(text: "\(newerVersion)", backgroundColor: pillBackgroundColor, textColor: pillForegroundColor)
+                    Label("\(newerVersion)", systemImage: "arrow.up")
+                        .labelStyle(
+                            .pill(
+                                color: .init(
+                                    text: .init(nsColor: pillForegroundColor),
+                                    background: .init(nsColor: pillBackgroundColor)
+                                ),
+                                iconStyle: .iconIsHidden
+                            )
+                        )
                 }
             }
-        }
-        .contextMenu
-        {
-            outdatedPackage.package.contextMenu(builtInContent: .openPackageDetailButton)
         }
     }
 }

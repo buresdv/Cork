@@ -15,9 +15,11 @@ import CorkShared
 @Observable @MainActor
 public class BrewPackagesTracker: @MainActor Loadable
 {
-    @LazyInjected(\.appConstants) @ObservationIgnored private var appConstants: AppConstants
+    @LazyInjected(\.appConstants) @ObservationIgnored var appConstants: AppConstants
     
-    @ObservationIgnored @InjectedObservable(\.appState) var appState
+    @InjectedObservable(\.appState) @ObservationIgnored var appState
+    
+    @LazyInjected(\.cachedDownloadsTracker) @ObservationIgnored var cachedDownloadsTracker
     
     public init() {}
     
@@ -25,6 +27,8 @@ public class BrewPackagesTracker: @MainActor Loadable
     public var installedCasks: BrewPackages = .init()
     
     public var isBeingLoaded: Bool = true
+    
+    var isPackageSynchronizationRunning: Bool = false
 
     // MARK: - Successfully loaded packages
     /// Formulae that were successfuly loaded from disk

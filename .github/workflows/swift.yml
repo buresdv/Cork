@@ -1,7 +1,19 @@
 # https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-swift
 
 name: Swift
-on: [push, pull_request]
+on:
+  push:
+    branches-ignore:
+      - l10n
+      - l10n-import
+    paths:
+      - "**.swift"
+  pull_request:
+    branches-ignore:
+      - l10n
+    paths:
+      - "**.swift"
+      - l10n-import
 jobs:
   build:
     name: Swift

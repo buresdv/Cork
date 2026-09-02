@@ -14,13 +14,13 @@ enum ReasonsForServiceLoadingFailure
     case couldNotParseJSON
 }
 
-struct ServiceDetailView: View
+struct ServiceDetailView: View, DismissablePane
 {
+    @Environment(ServicesTracker.self) var servicesTracker: ServicesTracker
+    
     let service: HomebrewService
 
     @State private var serviceDetails: ServiceDetails?
-
-    @State private var isLoadingDetails: Bool = true
 
     @State private var erroredOutWhileLoadingServiceDetails: Bool = false
 
@@ -31,8 +31,9 @@ struct ServiceDetailView: View
     {
         VStack(alignment: .leading, spacing: 0)
         {
-            if isLoadingDetails
+            if service.isLoadingDetails
             {
+                // TODO: Move this progress into the form itself so the whole thing doesn't flash weirdly
                 ProgressView
                 {
                     Text("service-details.contents.loading")
@@ -50,9 +51,13 @@ struct ServiceDetailView: View
                     {
                         ServiceHeaderComplex(service: service)
 
-                        BasicServiceInfoView(service: service, serviceDetails: serviceDetails)
+                        BasicServiceInfoView(
+                            service: service
+                        )
 
-                        ServiceLocationsView(service: service, serviceDetails: serviceDetails)
+                        ServiceLocationsView(
+                            service: service
+                        )
                     }
 
                     Spacer()
@@ -67,12 +72,12 @@ struct ServiceDetailView: View
 
             defer
             {
-                isLoadingDetails = false
+                service.isLoadingDetails = false
             }
 
             do
             {
-                serviceDetails = try await service.loadDetails()
+                try await service.loadDetails()
             }
             catch let servicesLoadingError
             {

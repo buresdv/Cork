@@ -5,46 +5,54 @@
 //  Created by David Bureš on 09.02.2023.
 //
 
-import SwiftUI
 import CorkModels
+import CorkShared
+import CorkTerminalFunctions
 import FactoryKit
+import SwiftUI
 
-enum TapAddingStates
+enum TapAddingStates: Equatable
 {
-    case ready, tapping, finished, error, manuallyInputtingTapRepoAddress
+    case ready
+    case tapping(
+        tap: BrewTap
+    )
+    case finished
+    case error(TappingError)
+    case manuallyInputtingTapRepoAddress
 }
 
-enum TapInputErrors
+enum TapInputErrors: Error
 {
-    case empty, missingSlash
-}
-
-enum TappingError: String
-{
-    case repositoryNotFound = "Repository not found"
-    case other = "An error occurred while tapping"
+    case empty, missingSlash, invalidHost, invalidName(BrewTap.BrewTapName.BrewTapNameInitializationError)
 }
 
 struct AddTapView: View
 {
+    @Injected(\.appConstants) var appConstants: AppConstants
+
     @Environment(\.dismiss) var dismiss: DismissAction
-    
+
     @State var progress: TapAddingStates = .ready
 
     @State private var requestedTap: String = ""
 
-    @State private var forcedRepoAddress: String = ""
+    @State private var forcedRepoAddress: String = AppConstants.shared.gitHubURL.absoluteString
 
-    @State private var tappingError: TappingError = .other
-
-    @Environment(TapTracker.self) var tapTracker: TapTracker
+    @InjectedObservable(\.tapTracker) var tapTracker: TapTracker
     @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     var isDismissable: Bool
     {
-        ![.tapping, .finished].contains(progress)
+        switch progress
+        {
+        case .tapping, .finished:
+            return false
+        default:
+            return true
+        }
     }
-    
+
     var shouldShowSheetTitle: Bool
     {
         [.ready, .manuallyInputtingTapRepoAddress].contains(progress)
@@ -67,70 +75,71 @@ struct AddTapView: View
         }
     }
 
+    @ViewBuilder
+    var tapSheetContent: some View
+    {
+        switch progress
+        {
+        case .ready:
+            AddTapInitialView(
+                requestedTap: $requestedTap,
+                forcedRepoAddress: $forcedRepoAddress,
+                progress: $progress,
+                isShowingManualRepoAddressInputField: false
+            )
+
+        case .tapping(let tap):
+            AddTapAddingView(
+                requestedTap: tap,
+                progress: $progress
+            )
+
+        case .finished:
+            AddTapFinishedView(
+                requestedTap: requestedTap
+            )
+
+        case .error(let error):
+            AddTapErrorView(
+                tappingError: error,
+                requestedTap: requestedTap,
+                progress: $progress
+            )
+
+        case .manuallyInputtingTapRepoAddress:
+            AddTapInitialView(
+                requestedTap: $requestedTap,
+                forcedRepoAddress: $forcedRepoAddress,
+                progress: $progress,
+                isShowingManualRepoAddressInputField: true
+            )
+        }
+    }
+
     var body: some View
     {
         NavigationStack
         {
             SheetTemplate(isShowingTitle: shouldShowSheetTitle)
             {
-                Group
-                {
-                    switch progress
+                tapSheetContent
+                    .navigationTitle(sheetTitle)
+                    .toolbar
                     {
-                    case .ready:
-                        AddTapInitialView(
-                            requestedTap: $requestedTap,
-                            forcedRepoAddress: $forcedRepoAddress,
-                            progress: $progress,
-                            isShowingManualRepoAddressInputField: false
-                        )
-
-                    case .tapping:
-                        AddTapAddingView(
-                            requestedTap: requestedTap,
-                            forcedRepoAddress: forcedRepoAddress,
-                            progress: $progress,
-                            tappingError: $tappingError
-                        )
-
-                    case .finished:
-                        AddTapFinishedView(
-                            requestedTap: requestedTap
-                        )
-
-                    case .error:
-                        AddTapErrorView(
-                            tappingError: tappingError,
-                            requestedTap: requestedTap,
-                            progress: $progress
-                        )
-
-                    case .manuallyInputtingTapRepoAddress:
-                        AddTapInitialView(
-                            requestedTap: $requestedTap,
-                            forcedRepoAddress: $forcedRepoAddress,
-                            progress: $progress,
-                            isShowingManualRepoAddressInputField: true
-                        )
-                    }
-                }
-                .navigationTitle(sheetTitle)
-                .toolbar
-                {
-                    if isDismissable
-                    {
-                        ToolbarItem(placement: .cancellationAction)
+                        if isDismissable
                         {
-                            Button
+                            ToolbarItem(placement: .cancellationAction)
                             {
-                                dismiss()
-                            } label: {
-                                Text("action.cancel")
+                                Button
+                                {
+                                    dismiss()
+                                } label: {
+                                    Text("action.cancel")
+                                }
+                                .keyboardShortcut(.cancelAction)
                             }
-                            .keyboardShortcut(.cancelAction)
                         }
                     }
-                }
             }
         }
     }

@@ -12,14 +12,15 @@ import SwiftUI
 public struct MinimalHomebrewPackage: Identifiable, Hashable, AppEntity, Codable, Package, DescriptionLoadable
 {
     /// Initialize from an unparsed name
-    public init(name: String, type: BrewPackage.PackageType, installDate: Date? = nil, installedIntentionally: Bool) {
+    public init(name: String, type: BrewPackage.PackageType, installDate: Date? = nil, installedIntentionally: Bool)
+    {
         self.id = .init()
         self.internalName = .init(from: name)
         self.type = type
         self.installedOn = installDate
         self.installedIntentionally = installedIntentionally
     }
-    
+
     /// Initialize from a full package
     public init(fromFullPackage fullPackage: BrewPackage)
     {
@@ -29,12 +30,14 @@ public struct MinimalHomebrewPackage: Identifiable, Hashable, AppEntity, Codable
         self.installedOn = fullPackage.installedOn
         self.installedIntentionally = fullPackage.installedIntentionally
     }
-    
+
     public var id: UUID
 
     public var internalName: BrewPackageName
 
     public var type: BrewPackage.PackageType
+    
+    public var displayableType: BrewPackage.PackageType? { type }
 
     public var installedOn: Date?
 
@@ -43,24 +46,25 @@ public struct MinimalHomebrewPackage: Identifiable, Hashable, AppEntity, Codable
     @ViewBuilder
     public var previewSelfButton: some View
     {
-        if let installedOn
-        {
-            EmptyView()
-        }
-        else
-        {
-            PreviewPackageButton(packageToPreview: self)
-        }
+        PreviewPackageButton(packageToPreview: self)
     }
-    
+
     @ViewBuilder
     public var openDetailForSelfButton: some View
     {
         #if DEBUG
-        Text(String("DEBUG: Detail for self button not available for minimal packages"))
+            Text(String("DEBUG: Detail for self button not available for minimal packages"))
         #endif
     }
-    
+
+    @ViewBuilder
+    public var revealSelfInFinderButton: some View
+    {
+        #if DEBUG
+            Text(String("DEBUG: Reveal in finder button not available for minimal packages"))
+        #endif
+    }
+
     public static let typeDisplayRepresentation: TypeDisplayRepresentation = .init(name: "intents.type.minimal-homebrew-package")
 
     public var displayRepresentation: DisplayRepresentation
@@ -95,7 +99,7 @@ public extension MinimalHomebrewPackage
 public extension MinimalHomebrewPackage
 {
     /// Initialize an empty minimal package, for when we don't care what it is
-    init(createEmpty: Bool)
+    init(createEmpty _: Bool)
     {
         self.init(name: "", type: .formula, installedIntentionally: false)
     }
@@ -107,6 +111,6 @@ public struct MinimalHomebrewPackageIntentQuery: EntityQuery
     {
         return .init()
     }
-    
+
     public init() {}
 }

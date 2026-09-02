@@ -29,29 +29,25 @@ struct PackageListItem: View
 
     var badgeView: Text?
     {
-        var badgeComponents: [String] = .init()
-
-        // MARK: - Add the various components to the badge
-
-        if isPackageOutdated
-        {
-            badgeComponents.append("􀐫")
-        }
+        var components: [Text] = []
 
         if packageItem.isPinned
         {
-            badgeComponents.prepend("􀎧")
+            components.append(Text(Image(systemName: "pin.fill")))
         }
 
-        // MARK: - Assemble the final view
-
-        guard !badgeComponents.isEmpty
-        else
+        if isPackageOutdated
         {
-            return nil
+            components.append(Text(Image(systemName: "clock")))
         }
 
-        return Text(badgeComponents.joined(separator: " | "))
+        // MARK: Assemble the final view
+        
+        guard !components.isEmpty else { return nil }
+
+        return components.dropFirst().reduce(into: components[0]) { result, text in
+            result = result + Text(" | ") + text
+        }
     }
 
     var body: some View
@@ -68,7 +64,14 @@ struct PackageListItem: View
                         .transition(.scale)
                 }
 
-                packageItem.nameView(withComponents: .boundVersion, .installedVersions(packageItem.versions))
+                packageItem.nameView(
+                    withComponents: .boundVersion,
+                    .installedVersions(packageItem.versions),
+                    isExemptFromHighlighting: true
+                )
+                {
+                    SidebarContextMenu(package: packageItem)
+                }
 
                 if packageItem.isBeingModified
                 {

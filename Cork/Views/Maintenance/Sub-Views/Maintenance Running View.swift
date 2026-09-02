@@ -16,7 +16,7 @@ struct MaintenanceRunningView: View
     @InjectedObservable(\.appState) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
-    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
+    @InjectedObservable(\.cachedDownloadsTracker) var cachedDownloadsTracker: CachedDownloadsTracker
     
     @State var currentMaintenanceStepText: LocalizedStringKey = "maintenance.step.initial"
     
@@ -99,9 +99,15 @@ struct MaintenanceRunningView: View
             {
                 let cachedDownloadsSizeBeforeDeletion: Int = cachedDownloadsTracker.cachedDownloadsSize
                 
+                AppConstants.shared.logger.info("Space before deletion: \(cachedDownloadsSizeBeforeDeletion)")
+                
                 try deleteCachedDownloads()
                 
+                await cachedDownloadsTracker.loadCachedDownloadedPackages(brewPackagesTracker: brewPackagesTracker)
+                
                 let cachedDownloadsSizeAfterDeletion: Int = cachedDownloadsTracker.cachedDownloadsSize
+                
+                AppConstants.shared.logger.info("Space after deletion: \(cachedDownloadsSizeAfterDeletion)")
                 
                 cachedDownloadsRemovalResults = .init(reclaimedSpace: cachedDownloadsSizeBeforeDeletion - cachedDownloadsSizeAfterDeletion)
             }

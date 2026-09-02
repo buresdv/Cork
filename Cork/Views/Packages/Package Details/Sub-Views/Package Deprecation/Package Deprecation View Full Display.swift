@@ -60,11 +60,7 @@ private struct PackageDeprecatedWithReason: View
     {
         VStack(alignment: .leading, spacing: 7)
         {
-            Text("package-details.deprecation.notice")
-
-            Divider()
-
-            Text(deprecationReason)
+            Text("package-details.deprecation.notice") + Text(" ") +  Text("(\(deprecationReason))")
         }
     }
 }

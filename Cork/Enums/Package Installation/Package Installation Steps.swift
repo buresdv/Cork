@@ -8,11 +8,12 @@
 import Foundation
 import CorkShared
 import CorkModels
+import SwiftUI
 import CorkTerminalFunctions
 
-enum PackageInstallationProcessSteps: Equatable
+public enum PackageInstallationProcessSteps: Equatable
 {
-    enum UnexpectedTerminalOutputType: Equatable
+    public enum UnexpectedTerminalOutputType: Equatable
     {
         /// The unexpected outputs did NOT contain any STDERR outputs
         case containedErrors(rawOutput: [TerminalOutput])
@@ -50,13 +51,34 @@ enum PackageInstallationProcessSteps: Equatable
         case .presentingSearchResults:
             true
         case .installing:
-            false
+            true
         case .finished:
             true
         case .unexpectedTerminalOutput:
             true
         case .erroredOut:
             true
+        }
+    }
+    
+    var customDismissButtonText: LocalizedStringKey?
+    {
+        switch self
+        {
+        case .ready:
+            return nil
+        case .searching(_):
+            return nil
+        case .presentingSearchResults(let forSearchString, let foundFormulae, let foundCasks):
+            return nil
+        case .installing(let package):
+            return nil
+        case .finished:
+            return "action.close"
+        case .unexpectedTerminalOutput(let unexpectedTerminalOutputType):
+            return "action.close"
+        case .erroredOut(let package, let withError):
+            return "action.close"
         }
     }
 }

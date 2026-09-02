@@ -19,7 +19,7 @@ struct PresentingSearchResultsView: View
 
     @Environment(PackageInstallationProcessStepTracker.self) var packageInstallationProcessStepTracker
 
-    @State private var searchString: String = ""
+    @Binding var searchString: String
 
     @State var selectedPackage: MinimalHomebrewPackage?
 
@@ -30,18 +30,8 @@ struct PresentingSearchResultsView: View
     @State private var isCasksSectionCollapsed: Bool = false
 
     @State var isSearchFieldFocused: Bool = true
-
-    init(
-        oldSearchString: String,
-        foundFormulae: [MinimalHomebrewPackage],
-        foundCasks: [MinimalHomebrewPackage]
-    )
-    {
-        _searchString = State(initialValue: oldSearchString)
-        
-        self.foundFormulae = foundFormulae
-        self.foundCasks = foundCasks
-    }
+    
+    let onInstallationStart: (MinimalHomebrewPackage) -> Void
 
     var wereAnyPackagesFound: Bool
     {
@@ -127,7 +117,7 @@ struct PresentingSearchResultsView: View
         {
             if let selectedPackage
             {
-                packageInstallationProcessStepTracker.advanceStep(to: .installing(package: selectedPackage))
+                onInstallationStart(selectedPackage)
             }
             else
             {

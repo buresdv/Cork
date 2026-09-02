@@ -9,20 +9,75 @@ import Foundation
 import CorkShared
 import CorkTerminalFunctions
 
-public func addTap(name: String, forcedRepoAddress: String? = nil) async -> String
+public enum TappingError: LocalizedError, Equatable
 {
-    var tapResult: String
-
-    if let forcedRepoAddress
+    public enum ImplementedError: Sendable
     {
-        tapResult = await shell(AppConstants.shared.brewExecutablePath, ["tap", name, forcedRepoAddress]).standardErrors.joined()
+        case repositoryNotFound
+        // case tapAlreadyAdded
+        
+        public var errorDescription: String?
+        {
+            switch self
+            {
+            case .repositoryNotFound:
+                return String(localized: "add-tap.error.repository-not-found.description")
+                
+            // case .tapAlreadyAdded:
+                // return String(localized: "add-tap.error.already-added")
+            }
+        }
     }
-    else
+    
+    case implemented(ImplementedError)
+    case unimplemented(rawOutput: [TerminalOutput])
+}
+
+public extension TapTracker
+{
+    func addTap(tap: BrewTap) async throws(TappingError)
     {
-        tapResult = await shell(AppConstants.shared.brewExecutablePath, ["tap", name]).standardErrors.joined()
+        let tappingOutputs: [TerminalOutput]
+        
+        if let forcedRepoAddress = tap.nameInternal.repoAddress
+        {
+            appConstants.logger.info("Will use forced URL: \(forcedRepoAddress.absoluteString, privacy: .public)")
+            
+            tappingOutputs = await shell(AppConstants.shared.brewExecutablePath, ["tap", tap.name(withPrecision: .full), forcedRepoAddress.absoluteString])
+        }
+        else
+        {
+            appConstants.logger.info("Will not use a forced URL")
+            
+            tappingOutputs = await shell(AppConstants.shared.brewExecutablePath, ["tap", tap.name(withPrecision: .full)])
+        }
+        
+
+        AppConstants.shared.logger.debug("Tapping result: \(tappingOutputs, privacy: .public)")
+        
+        if tappingOutputs.containsErrors
+        {
+            // If the outputs are empty, it means the tap is already added. No need to do anything
+            if !tappingOutputs.filter({ !$0.description.contains("Tapped") }).isEmpty
+            {
+                if tappingOutputs.contains("Repository not found", in: .standardErrors)
+                {
+                    throw .implemented(.repositoryNotFound)
+                }
+                else if tappingOutputs.contains("could not read Username", in: .standardErrors)
+                {
+                    throw .implemented(.repositoryNotFound)
+                }
+                else
+                {
+                    throw .unimplemented(rawOutput: tappingOutputs)
+                }
+            }
+        }
+        else
+        {
+            self.addedTaps.insert(.success(tap))
+        }
     }
 
-    AppConstants.shared.logger.debug("Tapping result: \(tapResult, privacy: .public)")
-
-    return tapResult
 }

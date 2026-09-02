@@ -49,7 +49,7 @@ struct OutdatedPackagesList: View
             
             if areThereAnySelfManagedUpdatesAvailable
             {
-                DisclosureGroup("start-page.updates.self-updating.\(numberOfSelfManagedUpdates).list")
+                DisclosureGroup("start-page.updates.unmanaged-only.list")
                 {
                     OutdatedPackagesList_List(packageUpdatingType: .selfUpdating)
                 }
@@ -67,7 +67,7 @@ struct OutdatedPackagesList: View
             
             if areThereAnySelfManagedUpdatesAvailable
             {
-                DisclosureGroup("start-page.updates.self-updating.\(numberOfSelfManagedUpdates).list")
+                DisclosureGroup("start-page.updates.unmanaged-only.list")
                 {
                     OutdatedPackagesList_Table(packageUpdatingType: .selfUpdating)
                 }

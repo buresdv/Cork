@@ -48,7 +48,7 @@ struct MaintenanceFinishedView: View
     @InjectedObservable(\.appState) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
-    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
+    @InjectedObservable(\.cachedDownloadsTracker) var cachedDownloadsTracker: CachedDownloadsTracker
 
     @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
 
@@ -98,7 +98,7 @@ struct MaintenanceFinishedView: View
 
     var body: some View
     {
-        ComplexWithIcon(systemName: "checkmark.seal")
+        ComplexWithImage(image: .init(systemName: "checkmark.seal"))
         {
             Form
             {
@@ -114,14 +114,7 @@ struct MaintenanceFinishedView: View
         }
         .task
         {
-            do
-            {
-                try await brewPackagesTracker.synchronizeInstalledPackages(cachedDownloadsTracker: cachedDownloadsTracker)
-            }
-            catch let synchronizationError
-            {
-                appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
-            }
+            await brewPackagesTracker.synchronizeInstalledPackages()
         }
     }
 
@@ -270,6 +263,15 @@ struct MaintenanceFinishedView: View
                             List(problems, id: \.self)
                             { problem in
                                 Text(problem)
+                                    .contextMenu
+                                    {
+                                        Button
+                                        {
+                                            problem.copyToClipboard()
+                                        } label: {
+                                            Label("action.copy", systemImage: "document.on.document")
+                                        }
+                                    }
                             }
                             .listStyle(.bordered)
                             .alternatingRowBackgrounds()

@@ -10,7 +10,7 @@
 import Foundation
 import SwiftUI
 
-enum ServiceStatus: Codable, Hashable, CustomStringConvertible
+public enum ServiceStatus: Codable, Hashable, CustomStringConvertible
 {
     case started
     case scheduled
@@ -42,7 +42,7 @@ enum ServiceStatus: Codable, Hashable, CustomStringConvertible
         }
     }
 
-    init(from decoder: Decoder) throws
+    public init(from decoder: Decoder) throws
     {
         let container: SingleValueDecodingContainer = try decoder.singleValueContainer()
         let rawValue: String = try container.decode(String.self)
@@ -64,13 +64,13 @@ enum ServiceStatus: Codable, Hashable, CustomStringConvertible
         }
     }
 
-    func encode(to encoder: Encoder) throws
+    public func encode(to encoder: Encoder) throws
     {
         var container: SingleValueEncodingContainer = encoder.singleValueContainer()
         try container.encode(description)
     }
 
-    var description: String
+    public var description: String
     {
         switch self
         {
@@ -91,7 +91,7 @@ enum ServiceStatus: Codable, Hashable, CustomStringConvertible
         }
     }
 
-    var displayableName: LocalizedStringKey
+    public var displayableName: LocalizedStringKey
     {
         switch self
         {

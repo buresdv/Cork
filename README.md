@@ -102,7 +102,7 @@ Prerequisites:
 
 0. Enroll your account in the developer program at [https://developer.apple.com/](https://developer.apple.com/). You don't need a paid account, a free one works fine
 1. Install Xcode
-2. In the Terminal, run the following command: `﻿sudo xcode-select -s /Application/Xcode.app`
+2. In the Terminal, run the following command: `﻿sudo xcode-select -s /Applications/Xcode.app`
     
     *This command allows the Terminal to interact with Xcode's Terminal features, which is necessary for Mise and Tuist to work.*
 3. Add your Developer account to Xcode. To do so, in the Menu bar, click `Xcode → Settings`, and in the window that opens, click `Accounts`. You can add your account there
@@ -142,8 +142,8 @@ In my case, it was `echo "eval \"\$(/Users/david/.local/bin/mise activate zsh)\"
 
 #### Compiling Cork
 
-0. I recommend you pick a version marked by one of the version tags. Those are released versions. If you decide to compile the current state of any of the branches, you might encounter experience-breaking bugs and unfinished features
-1. Use the command `git clone https://github.com/buresdv/Cork.git && cd Cork && mise exec tuist@4.50.2 -- tuist install && mise exec tuist@4.50.2 -- tuist generate --no-binary-cache`.
+0. I recommend you pick a version of Cork marked by one of the version tags which define released versions. If you decide to compile the current state of any of the branches, you might encounter experience-breaking bugs and unfinished features
+1. Use the command `git clone https://github.com/buresdv/Cork.git && cd Cork && git checkout <VERSION TAG>; mise exec tuist@4.50.2 -- tuist install && mise exec tuist@4.50.2 -- tuist generate --no-binary-cache`.
   - Mise will ask you to trust the local [`.mise.toml`](.mise.toml).
   - You can either:
     - Say yes, to always use `tuist` version 4.50.2 in this directory.
@@ -178,11 +178,3 @@ In my case, it was `echo "eval \"\$(/Users/david/.local/bin/mise activate zsh)\"
 10. In the popup that appears, click `Custom`, then click `Next` in the bottom right of the popup
 11. Click `Copy App`
 12. Open the resulting folder. You'll see an app called Cork. Drag Cork to your `/Applications/` folder, and you're done!
-
-## License
-
-Cork is licensed under [Commons Clause](https://commonsclause.com).
-
-This means that Cork's source source is available and you can modify it, contribute to it etc., but you can't sell or distribute Cork or modified versions of it.
-
-Moreover, you can’t distribute compiled versions of Cork without consulting me first. Compiling versions for your personal use is fine.

@@ -56,6 +56,7 @@ extension OutdatedPackagesTracker
             output.match(as: UpdateProgressTracker.IndividialPackageUpdatingStage.self)
             { standardCase in
                 AppConstants.shared.logger.debug("Matched update standard case: \(standardCase.description)")
+                
                 consolidatedProcessResults.append(standardCase)
                 
                 updateStageProgress.increment(bySetNumber: 1)
@@ -86,7 +87,7 @@ extension OutdatedPackagesTracker
                 case .standardError(let standardError):
                     processError = .unimplemented(
                         failedPackage: packageToUpdate,
-                        rawOutput: standardError
+                        rawOutput: standardError.rawOutput
                     )
                 }
             }

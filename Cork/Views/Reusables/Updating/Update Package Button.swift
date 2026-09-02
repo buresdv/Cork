@@ -18,9 +18,27 @@ struct UpdatePackageButton: View
     
     let packageToUpdate: BrewPackage
     
+    // TODO: Merge this with the outdated package discovery logic in `Sidebar Context Menu`
+    var isPackageOutdated: Bool
+    {
+        if outdatedPackagesTracker.allDisplayableOutdatedPackages.contains(where: { $0.package.name(withPrecision: .precise) == packageToUpdate.name(withPrecision: .precise) })
+        {
+            return true
+        }
+        else
+        {
+            return false
+        }
+    }
+    
     var outdatedPackageFromTracker: OutdatedPackage?
     {
         return outdatedPackagesTracker.outdatedPackages.first(where: { $0.package.getCompletePackageName() == packageToUpdate.getCompletePackageName() })
+    }
+    
+    var isUpdatingDisabledForThisPackage: Bool
+    {
+        return packageToUpdate.isPinned || !isPackageOutdated
     }
     
     var body: some View
@@ -42,8 +60,8 @@ struct UpdatePackageButton: View
             }
             
         } label: {
-            Text("action.update-\(packageToUpdate.name(withPrecision: .precise))")
+            Label("action.update-\(packageToUpdate.name(withPrecision: .inlineFormatted))", systemImage: "square.and.arrow.down")
         }
-
+        .disabled(isUpdatingDisabledForThisPackage)
     }
 }

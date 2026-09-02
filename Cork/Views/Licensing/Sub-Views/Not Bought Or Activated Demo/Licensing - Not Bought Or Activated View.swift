@@ -87,7 +87,8 @@ struct Licensing_NotBoughtOrActivatedView: View
                             }
                             else
                             {
-                                OutlinedPillText(text: "licensing.invalid-email", color: .secondary)
+                                Label("licensing.invalid-email", image: "custom.envelope.badge.questionmark")
+                                    .labelStyle(.outlinedPill(color: .red, font: .caption.bold(), iconStyle: .iconIsShown))
                                     .transition(.move(edge: .trailing).combined(with: .opacity))
                             }
                         }

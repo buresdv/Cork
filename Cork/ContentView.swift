@@ -32,14 +32,14 @@ struct ContentView: View, Sendable
     @Environment(\.openWindow) var openWindow: OpenWindowAction
 
     @InjectedObservable(\.appState) var appState: AppState
-    @InjectedObservable(\.navigationManager) var navigationManager
+    @InjectedObservable(\.navigationManager) var navigationManager: NavigationManager
 
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
-    @Environment(TapTracker.self) var tapTracker: TapTracker
+    @InjectedObservable(\.tapTracker) var tapTracker: TapTracker
 
-    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
+    @InjectedObservable(\.cachedDownloadsTracker) var cachedDownloadsTracker: CachedDownloadsTracker
 
-    @Environment(TopPackagesTracker.self) var topPackagesTracker: TopPackagesTracker
+    @InjectedObservable(\.topPackagesTracker) var topPackagesTracker: TopPackagesTracker
 
     @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
 
@@ -252,8 +252,8 @@ private extension View
 
                 view.brewPackagesTracker.installedFormulae = await availableFormulae ?? .init()
                 view.brewPackagesTracker.installedCasks = await availableCasks ?? .init()
-
-                view.cachedDownloadsTracker.assignPackageTypeToCachedDownloads(brewPackagesTracker: view.brewPackagesTracker)
+                
+                view.cachedDownloadsTracker.cachedDownloads = view.cachedDownloadsTracker.assignPackageTypeToCachedDownloads(cachedDownloads: view.cachedDownloadsTracker.cachedDownloads, brewPackagesTracker: view.brewPackagesTracker)
             }
     }
 
@@ -411,7 +411,7 @@ private extension View
                 switch sheetType
                 {
                 case .packageInstallation:
-                    AddFormulaView()
+                    InstallPackageView()
                 case .tapAddition:
                     AddTapView()
 
@@ -422,6 +422,10 @@ private extension View
                     UpdatePackagesView(outdatedPackagesTrackerToUse: view.outdatedPackagesTracker)
                         .onDisappear
                         {
+                            Task.detached
+                            {
+                                await view.brewPackagesTracker.synchronizeInstalledPackages()
+                            }
                             view.outdatedPackagesTracker.checkForUpdates()
                         }
 
@@ -438,13 +442,9 @@ private extension View
                     BrewfileImportProgressView()
 
                 case .maintenance(let fastCacheDeletion):
-                    switch fastCacheDeletion
-                    {
-                    case false:
-                        MaintenanceView()
-                    case true:
-                        MaintenanceView(forcedOptions: true)
-                    }
+                    MaintenanceView(
+                        fastCacheDeletion: fastCacheDeletion
+                    )
                 }
             }
     }

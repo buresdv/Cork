@@ -9,6 +9,7 @@ import CorkModels
 import CorkShared
 import Defaults
 import SwiftUI
+import FactoryKit
 
 struct SearchResultRow: View, Sendable
 {
@@ -16,7 +17,8 @@ struct SearchResultRow: View, Sendable
     @Default(.showCompatibilityWarning) var showCompatibilityWarning: Bool
 
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
-    @Environment(TopPackagesTracker.self) var topPackagesTracker: TopPackagesTracker
+    
+    @InjectedObservable(\.topPackagesTracker) var topPackagesTracker: TopPackagesTracker
     
     let context: Self.Context
     
@@ -61,7 +63,10 @@ struct SearchResultRow: View, Sendable
         {
             HStack(alignment: .center)
             {
-                relevantPackage.nameView(withComponents: .boundVersion)
+                relevantPackage.nameView(
+                    withComponents: .boundVersion,
+                    isExemptFromHighlighting: false
+                )
                 
                 switch context
                 {
@@ -80,14 +85,14 @@ struct SearchResultRow: View, Sendable
                     {
                         if brewPackagesTracker.successfullyLoadedFormulae.contains(where: { $0.getCompletePackageName() == package.internalName })
                         {
-                            PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
+                            PackageAlreadyInstalledPill()
                         }
                     }
                     else
                     {
                         if brewPackagesTracker.successfullyLoadedCasks.contains(where: { $0.getCompletePackageName() == package.internalName })
                         {
-                            PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
+                            PackageAlreadyInstalledPill()
                         }
                     }
 
@@ -192,10 +197,6 @@ struct SearchResultRow: View, Sendable
                     AppConstants.shared.logger.info("\(relevantPackage.name(withPrecision: .precise), privacy: .auto) already has its description loaded")
                 }
             }
-        }
-        .contextMenu
-        {
-            extractedRelevantPackage.contextMenu()
         }
     }
     

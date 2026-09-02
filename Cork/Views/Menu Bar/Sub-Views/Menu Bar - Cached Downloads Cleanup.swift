@@ -15,7 +15,7 @@ struct MenuBar_CachedDownloadsCleanup: View
 {
     @InjectedObservable(\.appState) var appState: AppState
 
-    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
+    @InjectedObservable(\.cachedDownloadsTracker) var cachedDownloadsTracker: CachedDownloadsTracker
     
     @State private var isDeletingCachedDownloads: Bool = false
 

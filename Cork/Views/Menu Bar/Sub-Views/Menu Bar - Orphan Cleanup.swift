@@ -16,7 +16,7 @@ struct MenuBar_OrphanCleanup: View
 {
     @InjectedObservable(\.appState) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
-    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
+    @InjectedObservable(\.cachedDownloadsTracker) var cachedDownloadsTracker: CachedDownloadsTracker
 
     @State private var isUninstallingOrphanedPackages: Bool = false
 
@@ -49,14 +49,7 @@ struct MenuBar_OrphanCleanup: View
                     )
                 }
 
-                do
-                {
-                    try await brewPackagesTracker.synchronizeInstalledPackages(cachedDownloadsTracker: cachedDownloadsTracker)
-                }
-                catch let synchronizationError
-                {
-                    appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
-                }
+                await brewPackagesTracker.synchronizeInstalledPackages()
             } label: {
                 Text("maintenance.steps.packages.uninstall-orphans")
             }

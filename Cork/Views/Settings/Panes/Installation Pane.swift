@@ -13,6 +13,10 @@ struct InstallationAndUninstallationPane: View
 {
     @Default(.shouldRequestPackageRemovalConfirmation) var shouldRequestPackageRemovalConfirmation: Bool
 
+    @Default(.showInteractiveCapsule) var showInteractiveCapsule: Bool
+    
+    @Default(.caveatDisplayOptions) var caveatDisplayOptions: PackageCaveatDisplay
+    
     @Default(.showCompatibilityWarning) var showCompatibilityWarning: Bool
     @Default(.includeGreedyOutdatedPackages) var includeGreedyOutdatedPackages: Bool
 
@@ -35,6 +39,23 @@ struct InstallationAndUninstallationPane: View
         {
             Form
             {
+                // TODO: Implement this
+                /*
+                LabeledContent
+                {
+                    VStack(alignment: .leading)
+                    {
+                        Defaults.Toggle("settings.packages.highlight-interactive-elements", key: .showInteractiveCapsule)
+                        
+                        Defaults.Toggle("settings.packages.highlight-interactive-elements.include-package-type", key: .showPackageTypeNextToInteractiveCapsule)
+                            .padding(.leading)
+                            .disabled(!showInteractiveCapsule)
+                    }
+                } label: {
+                    Text("settings.packages-design.label")
+                }
+                */
+                
                 LabeledContent
                 {
                     Defaults.Toggle(key: .shouldRequestPackageRemovalConfirmation)
@@ -106,8 +127,7 @@ struct InstallationAndUninstallationPane: View
 
                             HStack(alignment: .top)
                             {
-                                Text("􀇾")
-                                Text("settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.warning")
+                                Label("settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.warning", systemImage: "exclamationmark.triangle")
                             }
                             .font(.caption)
                             .foregroundColor(Color(nsColor: NSColor.systemGray))
@@ -131,8 +151,7 @@ struct InstallationAndUninstallationPane: View
 
                             HStack(alignment: .top)
                             {
-                                Text("􀇾")
-                                Text("settings.install-uninstall.installation.enable-automatic-cleanup.warning")
+                                Label("settings.install-uninstall.installation.enable-automatic-cleanup.warning", systemImage: "exclamationmark.triangle")
                             }
                             .font(.caption)
                             .foregroundColor(Color(nsColor: NSColor.systemGray))

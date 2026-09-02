@@ -11,7 +11,11 @@ import CorkTerminalFunctions
 
 extension ServicesTracker
 {
-    func startService(_ serviceToStart: HomebrewService, servicesState: ServicesState, serviceModificationProgress: ServiceModificationProgress) async
+    func startService(
+        _ serviceToStart: HomebrewService,
+        servicesState: ServicesState,
+        serviceModificationProgress: ServiceModificationProgress
+    ) async throws(ServicesFatalError)
     {
         for await output in shell(AppConstants.shared.brewExecutablePath, ["services", "start", serviceToStart.name])
         {
@@ -21,7 +25,7 @@ extension ServicesTracker
                 AppConstants.shared.logger.debug("Services startup output line: \(outputLine)")
                 switch outputLine
                 {
-                case _ where outputLine.contains("Successfully started"):
+                case _ where outputLine.rawOutput.contains("Successfully started"):
                     AppConstants.shared.logger.debug("Started \(serviceToStart.name) with no problems")
                 default:
                     AppConstants.shared.logger.debug("Service started, but there were some problems")
@@ -32,15 +36,15 @@ extension ServicesTracker
             case .standardError(let errorLine):
                 switch errorLine
                 {
-                case _ where errorLine.contains("must be run as root"):
+                case _ where errorLine.rawOutput.contains("must be run as root"):
                     AppConstants.shared.logger.debug("Service must be run as root")
 
-                    servicesState.showError(.couldNotStartService(offendingService: serviceToStart.name, errorThrown: String(localized: "services.error.must-be-run-as-root")))
+                    throw .couldNotStartService(offendingService: serviceToStart.name, errorThrown: String(localized: "services.error.must-be-run-as-root"))
 
                 default:
                     AppConstants.shared.logger.warning("Could not start service: \(errorLine)")
 
-                    servicesState.showError(.couldNotStartService(offendingService: serviceToStart.name, errorThrown: errorLine))
+                    throw .couldNotStartService(offendingService: serviceToStart.name, errorThrown: errorLine.rawOutput)
                 }
             }
         }
@@ -48,14 +52,15 @@ extension ServicesTracker
         do
         {
             serviceModificationProgress.progress = 5.0
-
-            try await synchronizeServices(preserveIDs: true)
+            
+            try await loadServices()
+            try await serviceToStart.loadDetails()
         }
         catch let servicesSynchronizationError
         {
             AppConstants.shared.logger.error("Could not synchronize services: \(servicesSynchronizationError.localizedDescription)")
-
-            servicesState.showError(.couldNotSynchronizeServices(errorThrown: servicesSynchronizationError.localizedDescription))
+            
+            throw .couldNotSynchronizeServices(errorThrown: servicesSynchronizationError.localizedDescription)
         }
     }
 }

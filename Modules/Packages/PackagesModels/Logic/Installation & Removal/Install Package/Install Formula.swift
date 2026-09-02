@@ -31,6 +31,10 @@ extension InstallationProgressTracker
             /Would install \d formula/
         ]
 
+        /// These child progresses have to be here so the progress can move in a more granual way, instead of being stuck
+        var dependencyDownloadProgress: Progress?
+        var dependencyInstallProgress: Progress?
+
         for await output in stream
         {
             // Check if the line isn't ignorable
@@ -47,15 +51,15 @@ extension InstallationProgressTracker
             {
             case .standardOutput(let outputLine):
 
-                AppConstants.shared.logger.debug("Package instrall line out: \(outputLine, privacy: .public)")
+                AppConstants.shared.logger.debug("Package install line out: \(outputLine, privacy: .public)")
 
-                AppConstants.shared.logger.info("Does the line contain an element from the array? \(outputLine.containsElementFromArray(packageDependencies), privacy: .public)")
+                AppConstants.shared.logger.info("Does the line contain an element from the array? \(outputLine.rawOutput.containsElementFromArray(packageDependencies), privacy: .public)")
 
-                if outputLine.contains(/Would install \d dependencies for/)
+                if outputLine.rawOutput.contains(/Would install \d dependencies for/)
                 {
                     AppConstants.shared.logger.info("Will get the dependencies!")
 
-                    let matchedDependencies: [String] = outputLine.matches(of: /(?m)^[^\s]+$/).map { String($0.output) }
+                    let matchedDependencies: [String] = outputLine.rawOutput.matches(of: /(?m)^[^\s]+$/).map { String($0.output) }
 
                     AppConstants.shared.logger.info("Got these dependencies: \(matchedDependencies)")
 
@@ -64,8 +68,26 @@ extension InstallationProgressTracker
                     self.numberOfPackageDependencies = packageDependencies.count
 
                     self.installProgress.completedUnitCount = 1
+
+                    if !packageDependencies.isEmpty
+                    {
+                        dependencyDownloadProgress = .init(
+                            parent: self.installProgress,
+                            percentageOfParentToTakeUp: 20,
+                            totalItemsOfThisProgress: packageDependencies.count
+                        )
+                    }
                 }
-                else if outputLine.contains("Installing dependencies") || outputLine.contains("Installing \(formulaToInstall.name(withPrecision: .precise)) dependency") || outputLine.contains("Pouring") && outputLine.containsElementFromArray(packageDependencies)
+                else if outputLine.rawOutput.contains("Fetching downloads for:")
+                {
+                    AppConstants.shared.logger.info("Will download package!")
+
+                    self.installStage = .formula(.downloadingPackage(package: formulaToInstall))
+
+                    dependencyInstallProgress = nil
+                    self.installProgress.completedUnitCount = 3
+                }
+                else if outputLine.rawOutput.contains("Installing dependencies") || outputLine.rawOutput.contains("Installing \(formulaToInstall.name(withPrecision: .precise)) dependency") || outputLine.rawOutput.contains("Pouring") && outputLine.rawOutput.containsElementFromArray(packageDependencies)
                 {
                     AppConstants.shared.logger.info("Will install dependencies!")
                     self.installStage = .formula(.installingDependencies(dependencyName: "", dependencyNumber: self.numberInLineOfPackageCurrentlyBeingInstalled + 1, totalNumberOfDependencies: packageDependencies.count))
@@ -74,11 +96,24 @@ extension InstallationProgressTracker
                     self.numberInLineOfPackageCurrentlyBeingInstalled = self.numberInLineOfPackageCurrentlyBeingInstalled + 1
                     AppConstants.shared.logger.info("Installing dependency \(self.numberInLineOfPackageCurrentlyBeingInstalled) of \(packageDependencies.count)")
 
-                    // TODO: Add a math formula for advancing the stepper
-                    self.installProgress.increment(byPercentage: 4)
-                }
+                    if dependencyDownloadProgress != nil
+                    {
+                        dependencyDownloadProgress = nil // This makes seemingly no sense, but without this, the progress can overflow way above 100%. No clue why
+                        self.installProgress.completedUnitCount = 2
 
-                else if outputLine.contains("Already downloaded") || (outputLine.contains("Fetching") && outputLine.containsElementFromArray(packageDependencies))
+                        dependencyInstallProgress = .init(
+                            parent: self.installProgress,
+                            percentageOfParentToTakeUp: 20,
+                            totalItemsOfThisProgress: packageDependencies.count
+                        )
+                    }
+
+                    if let dependencyInstallProgress
+                    {
+                        dependencyInstallProgress.completedUnitCount = Int64(self.numberInLineOfPackageCurrentlyBeingInstalled)
+                    }
+                }
+                else if outputLine.rawOutput.contains("Already downloaded") || (outputLine.rawOutput.contains("Fetching") && outputLine.rawOutput.containsElementFromArray(packageDependencies))
                 {
                     guard !packageDependencies.isEmpty
                     else
@@ -94,21 +129,30 @@ extension InstallationProgressTracker
 
                     AppConstants.shared.logger.info("Fetching dependency \(self.numberInLineOfPackageCurrentlyBeingFetched) of \(packageDependencies.count)")
 
-                    self.installProgress.increment(byPercentage: 4)
+                    if let dependencyDownloadProgress
+                    {
+                        dependencyDownloadProgress.completedUnitCount = Int64(self.numberInLineOfPackageCurrentlyBeingFetched)
+                    }
                 }
-
-                else if outputLine.contains("Fetching \(formulaToInstall.name(withPrecision: .precise))") || outputLine.contains("Installing \(formulaToInstall.name(withPrecision: .precise))") || outputLine.contains("Pouring") && outputLine.contains(formulaToInstall.name(withPrecision: .general))
+                else if outputLine.rawOutput.contains("Fetching \(formulaToInstall.name(withPrecision: .precise))") || outputLine.rawOutput.contains("Installing \(formulaToInstall.name(withPrecision: .precise))") || outputLine.rawOutput.contains("Pouring") && outputLine.rawOutput.contains(formulaToInstall.name(withPrecision: .general))
                 {
                     AppConstants.shared.logger.info("Will install package itself!")
 
                     self.installStage = .formula(.installingPackage(package: formulaToInstall))
 
-                    // TODO: Add a math formula for advancing the stepper
-                    self.installProgress.set(toPercentage: 90)
+                    dependencyInstallProgress = nil
+                    self.installProgress.completedUnitCount = 4
                 }
                 else
                 {
-                    consolidatedUnimplementedOutput.append(output)
+                    if !output.description.containsAny(of: ["Downloading bottle manifests"])
+                    {
+                        consolidatedUnimplementedOutput.append(output)
+                    }
+                    else
+                    {
+                        AppConstants.shared.logger.info("Hit disqualifying output: \(output.description)")
+                    }
                 }
 
                 switch self.installStage
@@ -124,11 +168,26 @@ extension InstallationProgressTracker
             case .standardError(let errorLine):
                 AppConstants.shared.logger.error("Errored out: \(errorLine, privacy: .public)")
 
-                if errorLine.contains("a password is required")
+                if errorLine.rawOutput.contains("a password is required")
                 {
                     AppConstants.shared.logger.warning("Install requires sudo")
 
                     installError = .implemented(.requiresSudoPassword)
+                } else if errorLine.rawOutput.contains("Fetching downloads for:")
+                {
+                    // This is duplicated in the standard cases verbatim because this line is sometimes in STDOUT, sometimes in STDERR
+                    AppConstants.shared.logger.info("Will download package!")
+
+                    self.installStage = .formula(.downloadingPackage(package: formulaToInstall))
+
+                    dependencyInstallProgress = nil
+                    self.installProgress.completedUnitCount = 3
+                }
+                else
+                {
+                    AppConstants.shared.logger.warning("Install encountered an unimplemented error")
+
+                    consolidatedUnimplementedOutput.append(.standardError(errorLine))
                 }
             }
         }
@@ -148,7 +207,9 @@ extension InstallationProgressTracker
 
         if !consolidatedUnimplementedOutput.isEmpty
         {
-            throw .implemented(.couldNotInstallFormula(.unimplelented(rawOutput: consolidatedUnimplementedOutput)))
+            throw .implemented(.containedUnexpectedOutputs(unexpectedOutputs: consolidatedUnimplementedOutput))
         }
+
+        self.installProgress.completedUnitCount = self.installProgress.totalUnitCount
     }
 }

@@ -53,14 +53,7 @@ public extension BrewfileManager
 
         appState.brewfileImportingStage = .finished
 
-        do
-        {
-            try await brewPackagesTracker.synchronizeInstalledPackages(cachedDownloadsTracker: cachedDownloadsTracker)
-        }
-        catch let synchronizationError
-        {
-            appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
-        }
+        await brewPackagesTracker.synchronizeInstalledPackages()
     }
 
 }

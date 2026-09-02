@@ -5,16 +5,16 @@
 //  Created by David Bureš on 05.04.2023.
 //
 
-import SwiftUI
-import Defaults
-import CorkShared
 import CorkModels
+import CorkShared
+import Defaults
 import FactoryKit
+import SwiftUI
 
 struct OutdatedPackageListBox: View
-{    
+{
     @Default(.displayOnlyIntentionallyInstalledPackagesByDefault) var displayOnlyIntentionallyInstalledPackagesByDefault: Bool
-    
+
     @Default(.outdatedPackageInfoDisplayAmount) var outdatedPackageInfoDisplayAmount: OutdatedPackageInfoAmount
 
     @InjectedObservable(\.appState) var appState: AppState
@@ -24,6 +24,11 @@ struct OutdatedPackageListBox: View
 
     @State private var isSelfUpdatingSectionExpanded: Bool = false
     
+    var numberOfSelfManagedUpdates: Int
+    {
+        return outdatedPackagesTracker.packagesThatUpdateThemselves.count
+    }
+
     var body: some View
     {
         Grid
@@ -56,46 +61,45 @@ struct OutdatedPackageListBox: View
                             {
                                 OutdatedPackagesList()
                                 /*
-                                switch outdatedPackageListBoxType
-                                {
-                                case .managedOnly:
-                                    outdatedPackageListComplex(packagesToShow: packagesManagedByHomebrew)
-                                case .unmanagedOnly:
-                                    outdatedPackageListComplex(packagesToShow: packagesThatUpdateThemselves)
-                                case .bothManagedAndUnmanaged:
-                                    outdatedPackageListComplex(packagesToShow: packagesManagedByHomebrew)
-                                    
-                                    if !packagesThatUpdateThemselves.isEmpty
-                                    {
-                                        DisclosureGroup(isExpanded: $isSelfUpdatingSectionExpanded)
-                                        {
-                                            outdatedPackageListComplex(packagesToShow: packagesThatUpdateThemselves)
-                                        } label: {
-                                            Text("start-page.updates.self-updating.\(packagesThatUpdateThemselves.count).list")
-                                                .font(.subheadline)
-                                        }
-                                    }
-                                }
-                                */
+                                 switch outdatedPackageListBoxType
+                                 {
+                                 case .managedOnly:
+                                     outdatedPackageListComplex(packagesToShow: packagesManagedByHomebrew)
+                                 case .unmanagedOnly:
+                                     outdatedPackageListComplex(packagesToShow: packagesThatUpdateThemselves)
+                                 case .bothManagedAndUnmanaged:
+                                     outdatedPackageListComplex(packagesToShow: packagesManagedByHomebrew)
+
+                                     if !packagesThatUpdateThemselves.isEmpty
+                                     {
+                                         DisclosureGroup(isExpanded: $isSelfUpdatingSectionExpanded)
+                                         {
+                                             outdatedPackageListComplex(packagesToShow: packagesThatUpdateThemselves)
+                                         } label: {
+                                             Text("start-page.updates.self-updating.\(packagesThatUpdateThemselves.count).list")
+                                                 .font(.subheadline)
+                                         }
+                                     }
+                                 }
+                                 */
                             } label: {
                                 // TODO: Fix this
                                 /*
-                                Group
-                                {
-                                    if outdatedPackageListBoxType == .unmanagedOnly
-                                    {
-                                        Text("start-page.updates.unmanaged-only.list")
-                                    }
-                                    else
-                                    {
-                                        Text("start-page.updates.list")
-                                    }
-                                }
-                                 */
-                                
+                                 Group
+                                 {
+                                     if outdatedPackageListBoxType == .unmanagedOnly
+                                     {
+                                         Text("start-page.updates.unmanaged-only.list")
+                                     }
+                                     else
+                                     {
+                                         Text("start-page.updates.list")
+                                     }
+                                 }
+                                  */
+
                                 Text("start-page.updates.list")
                             }
-                            
                         }
                     }
                 }
@@ -104,24 +108,32 @@ struct OutdatedPackageListBox: View
         .accessibilityLabel("accessibility.label.outdated-packages-box.listing-outdated-packages")
         .accessibilityValue("accessibility.value.listing-outdated-packages.\(outdatedPackagesTracker.packagesManagedByHomebrew.count)-managed.\(outdatedPackagesTracker.packagesThatUpdateThemselves.count)-unmanaged")
     }
-    
+
     // MARK: - ViewBuilders
-    
+
     @ViewBuilder
     private var boxTitle: some View
     {
-        Group
+        VStack(alignment: .leading, spacing: 5)
         {
-            switch outdatedPackagesTracker.outdatedPackageListBoxViewType {
-            case .managedOnly, .bothManagedAndUnmanaged:
-                Text("start-page.updates.count-\(outdatedPackagesTracker.allDisplayableOutdatedPackages.count)")
-            case .unmanagedOnly:
-                Text("start-page.updates.only-unmanaged.count-\(outdatedPackagesTracker.allDisplayableOutdatedPackages.count)")
+            Group
+            {
+                switch outdatedPackagesTracker.outdatedPackageListBoxViewType
+                {
+                case .managedOnly, .bothManagedAndUnmanaged:
+                    Text("start-page.updates.count-\(outdatedPackagesTracker.allDisplayableOutdatedPackages.count)")
+                case .unmanagedOnly:
+                    Text("start-page.updates.only-unmanaged.count-\(outdatedPackagesTracker.allDisplayableOutdatedPackages.count)")
+                }
             }
+            .font(.headline)
+
+            Text("start-page.updates.self-updating.\(numberOfSelfManagedUpdates).list")
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
         }
-        .font(.headline)
     }
-    
+
     @ViewBuilder
     private var fullUpdateButton: some View
     {
@@ -131,12 +143,12 @@ struct OutdatedPackageListBox: View
         } label: {
             Text("start-page.updates.action")
         }
-        
+
         #if DEBUG
-        // Text(String(packagesMarkedForUpdating.count))
+            // Text(String(packagesMarkedForUpdating.count))
         #endif
     }
-    
+
     @ViewBuilder
     private var partialUpdateButton: some View
     {
@@ -249,7 +261,7 @@ struct OutdatedPackageListBox: View
                     }
                 }
                 .width(45)
-                
+
                 TableColumn("package-details.dependencies.results.name")
                 { outdatedPackage in
                     Text(outdatedPackage.package.name(withPrecision: .precise))
@@ -279,7 +291,8 @@ struct OutdatedPackageListBox: View
                             PreviewPackageButton(packageToPreview: .init(
                                 name: outdatedPackage.package.name(withPrecision: .precise),
                                 type: outdatedPackage.package.type,
-                                installedIntentionally: outdatedPackage.package.installedIntentionally)
+                                installedIntentionally: outdatedPackage.package.installedIntentionally
+                            )
                             )
                         }
                 }

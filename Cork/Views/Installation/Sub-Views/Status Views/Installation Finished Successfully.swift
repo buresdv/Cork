@@ -22,7 +22,7 @@ struct InstallationFinishedSuccessfullyView: View
     {
         DisappearableSheet
         {
-            ComplexWithIcon(systemName: "checkmark.seal")
+            ComplexWithImage(image: .init(systemName: "checkmark.seal"))
             {
                 HeadlineWithSubheadline(
                     headline: "add-package.finished",

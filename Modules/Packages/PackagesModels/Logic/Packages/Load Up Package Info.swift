@@ -337,7 +337,7 @@ public extension BrewPackage
         guard let decodableData: Data = rawOutput.getJsonFromOutput(failOnAnyErrorsPresent: false)
         else
         {
-            AppConstants.shared.logger.error("Could not convert string of package details loading function to data")
+            AppConstants.shared.logger.error("Could not convert string of package details loading function to data. Tried to convert: \(rawOutput)")
 
             throw BrewPackageInfoLoadingError.couldNotConvertOutputToData
         }

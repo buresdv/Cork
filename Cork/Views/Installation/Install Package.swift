@@ -13,9 +13,9 @@ import Defaults
 import FactoryKit
 import SwiftUI
 
-typealias PackageInstallationProcessStepTracker = AddFormulaView.PackageInstallationProcessStepTracker
+typealias PackageInstallationProcessStepTracker = InstallPackageView.PackageInstallationProcessStepTracker
 
-struct AddFormulaView: View
+struct InstallPackageView: View
 {
     @Observable
     final class PackageInstallationProcessStepTracker
@@ -40,7 +40,7 @@ struct AddFormulaView: View
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @InjectedObservable(\.appState) var appState: AppState
 
-    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
+    @InjectedObservable(\.cachedDownloadsTracker) var cachedDownloadsTracker: CachedDownloadsTracker
 
     @State var packageInstallTrackingNumber: Float = 0
 
@@ -48,7 +48,7 @@ struct AddFormulaView: View
 
     @State private var packageInstallationProcessStepTracker: PackageInstallationProcessStepTracker = .init()
 
-    @State private var installationProgressTracker: InstallationProgressTracker?
+    @State private var installationProgressTracker: InstallationProgressTracker? = nil
 
     @Default(.notifyAboutPackageInstallationResults) var notifyAboutPackageInstallationResults: Bool
 
@@ -63,43 +63,9 @@ struct AddFormulaView: View
         {
             SheetTemplate(isShowingTitle: true)
             {
-                Group
-                {
-                    switch packageInstallationProcessStepTracker.currentStep
-                    {
-                    case .ready:
-                        InstallationInitialView()
-                    case .searching(let forSearchString):
-                        InstallationSearchingView(
-                            packageRequested: forSearchString
-                        )
-                    case .presentingSearchResults(let forSearchString, let foundFormulae, let foundCasks):
-                        PresentingSearchResultsView(
-                            oldSearchString: forSearchString,
-                            foundFormulae: foundFormulae,
-                            foundCasks: foundCasks
-                        )
-                    case .installing(let package):
-                        InstallingPackageView(packageToInstall: package)
-                    case .finished:
-                        InstallationFinishedSuccessfullyView()
-                    case .unexpectedTerminalOutput(let unexpectedOutputType):
-                        // TODO: Implement the unexpected output views
-                        switch unexpectedOutputType
-                        {
-                        case .containedErrors(let rawOutputThatContainsErrors):
-                            EmptyView()
-                        case .didNotContainErrors(let rawOutputThatDidNotContainErrors):
-                            EmptyView()
-                        }
-                    case .erroredOut(let package, let withError):
-                        ErroredOutView(
-                            error: withError,
-                            packageThatWasBeingInstalled: package
-                        )
-                    }
-                }
+                sheetContent
                 .navigationTitle(sheetTitle)
+                .environment(installationProgressTracker)
                 .toolbar
                 {
                     if packageInstallationProcessStepTracker.currentStep.isDismissable
@@ -111,16 +77,16 @@ struct AddFormulaView: View
                                 dismiss()
                                 installationProgressTracker?.cancel()
 
-                                do
-                                {
-                                    try await brewPackagesTracker.synchronizeInstalledPackages(cachedDownloadsTracker: cachedDownloadsTracker)
-                                }
-                                catch let synchronizationError
-                                {
-                                    appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
-                                }
+                                await brewPackagesTracker.synchronizeInstalledPackages()
                             } label: {
-                                Text("action.cancel")
+                                if let customDismissText = packageInstallationProcessStepTracker.currentStep.customDismissButtonText
+                                {
+                                    Text(customDismissText)
+                                }
+                                else
+                                {
+                                    Text("action.cancel")
+                                }
                             }
                             .keyboardShortcut(.cancelAction)
                             .disabledWhenLoading()
@@ -132,11 +98,66 @@ struct AddFormulaView: View
         .environment(packageInstallationProcessStepTracker)
         .onDisappear
         {
-            cachedDownloadsTracker.assignPackageTypeToCachedDownloads(brewPackagesTracker: brewPackagesTracker)
             Task
             {
-                try? await brewPackagesTracker.synchronizeInstalledPackages(cachedDownloadsTracker: cachedDownloadsTracker)
+                await brewPackagesTracker.synchronizeInstalledPackages()
+                
+                await cachedDownloadsTracker.loadCachedDownloadedPackages(
+                    brewPackagesTracker: brewPackagesTracker
+                )
             }
         }
+    }
+    
+    @ViewBuilder
+    private var sheetContent: some View
+    {
+        switch packageInstallationProcessStepTracker.currentStep
+        {
+        case .ready:
+            InstallationInitialView(
+                packageRequested: $packageRequested,
+                onInstallationStart: startInstallation
+            )
+        case .searching(let forSearchString):
+            InstallationSearchingView(
+                packageRequested: forSearchString
+            )
+        case .presentingSearchResults(let forSearchString, let foundFormulae, let foundCasks):
+            PresentingSearchResultsView(
+                searchString: $packageRequested,
+                foundFormulae: foundFormulae,
+                foundCasks: foundCasks,
+                onInstallationStart: startInstallation
+            )
+        case .installing(let package):
+            if let installationProgressTracker
+            {
+                InstallingPackageView(packageToInstall: package, installationProgressTracker: installationProgressTracker)
+            }
+        case .finished:
+            InstallationFinishedSuccessfullyView()
+        case .unexpectedTerminalOutput(let unexpectedOutputType):
+            if let installationProgressTracker
+            {
+                UnexpectedOutputsDuringPackageInstall(
+                    unexpectedOutputType: unexpectedOutputType,
+                    installationProgressTracker: installationProgressTracker
+                )
+            }
+            
+        case .erroredOut(let package, let withError):
+            ErroredOutView(
+                error: withError,
+                packageThatWasBeingInstalled: package
+            )
+        }
+    }
+    
+    // Assign the package properly, because `.onAppear` fucking flashes
+    private func startInstallation(for package: MinimalHomebrewPackage) {
+        installationProgressTracker = InstallationProgressTracker(packageToInstall: package)
+        
+        packageInstallationProcessStepTracker.advanceStep(to: .installing(package: package))
     }
 }

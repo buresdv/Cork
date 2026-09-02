@@ -25,7 +25,7 @@ struct ErroredOutStageView: View
 
     var body: some View
     {
-        ComplexWithIcon(systemName: "seal")
+        ComplexWithImage(image: .init(systemName: "seal"))
         {
             VStack(alignment: .leading, spacing: 10)
             {

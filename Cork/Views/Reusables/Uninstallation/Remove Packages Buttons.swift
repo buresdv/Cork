@@ -47,7 +47,7 @@ private struct RemovePackageButton: View
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @InjectedObservable(\.appState) var appState: AppState
     @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
-    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
+    @InjectedObservable(\.cachedDownloadsTracker) var cachedDownloadsTracker: CachedDownloadsTracker
 
     var package: BrewPackage
 
@@ -83,14 +83,14 @@ private struct RemovePackageButton: View
             if shouldPurge
             {
                 Label {
-                    Text("action.purge-\(package.name(withPrecision: .precise))")
+                    Text("action.purge-\(package.name(withPrecision: .inlineFormatted))")
                 } icon: {
                     Image("custom.trash.triangle.fill")
                 }
             }
             else
             {
-                Label("action.uninstall-\(package.name(withPrecision: .precise))", systemImage: "trash")
+                Label("action.uninstall-\(package.name(withPrecision: .inlineFormatted))", systemImage: "trash")
             }
         }
     }

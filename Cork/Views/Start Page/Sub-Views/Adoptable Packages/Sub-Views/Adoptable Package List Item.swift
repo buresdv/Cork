@@ -93,14 +93,14 @@ struct AdoptablePackageListItem: View
             {
             case .oneAdoptionCandidate(let adoptionCandidate):
                 PreviewPackageButtonWithCustomLabel(
-                    label: "action.preview-package-app-would-be-adopted-as.\(adoptionCandidate.caskName)", packageToPreview: .init(name: adoptionCandidate.caskName, type: .cask, installedIntentionally: true)
+                    label: "action.preview-package-app-would-be-adopted-as.\(adoptionCandidate.name(withPrecision: .inlineFormatted))", packageToPreview: .init(name: adoptionCandidate.name(withPrecision: .precise), type: .cask, installedIntentionally: true)
                 )
 
             case .multipleAdoptionCandidates(_, let selectedAdoptionCandidate):
                 if let selectedAdoptionCandidate
                 {
                     PreviewPackageButtonWithCustomLabel(
-                        label: "action.preview-package-app-would-be-adopted-as.\(selectedAdoptionCandidate.caskName)", packageToPreview: .init(name: selectedAdoptionCandidate.caskName, type: .cask, installedIntentionally: true)
+                        label: "action.preview-package-app-would-be-adopted-as.\(selectedAdoptionCandidate.name(withPrecision: .precise))", packageToPreview: .init(name: selectedAdoptionCandidate.name(withPrecision: .precise), type: .cask, installedIntentionally: true)
                     )
                 }
                 else
@@ -152,7 +152,7 @@ struct AdoptablePackageListItem: View
 
             Spacer()
 
-            Text("(\(adoptionCandidate.caskName))")
+            Text("(\(adoptionCandidate.name(withPrecision: .inlineFormatted)))")
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
         }
@@ -205,10 +205,10 @@ struct AdoptablePackageListItem: View
             ))
             {
                 ForEach(adoptionCandidates)
-                { adoptionCandidate in
+                { (adoptionCandidate: BrewPackagesTracker.AdoptableApp.AdoptionCandidate) in
                     VStack(alignment: .leading, spacing: 4)
                     {
-                        Text(adoptionCandidate.caskName)
+                        Text(adoptionCandidate.name(withPrecision: .inlineFormatted))
 
                         if let caskDescription = adoptionCandidate.caskDescription
                         {

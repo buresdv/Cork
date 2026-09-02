@@ -36,8 +36,8 @@ struct ExcludedAdoptablePackagesList: View
                 let appExecutableMatches: Bool = adoptableApp.appExecutable.localizedCaseInsensitiveContains(searchText)
 
                 let adoptionCandidateMatches: Bool = adoptableApp.adoptionCandidates.contains
-                { adoptionCandidate in
-                    let caskNameMatches: Bool = adoptionCandidate.caskName.localizedCaseInsensitiveContains(searchText)
+                { (adoptionCandidate: BrewPackagesTracker.AdoptableApp.AdoptionCandidate) in
+                    let caskNameMatches: Bool = adoptionCandidate.name(withPrecision: .precise).localizedCaseInsensitiveContains(searchText)
 
                     let caskDescriptionMatches: Bool = adoptionCandidate.caskDescription?.localizedCaseInsensitiveContains(searchText) ?? false
 

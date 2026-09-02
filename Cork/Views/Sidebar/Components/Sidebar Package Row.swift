@@ -29,13 +29,6 @@ struct SidebarPackageRow: View
         {
             PackageListItem(packageItem: package)
         }
-        .contextMenu
-        {
-            package.contextMenu()
-            {
-                SidebarContextMenu(package: package)
-            }
-        }
         .modify
         { viewProxy in
             if enableSwipeActions

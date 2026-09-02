@@ -26,7 +26,7 @@ public final actor BrewTap: Identifiable, Hashable, ModifiableActor, LoadableAct
 {
     @Injected(\.appConstants) var appConstants: AppConstants
     
-    public struct BrewTapName: Hashable, Equatable, Comparable, Sendable
+    public struct BrewTapName: Hashable, Equatable, Codable, Comparable, Sendable
     {
         public static func < (lhs: BrewTap.BrewTapName, rhs: BrewTap.BrewTapName) -> Bool
         {
@@ -61,7 +61,7 @@ public final actor BrewTap: Identifiable, Hashable, ModifiableActor, LoadableAct
         }
 
         /// Whether the repo is first-party (`homebrew/[name]`) or third-party (`[anything]/[anything]`)
-        public enum BrewRepo: Hashable, Equatable, Sendable
+        public enum BrewRepo: Hashable, Equatable, Codable, Sendable
         {
             /// First-party repo, resolves to `homebrew`
             case homebrew
@@ -172,8 +172,29 @@ public final actor BrewTap: Identifiable, Hashable, ModifiableActor, LoadableAct
 
     public nonisolated let id: UUID = .init()
 
-    // Expose immutable, Sendable state nonisolated so it can be used from any context safely.
     public nonisolated let nameInternal: BrewTapName
+    
+    /// Check if the tap is supported by Speakeasy
+    ///
+    /// - Third-party taps aren't supported
+    /// - `homebrew/core` and `homebrew/cask` are the only first-party taps supported. Additional first-party taps like `homebrew/bundle` and `homebrew/services` aren't supported
+    public nonisolated var isSpeakeasySupported: Bool
+    {
+        switch self.nameInternal.repo
+        {
+        case .homebrew:
+            if self.nameInternal.tapName == "core" || self.nameInternal.tapName == "cask"
+            {
+                return true
+            }
+            else
+            {
+                return false
+            }
+        case .external(_):
+            return false
+        }
+    }
 
     public nonisolated func name(
         withPrecision precision: BrewTapName.NameRetrievalPrecision
