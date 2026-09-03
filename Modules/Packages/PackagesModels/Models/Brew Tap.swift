@@ -227,10 +227,12 @@ public final actor BrewTap: Identifiable, Hashable, ModifiableActor, LoadableAct
         return self.nameInternal
     }
 
+    @MainActor
     public var isBeingModified: Bool
 
     public var isBeingLoaded: Bool
 
+    @MainActor
     public func changeBeingModifiedStatus()
     {
         isBeingModified.toggle()

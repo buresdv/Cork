@@ -15,5 +15,6 @@ public protocol Modifiable: Sendable
 
 public protocol ModifiableActor: Actor
 {
+    @MainActor
     var isBeingModified: Bool { get set }
 }
