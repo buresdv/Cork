@@ -13,7 +13,7 @@ struct HomebrewWarningsDropdown: View
     /// Optional external binding
     var isExpanded: Binding<Bool>? = nil
 
-    /// Internal binding when there is no external via `isExpanded`
+    /// Internal binding when there is no external one
     @State private var _internalIsExpanded: Bool = false
 
     private var _isExpanded: Binding<Bool>

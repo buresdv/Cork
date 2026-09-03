@@ -20,7 +20,7 @@ struct PackageWarningsView: View
         {
             Section
             {
-                HStack(alignment: isWarningsListExpanded ? .top : .center, spacing: 10)
+                HStack(alignment: .center, spacing: 10)
                 {
                     Image(systemName: "exclamationmark.triangle.fill")
                         .resizable()
