@@ -314,6 +314,10 @@ private struct NameView<Package: PackageNameDisplayable, ContextMenuExtras: View
         } icon: {
             EmptyView()
         }
+        .onDoubleClick
+        {
+            await package.doubleClickAction()
+        }
         .contextMenu
         {
             package.previewSelfButton
