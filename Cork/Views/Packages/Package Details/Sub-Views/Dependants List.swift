@@ -124,6 +124,7 @@ struct DependantsList: View
                 // TODO: In the string catalog, mark this as a plural
                 Text("package-details.dependants.\(dependants.count)")
             }
+            .betterDisclosureGroupStyle()
 
         case .noDependantsToShow:
             EmptyView()

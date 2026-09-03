@@ -114,7 +114,7 @@ public extension BrewTap
         {
             do
             {
-                appConstants.logger.info("got valid data from JSON output: \(tapInfoRaw)")
+                appConstants.logger.info("Got valid data from JSON output for tap \(self.name(withPrecision: .full)): \(tapInfoRaw)")
 
                 self.setBeingLoadedStatus(to: false)
 

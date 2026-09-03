@@ -175,6 +175,7 @@ struct AdoptablePackagesSection: View
                         } label: {
                             Text("adoptable-packages.label")
                         }
+                        .betterDisclosureGroupStyle()
                     }
                     
                     if !brewPackagesTracker.excludedAdoptableApps.isEmpty
@@ -185,6 +186,7 @@ struct AdoptablePackagesSection: View
                         } label: {
                             Text("adoptable-packages.excluded-label")
                         }
+                        .betterDisclosureGroupStyle()
                     }
                     
                     #if DEBUG

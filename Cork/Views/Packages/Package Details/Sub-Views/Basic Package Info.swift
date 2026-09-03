@@ -40,6 +40,11 @@ struct BasicPackageInfoView: View
 
     var shouldShowNotesSection: Bool
     {
+        if self.packageDetails.warnings != nil
+        {
+            return true
+        }
+        
         if self.hasNotes && caveatDisplayOptions == .full
         {
             return true
@@ -69,21 +74,17 @@ struct BasicPackageInfoView: View
         {
             Section
             {
-                Section
-                {
-                    PackageDeprecationViewFullDisplay(
-                        isDeprecated: packageDetails.deprecated,
-                        deprecationReason: packageDetails.deprecationReason
-                    )
-                }
+                PackageDeprecationViewFullDisplay(
+                    isDeprecated: packageDetails.deprecated,
+                    deprecationReason: packageDetails.deprecationReason
+                )
+                
+                PackageWarningsView(warnings: packageDetails.warnings)
 
-                Section
-                {
-                    PackageCaveatFullDisplayView(
-                        caveats: packageDetails.caveats,
-                        isShowingExpandedCaveats: $isShowingExpandedCaveats
-                    )
-                }
+                PackageCaveatFullDisplayView(
+                    caveats: packageDetails.caveats,
+                    isShowingExpandedCaveats: $isShowingExpandedCaveats
+                )
             } header: {
                 Text("package-details.notes")
             }

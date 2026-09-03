@@ -42,6 +42,7 @@ struct AddTapErrorView: View
                         {
                             rawOutput.outputView
                         }
+                        .betterDisclosureGroupStyle()
                     }
                 }
             }

@@ -41,6 +41,13 @@ public class OutdatedPackagesTracker
     public var outdatedPackages: Set<OutdatedPackage>
 
     public var errorOutReason: String?
+    
+    public var warningsThatDoNotPreventShowingOfOutdatedPackages: [TerminalOutput]?
+    
+    public func setNonCriticalWarnings(to outputs: [TerminalOutput])
+    {
+        self.warningsThatDoNotPreventShowingOfOutdatedPackages = outputs
+    }
 
     public var outdatedPackageDisplayStage: OutdatedPackageDisplayStage
     {

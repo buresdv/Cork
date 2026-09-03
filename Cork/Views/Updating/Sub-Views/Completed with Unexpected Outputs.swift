@@ -35,6 +35,7 @@ struct CompletedwithUnexpectedOutputsStage: View
                     .listStyle(.bordered(alternatesRowBackgrounds: true))
                     .frame(minHeight: 100)
                 }
+                .betterDisclosureGroupStyle()
             }
         }
         .toolbar

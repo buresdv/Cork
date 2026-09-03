@@ -7,9 +7,11 @@
 
 import SwiftUI
 
-struct NoPadding: DisclosureGroupStyle
+public struct NoPadding: DisclosureGroupStyle
 {
-    func makeBody(configuration: Configuration) -> some View
+    public init() {}
+    
+    public func makeBody(configuration: Configuration) -> some View
     {
         Button
         {
@@ -22,10 +24,7 @@ struct NoPadding: DisclosureGroupStyle
         {
             HStack(alignment: .center, spacing: 4)
             {
-                Image(systemName: configuration.isExpanded ? "chevron.down" : "chevron.right")
-                    .scaleEffect(0.8)
-                    .foregroundColor(.secondary)
-                    .symbolVariant(.fill)
+                BetterDisclosureGroupChevron(configuration: configuration)
 
                 configuration.label
 

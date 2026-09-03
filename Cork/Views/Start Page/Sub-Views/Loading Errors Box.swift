@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CorkModels
+import CorkShared
 
 struct LoadingErrorsBox: View
 {

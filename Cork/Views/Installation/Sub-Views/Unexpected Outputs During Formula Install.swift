@@ -53,6 +53,7 @@ private struct DidNotContainErrors: View {
                     DisclosureGroup("add-package.error.unimplemented-outputs.dropdown.label", isExpanded: $isExpanded) {
                         outputs.outputView
                     }
+                    .betterDisclosureGroupStyle()
                 }
             }
         }
@@ -79,6 +80,7 @@ private struct ContainedErrors: View {
                     DisclosureGroup("add-package.error.unimplemented-outputs.dropdown.label", isExpanded: $isExpanded) {
                         outputs.outputView
                     }
+                    .betterDisclosureGroupStyle()
                 }
             }
         }

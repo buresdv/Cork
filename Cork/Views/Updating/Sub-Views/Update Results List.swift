@@ -32,6 +32,7 @@ struct UpdateResultsList: View
             .listStyle(.bordered(alternatesRowBackgrounds: true))
             .frame(minHeight: 150, idealHeight: 200, maxHeight: 400)
         }
+        .betterDisclosureGroupStyle()
     }
     
     @ViewBuilder
