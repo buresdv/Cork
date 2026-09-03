@@ -109,6 +109,10 @@ public struct BetterDisclosureGroupApplicationModifier: ViewModifier
     @ViewBuilder
     private func disclosureGroupContent(content: Content) -> some View
     {
+        content
+        
+        // TODO: Re-enable this once I get the bugs fixed
+        /*
         if enableExtraAnimations
         {
             content
@@ -118,6 +122,7 @@ public struct BetterDisclosureGroupApplicationModifier: ViewModifier
         {
             content
         }
+         */
     }
 }
 
