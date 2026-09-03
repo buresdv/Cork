@@ -15,7 +15,7 @@ import CorkShared
 @Observable @MainActor
 public class BrewPackagesTracker: @MainActor Loadable
 {
-    @LazyInjected(\.appConstants) @ObservationIgnored private var appConstants: AppConstants
+    @LazyInjected(\.appConstants) @ObservationIgnored var appConstants: AppConstants
     
     @InjectedObservable(\.appState) @ObservationIgnored var appState
     

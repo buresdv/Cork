@@ -36,6 +36,10 @@ public protocol PackageNameDisplayable
     associatedtype RevealSelfInFinderButton: View
     /// Button for revealing the package in Finder
     var revealSelfInFinderButton: RevealSelfInFinderButton { get }
+    
+    /// What happens on double click
+    @MainActor
+    func doubleClickAction() async
 }
 
 /// The package's name parsed into chunks
@@ -305,21 +309,29 @@ private struct NameView<Package: PackageNameDisplayable, ContextMenuExtras: View
 
     var body: some View
     {
-        nameView
-            .contextMenu
-            {
-                package.previewSelfButton
+        Label {
+            nameView
+        } icon: {
+            EmptyView()
+        }
+        .onDoubleClick
+        {
+            await package.doubleClickAction()
+        }
+        .contextMenu
+        {
+            package.previewSelfButton
 
-                package.openDetailForSelfButton
+            package.openDetailForSelfButton
 
-                Divider()
+            Divider()
 
-                contextMenuExtras
+            contextMenuExtras
 
-                Divider()
+            Divider()
 
-                package.revealSelfInFinderButton
-            }
+            package.revealSelfInFinderButton
+        }
     }
 
     /// Decides which name view to use
@@ -434,7 +446,7 @@ private struct NameView_NoCapsule<Package: PackageNameDisplayable>: View
         else
         {
             #if DEBUG
-                //Text("DEBUG: No explicit tap component")
+                // Text("DEBUG: No explicit tap component")
             #endif
         }
     }

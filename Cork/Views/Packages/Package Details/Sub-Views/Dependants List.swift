@@ -25,7 +25,7 @@ struct DependantsList: View
     @State private var isDependantsListExpanded: Bool = false
     @State private var dependantsSearchText: String = ""
     
-    @State private var selectedDependants: Set<BrewPackage.ID> = .init()
+    @State private var selectedDependant: BrewPackage.ID?
 
     private var dependantsToShow: [BrewPackage]
     {
@@ -63,7 +63,7 @@ struct DependantsList: View
                     let dependantNames: Set<BrewPackageName> = Set(dependants.map(\.internalName))
                     
                     let extractedFullPackages: [BrewPackage] = {
-                        return brewPackagesTracker.successfullyLoadedFormulae.filter{ dependantNames.contains( $0.internalName ) }
+                        return brewPackagesTracker.successfullyLoadedFormulae.filter{ dependantNames.contains( $0.internalName ) }.sorted(by: { $0.internalName < $1.internalName })
                     }()
                     
                     return .showingDependants(dependantsToShow: extractedFullPackages)
