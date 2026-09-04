@@ -55,7 +55,7 @@ public extension DisplayableAlert
         case .couldNotRemoveTapDueToPackagesFromItStillBeingInstalled(_, let offendingPackages):
             if let offendingPackages
             {
-                return String(localized: "alert.notification-could-not-remove-tap-due-to-packages-from-it-still-being-installed.message-\(offendingPackages.map({ $0.name(withPrecision: .inlineFormatted) }).formatted(.list(type: .and)))")
+                return String(localized: "alert.notification-could-not-remove-tap-due-to-packages-from-it-still-being-installed.message-\(offendingPackages.map({ $0.name(withPrecision: .inlineFormatted) }).formatted(.list(type: .and))).\(offendingPackages.count)")
             }
             else {
                 return String(localized: "alert.notification-could-not-remove-tap-due-to-packages-from-it-still-being-installed.message.unknown-packages", comment: "This shows up when Cork couldn't extract the list of offending packages from the Homebrew output")

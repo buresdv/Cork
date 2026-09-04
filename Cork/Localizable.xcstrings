@@ -32070,6 +32070,7 @@
       }
     },
     "alert.notification-could-not-remove-tap-due-to-packages-from-it-still-being-installed.message-%@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -32177,6 +32178,29 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "您仍有從 %@ 安裝的套件\n解除安裝後再重新嘗試"
+          }
+        }
+      }
+    },
+    "alert.notification-could-not-remove-tap-due-to-packages-from-it-still-being-installed.message-%@.%lld" : {
+      "comment" : "The numeral should not be included in the translation. It is there to purely force this string to be a plural",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "You have %2$lld package installed from this tap that needs to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "You have %2$lld packages installed from this tap that need to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              }
+            }
           }
         }
       }

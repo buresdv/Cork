@@ -157,7 +157,7 @@ private extension TapTracker
                 .anchorsMatchLineEndings()
 
                 /// This has a weird type that I'm not writing out explicitly
-                let extractedPackageNames: [String] = untapResult.description.matches(of: packageNamesExtractionRegex).map { String($0.output.1) }
+                let extractedPackageNames: [String] = partOfUntapResultThatContainsPackageNames.description.matches(of: packageNamesExtractionRegex).map { String($0.output.1) }
                 
                 appConstants.logger.info("Extracted package names: \(extractedPackageNames)")
 
