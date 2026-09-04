@@ -30,6 +30,8 @@ struct TapDetailView: View, Sendable
 
     @InjectedObservable(\.appState) var appState: AppState
     @InjectedObservable(\.tapTracker) var tapTracker: TapTracker
+    
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
     @State private var loadingState: TapDetailsLoadingState = .loading
 
@@ -63,7 +65,11 @@ struct TapDetailView: View, Sendable
                         
                         AsyncButton
                         {
-                            try await tapTracker.removeTap(tapToRemove: tap, purpose: .removeFromHomebrewAndTracker)
+                            try await tapTracker.removeTap(
+                                tapToRemove: tap,
+                                purpose: .removeFromHomebrewAndTracker,
+                                brewPackagesTracker: brewPackagesTracker
+                            )
                         } label: {
                             Text("tap-details.remove-\(tap.name(withPrecision: .full))")
                         }

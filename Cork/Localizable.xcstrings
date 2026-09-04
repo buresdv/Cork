@@ -32073,37 +32073,37 @@
       "localizations" : {
         "cs" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Z pípy %@ máte ještě nainstalované balíčky\n Odinstalujte je a zkuste to znovu"
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Du hast noch Pakete von %@\n installiert. Deinstalliere diese und versuche es erneut"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "You still have packages installed from %@\nUninstall them and try again"
+            "value" : "Packages %@ are still installed from this tap.\nUninstall them and try again"
           }
         },
         "en-GB" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "You still have packages installed from %@\nUninstall them and try again"
           }
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Todavía tienes paquetes instalados desde %@\nDesinstálalos y vuelve a intentarlo."
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Vous avez toujours des paquets installés de %@\nDésinstallez-les et réessayez"
           }
         },
@@ -32115,19 +32115,19 @@
         },
         "it" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Hai ancora dei pacchetti installati da %@\nDisinstallali e riprova"
           }
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "You still have packages installed from %@\nUninstall them and try again"
           }
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "아직 %@에서 패키지가 설치되어 있습니다.\n제거한 후 다시 시도하세요."
           }
         },
@@ -32139,44 +32139,55 @@
         },
         "pt-PT" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Ainda tens bibliotecas instaladas do %@. Desinstala-as e tenta novamente"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "У вас все установлены пакеты из %@\nУдалите их и попробуйте еще раз"
           }
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "You still have packages installed from %@\nUninstall them and try again"
           }
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "%@ üzerinden kurulu paketleriniz var\nKaldırın ve tekrar deneyin"
           }
         },
         "uk" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "У вас все ще встановлені пакети з %@\nВидаліть їх і спробуйте ще раз"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "你还有从 %@ 安装的软件包\n请卸载它们并重试"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "您仍有從 %@ 安裝的套件\n解除安裝後再重新嘗試"
+          }
+        }
+      }
+    },
+    "alert.notification-could-not-remove-tap-due-to-packages-from-it-still-being-installed.message.unknown-packages" : {
+      "comment" : "This shows up when Cork couldn't extract the list of offending packages from the Homebrew output",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You still have some packages installed from this tap.\nOpen the tap detail to learn more."
           }
         }
       }
@@ -43412,6 +43423,19 @@
           }
         }
       }
+    },
+    "error.tap.untap.removal-of-%@-blocked-by-%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "error.tap.untap.removal-of-%1$@-blocked-by-%2$@"
+          }
+        }
+      }
+    },
+    "error.tap.untap.removal-of-%@-blocked-by-unknown-packages" : {
+
     },
     "error.task-cancelled" : {
       "localizations" : {
