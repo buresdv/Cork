@@ -27,7 +27,7 @@ struct PackageWarningsView: View
                         .frame(width: 15, height: 15)
                         .foregroundColor(.orange)
                     
-                    HomebrewWarningsDropdown(isExpanded: $isWarningsListExpanded, warnings: warnings)
+                    HomebrewWarningsDropdown(isExpanded: $isWarningsListExpanded)
                 }
             }
         }

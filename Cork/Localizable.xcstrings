@@ -100185,6 +100185,28 @@
         }
       }
     },
+    "start-page.homebrew-warnings.encountered.%lld.warnings.title" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Homebrew reported %lld issue with itself"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Homebrew reported %lld issues with itself"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "start-page.installed-casks.count-%lld" : {
       "localizations" : {
         "cs" : {
@@ -101585,6 +101607,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew 維護…"
+          }
+        }
+      }
+    },
+    "start-page.section.issues.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Issues with Homebrew"
+          }
+        }
+      }
+    },
+    "start-page.section.packages-overview.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Packages"
+          }
+        }
+      }
+    },
+    "start-page.section.recommendations.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recommendations"
           }
         }
       }

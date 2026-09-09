@@ -37,7 +37,7 @@ struct OutdatedPackageListBox: View
             {
                 VStack(alignment: .leading)
                 {
-                    GroupBoxHeadlineGroupWithArbitraryContent(image: outdatedPackagesTracker.allDisplayableOutdatedPackages.count == 1 ? "square.and.arrow.down" : "square.and.arrow.down.on.square")
+                    GroupBoxHeadlineGroupWithArbitraryContent(image: outdatedPackagesTracker.allDisplayableOutdatedPackages.count == 1 ? .init(systemName: "square.and.arrow.down") : .init(systemName:"square.and.arrow.down.on.square"))
                     {
                         VStack(alignment: .leading, spacing: 5)
                         {
@@ -101,13 +101,6 @@ struct OutdatedPackageListBox: View
                                 Text("start-page.updates.list")
                             }
                             .betterDisclosureGroupStyle()
-                            
-                            Divider()
-                            
-                            if let nonCriticalWarnings = outdatedPackagesTracker.warningsThatDoNotPreventShowingOfOutdatedPackages
-                            {
-                                HomebrewWarningsDropdown(warnings: nonCriticalWarnings)
-                            }
                         }
                     }
                 }

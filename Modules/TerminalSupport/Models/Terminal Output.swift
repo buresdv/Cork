@@ -48,11 +48,20 @@ public enum TerminalOutput: Identifiable, Hashable, Equatable, Sendable, CustomS
     {
         switch self
         {
-        case .standardOutput(let output): return output.rawOutput
-        case .standardError(let output): return output.rawOutput
+        case .standardOutput(let output), .standardError(let output):
+            return output.rawOutput
         }
     }
 
+    public var timestamp: Date
+    {
+        switch self
+        {
+        case .standardOutput(let output), .standardError(let output):
+            return output.timestamp
+        }
+    }
+    
     public init(standardOutput rawOutput: String)
     {
         self = .standardOutput(.init(rawOutput: rawOutput.trimmingCharacters(in: .whitespacesAndNewlines)))

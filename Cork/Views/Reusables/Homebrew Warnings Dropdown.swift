@@ -6,10 +6,13 @@
 //
 
 import CorkTerminalFunctions
+import FactoryKit
 import SwiftUI
 
 struct HomebrewWarningsDropdown: View
 {
+    @InjectedObservable(\.warningsTracker) var warningsTracker: WarningsTracker
+
     /// Optional external binding
     var isExpanded: Binding<Bool>? = nil
 
@@ -21,13 +24,10 @@ struct HomebrewWarningsDropdown: View
         isExpanded ?? $_internalIsExpanded
     }
 
-    let warnings: [TerminalOutput]
-    
     init(
         isExpanded: Binding<Bool>? = nil,
-        warnings: [TerminalOutput]
-    ) {
-        self.warnings = warnings
+    )
+    {
         self.isExpanded = isExpanded
     }
 
@@ -35,13 +35,7 @@ struct HomebrewWarningsDropdown: View
     {
         DisclosureGroup(isExpanded: _isExpanded)
         {
-            VStack(alignment: .leading, spacing: 5)
-            {
-                Text("label.warnings.dont-bother-cork-its-the-fault-of-someone-else")
-                    .font(.subheadline)
-                
-                warnings.outputView
-            }
+            warningsTracker.capturedWarnings.outputView
         } label: {
             Text("label.warnings")
         }

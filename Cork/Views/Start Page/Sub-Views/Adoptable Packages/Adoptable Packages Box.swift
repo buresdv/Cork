@@ -101,177 +101,173 @@ struct AdoptablePackagesSection: View
     @ViewBuilder
     var adoptablePackagesSectionContent: some View
     {
-        Section
+        GroupBoxHeadlineGroupWithArbitraryImageAndContent(image: .init( "custom.shippingbox.2.badge.arrow.down"))
         {
-            GroupBoxHeadlineGroupWithArbitraryImageAndContent(imageName: "custom.shippingbox.2.badge.arrow.down")
+            VStack(alignment: .leading)
             {
-                VStack(alignment: .leading)
+                HStack(alignment: .firstTextBaseline)
                 {
-                    HStack(alignment: .firstTextBaseline)
+                    VStack(alignment: .leading, spacing: 5)
                     {
-                        VStack(alignment: .leading, spacing: 5)
+                        Group
                         {
-                            Group
+                            switch adoptablePackagesHeadlineState
                             {
-                                switch adoptablePackagesHeadlineState
-                                {
-                                case .showsAdoptablePackages:
-                                    Text("start-page.adoptable-packages.available.\(brewPackagesTracker.adoptableAppsNonExcluded.count)")
-                                case .showsExcludedPackagesOnly:
-                                    Text("start-page.adoptable-packages.only-\(excludedApps.count)-excluded-available")
-                                }
-                            }
-                            .font(.headline)
-                            
-                            if displayNumberOfExcludedPackages
-                            {
-                                Text("start-page.adoptable-packages.excluded.\(excludedApps.count)")
-                                    .font(.subheadline)
-                                    .foregroundStyle(.secondary)
-                                    .transition(.asymmetric(
-                                        insertion: .push(from: .top).combined(with: .opacity),
-                                        removal: .push(from: .bottom).combined(with: .opacity))
-                                    )
+                            case .showsAdoptablePackages:
+                                Text("start-page.adoptable-packages.available.\(brewPackagesTracker.adoptableAppsNonExcluded.count)")
+                            case .showsExcludedPackagesOnly:
+                                Text("start-page.adoptable-packages.only-\(excludedApps.count)-excluded-available")
                             }
                         }
-                        .modify
-                        { viewProxy in
-                            if enableExtraAnimations
-                            {
-                                viewProxy
-                                    .animation(.bouncy, value: brewPackagesTracker.adoptableAppsNonExcluded.count)
-                                    .animation(.bouncy, value: excludedApps.count)
-                                    .contentTransition(.numericText())
-                            }
-                            else
-                            {
-                                viewProxy
-                            }
-                        }
+                        .font(.headline)
                         
-                        Spacer()
+                        if displayNumberOfExcludedPackages
+                        {
+                            Text("start-page.adoptable-packages.excluded.\(excludedApps.count)")
+                                .font(.subheadline)
+                                .foregroundStyle(.secondary)
+                                .transition(.asymmetric(
+                                    insertion: .push(from: .top).combined(with: .opacity),
+                                    removal: .push(from: .bottom).combined(with: .opacity))
+                                )
+                        }
+                    }
+                    .modify
+                    { viewProxy in
+                        if enableExtraAnimations
+                        {
+                            viewProxy
+                                .animation(.bouncy, value: brewPackagesTracker.adoptableAppsNonExcluded.count)
+                                .animation(.bouncy, value: excludedApps.count)
+                                .contentTransition(.numericText())
+                        }
+                        else
+                        {
+                            viewProxy
+                        }
+                    }
+                    
+                    Spacer()
+                    
+                    HStack
+                    {
+                        startAdoptionProcessButton
                         
-                        HStack
+                        if adoptablePackagesHeadlineState == .showsExcludedPackagesOnly
                         {
-                            startAdoptionProcessButton
-                            
-                            if adoptablePackagesHeadlineState == .showsExcludedPackagesOnly
-                            {
-                                hideAdoptablePackagesSectionIfThereAreOnlyIgnoredAppsButton
-                                    .transition(.asymmetric(
-                                        insertion: .push(from: .trailing),
-                                        removal: .push(from: .leading)
-                                    ))
-                            }
+                            hideAdoptablePackagesSectionIfThereAreOnlyIgnoredAppsButton
+                                .transition(.asymmetric(
+                                    insertion: .push(from: .trailing),
+                                    removal: .push(from: .leading)
+                                ))
                         }
                     }
-                    .animation(.smooth, value: adoptablePackagesHeadlineState)
-                    
-                    if !brewPackagesTracker.adoptableAppsNonExcluded.isEmpty
-                    {
-                        DisclosureGroup(isExpanded: $isAdoptablePackagesDisclosureGroupOpened.animation())
-                        {
-                            AdoptablePackagesList()
-                        } label: {
-                            Text("adoptable-packages.label")
-                        }
-                        .betterDisclosureGroupStyle()
-                    }
-                    
-                    if !brewPackagesTracker.excludedAdoptableApps.isEmpty
-                    {
-                        DisclosureGroup(isExpanded: $isExcludedAdoptablePackagesDisclosureGroupOpened.animation())
-                        {
-                            ExcludedAdoptablePackagesList()
-                        } label: {
-                            Text("adoptable-packages.excluded-label")
-                        }
-                        .betterDisclosureGroupStyle()
-                    }
-                    
-                    #if DEBUG
-                    //debug_listPackagesThatWouldGetAdopted
-                    #endif
                 }
-                .animation(.smooth, value: excludedApps)
-                .transition(.push(from: .top).combined(with: .blurReplace))
+                .animation(.smooth, value: adoptablePackagesHeadlineState)
+                
+                if !brewPackagesTracker.adoptableAppsNonExcluded.isEmpty
+                {
+                    DisclosureGroup(isExpanded: $isAdoptablePackagesDisclosureGroupOpened.animation())
+                    {
+                        AdoptablePackagesList()
+                    } label: {
+                        Text("adoptable-packages.label")
+                    }
+                    .betterDisclosureGroupStyle()
+                }
+                
+                if !brewPackagesTracker.excludedAdoptableApps.isEmpty
+                {
+                    DisclosureGroup(isExpanded: $isExcludedAdoptablePackagesDisclosureGroupOpened.animation())
+                    {
+                        ExcludedAdoptablePackagesList()
+                    } label: {
+                        Text("adoptable-packages.excluded-label")
+                    }
+                    .betterDisclosureGroupStyle()
+                }
+                
+                #if DEBUG
+                //debug_listPackagesThatWouldGetAdopted
+                #endif
             }
-            .animation(.bouncy, value: brewPackagesTracker.adoptableApps.isEmpty)
-            .confirmationDialog("package-adoption.confirmation.title.\(brewPackagesTracker.adoptableAppsSelectedToBeAdopted.count)", isPresented: $isShowingAdoptionWarning)
+            .animation(.smooth, value: excludedApps)
+            .transition(.push(from: .top).combined(with: .blurReplace))
+        }
+        .animation(.bouncy, value: brewPackagesTracker.adoptableApps.isEmpty)
+        .confirmationDialog("package-adoption.confirmation.title.\(brewPackagesTracker.adoptableAppsSelectedToBeAdopted.count)", isPresented: $isShowingAdoptionWarning)
+        {
+            Button
+            {
+                isShowingAdoptionWarning = false
+
+                appState.showSheet(ofType:
+                        .massAppAdoption(
+                            appsToAdopt: brewPackagesTracker.adoptableAppsSelectedToBeAdopted
+                        )
+                )
+            } label: {
+                Text("action.adopt-packages.longer")
+            }
+            .keyboardShortcut(.defaultAction)
+
+            Button(role: .cancel)
+            {
+                isShowingAdoptionWarning = false
+            } label: {
+                Text("action.cancel")
+            }
+
+            Button(role: .cancel)
+            {
+                isShowingAdoptionWarning = false
+            } label: {
+                Text("action.cancel-and-disable-mass-adoption")
+            }
+
+        } message: {
+            Text("package-adoption.confirmation.message")
+            
+            List
+            {
+                Text("package-adoption.confirmation.message")
+                Text("package-adoption.confirmation.message")
+            }
+        }
+        .dialogSeverity(.standard)
+        .confirmationDialog("hide-adoptable-packages-section-if-only-excluded-apps-available.confirmation.title", isPresented: $isShowingAdoptablePackagesSectionHidingWarningIfThereAreOnlyExcludedAdoptablePackagesAvailable)
+        {
+            if #available(macOS 26, *)
+            {
+                Button(role: .confirm)
+                {
+                    hideAdoptablePackagesSectionIfThereAreOnlyExcludedAppsAvailable = true
+                } label: {
+                    Text("action.hide-adoptable-packages-section-if-only-excluded-apps-available.confirm")
+                }
+                .keyboardShortcut(.defaultAction)
+            }
+            else
             {
                 Button
                 {
-                    isShowingAdoptionWarning = false
-
-                    appState.showSheet(ofType:
-                            .massAppAdoption(
-                                appsToAdopt: brewPackagesTracker.adoptableAppsSelectedToBeAdopted
-                            )
-                    )
+                    hideAdoptablePackagesSectionIfThereAreOnlyExcludedAppsAvailable = true
                 } label: {
-                    Text("action.adopt-packages.longer")
+                    Text("action.hide-adoptable-packages-section-if-only-excluded-apps-available.confirm")
                 }
                 .keyboardShortcut(.defaultAction)
-
-                Button(role: .cancel)
-                {
-                    isShowingAdoptionWarning = false
-                } label: {
-                    Text("action.cancel")
-                }
-
-                Button(role: .cancel)
-                {
-                    isShowingAdoptionWarning = false
-                } label: {
-                    Text("action.cancel-and-disable-mass-adoption")
-                }
-
-            } message: {
-                Text("package-adoption.confirmation.message")
-                
-                List
-                {
-                    Text("package-adoption.confirmation.message")
-                    Text("package-adoption.confirmation.message")
-                }
             }
-            .dialogSeverity(.standard)
-            .confirmationDialog("hide-adoptable-packages-section-if-only-excluded-apps-available.confirmation.title", isPresented: $isShowingAdoptablePackagesSectionHidingWarningIfThereAreOnlyExcludedAdoptablePackagesAvailable)
+            
+            Button(role: .cancel)
             {
-                if #available(macOS 26, *)
-                {
-                    Button(role: .confirm)
-                    {
-                        hideAdoptablePackagesSectionIfThereAreOnlyExcludedAppsAvailable = true
-                    } label: {
-                        Text("action.hide-adoptable-packages-section-if-only-excluded-apps-available.confirm")
-                    }
-                    .keyboardShortcut(.defaultAction)
-                }
-                else
-                {
-                    Button
-                    {
-                        hideAdoptablePackagesSectionIfThereAreOnlyExcludedAppsAvailable = true
-                    } label: {
-                        Text("action.hide-adoptable-packages-section-if-only-excluded-apps-available.confirm")
-                    }
-                    .keyboardShortcut(.defaultAction)
-                }
-                
-                Button(role: .cancel)
-                {
-                    isShowingAdoptablePackagesSectionHidingWarningIfThereAreOnlyExcludedAdoptablePackagesAvailable = false
-                } label: {
-                    Text("action.cancel")
-                }
-                .keyboardShortcut(.cancelAction)
-
-            } message: {
-                Text("hide-adoptable-packages-section-if-only-excluded-apps-available.confirmation.message")
+                isShowingAdoptablePackagesSectionHidingWarningIfThereAreOnlyExcludedAdoptablePackagesAvailable = false
+            } label: {
+                Text("action.cancel")
             }
+            .keyboardShortcut(.cancelAction)
 
+        } message: {
+            Text("hide-adoptable-packages-section-if-only-excluded-apps-available.confirmation.message")
         }
         .animation(.smooth, value: brewPackagesTracker.adoptableAppsNonExcluded)
         .animation(.smooth, value: brewPackagesTracker.excludedAdoptableApps)
