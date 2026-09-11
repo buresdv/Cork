@@ -245,6 +245,7 @@ struct AboutView: View
                         Text("about.translators")
                     }
                     .betterDisclosureGroupStyle()
+                     */
 
                     Text("about.privacy-policy")
                         .font(.subheadline)

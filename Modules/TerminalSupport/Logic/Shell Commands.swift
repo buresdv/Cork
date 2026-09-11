@@ -106,18 +106,18 @@ public func shell(
        !errorOutput.isEmpty,
        !errorOutput.containsAny(of: Container.shared.appConstants().disqualifyingSymbolsForTerminalOutputs)
     {
-        /// We have to do this wizardry because Homebrew is inconsistent again. The blocks in the consolidated error output are sometimes split by an empty line, and sometimes just not.
+        /// We have to do this fuckery because Homebrew is inconsistent again. The blocks in the consolidated error output are sometimes split by an empty line, and sometimes just not.
 
         var currentSectionInErrorBlob: String = ""
-        var isCurrenSectionInErrorBlobWarning: Bool = false
+        var isCurrentSectionInErrorBlobWarning: Bool = false
 
         for line in errorOutput.components(separatedBy: "\n")
         {
-            if line.hasPrefix("Warning:") || line.hasPrefix("Error:")
+            if line.hasPrefix("Warning:") || line.hasPrefix("Error:") || line.hasPrefix("==>")
             {
                 if !currentSectionInErrorBlob.isEmpty
                 {
-                    if isCurrenSectionInErrorBlobWarning
+                    if isCurrentSectionInErrorBlobWarning
                     {
                         AppConstants.shared.logger.debug("Hit WARNING state: \(currentSectionInErrorBlob, privacy: .public)")
                         Container.shared.warningsTracker.resolve().insertWarning(warningToInsert: .standardError(.init(rawOutput: currentSectionInErrorBlob)))
@@ -130,7 +130,7 @@ public func shell(
                 }
 
                 currentSectionInErrorBlob = line
-                isCurrenSectionInErrorBlobWarning = line.hasPrefix("Warning:")
+                isCurrentSectionInErrorBlobWarning = line.hasPrefix("Warning:")
             }
             else if !currentSectionInErrorBlob.isEmpty
             {
@@ -141,7 +141,7 @@ public func shell(
         /// Idk there's a dangling section
         if !currentSectionInErrorBlob.isEmpty
         {
-            if isCurrenSectionInErrorBlobWarning
+            if isCurrentSectionInErrorBlobWarning
             {
                 AppConstants.shared.logger.debug("Hit WARNING state: \(currentSectionInErrorBlob, privacy: .public)")
                 Container.shared.warningsTracker.resolve().insertWarning(warningToInsert: .standardError(.init(rawOutput: currentSectionInErrorBlob)))
