@@ -153,6 +153,7 @@ struct AboutView: View
                     } label: {
                         Text("about.packages")
                     }
+                    .betterDisclosureGroupStyle()
 
                     DisclosureGroup
                     {
@@ -209,6 +210,7 @@ struct AboutView: View
                     } label: {
                         Text("about.contributors")
                     }
+                    .betterDisclosureGroupStyle()
 
                     /*
                     DisclosureGroup
@@ -242,7 +244,8 @@ struct AboutView: View
                     } label: {
                         Text("about.translators")
                     }
-*/
+                    .betterDisclosureGroupStyle()
+
                     Text("about.privacy-policy")
                         .font(.subheadline)
                         .foregroundColor(.secondary)

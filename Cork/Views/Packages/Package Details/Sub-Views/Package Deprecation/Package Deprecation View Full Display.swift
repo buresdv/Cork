@@ -23,20 +23,23 @@ struct PackageDeprecationViewFullDisplay: View
         {
             if caveatDisplayOptions == .full
             {
-                HStack(alignment: .top, spacing: 10)
+                Section
                 {
-                    Image(systemName: "exclamationmark.triangle.fill")
-                        .resizable()
-                        .frame(width: 15, height: 15)
-                        .foregroundColor(.orange)
+                    HStack(alignment: .top, spacing: 10)
+                    {
+                        Image(systemName: "exclamationmark.triangle.fill")
+                            .resizable()
+                            .frame(width: 15, height: 15)
+                            .foregroundColor(.orange)
 
-                    if let deprecationReason
-                    {
-                        PackageDeprecatedWithReason(deprecationReason: deprecationReason)
-                    }
-                    else
-                    {
-                        PackageDeprecatedNoReasonProvided()
+                        if let deprecationReason
+                        {
+                            PackageDeprecatedWithReason(deprecationReason: deprecationReason)
+                        }
+                        else
+                        {
+                            PackageDeprecatedNoReasonProvided()
+                        }
                     }
                 }
             }

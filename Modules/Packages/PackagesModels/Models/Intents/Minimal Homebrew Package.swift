@@ -57,6 +57,10 @@ public struct MinimalHomebrewPackage: Identifiable, Hashable, AppEntity, Codable
         #endif
     }
 
+    public func doubleClickAction() async {
+        // Do nothing
+    }
+    
     @ViewBuilder
     public var revealSelfInFinderButton: some View
     {

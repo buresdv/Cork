@@ -5,9 +5,9 @@
 //  Created by David Bureš on 06.10.2023.
 //
 
-import SwiftUI
 import CorkModels
 import FactoryKit
+import SwiftUI
 
 struct OutdatedPackagesBox: View
 {
@@ -24,7 +24,15 @@ struct OutdatedPackagesBox: View
 
     var body: some View
     {
-        Group
+        outdatedPackagesBoxContents
+            .animation(.snappy, value: outdatedPackagesTracker.outdatedPackageDisplayStage)
+            .accessibilityLabel("accessibility.label.outdated-packages-box")
+    }
+
+    @ViewBuilder
+    private var outdatedPackagesBoxContents: some View
+    {
+        VStack(alignment: .leading, spacing: 5)
         {
             switch outdatedPackagesTracker.outdatedPackageDisplayStage
             {
@@ -38,7 +46,5 @@ struct OutdatedPackagesBox: View
                 LoadingOfOutdatedPackagesFailedListBox(errorOutReason: reason)
             }
         }
-        .animation(.snappy, value: outdatedPackagesTracker.outdatedPackageDisplayStage)
-        .accessibilityLabel("accessibility.label.outdated-packages-box")
     }
 }

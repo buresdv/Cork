@@ -52,8 +52,8 @@ public extension DisplayableAlert
             return BrewPackage.PackageLoadingError.numberOLoadedPackagesDosNotMatchNumberOfPackageFolders.localizedDescription
         case .couldNotObtainNotificationPermissions:
             return String(localized: "alert.notifications-error-while-obtaining-permissions.title")
-        case .couldNotRemoveTapDueToPackagesFromItStillBeingInstalled(let offendingTapProhibitingRemovalOfTap):
-            return String(localized: "sidebar.section.added-taps.remove.title-\(offendingTapProhibitingRemovalOfTap)")
+        case .couldNotRemoveTapDueToPackagesFromItStillBeingInstalled(let tap, _):
+            return String(localized: "sidebar.section.added-taps.remove.title-\(tap.name(withPrecision: .full))")            
         case .couldNotParseTopPackages:
             return String(localized: "alert.notifications-error-while-parsing-top-packages.title")
         case .receivedInvalidResponseFromBrew:

@@ -120,7 +120,7 @@ extension InstallationProgressTracker
                     {
                         AppConstants.shared.logger.warning("Falsely jumped into dependency install branch - inspect error")
 
-                        return
+                        continue
                     }
                     AppConstants.shared.logger.info("Will fetch dependencies!")
                     self.installStage = .formula(.downloadingDependencies(dependencyName: ""))
@@ -155,15 +155,6 @@ extension InstallationProgressTracker
                     }
                 }
 
-                switch self.installStage
-                {
-                case .formula(let standardCase):
-                    self.installProgress.setText(to: .belowBar(standardCase.stageDescription))
-                case .cask(_):
-                    return
-                }
-
-                AppConstants.shared.logger.debug("Current installation stage: \(String(describing: self.installStage))")
 
             case .standardError(let errorLine):
                 AppConstants.shared.logger.error("Errored out: \(errorLine, privacy: .public)")
@@ -173,7 +164,7 @@ extension InstallationProgressTracker
                     AppConstants.shared.logger.warning("Install requires sudo")
 
                     installError = .implemented(.requiresSudoPassword)
-                } else if errorLine.rawOutput.contains("Fetching downloads for:")
+                } else if errorLine.rawOutput.contains("Fetching downloads for:") || errorLine.rawOutput.contains("Downloading bottle manifests")
                 {
                     // This is duplicated in the standard cases verbatim because this line is sometimes in STDOUT, sometimes in STDERR
                     AppConstants.shared.logger.info("Will download package!")
@@ -190,6 +181,17 @@ extension InstallationProgressTracker
                     consolidatedUnimplementedOutput.append(.standardError(errorLine))
                 }
             }
+            
+            switch self.installStage
+            {
+            case .formula(let standardCase):
+                AppConstants.shared.logger.debug("Will set under bar text to \(standardCase.stageDescription)")
+                self.installProgress.setText(to: .belowBar(standardCase.stageDescription))
+            case .cask(_):
+                return
+            }
+
+            AppConstants.shared.logger.debug("Current installation stage: \(String(describing: self.installStage))")
         }
 
         AppConstants.shared.logger.info("""

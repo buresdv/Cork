@@ -24,6 +24,7 @@ struct PackageDependencies: View
                 {
                     DependencyList(dependencies: dependencies)
                 }
+                .betterDisclosureGroupStyle()
             }
         }
     }

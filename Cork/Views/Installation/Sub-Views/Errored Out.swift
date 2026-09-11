@@ -107,6 +107,7 @@ struct ErroredOutView: View
                 .alternatingRowBackgrounds(.enabled)
                 .frame(minHeight: 100)
             }
+            .betterDisclosureGroupStyle()
         }
     }
 }

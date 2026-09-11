@@ -552,8 +552,38 @@ private extension View
                         Text("action.use-without-notifications")
                     }
 
-                case .couldNotRemoveTapDueToPackagesFromItStillBeingInstalled:
-                    EmptyView()
+                case .couldNotRemoveTapDueToPackagesFromItStillBeingInstalled(let tap, let offendingPackages):
+                    
+                    if let offendingPackages
+                    {
+                        if offendingPackages.count == 1, let offendingPackage = offendingPackages.first
+                        {
+                            Button
+                            {
+                                view.appState.dismissAlert()
+                                view.navigationManager.openedScreen = .package(package: offendingPackage)
+                            } label: {
+                                Text("action.open-detail-for-\(offendingPackage.name(withPrecision: .inlineFormatted))")
+                            }
+                        }
+                    }
+                    
+                    Button
+                    {
+                        view.appState.dismissAlert()
+                        view.navigationManager.openedScreen = .tap(tap: tap)
+                    } label: {
+                        Text("action.open-detail-for-\(tap.name(withPrecision: .full))")
+                    }
+                    .keyboardShortcut(.defaultAction)
+                    
+                    Button
+                    {
+                        view.appState.dismissAlert()
+                    } label: {
+                        Text("action.close")
+                    }
+                    .keyboardShortcut(.cancelAction)
 
                 case .couldNotParseTopPackages:
                     EmptyView()

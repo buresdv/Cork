@@ -90,7 +90,8 @@ struct GroupBoxHeadlineGroupWithArbitraryImage: View
 /// For any artitrary content
 struct GroupBoxHeadlineGroupWithArbitraryContent<Content: View>: View
 {
-    var image: String?
+    var image: Image?
+    
     @ViewBuilder var content: Content
 
     var body: some View
@@ -99,7 +100,7 @@ struct GroupBoxHeadlineGroupWithArbitraryContent<Content: View>: View
         {
             if let image
             {
-                Image(systemName: image)
+                image
                     .resizable()
                     .scaledToFit()
                     .frame(width: 26, height: 26)
@@ -113,15 +114,15 @@ struct GroupBoxHeadlineGroupWithArbitraryContent<Content: View>: View
 
 struct GroupBoxHeadlineGroupWithArbitraryImageAndContent<Content: View>: View
 {
-    var imageName: String?
+    var image: Image?
     
     @ViewBuilder var content: Content
     var body: some View {
         HStack(alignment: .top, spacing: 15)
         {
-            if let imageName
+            if let image
             {
-                Image(imageName)
+                image
                     .resizable()
                     .scaledToFit()
                     .frame(width: 26, height: 26)

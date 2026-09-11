@@ -30,6 +30,12 @@ public class BrewPackagesTracker: @MainActor Loadable
     
     var isPackageSynchronizationRunning: Bool = false
 
+    // MARK: - All packages collected
+    public var allLoadedPackages: Set<BrewPackage>
+    {        
+        return self.successfullyLoadedCasks.union(self.successfullyLoadedFormulae)
+    }
+    
     // MARK: - Successfully loaded packages
     /// Formulae that were successfuly loaded from disk
     public var successfullyLoadedFormulae: Set<BrewPackage>
@@ -133,6 +139,20 @@ public class BrewPackagesTracker: @MainActor Loadable
         {
             installedCasks.insert(.success(package))
         }
+    }
+    
+    public func findPackageInTracker(byStringName name: String) -> BrewPackage?
+    {
+        let parsedName: BrewPackageName = .init(from: name)
+        
+        print("Parsed name debug: \(parsedName)")
+        
+        return findPackageInTracker(byParsedName: parsedName)
+    }
+    
+    public func findPackageInTracker(byParsedName parsedName: BrewPackageName) -> BrewPackage?
+    {
+        return self.allLoadedPackages.first(where: { $0.internalName.packageIdentifier == parsedName.packageIdentifier && $0.internalName.boundVersion == parsedName.boundVersion })
     }
     
     // MARK: - App adoption

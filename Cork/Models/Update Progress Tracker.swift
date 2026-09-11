@@ -146,7 +146,7 @@ public class UpdateProgressTracker: @MainActor TerminalOutputStreamable
             {
                 switch self
                 {
-                case .updateOverview: [.init(#/Would upgrade \d+ outdated packages/#), .init(#/Upgrading \d+ outdated packages/#)]
+                case .updateOverview: [.init(#/Would upgrade \d+ outdated/#), .init(#/Upgrading \d+ outdated/#), .init(#/Upgraded \d+ outdated package/#)]
                 case .tapUpdate: [.init(#/tap/#)]
                 case .noChecksumDefined: [.init(#/No checksum defined for/#)]
                 case .updateResultsSummary: [.init(#/Upgraded \d+ outdated packages/#)]

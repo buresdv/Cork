@@ -76,6 +76,7 @@ struct AddTapInitialView: View
                     }
                 }
             }
+            .betterDisclosureGroupStyle()
         }
         .toolbar
         {

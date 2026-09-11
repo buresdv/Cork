@@ -86,6 +86,7 @@ public extension TerminalOutputStreamable where Self: AnyObject
                 } label: {
                     Text("action.show-terminal-output")
                 }
+                .betterDisclosureGroupStyle()
             }
             else
             {

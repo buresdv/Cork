@@ -189,7 +189,8 @@ public struct AppConstants: Sendable
     public let disqualifyingSymbolsForTerminalOutputs: [String] = [
         "✔︎",
         "🍺",
-        "The following taps are not trusted"
+        "The following taps are not trusted",
+        "Calling HOMEBREW_NO_REQUIRE_TAP_TRUST"
     ]
 
     // MARK: - Storage for tagging

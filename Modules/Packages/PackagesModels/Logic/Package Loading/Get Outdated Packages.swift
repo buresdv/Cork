@@ -73,7 +73,7 @@ public extension OutdatedPackagesTracker
 
         /// This includes only those packages that are greedy
         let difference: Set<OutdatedPackage> = outdatedPackagesGreedy.subtracting(outdatedPackagesNonGreedy)
-
+        
         self.outdatedPackages = outdatedPackagesNonGreedy.union(difference)
     }
 
@@ -99,6 +99,8 @@ public extension OutdatedPackagesTracker
 
         // MARK: - Error checking
 
+        var consolidatedWarnings: [TerminalOutput]?
+        
         if rawOutput.contains("HOME must be set", in: .standardErrors)
         {
             AppConstants.shared.logger.error("Encountered HOME error")
@@ -107,8 +109,9 @@ public extension OutdatedPackagesTracker
 
         if rawOutput.containsErrors
         {
-            AppConstants.shared.logger.error("Standard error for package updating is not empty: \(rawOutput.standardErrors)")
-            throw OutdatedPackageRetrievalError.otherError(rawOutput.standardErrors.formatted(.list(type: .and)))
+            AppConstants.shared.logger.error("Standard error for package updating is not empty: \(rawOutput.standardErrors), try to show it to the user")
+            
+            consolidatedWarnings = rawOutput.standardErrorsPreservingType
         }
 
         // MARK: - Decoding
@@ -136,6 +139,11 @@ public extension OutdatedPackagesTracker
             async let finalOutdatedFormulae: Set<OutdatedPackage> = await OutdatedPackagesTracker.getOutdatedFormulae(from: rawDecodedOutdatedPackages.formulae, brewPackagesTracker: brewPackagesTracker, forUpdatingType: updatingType)
             async let finalOutdatedCasks: Set<OutdatedPackage> = await OutdatedPackagesTracker.getOutdatedCasks(from: rawDecodedOutdatedPackages.casks, brewPackagesTracker: brewPackagesTracker, forUpdatingType: updatingType)
 
+            if let consolidatedWarnings
+            {
+                await self.setNonCriticalWarnings(to: consolidatedWarnings)
+            }
+            
             return await finalOutdatedFormulae.union(finalOutdatedCasks)
         }
         catch let decodingError
@@ -158,14 +166,15 @@ public extension OutdatedPackagesTracker
 
         for outdatedFormula in intermediaryArray
         {
-            if let foundOutdatedFormula = await brewPackagesTracker.successfullyLoadedFormulae.first(where: { $0.name(withPrecision: .precise) == outdatedFormula.name })
+            if let foundOutdatedFormula = brewPackagesTracker.successfullyLoadedFormulae.first(where: { $0.name(withPrecision: .precise) == outdatedFormula.name })
             {
-                await finalOutdatedFormulaTracker.insert(.init(
-                    package: foundOutdatedFormula,
-                    installedVersions: outdatedFormula.installedVersions,
-                    newerVersion: outdatedFormula.currentVersion,
-                    updatingManagedBy: updatingType
-                )
+                finalOutdatedFormulaTracker.insert(
+                    .init(
+                        package: foundOutdatedFormula,
+                        installedVersions: outdatedFormula.installedVersions,
+                        newerVersion: outdatedFormula.currentVersion,
+                        updatingManagedBy: updatingType
+                    )
                 )
             }
         }
@@ -180,14 +189,15 @@ public extension OutdatedPackagesTracker
 
         for outdatedCask in intermediaryArray
         {
-            if let foundOutdatedCask = await brewPackagesTracker.successfullyLoadedCasks.first(where: { $0.name(withPrecision: .precise) == outdatedCask.name })
+            if let foundOutdatedCask = brewPackagesTracker.successfullyLoadedCasks.first(where: { $0.name(withPrecision: .precise) == outdatedCask.name })
             {
-                await finalOutdatedCaskTracker.insert(.init(
-                    package: foundOutdatedCask,
-                    installedVersions: outdatedCask.installedVersions,
-                    newerVersion: outdatedCask.currentVersion,
-                    updatingManagedBy: updatingType
-                )
+                finalOutdatedCaskTracker.insert(
+                    .init(
+                        package: foundOutdatedCask,
+                        installedVersions: outdatedCask.installedVersions,
+                        newerVersion: outdatedCask.currentVersion,
+                        updatingManagedBy: updatingType
+                    )
                 )
             }
         }
