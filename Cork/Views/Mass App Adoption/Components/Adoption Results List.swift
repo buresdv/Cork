@@ -60,6 +60,7 @@ struct AdoptionResultsList: View
             .listStyle(.bordered(alternatesRowBackgrounds: true))
             .frame(minHeight: 100)
         }
+        .betterDisclosureGroupStyle()
     }
 
     // MARK: - View Builders

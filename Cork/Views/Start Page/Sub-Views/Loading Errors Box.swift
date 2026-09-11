@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CorkModels
+import CorkShared
 
 struct LoadingErrorsBox: View
 {
@@ -20,7 +21,7 @@ struct LoadingErrorsBox: View
     {
         if !brewPackagesTracker.unsuccessfullyLoadedFormulaeErrors.isEmpty
         {
-            GroupBoxHeadlineGroupWithArbitraryImageAndContent(imageName: "custom.terminal.badge.xmark")
+            GroupBoxHeadlineGroupWithArbitraryImageAndContent(image: .init("custom.terminal.badge.xmark"))
             {
                 VStack(alignment: .leading, spacing: 5)
                 {
@@ -44,7 +45,7 @@ struct LoadingErrorsBox: View
         
         if !brewPackagesTracker.unsuccessfullyLoadedCasksErrors.isEmpty
         {
-            GroupBoxHeadlineGroupWithArbitraryImageAndContent(imageName: "custom.macwindow.badge.xmark")
+            GroupBoxHeadlineGroupWithArbitraryImageAndContent(image: .init("custom.macwindow.badge.xmark"))
             {
                 VStack(alignment: .leading, spacing: 5)
                 {

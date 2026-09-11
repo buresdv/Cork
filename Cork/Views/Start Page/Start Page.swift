@@ -11,6 +11,7 @@ import Defaults
 import CorkModels
 import FactoryKit
 import CorkFeature_Brewfiles
+import CorkTerminalFunctions
 
 struct StartPage: View
 {
@@ -32,6 +33,8 @@ struct StartPage: View
     @InjectedObservable(\.cachedDownloadsTracker) var cachedDownloadsTracker: CachedDownloadsTracker
     
     @InjectedObservable(\.appState) var appState: AppState
+    
+    @InjectedObservable(\.warningsTracker) var warningsTracker: WarningsTracker
 
     @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
     
@@ -65,6 +68,29 @@ struct StartPage: View
         }
     }
 
+    enum IssuesSectionContent
+    {
+        case loadingOfPackagesFailed
+        case homebrewEmittedWarnings
+    }
+    
+    var issues: [IssuesSectionContent]
+    {
+        var issues: [IssuesSectionContent] = .init()
+        
+        if !brewPackagesTracker.unsuccessfullyLoadedFormulaeErrors.isEmpty || !brewPackagesTracker.unsuccessfullyLoadedCasksErrors.isEmpty
+        {
+            issues.append(.loadingOfPackagesFailed)
+        }
+        
+        if warningsTracker.hasWarnings
+        {
+            issues.append(.homebrewEmittedWarnings)
+        }
+        
+        return issues
+    }
+    
     var body: some View
     {
         VStack
@@ -105,30 +131,41 @@ struct StartPage: View
                               */
                         }
                     }
-
-                    AdoptablePackagesSection()
                     
-                    if !brewPackagesTracker.unsuccessfullyLoadedFormulaeErrors.isEmpty || !brewPackagesTracker.unsuccessfullyLoadedCasksErrors.isEmpty
+                    if !issues.isEmpty
                     {
-                        Section
+                        Section("start-page.section.issues.title")
                         {
-                            LoadingErrorsBox()
+                            if issues.contains(.loadingOfPackagesFailed)
+                            {
+                                LoadingErrorsBox()
+                            }
+                            
+                            if issues.contains(.homebrewEmittedWarnings)
+                            {
+                                HomebrewWarningsSection()
+                            }
                         }
+                        
                     }
                     
-                    Section
+                    Section("start-page.section.packages-overview.title")
                     {
+                        AdoptablePackagesSection()
+                        
                         PackageAndTapOverviewBox()
                     }
                     
+                    /*
                     Section
                     {
                         AnalyticsStatusBox()
                     }
+                     */
 
                     if shouldShowCachedDownloadsGraph
                     {
-                        Section
+                        Section("start-page.section.recommendations.title")
                         {
                             CachedDownloadsFolderInfoBox()
                         }

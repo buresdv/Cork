@@ -53,6 +53,7 @@ struct OutdatedPackagesList: View
                 {
                     OutdatedPackagesList_List(packageUpdatingType: .selfUpdating)
                 }
+                .betterDisclosureGroupStyle()
             }
         case .all:
             
@@ -71,6 +72,7 @@ struct OutdatedPackagesList: View
                 {
                     OutdatedPackagesList_Table(packageUpdatingType: .selfUpdating)
                 }
+                .betterDisclosureGroupStyle()
             }
         }
     }
