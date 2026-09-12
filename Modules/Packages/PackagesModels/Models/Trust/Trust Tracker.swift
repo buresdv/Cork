@@ -15,7 +15,8 @@ public class TrustTracker
 {    
     public var trustedTapNames: [BrewTap.BrewTapName]
     
-    public init(trustedTapNames: [BrewTap.BrewTapName]) {
+    public init(trustedTapNames: [BrewTap.BrewTapName])
+    {
         self.trustedTapNames = trustedTapNames
     }
 }

@@ -45,6 +45,7 @@ func corkTarget(configureWithSelfCompiled: Bool) -> ProjectDescription.Target {
             .external(name: "Defaults"),
             .external(name: "DefaultsMacros"),
             .external(name: "SwiftNavigation"),
+            .external(name: "Crypto"),
             .package(product: "SwiftLintBuildToolPlugin", type: .plugin)
         ], settings: .settings(configurations: [
             .debug(
@@ -154,7 +155,7 @@ let corkTerminalFunctionsTestsTarget: ProjectDescription.Target = .target(
         "Modules/TerminalSupport/Tests/**/*.swift"
     ],
     dependencies: [
-        .target(corkTerminalFunctionsTarget)  // ← depend on the compiled library, not the app
+        .target(corkTerminalFunctionsTarget)
     ],
 )
 
@@ -180,7 +181,8 @@ let corkModelsTarget: ProjectDescription.Target = .target(
         .external(name: "FactoryKit"),
         .external(name: "Defaults"),
         .external(name: "DefaultsMacros"),
-        .external(name: "SwiftNavigation")
+        .external(name: "SwiftNavigation"),
+        .external(name: "Crypto")
     ],
     settings: .settings(configurations: [
         .debug(

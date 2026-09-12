@@ -19,7 +19,7 @@ struct TapTrustBox: View
     
     var body: some View
     {
-        GroupBoxHeadlineGroupWithArbitraryContent(image: "rosette")
+        GroupBoxHeadlineGroupWithArbitraryContent(image: .init(systemName: "rosette"))
         {
             VStack(alignment: .leading, spacing: 5)
             {
