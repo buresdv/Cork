@@ -276,8 +276,6 @@ struct CorkApp: App
         {
             HomebrewServicesView()
         }
-        .commands
-        {}
         .windowToolbarStyle(.unifiedCompact)
 
         Window("window.about", id: .aboutWindowID)
