@@ -375,7 +375,7 @@ private struct NameView_Capsule<Package: PackageNameDisplayable>: View
             {
                 if showPackageTypeNextToInteractiveCapsule
                 {
-                    packageTypeIcon
+                    package.displayableType?.icon
                         .foregroundStyle(.tertiary)
                 }
 
