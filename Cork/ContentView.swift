@@ -17,6 +17,7 @@ import SwiftUI
 
 struct ContentView: View, Sendable
 {
+    @Default(.customAppearance) var customAppearance: AppearanceOverride
     @Default(.sortPackagesBy) var sortPackagesBy: PackageSortingOptions
     @Default(.allowBrewAnalytics) var allowBrewAnalytics: Bool
 
@@ -698,6 +699,7 @@ private extension View
             }, message: { dialogType in
                 Text(dialogType.message)
             })
+            .preferredColorScheme(Defaults[.customAppearance].colorScheme)
     }
 }
 

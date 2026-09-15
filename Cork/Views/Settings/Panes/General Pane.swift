@@ -12,6 +12,7 @@ import Defaults
 
 struct GeneralPane: View
 {
+    @Default(.customAppearance) var customAppearance: AppearanceOverride
     @Default(.sortPackagesBy) var sortPackagesBy: PackageSortingOptions
     @Default(.displayAdvancedDependencies) var displayAdvancedDependencies: Bool
 
@@ -39,6 +40,17 @@ struct GeneralPane: View
         {
             Form
             {
+                Picker(selection: $customAppearance)
+                {
+                    ForEach(AppearanceOverride.allCases)
+                    { appearanceOption in
+                        Text(appearanceOption.description)
+                            .tag(appearanceOption)
+                    }
+                } label: {
+                    Text("settings.general.appearance")
+                }
+
                 Picker(selection: $sortPackagesBy) {
                     ForEach(PackageSortingOptions.allCases)
                     { packageSortingOption in
