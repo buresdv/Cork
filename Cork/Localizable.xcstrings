@@ -239,7 +239,7 @@
         },
         "tr": {
           "stringUnit": {
-            "state": "new",
+            "state": "translated",
             "value": "%1$@ → %2$@"
           }
         },
@@ -251,7 +251,7 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "translated",
+            "state": "new",
             "value": "%1$@ → %2$@"
           }
         },
@@ -259,6 +259,130 @@
           "stringUnit": {
             "state": "new",
             "value": "%1$@ → %2$@"
+          }
+        }
+      }
+    },
+    "%@/%@": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@/%2$@"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@/%2$@"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@/%2$@"
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@/%2$@"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@/%2$@"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@/%2$@"
+          }
+        },
+        "he": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@/%2$@"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@/%2$@"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@/%2$@"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@/%2$@"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@/%2$@"
+          }
+        },
+        "pa": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@/%2$@"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@/%2$@"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@/%2$@"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@/%2$@"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@/%2$@"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@/%2$@"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@/%2$@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@/%2$@"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@/%2$@"
           }
         }
       }
@@ -2376,6 +2500,7 @@
       }
     },
     "about.contributors.2.name": {
+      "extractionState": "stale",
       "localizations": {
         "cs": {
           "stringUnit": {
@@ -2501,6 +2626,7 @@
       "shouldTranslate": false
     },
     "about.contributors.2.purpose": {
+      "extractionState": "stale",
       "localizations": {
         "cs": {
           "stringUnit": {
@@ -2625,6 +2751,7 @@
       }
     },
     "about.contributors.3.name": {
+      "extractionState": "stale",
       "localizations": {
         "cs": {
           "stringUnit": {
@@ -2750,6 +2877,7 @@
       "shouldTranslate": false
     },
     "about.contributors.3.purpose": {
+      "extractionState": "stale",
       "localizations": {
         "cs": {
           "stringUnit": {
@@ -2874,6 +3002,7 @@
       }
     },
     "about.contributors.4.name": {
+      "extractionState": "stale",
       "localizations": {
         "cs": {
           "stringUnit": {
@@ -2999,6 +3128,7 @@
       "shouldTranslate": false
     },
     "about.contributors.4.purpose": {
+      "extractionState": "stale",
       "localizations": {
         "cs": {
           "stringUnit": {
@@ -3123,6 +3253,7 @@
       }
     },
     "about.contributors.5.name": {
+      "extractionState": "stale",
       "localizations": {
         "cs": {
           "stringUnit": {
@@ -3248,6 +3379,7 @@
       "shouldTranslate": false
     },
     "about.contributors.5.purpose": {
+      "extractionState": "stale",
       "localizations": {
         "cs": {
           "stringUnit": {
@@ -4988,6 +5120,7 @@
       }
     },
     "about.thanks.1.name": {
+      "extractionState": "stale",
       "localizations": {
         "cs": {
           "stringUnit": {
@@ -5113,6 +5246,7 @@
       "shouldTranslate": false
     },
     "about.thanks.1.purpose": {
+      "extractionState": "stale",
       "localizations": {
         "cs": {
           "stringUnit": {
@@ -7105,6 +7239,7 @@
       }
     },
     "about.translators": {
+      "extractionState": "stale",
       "localizations": {
         "cs": {
           "stringUnit": {
@@ -12442,8 +12577,8 @@
         },
         "tr": {
           "stringUnit": {
-            "state": "new",
-            "value": "Open %@"
+            "state": "translated",
+            "value": "%@ öğesini aç"
           }
         },
         "uk": {
@@ -12566,8 +12701,8 @@
         },
         "tr": {
           "stringUnit": {
-            "state": "new",
-            "value": "Open detail for %@"
+            "state": "translated",
+            "value": "%@ ayrıntılarını aç"
           }
         },
         "uk": {
@@ -13192,8 +13327,8 @@
         },
         "tr": {
           "stringUnit": {
-            "state": "new",
-            "value": "Preview %@"
+            "state": "translated",
+            "value": "%@ öğesini önizle"
           }
         },
         "uk": {
@@ -17180,8 +17315,8 @@
         },
         "tr": {
           "stringUnit": {
-            "state": "new",
-            "value": "Couldn’t install %@ %@"
+            "state": "translated",
+            "value": "%@ %@ yüklenemedi"
           }
         },
         "uk": {
@@ -17306,8 +17441,8 @@
         },
         "tr": {
           "stringUnit": {
-            "state": "new",
-            "value": "While this doesn’t necessarily mean %@ wasn’t installed, you should check the list of unexpected outputs below"
+            "state": "translated",
+            "value": "Bu durum, %@ öğesinin kesin olarak yüklenmediği anlamına gelmez; ancak aşağıdaki beklenmeyen çıktıların listesini kontrol etmelisiniz"
           }
         },
         "uk": {
@@ -17430,8 +17565,8 @@
         },
         "tr": {
           "stringUnit": {
-            "state": "new",
-            "value": "Package %@ was likely installed"
+            "state": "translated",
+            "value": "%@ paketi muhtemelen yüklendi"
           }
         },
         "uk": {
@@ -17442,8 +17577,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "translated",
-            "value": "似乎已经安装了 %@ 软件包"
+            "state": "new",
+            "value": "Package %@ was likely installed"
           }
         },
         "zh-Hant": {
@@ -17554,8 +17689,8 @@
         },
         "tr": {
           "stringUnit": {
-            "state": "new",
-            "value": "Package %@ was likely installed"
+            "state": "translated",
+            "value": "%@ paketi muhtemelen yüklendi"
           }
         },
         "uk": {
@@ -17566,8 +17701,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "translated",
-            "value": "似乎已经安装了 %@ 软件包"
+            "state": "new",
+            "value": "Package %@ was likely installed"
           }
         },
         "zh-Hant": {
@@ -17929,8 +18064,8 @@
         },
         "tr": {
           "stringUnit": {
-            "state": "new",
-            "value": "Couldn’t install package"
+            "state": "translated",
+            "value": "Paket yüklenemedi"
           }
         },
         "uk": {
@@ -18055,8 +18190,8 @@
         },
         "tr": {
           "stringUnit": {
-            "state": "new",
-            "value": "Unexpected outputs"
+            "state": "translated",
+            "value": "Beklenmeyen çıktılar"
           }
         },
         "uk": {
@@ -18181,8 +18316,8 @@
         },
         "tr": {
           "stringUnit": {
-            "state": "new",
-            "value": "Some unexpected outputs were encountered"
+            "state": "translated",
+            "value": "Bazı beklenmeyen çıktılarla karşılaşıldı"
           }
         },
         "uk": {
@@ -23542,8 +23677,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "translated",
-            "value": "联系你正在尝试安装的应用的开发者，确认该应用是否支持你的苹果电脑的架构。"
+            "state": "new",
+            "value": "Get in touch with the developer of the app that you’re trying to install to find out if they offer the app for you Mac’s architecture."
           }
         },
         "zh-Hant": {
@@ -23791,8 +23926,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "translated",
-            "value": "有一些意外的包管理器输出，且其中一部分为错误信息。\n检查下方内容以获取更多信息，并判断它们是否重要。"
+            "state": "new",
+            "value": "There were some unexpected Homebrew outputs, and some of them were errors.\nCheck below for more information, and decide if they seem important."
           }
         },
         "zh-Hant": {
@@ -23915,8 +24050,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "translated",
-            "value": "有一些意外的 Homebrew 输出。\n检查下方获取更多信息，并判断其是否重要。"
+            "state": "new",
+            "value": "There were some unexpected Homebrew outputs.\nCheck below for more information, and decide if they seem important."
           }
         },
         "zh-Hant": {
@@ -25784,7 +25919,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "找到以下 命令行工具"
+            "value": "找到以下 Formula"
           }
         },
         "zh-Hant": {
@@ -25908,7 +26043,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "未找到命令行工具"
+            "value": "未找到 Formula"
           }
         },
         "zh-Hant": {
@@ -27424,7 +27559,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "添加扩展仓库"
+            "value": "添加 Tap"
           }
         },
         "zh-Hant": {
@@ -27919,8 +28054,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "translated",
-            "value": "自定义扩展仓库…"
+            "state": "new",
+            "value": "Customise tap…"
           }
         },
         "zh-Hant": {
@@ -28168,7 +28303,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "在添加 %@ 时出现了错误"
+            "value": "在添加 Tap %@ 时出现了错误"
           }
         },
         "zh-Hant": {
@@ -28664,7 +28799,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "扩展仓库平台"
+            "value": "Tap 链接: "
           }
         },
         "zh-Hant": {
@@ -28912,7 +29047,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "使用外部链接添加扩展仓库 "
+            "value": "使用外部链接添加 Tap"
           }
         },
         "zh-Hant": {
@@ -29036,7 +29171,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "添加 %@"
+            "value": "添加 Tap %@"
           }
         },
         "zh-Hant": {
@@ -29160,7 +29295,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "扩展仓库名称为空"
+            "value": "未输入 Tap 名称"
           }
         },
         "zh-Hant": {
@@ -29284,7 +29419,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "你没有输入任何扩展仓库名称"
+            "value": "你未输入任何 Tap 名称"
           }
         },
         "zh-Hant": {
@@ -29407,8 +29542,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "translated",
-            "value": "无效的扩展仓库平台"
+            "state": "new",
+            "value": "Invalid Tap host"
           }
         },
         "zh-Hant": {
@@ -29531,8 +29666,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "translated",
-            "value": "该扩展仓库平台不存在。换一个尝试。"
+            "state": "new",
+            "value": "This Tap host doesn’t exist. Try a different one."
           }
         },
         "zh-Hant": {
@@ -29655,8 +29790,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "translated",
-            "value": "无效的扩展仓库名称"
+            "state": "new",
+            "value": "Invalid Tap name"
           }
         },
         "zh-Hant": {
@@ -29780,7 +29915,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "扩展仓库名称需要包含斜杠"
+            "value": "Tap 名称需要包含斜杠"
           }
         },
         "zh-Hant": {
@@ -29904,7 +30039,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "扩展仓库名称通常必须包含斜杠"
+            "value": "Tap 名称必须包含斜杠"
           }
         },
         "zh-Hant": {
@@ -30029,7 +30164,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "点击下方的“打开终端”\n使用 ⌘+V 粘贴命令，然后按 ↩（回车）执行命令\n按照提示安装 %@，完成后返回 Cork 并关闭此对话框"
+            "value": "点击下方的「打开终端」\n使用 ⌘+V 粘贴命令，然后按 ↩（回车）执行命令\n按照提示安装 %@，完成后返回 Cork 并关闭此对话框"
           }
         },
         "zh-Hant": {
@@ -30152,8 +30287,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "translated",
-            "value": "无法创建用于读取软件包描述的正则规则。"
+            "state": "new",
+            "value": "Couldn’t create pattern for reading the Package’s description."
           }
         },
         "zh-Hant": {
@@ -30401,7 +30536,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "点击下方的“打开终端”\n使用 ⌘+V 粘贴命令，然后按 ↩（回车）执行命令\n按照提示卸载 %@，完成后返回 Cork 并关闭此对话框"
+            "value": "点击下方的「打开终端」\n使用 ⌘+V 粘贴命令，然后按 ↩（回车）执行命令\n按照提示卸载 %@，完成后返回 Cork 并关闭此对话框"
           }
         },
         "zh-Hant": {
@@ -30526,7 +30661,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "无法接管 %@"
+            "value": "Couldn’t adopt %@"
           }
         },
         "zh-Hant": {
@@ -30651,7 +30786,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "已完成接管 %@"
+            "value": "Finished adopting %@"
           }
         },
         "zh-Hant": {
@@ -30776,7 +30911,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "该软件包现在可以通过 Homebrew 更新"
+            "value": "This package can now be updated through Homebrew"
           }
         },
         "zh-Hant": {
@@ -30901,7 +31036,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "正在接管 %@…"
+            "value": "Adopting %@…"
           }
         },
         "zh-Hant": {
@@ -31025,7 +31160,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "已忽略的可接管的应用"
+            "value": "Ignored adoptable apps"
           }
         },
         "zh-Hant": {
@@ -31151,7 +31286,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "可接管的应用"
+            "value": "Adoptable apps"
           }
         },
         "zh-Hant": {
@@ -31400,7 +31535,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "尝试重启 Cork。如果问题仍然存在，清除 Cork 的元数据"
+            "value": "请尝试重启 Cork。如果问题仍然存在，请清除 Cork 的元数据"
           }
         },
         "zh-Hant": {
@@ -31898,7 +32033,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "手动删除元数据文件夹，或尝试重启 Cork"
+            "value": "请手动删除元数据文件夹，或尝试重启 Cork"
           }
         },
         "zh-Hant": {
@@ -32147,7 +32282,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "确保你已授权 Cork 访问你的文稿文件夹"
+            "value": "请确保已授权 Cork 访问您的文稿文件夹"
           }
         },
         "zh-Hant": {
@@ -32767,7 +32902,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "无法在可用软件包列表中找到所选软件包"
+            "value": "无法在可用软件包中找到所选软件包"
           }
         },
         "zh-Hant": {
@@ -32891,7 +33026,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "将备份文件移动到其他位置，然后重试"
+            "value": "请将备份文件移动到其他位置，然后重试"
           }
         },
         "zh-Hant": {
@@ -33139,7 +33274,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "无法创建备份父文件夹"
+            "value": "无法创建备份文件夹"
           }
         },
         "zh-Hant": {
@@ -33637,7 +33772,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "无法检索到可更新的软件包"
+            "value": "无法获取可用软件包更新"
           }
         },
         "zh-Hant": {
@@ -36503,6 +36638,7 @@
       }
     },
     "alert.notification-could-not-remove-tap-due-to-packages-from-it-still-being-installed.message-%@": {
+      "extractionState": "stale",
       "localizations": {
         "cs": {
           "stringUnit": {
@@ -36519,7 +36655,7 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "You still have packages installed from %@\nUninstall them and try again"
+            "value": "Packages %@ are still installed from this tap.\nUninstall them and try again"
           }
         },
         "en-GB": {
@@ -36549,7 +36685,7 @@
         "id": {
           "stringUnit": {
             "state": "new",
-            "value": "You still have packages installed from %@\nUninstall them and try again"
+            "value": "Packages %@ are still installed from this tap.\nUninstall them and try again"
           }
         },
         "it": {
@@ -36573,13 +36709,13 @@
         "pa": {
           "stringUnit": {
             "state": "new",
-            "value": "You still have packages installed from %@\nUninstall them and try again"
+            "value": "Packages %@ are still installed from this tap.\nUninstall them and try again"
           }
         },
         "pl": {
           "stringUnit": {
             "state": "new",
-            "value": "You still have packages installed from %@\nUninstall them and try again"
+            "value": "Packages %@ are still installed from this tap.\nUninstall them and try again"
           }
         },
         "pt-PT": {
@@ -36622,6 +36758,502 @@
           "stringUnit": {
             "state": "translated",
             "value": "您仍有從 %@ 安裝的套件\n解除安裝後再重新嘗試"
+          }
+        }
+      }
+    },
+    "alert.notification-could-not-remove-tap-due-to-packages-from-it-still-being-installed.message-%@.%lld": {
+      "comment": "The numeral should not be included in the translation. It is there to purely force this string to be a plural",
+      "localizations": {
+        "cs": {
+          "variations": {
+            "plural": {
+              "few": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Z této pípy máte nainstalované %2$lld balíčky. Před odstraněním pípy odinstalujte:\n\n%1$@"
+                }
+              },
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Z této pípy máte nainstalovaný %2$lld balíček. Před odstraněním pípy odinstalujte:\n\n%1$@"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Z této pípy máte nainstalovaných %2$lld balíčků. Před odstraněním pípy odinstalujte:\n\n%1$@"
+                }
+              }
+            }
+          }
+        },
+        "de": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld package installed from this tap that needs to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld packages installed from this tap that need to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              }
+            }
+          }
+        },
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "You have %2$lld package installed from this tap that needs to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "You have %2$lld packages installed from this tap that need to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              }
+            }
+          }
+        },
+        "en-GB": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld package installed from this tap that needs to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld packages installed from this tap that need to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              }
+            }
+          }
+        },
+        "es-419": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld package installed from this tap that needs to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld packages installed from this tap that need to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld package installed from this tap that needs to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld packages installed from this tap that need to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              }
+            }
+          }
+        },
+        "he": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld package installed from this tap that needs to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld packages installed from this tap that need to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              }
+            }
+          }
+        },
+        "id": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld package installed from this tap that needs to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld packages installed from this tap that need to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              }
+            }
+          }
+        },
+        "it": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld package installed from this tap that needs to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld packages installed from this tap that need to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              }
+            }
+          }
+        },
+        "ja": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld package installed from this tap that needs to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld packages installed from this tap that need to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              }
+            }
+          }
+        },
+        "ko": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld package installed from this tap that needs to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld packages installed from this tap that need to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              }
+            }
+          }
+        },
+        "pa": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld package installed from this tap that needs to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld packages installed from this tap that need to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              }
+            }
+          }
+        },
+        "pl": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld package installed from this tap that needs to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld packages installed from this tap that need to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              }
+            }
+          }
+        },
+        "pt-PT": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld package installed from this tap that needs to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld packages installed from this tap that need to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              }
+            }
+          }
+        },
+        "ru": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld package installed from this tap that needs to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld packages installed from this tap that need to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              }
+            }
+          }
+        },
+        "sv": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld package installed from this tap that needs to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld packages installed from this tap that need to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              }
+            }
+          }
+        },
+        "tr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld package installed from this tap that needs to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld packages installed from this tap that need to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              }
+            }
+          }
+        },
+        "uk": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld package installed from this tap that needs to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld packages installed from this tap that need to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              }
+            }
+          }
+        },
+        "zh-Hans": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld package installed from this tap that needs to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld packages installed from this tap that need to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              }
+            }
+          }
+        },
+        "zh-Hant": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld package installed from this tap that needs to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "You have %2$lld packages installed from this tap that need to be uninstalled before you can remove this tap:\n\n%1$@"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "alert.notification-could-not-remove-tap-due-to-packages-from-it-still-being-installed.message.unknown-packages": {
+      "comment": "This shows up when Cork couldn't extract the list of offending packages from the Homebrew output",
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Z této pípy máte ještě nainstalované nějaké balíčky.\nPro íce informací otevřete detail této pípy."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "new",
+            "value": "You still have some packages installed from this tap.\nOpen the tap detail to learn more."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You still have some packages installed from this tap.\nOpen the tap detail to learn more."
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "new",
+            "value": "You still have some packages installed from this tap.\nOpen the tap detail to learn more."
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "new",
+            "value": "You still have some packages installed from this tap.\nOpen the tap detail to learn more."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "new",
+            "value": "You still have some packages installed from this tap.\nOpen the tap detail to learn more."
+          }
+        },
+        "he": {
+          "stringUnit": {
+            "state": "new",
+            "value": "You still have some packages installed from this tap.\nOpen the tap detail to learn more."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "new",
+            "value": "You still have some packages installed from this tap.\nOpen the tap detail to learn more."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "new",
+            "value": "You still have some packages installed from this tap.\nOpen the tap detail to learn more."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "new",
+            "value": "You still have some packages installed from this tap.\nOpen the tap detail to learn more."
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "You still have some packages installed from this tap.\nOpen the tap detail to learn more."
+          }
+        },
+        "pa": {
+          "stringUnit": {
+            "state": "new",
+            "value": "You still have some packages installed from this tap.\nOpen the tap detail to learn more."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "new",
+            "value": "You still have some packages installed from this tap.\nOpen the tap detail to learn more."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "new",
+            "value": "You still have some packages installed from this tap.\nOpen the tap detail to learn more."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "new",
+            "value": "You still have some packages installed from this tap.\nOpen the tap detail to learn more."
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "new",
+            "value": "You still have some packages installed from this tap.\nOpen the tap detail to learn more."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "new",
+            "value": "You still have some packages installed from this tap.\nOpen the tap detail to learn more."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "new",
+            "value": "You still have some packages installed from this tap.\nOpen the tap detail to learn more."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "new",
+            "value": "You still have some packages installed from this tap.\nOpen the tap detail to learn more."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "new",
+            "value": "You still have some packages installed from this tap.\nOpen the tap detail to learn more."
           }
         }
       }
@@ -48935,6 +49567,131 @@
         }
       }
     },
+    "error.tap.untap.removal-of-%@-blocked-by-%@": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Odstranění pípy %1$@ blokují balíčky %2$@"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Removal of tap %1$@ blocked by %2$@"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Removal of tap %1$@ blocked by %2$@"
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Removal of tap %1$@ blocked by %2$@"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Removal of tap %1$@ blocked by %2$@"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Removal of tap %1$@ blocked by %2$@"
+          }
+        },
+        "he": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Removal of tap %1$@ blocked by %2$@"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Removal of tap %1$@ blocked by %2$@"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Removal of tap %1$@ blocked by %2$@"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Removal of tap %1$@ blocked by %2$@"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Removal of tap %1$@ blocked by %2$@"
+          }
+        },
+        "pa": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Removal of tap %1$@ blocked by %2$@"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Removal of tap %1$@ blocked by %2$@"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Removal of tap %1$@ blocked by %2$@"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Removal of tap %1$@ blocked by %2$@"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Removal of tap %1$@ blocked by %2$@"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Removal of tap %1$@ blocked by %2$@"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Removal of tap %1$@ blocked by %2$@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Removal of tap %1$@ blocked by %2$@"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Removal of tap %1$@ blocked by %2$@"
+          }
+        }
+      }
+    },
+    "error.tap.untap.removal-of-%@-blocked-by-unknown-packages": {},
     "error.task-cancelled": {
       "localizations": {
         "cs": {
@@ -52280,6 +53037,254 @@
           "stringUnit": {
             "state": "translated",
             "value": "精簡後的套件"
+          }
+        }
+      }
+    },
+    "label.warnings": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Upozornění…"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Warnings..."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Warnings..."
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Warnings..."
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Warnings..."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Warnings..."
+          }
+        },
+        "he": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Warnings..."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Warnings..."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Warnings..."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Warnings..."
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Warnings..."
+          }
+        },
+        "pa": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Warnings..."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Warnings..."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Warnings..."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Warnings..."
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Warnings..."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Warnings..."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Warnings..."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Warnings..."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Warnings..."
+          }
+        }
+      }
+    },
+    "label.warnings.dont-bother-cork-its-the-fault-of-someone-else": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tato upozornění se vztahují na Homebrew, ne Cork.\nNenahlašujte je Corku. Více informací naleznete níže."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "new",
+            "value": "These warnings tell you about something going wrong with Homebrew itself.\nDo not report what you see here to Cork, read the warnings to learn more about where to report them."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "These warnings tell you about something going wrong with Homebrew itself.\nDo not report what you see here to Cork, read the warnings to learn more about where to report them."
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "new",
+            "value": "These warnings tell you about something going wrong with Homebrew itself.\nDo not report what you see here to Cork, read the warnings to learn more about where to report them."
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "new",
+            "value": "These warnings tell you about something going wrong with Homebrew itself.\nDo not report what you see here to Cork, read the warnings to learn more about where to report them."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "new",
+            "value": "These warnings tell you about something going wrong with Homebrew itself.\nDo not report what you see here to Cork, read the warnings to learn more about where to report them."
+          }
+        },
+        "he": {
+          "stringUnit": {
+            "state": "new",
+            "value": "These warnings tell you about something going wrong with Homebrew itself.\nDo not report what you see here to Cork, read the warnings to learn more about where to report them."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "new",
+            "value": "These warnings tell you about something going wrong with Homebrew itself.\nDo not report what you see here to Cork, read the warnings to learn more about where to report them."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "new",
+            "value": "These warnings tell you about something going wrong with Homebrew itself.\nDo not report what you see here to Cork, read the warnings to learn more about where to report them."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "new",
+            "value": "These warnings tell you about something going wrong with Homebrew itself.\nDo not report what you see here to Cork, read the warnings to learn more about where to report them."
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "These warnings tell you about something going wrong with Homebrew itself.\nDo not report what you see here to Cork, read the warnings to learn more about where to report them."
+          }
+        },
+        "pa": {
+          "stringUnit": {
+            "state": "new",
+            "value": "These warnings tell you about something going wrong with Homebrew itself.\nDo not report what you see here to Cork, read the warnings to learn more about where to report them."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "new",
+            "value": "These warnings tell you about something going wrong with Homebrew itself.\nDo not report what you see here to Cork, read the warnings to learn more about where to report them."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "new",
+            "value": "These warnings tell you about something going wrong with Homebrew itself.\nDo not report what you see here to Cork, read the warnings to learn more about where to report them."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "new",
+            "value": "These warnings tell you about something going wrong with Homebrew itself.\nDo not report what you see here to Cork, read the warnings to learn more about where to report them."
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "new",
+            "value": "These warnings tell you about something going wrong with Homebrew itself.\nDo not report what you see here to Cork, read the warnings to learn more about where to report them."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "new",
+            "value": "These warnings tell you about something going wrong with Homebrew itself.\nDo not report what you see here to Cork, read the warnings to learn more about where to report them."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "new",
+            "value": "These warnings tell you about something going wrong with Homebrew itself.\nDo not report what you see here to Cork, read the warnings to learn more about where to report them."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "new",
+            "value": "These warnings tell you about something going wrong with Homebrew itself.\nDo not report what you see here to Cork, read the warnings to learn more about where to report them."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "new",
+            "value": "These warnings tell you about something going wrong with Homebrew itself.\nDo not report what you see here to Cork, read the warnings to learn more about where to report them."
           }
         }
       }
@@ -95865,7 +96870,7 @@
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Balíčky"
+            "value": "Nainstalované Balíčky"
           }
         },
         "de": {
@@ -100273,6 +101278,376 @@
         }
       }
     },
+    "start-page.homebrew-warnings.encountered.%lld.warnings.title": {
+      "localizations": {
+        "cs": {
+          "variations": {
+            "plural": {
+              "few": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Homebrew upozorňuje na %lld problémy"
+                }
+              },
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Homebrew upozorňuje na %lld problém"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Homebrew upozorňuje na %lld problémů"
+                }
+              }
+            }
+          }
+        },
+        "de": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issue with itself"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issues with itself"
+                }
+              }
+            }
+          }
+        },
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Homebrew reported %lld issue with itself"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Homebrew reported %lld issues with itself"
+                }
+              }
+            }
+          }
+        },
+        "en-GB": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issue with itself"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issues with itself"
+                }
+              }
+            }
+          }
+        },
+        "es-419": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issue with itself"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issues with itself"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issue with itself"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issues with itself"
+                }
+              }
+            }
+          }
+        },
+        "he": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issue with itself"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issues with itself"
+                }
+              }
+            }
+          }
+        },
+        "id": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issue with itself"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issues with itself"
+                }
+              }
+            }
+          }
+        },
+        "it": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issue with itself"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issues with itself"
+                }
+              }
+            }
+          }
+        },
+        "ja": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issue with itself"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issues with itself"
+                }
+              }
+            }
+          }
+        },
+        "ko": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issue with itself"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issues with itself"
+                }
+              }
+            }
+          }
+        },
+        "pa": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issue with itself"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issues with itself"
+                }
+              }
+            }
+          }
+        },
+        "pl": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issue with itself"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issues with itself"
+                }
+              }
+            }
+          }
+        },
+        "pt-PT": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issue with itself"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issues with itself"
+                }
+              }
+            }
+          }
+        },
+        "ru": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issue with itself"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issues with itself"
+                }
+              }
+            }
+          }
+        },
+        "sv": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issue with itself"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issues with itself"
+                }
+              }
+            }
+          }
+        },
+        "tr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issue with itself"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issues with itself"
+                }
+              }
+            }
+          }
+        },
+        "uk": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issue with itself"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issues with itself"
+                }
+              }
+            }
+          }
+        },
+        "zh-Hans": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issue with itself"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issues with itself"
+                }
+              }
+            }
+          }
+        },
+        "zh-Hant": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issue with itself"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "new",
+                  "value": "Homebrew reported %lld issues with itself"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "start-page.installed-casks.count-%lld": {
       "localizations": {
         "cs": {
@@ -101673,6 +103048,378 @@
           "stringUnit": {
             "state": "translated",
             "value": "Homebrew 維護…"
+          }
+        }
+      }
+    },
+    "start-page.section.issues.title": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Problémy s Homebrew"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Issues with Homebrew"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Issues with Homebrew"
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Issues with Homebrew"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Issues with Homebrew"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Issues with Homebrew"
+          }
+        },
+        "he": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Issues with Homebrew"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Issues with Homebrew"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Issues with Homebrew"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Issues with Homebrew"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Issues with Homebrew"
+          }
+        },
+        "pa": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Issues with Homebrew"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Issues with Homebrew"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Issues with Homebrew"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Issues with Homebrew"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Issues with Homebrew"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Issues with Homebrew"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Issues with Homebrew"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Issues with Homebrew"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Issues with Homebrew"
+          }
+        }
+      }
+    },
+    "start-page.section.packages-overview.title": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Balíčky"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Packages"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Packages"
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Packages"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Packages"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Packages"
+          }
+        },
+        "he": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Packages"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Packages"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Packages"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Packages"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Packages"
+          }
+        },
+        "pa": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Packages"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Packages"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Packages"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Packages"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Packages"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Packages"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Packages"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Packages"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Packages"
+          }
+        }
+      }
+    },
+    "start-page.section.recommendations.title": {
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Doporučení"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Recommendations"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recommendations"
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Recommendations"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Recommendations"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Recommendations"
+          }
+        },
+        "he": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Recommendations"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Recommendations"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Recommendations"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Recommendations"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Recommendations"
+          }
+        },
+        "pa": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Recommendations"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Recommendations"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Recommendations"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Recommendations"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Recommendations"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Recommendations"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Recommendations"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Recommendations"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Recommendations"
           }
         }
       }
@@ -106266,7 +108013,7 @@
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Web"
+            "value": "Domovská stránka"
           }
         },
         "de": {

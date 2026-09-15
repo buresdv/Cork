@@ -14,6 +14,7 @@ import DavidFoundation
 import Foundation
 import SwiftData
 import SwiftUI
+import FactoryKit
 
 /// A representation of the loaded ``BrewPackage``s
 /// Includes packages that were loaded properly, along those whose loading failed
@@ -411,6 +412,15 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable,
     public var previewSelfButton: some View
     {
         PreviewPackageButton(packageToPreview: .init(fromFullPackage: self))
+    }
+    
+    @MainActor
+    public func doubleClickAction() async
+    {
+        if self.isInstalled
+        {
+            Container.shared.navigationManager.resolve().openedScreen = .package(package: self)
+        }
     }
     
     @ViewBuilder

@@ -103,6 +103,7 @@ struct OnboardingView: View
                         Text(areDetailsExpanded ? "add-package.install.hide-details" : "add-package.install.show-details")
                     }
                 )
+                .betterDisclosureGroupStyle()
             })
 
             Button

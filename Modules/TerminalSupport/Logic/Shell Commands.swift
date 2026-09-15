@@ -52,7 +52,7 @@ public func shell(
         finalEnvironment["HOMEBREW_NO_INSTALL_CLEANUP"] = "TRUE"
     }
 
-    AppConstants.shared.logger.debug("Final environment: \(finalEnvironment)")
+    // AppConstants.shared.logger.debug("Final environment: \(finalEnvironment)")
 
     // MARK: - Set working directory if provided
 
@@ -91,6 +91,9 @@ public func shell(
     let standardOutput = pipe.fileHandleForReading.readDataToEndOfFile()
     let standardError = errorPipe.fileHandleForReading.readDataToEndOfFile()
 
+    print("Raw STDOUT: \(String(data: standardOutput, encoding: .utf8))")
+    print("Raw STDERROR: \(String(data: standardError, encoding: .utf8))")
+
     var allOutputs: [TerminalOutput] = .init()
 
     if let output = String(data: standardOutput, encoding: .utf8),
@@ -100,11 +103,56 @@ public func shell(
         allOutputs.append(.standardOutput(.init(rawOutput: output)))
     }
 
-    if let output = String(data: standardError, encoding: .utf8),
-       !output.isEmpty,
-       !output.containsAny(of: Container.shared.appConstants().disqualifyingSymbolsForTerminalOutputs)
+    if let errorOutput: String = String(data: standardError, encoding: .utf8),
+       !errorOutput.isEmpty,
+       !errorOutput.containsAny(of: Container.shared.appConstants().disqualifyingSymbolsForTerminalOutputs)
     {
-        allOutputs.append(.standardError(.init(rawOutput: output)))
+        /// We have to do this fuckery because Homebrew is inconsistent again. The blocks in the consolidated error output are sometimes split by an empty line, and sometimes just not.
+
+        var currentSectionInErrorBlob: String = ""
+        var isCurrentSectionInErrorBlobWarning: Bool = false
+
+        for line in errorOutput.components(separatedBy: "\n")
+        {
+            if line.hasPrefix("Warning:") || line.hasPrefix("Error:") || line.hasPrefix("==>")
+            {
+                if !currentSectionInErrorBlob.isEmpty
+                {
+                    if isCurrentSectionInErrorBlobWarning
+                    {
+                        AppConstants.shared.logger.debug("Hit WARNING state: \(currentSectionInErrorBlob, privacy: .public)")
+                        Container.shared.warningsTracker.resolve().insertWarning(warningToInsert: .standardError(.init(rawOutput: currentSectionInErrorBlob)))
+                    }
+                    else
+                    {
+                        AppConstants.shared.logger.debug("Hit ERROR state: \(currentSectionInErrorBlob, privacy: .public)")
+                        allOutputs.append(.standardError(.init(rawOutput: currentSectionInErrorBlob)))
+                    }
+                }
+
+                currentSectionInErrorBlob = line
+                isCurrentSectionInErrorBlobWarning = line.hasPrefix("Warning:")
+            }
+            else if !currentSectionInErrorBlob.isEmpty
+            {
+                currentSectionInErrorBlob.append("\n\(line)")
+            }
+        }
+
+        /// Idk there's a dangling section
+        if !currentSectionInErrorBlob.isEmpty
+        {
+            if isCurrentSectionInErrorBlobWarning
+            {
+                AppConstants.shared.logger.debug("Hit WARNING state: \(currentSectionInErrorBlob, privacy: .public)")
+                Container.shared.warningsTracker.resolve().insertWarning(warningToInsert: .standardError(.init(rawOutput: currentSectionInErrorBlob)))
+            }
+            else
+            {
+                AppConstants.shared.logger.debug("Hit ERROR state: \(currentSectionInErrorBlob, privacy: .public)")
+                allOutputs.append(.standardError(.init(rawOutput: currentSectionInErrorBlob)))
+            }
+        }
     }
 
     AppConstants.shared.logger.debug("Consolidated outputs: \(allOutputs)")
@@ -164,7 +212,7 @@ public func shell(
         finalEnvironment["HOMEBREW_NO_INSTALL_CLEANUP"] = "TRUE"
     }
 
-    AppConstants.shared.logger.debug("Final environment: \(finalEnvironment)")
+    // AppConstants.shared.logger.debug("Final environment: \(finalEnvironment)")
 
     // MARK: - Set working directory if provided
 
@@ -252,7 +300,17 @@ public func shell(
                 return
             }
 
-            continuation.yield(.standardError(.init(rawOutput: errorOutput)))
+            if errorOutput.hasPrefix("Warning:")
+            {
+                AppConstants.shared.logger.debug("Hit WARNING state: \(errorOutput)")
+
+                Container.shared.warningsTracker.resolve().insertWarning(warningToInsert: .standardError(.init(rawOutput: errorOutput)))
+            }
+            else
+            {
+                AppConstants.shared.logger.debug("Git ERROR state: \(errorOutput)")
+                continuation.yield(.standardError(.init(rawOutput: errorOutput)))
+            }
         }
 
         task.terminationHandler = { _ in
@@ -300,7 +358,7 @@ public func shell(
         finalEnvironment["HOMEBREW_ACCEPT_EULA"] = "Y"
     }
 
-    AppConstants.shared.logger.debug("Final environment: \(finalEnvironment)")
+    // AppConstants.shared.logger.debug("Final environment: \(finalEnvironment)")
 
     if let workingDirectory
     {
@@ -379,7 +437,17 @@ public func shell(
                 return
             }
 
-            continuation.yield(.standardError(.init(rawOutput: errorOutput)))
+            if errorOutput.hasPrefix("Warning:")
+            {
+                AppConstants.shared.logger.debug("Hit WARNING state: \(errorOutput)")
+
+                Container.shared.warningsTracker.resolve().insertWarning(warningToInsert: .standardError(.init(rawOutput: errorOutput)))
+            }
+            else
+            {
+                AppConstants.shared.logger.debug("Git ERROR state: \(errorOutput)")
+                continuation.yield(.standardError(.init(rawOutput: errorOutput)))
+            }
         }
 
         task.terminationHandler = { _ in

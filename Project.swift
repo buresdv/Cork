@@ -2,8 +2,8 @@ import ProjectDescription
 
 let settings = Environment.selfCompiled.getBoolean(default: false)
 
-let version: String = "2.0.1"
-let build: String = "141"
+let version: String = "2.0.3"
+let build: String = "146"
 
 func corkTarget(configureWithSelfCompiled: Bool) -> ProjectDescription.Target {
     var additionalCompilationConditions = [String]()
@@ -44,7 +44,6 @@ func corkTarget(configureWithSelfCompiled: Bool) -> ProjectDescription.Target {
             .external(name: "FactoryKit"),
             .external(name: "Defaults"),
             .external(name: "DefaultsMacros"),
-            .external(name: "SwiftNavigation"),
             .package(product: "SwiftLintBuildToolPlugin", type: .plugin)
         ], settings: .settings(configurations: [
             .debug(
@@ -154,7 +153,7 @@ let corkTerminalFunctionsTestsTarget: ProjectDescription.Target = .target(
         "Modules/TerminalSupport/Tests/**/*.swift"
     ],
     dependencies: [
-        .target(corkTerminalFunctionsTarget)  // ← depend on the compiled library, not the app
+        .target(corkTerminalFunctionsTarget)
     ],
 )
 
@@ -180,7 +179,6 @@ let corkModelsTarget: ProjectDescription.Target = .target(
         .external(name: "FactoryKit"),
         .external(name: "Defaults"),
         .external(name: "DefaultsMacros"),
-        .external(name: "SwiftNavigation")
     ],
     settings: .settings(configurations: [
         .debug(

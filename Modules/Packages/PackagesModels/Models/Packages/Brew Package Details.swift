@@ -45,6 +45,8 @@ public extension BrewPackage
         
         public let deprecated: Bool
         public let deprecationReason: String?
+        
+        public let warnings: [TerminalOutput]?
 
         public let isCompatible: Bool?
 
@@ -64,7 +66,8 @@ public extension BrewPackage
             caveats: String? = nil,
             deprecated: Bool,
             deprecationReason: String? = nil,
-            isCompatible: Bool?
+            isCompatible: Bool?,
+            warnings: [TerminalOutput]? = nil
         ){
             self.name = name
             self.description = description
@@ -78,6 +81,7 @@ public extension BrewPackage
             self.deprecationReason = deprecationReason
             self.caveats = caveats
             self.isCompatible = isCompatible
+            self.warnings = warnings
         }
 
         // MARK: - Functions

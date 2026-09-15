@@ -93,5 +93,6 @@ private struct RemovePackageButton: View
                 Label("action.uninstall-\(package.name(withPrecision: .inlineFormatted))", systemImage: "trash")
             }
         }
+        .disabled(package.isPinned)
     }
 }

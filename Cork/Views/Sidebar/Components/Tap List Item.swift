@@ -12,12 +12,13 @@ import FactoryKit
 import Foundation
 import SwiftUI
 
-#warning("This does nothing for now, because the navigation is broken")
 struct TapListItem: View
 {
     @InjectedObservable(\.navigationManager) var navigationManager: NavigationManager
     @InjectedObservable(\.tapTracker) var tapTracker: TapTracker
 
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
+    
     let tap: BrewTap
 
     var badgeView: Text?
@@ -60,7 +61,11 @@ struct TapListItem: View
             {
                 AppConstants.shared.logger.debug("Would remove \(tap.name(withPrecision: .full), privacy: .public)")
 
-                try await tapTracker.removeTap(tapToRemove: tap, purpose: .removeFromHomebrewAndTracker)
+                try await tapTracker.removeTap(
+                    tapToRemove: tap,
+                    purpose: .removeFromHomebrewAndTracker,
+                    brewPackagesTracker: brewPackagesTracker
+                )
             } label: {
                 Label("sidebar.section.added-taps.contextmenu.remove-\(tap.name(withPrecision: .full))", systemImage: "trash")
             }

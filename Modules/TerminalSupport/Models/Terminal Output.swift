@@ -48,19 +48,28 @@ public enum TerminalOutput: Identifiable, Hashable, Equatable, Sendable, CustomS
     {
         switch self
         {
-        case .standardOutput(let output): return output.rawOutput
-        case .standardError(let output): return output.rawOutput
+        case .standardOutput(let output), .standardError(let output):
+            return output.rawOutput
         }
     }
 
+    public var timestamp: Date
+    {
+        switch self
+        {
+        case .standardOutput(let output), .standardError(let output):
+            return output.timestamp
+        }
+    }
+    
     public init(standardOutput rawOutput: String)
     {
-        self = .standardOutput(.init(rawOutput: rawOutput))
+        self = .standardOutput(.init(rawOutput: rawOutput.trimmingCharacters(in: .whitespacesAndNewlines)))
     }
 
     public init(standardError rawOutput: String)
     {
-        self = .standardError(.init(rawOutput: rawOutput))
+        self = .standardError(.init(rawOutput: rawOutput.trimmingCharacters(in: .whitespacesAndNewlines)))
     }
 
     public var containsErrors: Bool
@@ -165,6 +174,7 @@ private struct TerminalOutputLineView: View
                 Text("action.copy")
             }
         }
+        .textSelection(.enabled)
     }
 }
 
@@ -186,7 +196,9 @@ public extension [TerminalOutput]
         }
     }
 
-    /// Get only the errors
+    /// Get only the errors as Strings
+    ///
+    /// For an array that repserves the `TerminalOutput` type, use `standardErrorsPreservingType`
     var standardErrors: [String]
     {
         return self.compactMap
@@ -194,6 +206,24 @@ public extension [TerminalOutput]
             if case .standardError(let terminalOutputLine) = terminalError
             {
                 return terminalOutputLine.rawOutput
+            }
+            else
+            {
+                return nil
+            }
+        }
+    }
+    
+    /// Get only the errors as their original type
+    ///
+    /// For an array that returns the errors as Strings, use `standardErrors`
+    var standardErrorsPreservingType: [TerminalOutput]
+    {
+        return self.compactMap
+        { terminalError in
+            if case .standardError(let terminalOutputLine) = terminalError
+            {
+                return terminalError
             }
             else
             {

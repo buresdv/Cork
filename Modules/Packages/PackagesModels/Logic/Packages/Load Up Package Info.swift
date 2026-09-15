@@ -308,27 +308,21 @@ public extension BrewPackage
 
         // MARK: - Error checking
 
-        guard !rawOutput.containsErrors
-        else
-        {
-            AppConstants.shared.logger.error("Did not get any terminal output from the package details loading function")
-
-            throw BrewPackageInfoLoadingError.didNotGetAnyTerminalOutput
-        }
-
+        var consolidatedErrors: [TerminalOutput]?
+        
         if rawOutput.containsErrors
         {
             AppConstants.shared.logger.warning("Standard error of the package details loading function is not empty. Will investigate if the error can be ignored.")
-
+            
             if rawOutput.standardErrors.joined().range(of: "(T|t)reating.*as a (formula|cask)", options: .regularExpression) != nil
             {
-                AppConstants.shared.logger.notice("The error of package details loading function was not serious enough to throw an error. Ignoring.")
+                AppConstants.shared.logger.notice("The error of package details loading function was not serious enough to show the user an error.")
             }
             else
             {
-                AppConstants.shared.logger.error("Error was serious enough to throw an error")
-
-                throw BrewPackageInfoLoadingError.standardErrorNotEmpty(presentError: rawOutput.standardErrors.joined())
+                AppConstants.shared.logger.error("Error was serious enough to show the user an error")
+                
+                consolidatedErrors = rawOutput.standardErrorsPreservingType
             }
         }
 
@@ -372,7 +366,8 @@ public extension BrewPackage
                     caveats: formulaInfo.caveats,
                     deprecated: formulaInfo.deprecated,
                     deprecationReason: formulaInfo.deprecationReason,
-                    isCompatible: formulaInfo.getCompatibility()
+                    isCompatible: formulaInfo.getCompatibility(),
+                    warnings: consolidatedErrors
                 )
 
             case .cask:
@@ -384,7 +379,7 @@ public extension BrewPackage
                     throw BrewPackageInfoLoadingError.couldNotRetrievePackageFromOutput
                 }
 
-                return try .init(
+                return .init(
                     name: caskInfo.token,
                     description: caskInfo.desc,
                     homepage: caskInfo.homepage,
@@ -395,7 +390,8 @@ public extension BrewPackage
                     caveats: caskInfo.caveats,
                     deprecated: caskInfo.deprecated,
                     deprecationReason: caskInfo.deprecationReason,
-                    isCompatible: true
+                    isCompatible: true,
+                    warnings: consolidatedErrors
                 )
             }
         }

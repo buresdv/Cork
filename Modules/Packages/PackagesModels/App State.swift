@@ -11,7 +11,6 @@ import Foundation
 import Observation
 @preconcurrency import UserNotifications
 import SwiftUI
-import SwiftNavigation
 
 /// Class that holds the global state of the app, excluding services
 @Observable @MainActor

@@ -66,6 +66,11 @@ public extension BrewPackagesTracker
                 EmptyView()
             }
             
+            public func doubleClickAction()
+            {
+                // Do nothing
+            }
+            
             @ViewBuilder
             public var revealSelfInFinderButton: some View
             {
