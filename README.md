@@ -134,6 +134,18 @@ _Cork uses Mise to prevent conflicts arising from mismatched Tuist versions acro
 
    > [!CAUTION]
    > Make sure to copy the command Mise itself gives you, and not the one I used above. This command is only valid for my Mac, and will not work on your machine.
+3. Reload your shell configuration after initializing Mise.  Run **ONLY** the command that corresponds to your default shell from the following list:
+
+  - **zsh**: `source ~/.zshrc`
+  - **bash**: `source ~/.bashrc`
+  - **fish**: `source ~/.config/fish/config.fish`
+  > [!TIP] > **zsh** is the default macOS shell.
+
+> [!NOTE]
+> If you don't know which shell you're running, use the command `echo $SHELL`. The last part of the output after the last slash is the name of your shell.
+> In my case, the output of the command is `/bin/zsh`. This means my shell is `zsh`.
+> 
+> Alternatively, you can determine your shell based on what command Mise gave you to initialize in the previous step.
 
 #### Installing Tuist
 
