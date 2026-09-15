@@ -138,7 +138,7 @@ _Cork uses Mise to prevent conflicts arising from mismatched Tuist versions acro
 #### Installing Tuist
 
 1. Install Tuist using `mise install tuist`
-2. Activate Tuist in you terminal using `mise use tuist`
+2. Activate Tuist using `mise use tuist`
 
 #### Compiling Cork
 
