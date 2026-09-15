@@ -146,7 +146,7 @@ _Cork uses Mise to prevent conflicts arising from mismatched Tuist versions acro
 1. Use the command `git clone https://github.com/buresdv/Cork.git && cd Cork && git checkout <VERSION TAG> && mise exec tuist@4.208.0 -- tuist install && mise exec tuist@4.208.0 -- tuist generate --cache-profile none`.
 
     >[!REMEMBER]
-    > Input the released version you want to compile in \<VERSION TAG\> before executing the command. You can see all tags by running `git tag`       to find your desired version. If you just want to build the latest release in its current state, you can omit `git checkout \<VERSION TAG\>`      completely.
+    > Input the released version you want to compile in \<VERSION TAG\> before executing the command. You can see all tags by running `git tag`       to find your desired version. If you just want to build the latest release in its current state, you can omit `git checkout <VERSION TAG>`      completely.
 
 
 - If mise asks you to trust the local [`.mise.toml`](.mise.toml).
