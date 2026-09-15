@@ -149,7 +149,7 @@ _Cork uses Mise to prevent conflicts arising from mismatched Tuist versions acro
     > Input the released version you want to compile in \<VERSION TAG\> before executing the command. You can see all tags by running `git tag`       to find your desired version. If you just want to build the latest release in its current state, you can omit `git checkout <VERSION TAG>`      completely.
 
 
-- If mise asks you to trust the local [`.mise.toml`](.mise.toml).
+- If Mise asks you to trust the local [`.mise.toml`](.mise.toml).
 - You can either:
   - Say yes, to always use `tuist` version 4.208.0 in this directory.
   - Say no, and the command will use `tuist` 4.208.0 anyway, but future invocations of `tuist` will not be version controlled.
