@@ -134,31 +134,37 @@ _Cork uses Mise to prevent conflicts arising from mismatched Tuist versions acro
 
    > [!CAUTION]
    > Make sure to copy the command Mise itself gives you, and not the one I used above. This command is only valid for my Mac, and will not work on your machine.
+3. Reload your shell configuration after initializing Mise.  Run **ONLY** the command that corresponds to your default shell from the following list:
 
-3. Add `mise` to your path using one of the following commands, depending on your shell.
-
-- **zsh**: `echo 'eval "$(~/.local/bin/mise activate zsh)"' >> ~/.zshrc`
-- **bash**: `echo 'eval "$(~/.local/bin/mise activate bash)"' >> ~/.bashrc`
-- **fish**: `echo '~/.local/bin/mise activate fish | source' >> ~/.config/fish/config.fish`
+  - **zsh**: `source ~/.zshrc`
+  - **bash**: `source ~/.bashrc`
+  - **fish**: `source ~/.config/fish/config.fish`
   > [!TIP] > **zsh** is the default macOS shell.
 
 > [!NOTE]
-> If you don't know which shell you're running, use the command `echo $SHELL`. The last part of the output after the last slash is the name of your shell
-> In my case, the output of the command is `/bin/zsh`. This means my shell is `zsh`
+> If you don't know which shell you're running, use the command `echo $SHELL`. The last part of the output after the last slash is the name of your shell.
+> In my case, the output of the command is `/bin/zsh`. This means my shell is `zsh`.
+> 
+> Alternatively, you can determine your shell based on what command Mise gave you to initialize in the previous step.
 
 #### Installing Tuist
 
 1. Install Tuist using `mise install tuist`
+2. Activate Tuist using `mise use tuist`
 
 #### Compiling Cork
 
 0. I recommend you pick a version of Cork marked by one of the version tags which define released versions. If you decide to compile the current state of any of the branches, you might encounter experience-breaking bugs and unfinished features
-1. Use the command `git clone https://github.com/buresdv/Cork.git && cd Cork && git checkout <VERSION TAG>; mise exec tuist@4.208.0 -- tuist install && mise exec tuist@4.208.0 -- tuist generate --no-binary-cache`.
+1. Use the command `git clone https://github.com/buresdv/Cork.git && cd Cork && git checkout <VERSION TAG> && mise exec tuist@4.208.0 -- tuist install && mise exec tuist@4.208.0 -- tuist generate --cache-profile none`.
 
-- Mise will ask you to trust the local [`.mise.toml`](.mise.toml).
+    >[!REMEMBER]
+    > Input the released version you want to compile in \<VERSION TAG\> before executing the command. You can see all tags by running `git tag`       to find your desired version. If you just want to build the latest release in its current state, you can omit `git checkout <VERSION TAG>`      completely.
+
+
+- If Mise asks you to trust the local [`.mise.toml`](.mise.toml).
 - You can either:
-  - Say yes, to always use `tuist` version 4.50.2 in this directory.
-  - Say no, and the command will use `tuist` 4.50.2 anyway, but future invocations of `tuist` will not be version controlled.
+  - Say yes, to always use `tuist` version 4.208.0 in this directory.
+  - Say no, and the command will use `tuist` 4.208.0 anyway, but future invocations of `tuist` will not be version controlled.
 - Xcode will open the project.
 
 <div style= "margin-left: 1rem">
@@ -168,7 +174,7 @@ _Cork uses Mise to prevent conflicts arising from mismatched Tuist versions acro
     <ol>
       <li><code>git clone https://github.com/buresdv/Cork.git</code> downloads the source code</li>
       <li><code>cd Cork</code> opens the folder you downloaded Cork into</li>
-      <li><code>mise exec [...]</code> runs a command using version <i>4.50.2</i> of Tuist, without polluting your local `mise.toml`, to build Cork</li>
+      <li><code>mise exec [...]</code> runs a command using version <i>4.208.0</i> of Tuist, without polluting your local `mise.toml`, to build Cork</li>
       <li><code>tuist install</code> downloads all Cork pre-requisites</li>
       <li><code>tuist generate</code> creates the Xcode project and opens it</li>
     </ol>
