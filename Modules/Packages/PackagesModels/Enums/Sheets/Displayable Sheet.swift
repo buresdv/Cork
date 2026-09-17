@@ -26,6 +26,8 @@ public enum DisplayableSheet: Identifiable, Equatable
     
     case brewfileExport, brewfileImport
     
+    case fixFullDiskAccessPermissions
+    
     public var id: UUID
     {
         return .init()

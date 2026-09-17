@@ -72,6 +72,7 @@ struct StartPage: View
     {
         case loadingOfPackagesFailed
         case homebrewEmittedWarnings
+        case fullDiskAccessPermissionsRequired
     }
     
     var issues: [IssuesSectionContent]
@@ -87,6 +88,9 @@ struct StartPage: View
         {
             issues.append(.homebrewEmittedWarnings)
         }
+        
+        // TODO: - REMOVE THIS!
+        issues.append(.fullDiskAccessPermissionsRequired)
         
         return issues
     }
@@ -145,6 +149,8 @@ struct StartPage: View
                             {
                                 HomebrewWarningsSection()
                             }
+                            
+                            AdditionalPermissionsRequired()
                         }
                         
                     }

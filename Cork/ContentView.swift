@@ -445,6 +445,9 @@ private extension View
                     MaintenanceView(
                         fastCacheDeletion: fastCacheDeletion
                     )
+                    
+                case .fixFullDiskAccessPermissions:
+                    PermissionsFixSheet()
                 }
             }
     }
