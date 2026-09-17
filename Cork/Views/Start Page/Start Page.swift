@@ -89,8 +89,10 @@ struct StartPage: View
             issues.append(.homebrewEmittedWarnings)
         }
         
-        // TODO: - REMOVE THIS!
-        issues.append(.fullDiskAccessPermissionsRequired)
+        if !appState.hasFullDiskAccess
+        {
+            issues.append(.fullDiskAccessPermissionsRequired)
+        }
         
         return issues
     }

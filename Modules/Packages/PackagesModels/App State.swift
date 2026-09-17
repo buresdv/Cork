@@ -9,17 +9,35 @@ import AppKit
 import CorkShared
 import Foundation
 import Observation
-@preconcurrency import UserNotifications
 import SwiftUI
+@preconcurrency import UserNotifications
 
 /// Class that holds the global state of the app, excluding services
 @Observable @MainActor
 public final class AppState
 {
-    public init () {}
-    
+    public init()
+    {
+        print("AppState init fired")
+        
+        refreshFullDiskAccessStatus()
+
+        fullDiskAccessObservationTask = Task
+        { [weak self] in
+            for await _ in NotificationCenter.default.notifications(named: NSApplication.didBecomeActiveNotification)
+            {
+                self?.refreshFullDiskAccessStatus()
+            }
+        }
+    }
+
+    isolated deinit
+    {
+        fullDiskAccessObservationTask?.cancel()
+    }
+
     // MARK: - Licensing
-    
+
     public enum LicensingState
     {
         case notBoughtOrHasNotActivatedDemo
@@ -175,13 +193,44 @@ public final class AppState
         }
     }
 
+    // MARK: - Full Disk Access
+
+    public private(set) var hasFullDiskAccess: Bool = false
+
+    private var fullDiskAccessObservationTask: Task<Void, Never>?
+
+    public func refreshFullDiskAccessStatus()
+    {
+        print("Entered FDA discovery function")
+        
+        let tccDatabaseURL: URL = .homeDirectory
+            .appending(path: "Library/Application Support/com.apple.TCC/TCC.db", directoryHint: .notDirectory)
+
+        guard let tccDatabaseHandle = FileHandle(forReadingAtPath: tccDatabaseURL.path)
+        else
+        {
+            
+            print("Has NO FDA access")
+            
+            self.hasFullDiskAccess = false
+
+            return
+        }
+
+        try? tccDatabaseHandle.close()
+        
+        print("HAS FDA access")
+
+        self.hasFullDiskAccess = true
+    }
+
     // MARK: - Initiating the update process from legacy contexts
 
     @objc public func startUpdateProcessForLegacySelectors(_: NSMenuItem!)
     {
         self.showSheet(ofType: .update)
 
-        //sendNotification(title: String(localized: "notification.upgrade-process-started"))
+        // sendNotification(title: String(localized: "notification.upgrade-process-started"))
     }
 }
 
