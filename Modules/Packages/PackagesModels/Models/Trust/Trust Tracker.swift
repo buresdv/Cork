@@ -10,10 +10,18 @@ import FactoryKit
 import CorkShared
 
 // TODO: Implement the other trustable stuff
-@Observable
+@Observable @MainActor
 public class TrustTracker
-{    
+{
+    @Injected(\.tapTracker) @ObservationIgnored var tapTracker
+    
     public var trustedTapNames: [BrewTap.BrewTapName]
+    
+    @MainActor
+    public var untrustedTapNames: [BrewTap.BrewTapName]
+    {
+        return Array(Set(tapTracker.tapsEligibleForTrustModification.map( \.nameInternal )).subtracting(Set(self.trustedTapNames)))
+    }
     
     public init(trustedTapNames: [BrewTap.BrewTapName])
     {
@@ -23,7 +31,7 @@ public class TrustTracker
 
 public extension Container
 {
-    
+    @MainActor
     var trustTracker: Factory<TrustTracker>
     {
         Factory(self)

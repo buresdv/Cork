@@ -5,7 +5,6 @@
 //  Created by David Bureš - P on 26.08.2026.
 //
 
-import CorkModels
 import CorkShared
 import Foundation
 import FactoryKit
@@ -37,6 +36,11 @@ public struct TrustFileContentsCodable: Codable
         self.trustedCommands = .init()
     }
 
+    public init(fromParsedTrustFile: TrustFileContents)
+    {
+        
+    }
+    
     enum CodingKeys: String, CodingKey
     {
         case trustedTaps = "trustedtaps"

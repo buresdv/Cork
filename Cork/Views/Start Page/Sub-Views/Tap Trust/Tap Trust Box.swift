@@ -49,10 +49,19 @@ struct TapTrustBox: View
                         .dropDestination(for: BrewTap.self)
                         { items, _ in
                             
-                            guard let tap = items.first else { return false }
+                            guard let tap: BrewTap = items.first else { return false }
 
                             withAnimation
                             {
+                                Task
+                                {
+                                    do
+                                    {
+                                        try await tap.trustSelf()
+                                    } catch let tapTrustingError {
+                                        print(tapTrustingError)
+                                    }
+                                }
                                 trustTracker.trustedTapNames.append(tap.nameInternal)
                             }
                             
@@ -69,14 +78,10 @@ struct TapTrustBox: View
                             Text("start-page.trust.untrust-zone.instructions")
                                 .font(.caption)
                             
-                            var tapNamesThatRequireAdditionalTrust: [BrewTap.BrewTapName] {
-                                return Array(Set(tapTracker.tapsEligibleForTrustModification.map( \.nameInternal )).subtracting(Set(trustTracker.trustedTapNames)))
-                            }
-                            
                             LazyHStack
                             {
                                 
-                                ForEach(tapNamesThatRequireAdditionalTrust, id: \.self)
+                                ForEach(trustTracker.untrustedTapNames, id: \.self)
                                 { loadedTap in
                                     TapDraggableView(tapName: loadedTap)
                                 }
