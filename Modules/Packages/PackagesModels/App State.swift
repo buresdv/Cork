@@ -199,18 +199,17 @@ public final class AppState
 
     private var fullDiskAccessObservationTask: Task<Void, Never>?
 
-    public func refreshFullDiskAccessStatus()
+    private func refreshFullDiskAccessStatus()
     {
-        print("Entered FDA discovery function")
         
-        let tccDatabaseURL: URL = .homeDirectory
-            .appending(path: "Library/Application Support/com.apple.TCC/TCC.db", directoryHint: .notDirectory)
+        let tccDatabaseURL: URL = .init(filePath: "/Library/Preferences/com.apple.TimeMachine.plist")
 
+        AppConstants.shared.logger.debug("FDA discovery URL: \(tccDatabaseURL, privacy: .public)")
+        
         guard let tccDatabaseHandle = FileHandle(forReadingAtPath: tccDatabaseURL.path)
         else
         {
-            
-            print("Has NO FDA access")
+            AppConstants.shared.logger.debug("Has FDA access? NO")
             
             self.hasFullDiskAccess = false
 
@@ -219,7 +218,7 @@ public final class AppState
 
         try? tccDatabaseHandle.close()
         
-        print("HAS FDA access")
+        AppConstants.shared.logger.debug("Has FDA access? YES")
 
         self.hasFullDiskAccess = true
     }
