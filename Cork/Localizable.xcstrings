@@ -9991,6 +9991,9 @@
         }
       }
     },
+    "action.continue" : {
+
+    },
     "action.copy" : {
       "localizations" : {
         "cs" : {
@@ -10240,6 +10243,7 @@
       }
     },
     "action.done" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -40521,6 +40525,9 @@
           }
         }
       }
+    },
+    "disclaimer.not-affiliated-with-homebrew" : {
+
     },
     "downloading" : {
       "extractionState" : "stale",

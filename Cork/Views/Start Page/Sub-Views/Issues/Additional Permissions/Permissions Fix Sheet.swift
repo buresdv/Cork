@@ -25,7 +25,7 @@ struct PermissionsFixSheet: View
     }
 }
 
-private struct PermissionsFixSheetContent: View
+struct PermissionsFixSheetContent: View
 {
     @Injected(\.appConstants) private var appConstants: AppConstants
     
