@@ -7,9 +7,24 @@
 
 import CorkShared
 import SwiftUI
+import FactoryKit
+import ButtonKit
 
 struct DowngradeCorkView: View
 {
+    @Observable
+    class DowngradeState
+    {
+        enum Sheets: Identifiable
+        {
+            var id: Self { self }
+            
+            case downloading
+        }
+        
+        var sheetToShow: Sheets?
+    }
+    
     struct CorkVersion: Codable, Identifiable, Hashable
     {
         let id: UUID = .init()
@@ -17,6 +32,9 @@ struct DowngradeCorkView: View
         let versionName: String
 
         let versionDownloadURL: URL
+        let githubPage: URL
+        
+        let releasedAt: Date
 
         let isPrerelease: Bool
 
@@ -24,6 +42,8 @@ struct DowngradeCorkView: View
         {
             case versionName = "name"
             case versionDownloadURL = "zipball_url"
+            case githubPage = "html_url"
+            case releasedAt = "published_at"
             case isPrerelease = "prerelease"
         }
     }
@@ -53,6 +73,8 @@ struct DowngradeCorkView: View
     }
 
     @State private var availableVersionsLoadingState: AvailableVersionsDownloadingState = .loading
+    
+    @State private var downgradeState: DowngradeState = .init()
 
     var body: some View
     {
@@ -75,6 +97,13 @@ struct DowngradeCorkView: View
                 }
         case .loaded(let versions):
             AvailableVersionsList(availableVersions: versions)
+                .sheet(item: Bindable(downgradeState).sheetToShow) { sheetType in
+                    switch sheetType
+                    {
+                    case .downloading:
+                        
+                    }
+                }
         case .failed(let error):
             ContentUnavailableView("downgrade-cork.failed.title", image: "custom.arrow.down.app.badge.xmark", description: Text(error))
         }
@@ -88,7 +117,7 @@ struct DowngradeCorkView: View
 
         do
         {
-            downloadedData = try await downloadDataFromURL(.init(string: "https://api.github.com/repos/buresdv/cork/releases")!)
+            downloadedData = try await downloadDataFromURL(.init(string: "https://api.github.com/repos/buresdv/cork/releases")!, cachingPolicy: .reloadRevalidatingCacheData)
         }
         catch
         {
@@ -98,7 +127,13 @@ struct DowngradeCorkView: View
 
         do
         {
-            return try JSONDecoder().decode([CorkVersion].self, from: downloadedData).filter { !$0.isPrerelease }
+            let decoder: JSONDecoder = {
+                let decoder: JSONDecoder = .init()
+                decoder.dateDecodingStrategy = .iso8601
+                
+                return decoder
+            }()
+            return try decoder.decode([CorkVersion].self, from: downloadedData).filter { !$0.isPrerelease }
         }
         catch
         {
@@ -110,7 +145,11 @@ struct DowngradeCorkView: View
 
 private struct AvailableVersionsList: View
 {
+    @LazyInjected(\.appConstants) var appConstants
+    
     let availableVersions: [DowngradeCorkView.CorkVersion]
+    
+    private let downloader: Downloader = .init()
 
     @State private var selectedVersionToDowngradeToID: DowngradeCorkView.CorkVersion.ID?
 
@@ -127,16 +166,84 @@ private struct AvailableVersionsList: View
         .alternatingRowBackgrounds(.enabled)
         .safeAreaInset(edge: .bottom, alignment: .trailing)
         {
-            Button
+            AsyncButton
             {
                 if let selectedVersionToDowngradeToID, let selectedVersionToDowngradeTo = availableVersions.first(where: { $0.id == selectedVersionToDowngradeToID })
                 {
                     print("Would download release \(selectedVersionToDowngradeTo.versionName), URL: \(selectedVersionToDowngradeTo.versionDownloadURL)")
+                    
+                    do
+                    {
+                        let finishedDownloadURL: URL = try await downloader.downloadFile(from: selectedVersionToDowngradeTo.versionDownloadURL)
+                        
+                        AppConstants.shared.logger.info("Finished download of old version and it's at this URL: \(finishedDownloadURL)")
+                    } catch let downloadingError {
+                        AppConstants.shared.logger.error("Failed while downloading Cork release: \(downloadingError)")
+                        return
+                    }
+                    
+                    
                 }
             } label: {
                 Text("action.download")
             }
             .disabled(selectedVersionToDowngradeToID == nil)
         }
+    }
+}
+
+private struct VersionListRow: View {
+    
+    let availableVersion: DowngradeCorkView.CorkVersion
+    
+    var body: some View
+    {
+        HStack
+        {
+            VStack(alignment: .leading)
+            {
+                Text(availableVersion.versionName)
+                
+                Text(availableVersion.releasedAt.formatted(date: .numeric, time: .shortened))
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+            }
+        }
+        .contextMenu
+        {
+            ButtonThatOpensWebsites(websiteURL: availableVersion.githubPage, buttonText: "action.see-on-github")
+        }
+        
+    }
+}
+
+private struct DownloadingSheetContents: View
+{
+    enum DownloadingState
+    {
+        case downloading
+        case downloaded(locationOfDownloadedFileOnDisk: URL)
+        case failed(error: Error)
+    }
+    
+    @State private var downloadingState: DownloadingState = .downloading
+    
+    var body: some View
+    {
+        switch downloadingState
+        {
+        case .downloading:
+            ProgressView()
+        case .downloaded(let locationOfDownloadedFileOnDisk):
+            downloadFinishedView(withLocationOnDisk: locationOfDownloadedFileOnDisk)
+        case .failed(let error):
+            <#code#>
+        }
+    }
+    
+    @ViewBuilder
+    private func downloadFinishedView(withLocationOnDisk locationOnDisk: URL) -> some View
+    {
+        
     }
 }
