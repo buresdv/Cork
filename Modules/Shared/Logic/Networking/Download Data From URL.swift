@@ -29,7 +29,7 @@ public enum DataDownloadingError: LocalizedError
         case .invalidURL:
             return String(localized: "error.data-downloading.invalid-url")
         case .couldntExecuteRequest(let error):
-            return String(localized: "error.data-downloading.couldnt-execute-request.\(error)")
+            return error
         }
     }
 }

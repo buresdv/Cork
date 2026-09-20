@@ -8,17 +8,17 @@
 // swiftlint:disable file_length
 
 import ButtonKit
+import CorkFeature_Brewfiles
+import CorkModels
 import CorkNotifications
 import CorkShared
+import CorkTerminalFunctions
 import DavidFoundation
 import Defaults
+import FactoryKit
 import SwiftData
 import SwiftUI
 import UserNotifications
-import CorkModels
-import CorkTerminalFunctions
-import CorkFeature_Brewfiles
-import FactoryKit
 
 @main
 struct CorkApp: App
@@ -29,7 +29,7 @@ struct CorkApp: App
     @InjectedObservable(\.navigationManager) var navigationManager
     @InjectedObservable(\.brewfileManager) var brewfileManager: BrewfileManager
     @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
-    
+
     @State var brewPackagesTracker: BrewPackagesTracker = .init()
     @State var tapTracker: TapTracker = .init()
 
@@ -224,6 +224,11 @@ struct CorkApp: App
                     onboardingMenuBarSection
                 }
 
+                CommandGroup(after: .systemServices)
+                {
+                    downgradingMenuBarSection
+                }
+
                 SidebarCommands()
                 CommandGroup(replacing: .newItem) // Disables "New Window"
                 {}
@@ -284,12 +289,12 @@ struct CorkApp: App
         }
         .windowResizability(.contentSize)
         .defaultPosition(.center)
-        
+
         WindowGroup(id: .previewWindowID, for: MinimalHomebrewPackage.self)
         { $packageToPreview in
-            
+
             let convertedMinimalPackage: BrewPackage? = BrewPackage(using: packageToPreview)
-            
+
             PackagePreview(packageToPreview: convertedMinimalPackage)
                 .navigationTitle(packageToPreview?.name(withPrecision: .precise) ?? "")
                 .environment(brewPackagesTracker)
@@ -305,7 +310,7 @@ struct CorkApp: App
             }
         }
         .windowToolbarStyle(.unifiedCompact)
-        
+
         WindowGroup(id: .fullPackageListWindowID, for: [MinimalHomebrewPackage].self)
         { $fullPackageList in
             if let fullPackageList
@@ -314,6 +319,11 @@ struct CorkApp: App
             }
         }
         .windowToolbarStyle(.unifiedCompact)
+
+        Window("window.downgrade", id: .corkDowngradeWindowID)
+        {
+            DowngradeCorkView()
+        }
 
         Settings
         {
@@ -357,10 +367,10 @@ struct CorkApp: App
                 }
 
                 /*
-                ButtonThatOpensWebsites(
-                    websiteURL: URL(string: "https://forum.rikidar.eu/forumdisplay.php?fid=8")!, buttonText: "actiton.report-bugs.forum"
-                )
-                 */
+                 ButtonThatOpensWebsites(
+                     websiteURL: URL(string: "https://forum.rikidar.eu/forumdisplay.php?fid=8")!, buttonText: "actiton.report-bugs.forum"
+                 )
+                  */
 
                 /*
                  Button
@@ -405,6 +415,17 @@ struct CorkApp: App
         }
 
         Divider()
+    }
+
+    @ViewBuilder
+    var downgradingMenuBarSection: some View
+    {
+        Button
+        {
+            openWindow(id: .corkDowngradeWindowID)
+        } label: {
+            Label("downgrade-cork.open-window.label", systemImage: "arrow.down.app")
+        }
     }
 
     @ViewBuilder
@@ -492,7 +513,7 @@ struct CorkApp: App
                     }
                 }
             }
-            catch let error
+            catch
             {
                 switch error
                 {
@@ -536,7 +557,7 @@ struct CorkApp: App
 
         CheckForOutdatedPackagesButton()
             .keyboardShortcut("r")
-        
+
         UpgradePackagesButton(appState: appState)
             .keyboardShortcut("r", modifiers: [.control, .command])
     }
@@ -600,7 +621,7 @@ struct CorkApp: App
             } label: {
                 Text("debug.action.show-error-inspector")
             }
-            
+
             Button
             {
                 outdatedPackagesTracker.insertDebugElementIntoOutdatedPackagesTracker()
@@ -611,10 +632,11 @@ struct CorkApp: App
             Text("debug.action.ui")
         }
     }
-    
+
     // MARK: - Functions
-    
+
     // MARK: - App badge
+
     func setAppBadge(outdatedPackageNotificationType: OutdatedPackageNotificationType)
     {
         if outdatedPackageNotificationType == .badge || outdatedPackageNotificationType == .both
@@ -629,12 +651,12 @@ struct CorkApp: App
             NSApp.dockTile.badgeLabel = ""
         }
     }
-    
+
     private func setWhetherToSendStandardUpdatesAvailableNotification(to newValue: Bool)
     {
         self.sendStandardUpdatesAvailableNotification = newValue
     }
-    
+
     func handleOutdatedPackageChangeAppBadge(outdatedPackageCount: Int)
     {
         AppConstants.shared.logger.debug("Number of displayable outdated packages changed (\(outdatedPackageCount))")
@@ -673,9 +695,9 @@ struct CorkApp: App
             }
         }
     }
-    
+
     // MARK: - Background updating
-    
+
     func handleBackgroundUpdating()
     {
         // Start the background update scheduler when the app starts
@@ -717,7 +739,7 @@ struct CorkApp: App
                         let differentPackages: Set<OutdatedPackage> = await newOutdatedPackages.subtracting(outdatedPackagesTracker.allDisplayableOutdatedPackages)
                         AppConstants.shared.logger.debug("Changed packages: \(differentPackages, privacy: .auto)")
 
-                        sendNotification(title: String(localized: "notification.new-outdated-packages-found.title"), subtitle: differentPackages.map{$0.package.name(withPrecision: .precise)}.formatted(.list(type: .and)))
+                        sendNotification(title: String(localized: "notification.new-outdated-packages-found.title"), subtitle: differentPackages.map { $0.package.name(withPrecision: .precise) }.formatted(.list(type: .and)))
 
                         await outdatedPackagesTracker.setOutdatedPackages(to: newOutdatedPackages)
 
@@ -740,8 +762,9 @@ struct CorkApp: App
             completion(NSBackgroundActivityScheduler.Result.finished)
         }
     }
-    
+
     // MARK: - Licensing
+
     func handleLicensing()
     {
         print("Licensing state: \(appState.licensingState)")
@@ -775,7 +798,7 @@ struct CorkApp: App
             }
         #endif
     }
-    
+
     func handleDemoTiming(newValue: Date?)
     {
         if let newValue
