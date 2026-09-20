@@ -36884,14 +36884,20 @@
             "plural": {
               "one": {
                 "stringUnit": {
-                  "state": "new",
-                  "value": "You have %2$lld package installed from this tap that needs to be uninstalled before you can remove this tap:\n\n%1$@"
+                  "state": "translated",
+                  "value": "יש לך חבילה %2$lld מותקנת מברז זה, שיש להסיר את התקנתה לפני שתוכל להסיר את הברז."
                 }
               },
               "other": {
                 "stringUnit": {
-                  "state": "new",
-                  "value": "You have %2$lld packages installed from this tap that need to be uninstalled before you can remove this tap:\n\n%1$@"
+                  "state": "translated",
+                  "value": "יש לך %2$lld חבילות מותקנות מברז זה, שיש להסיר את התקנתן לפני שתוכל להסיר את הברז."
+                }
+              },
+              "two": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "יש לך %2$lld חבילות מותקנות מברז זה, שיש להסיר את התקנתן לפני שתוכל להסיר את הברז."
                 }
               }
             }
@@ -37174,8 +37180,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "You still have some packages installed from this tap.\nOpen the tap detail to learn more."
+            "state": "translated",
+            "value": "עדיין יש לך חבילות מותקנות מברז זה.\nפתח את פרטי הברז למידע נוסף."
           }
         },
         "id": {
@@ -47498,7 +47504,7 @@
         "he": {
           "stringUnit": {
             "state": "translated",
-            "value": "Homebrew השיב JSON עם השגיאה הבאה:\n%@"
+            "value": "Homebrew החזיר JSON עם השגיאה הבאה:\n%@"
           }
         },
         "id": {
@@ -49607,8 +49613,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Removal of tap %1$@ blocked by %2$@"
+            "state": "translated",
+            "value": "הסרת הברז %1$@ נחסמה על ידי %2$@"
           }
         },
         "id": {
@@ -53081,8 +53087,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Warnings..."
+            "state": "translated",
+            "value": "אזהרות..."
           }
         },
         "id": {
@@ -53205,8 +53211,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "These warnings tell you about something going wrong with Homebrew itself.\nDo not report what you see here to Cork, read the warnings to learn more about where to report them."
+            "state": "translated",
+            "value": "אזהרות אלו מספרות לך על דברים שהשתבשו ב-Homebrew עצמו.\nאין לדווח על מה שמוצג כאן ל-Cork, קרא את האזהרות כדי לגלות כיצד ואיפה לדווח על שגיאות אלו."
           }
         },
         "id": {
@@ -101399,14 +101405,20 @@
             "plural": {
               "one": {
                 "stringUnit": {
-                  "state": "new",
-                  "value": "Homebrew reported %lld issue with itself"
+                  "state": "translated",
+                  "value": "Homebrew דיווח על שגיאה %lld בתוכו"
                 }
               },
               "other": {
                 "stringUnit": {
-                  "state": "new",
-                  "value": "Homebrew reported %lld issues with itself"
+                  "state": "translated",
+                  "value": "Homebrew דיווח על %lld שגיאות בתוכו"
+                }
+              },
+              "two": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Homebrew דיווח על %lld שגיאות בתוכו"
                 }
               }
             }
@@ -103092,8 +103104,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Issues with Homebrew"
+            "state": "translated",
+            "value": "שגיאות ב-Homebrew"
           }
         },
         "id": {
@@ -103216,8 +103228,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Packages"
+            "state": "translated",
+            "value": "חבילות"
           }
         },
         "id": {
@@ -103340,8 +103352,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Recommendations"
+            "state": "translated",
+            "value": "המלצות"
           }
         },
         "id": {
