@@ -129,9 +129,12 @@ struct OutdatedPackageListBox: View
             }
             .font(.headline)
 
-            Text("start-page.updates.self-updating.\(numberOfSelfManagedUpdates).list")
-                .font(.subheadline)
-                .foregroundStyle(.secondary)
+            if numberOfSelfManagedUpdates > 0
+            {
+                Text("start-page.updates.self-updating.\(numberOfSelfManagedUpdates).list")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            }
         }
     }
 
