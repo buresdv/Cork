@@ -17,9 +17,11 @@ struct DowngradeCorkView: View
     {
         enum Sheets: Identifiable
         {
-            var id: Self { self }
+            var id: UUID {
+                return .init()
+            }
             
-            case downloading
+            case downloading(versionToDowngradeTo: CorkVersion)
         }
         
         var sheetToShow: Sheets?
@@ -31,20 +33,34 @@ struct DowngradeCorkView: View
 
         let versionName: String
 
-        let versionDownloadURL: URL
         let githubPage: URL
-        
+
         let releasedAt: Date
 
         let isPrerelease: Bool
 
+        struct Assets: Codable, Hashable
+        {
+            let browserDownloadUrl: URL
+            
+            let name: String
+
+            private enum CodingKeys: String, CodingKey
+            {
+                case browserDownloadUrl = "browser_download_url"
+                case name = "name"
+            }
+        }
+
+        let assets: [Assets]
+
         private enum CodingKeys: String, CodingKey
         {
             case versionName = "name"
-            case versionDownloadURL = "zipball_url"
             case githubPage = "html_url"
             case releasedAt = "published_at"
             case isPrerelease = "prerelease"
+            case assets
         }
     }
 
@@ -78,16 +94,18 @@ struct DowngradeCorkView: View
 
     var body: some View
     {
-        switch availableVersionsLoadingState
+        Group
         {
-        case .loading:
-            ProgressView()
-                .task
+            switch availableVersionsLoadingState
+            {
+            case .loading:
+                ProgressView()
+                    .task
                 {
                     do
                     {
                         let downloadedAvailableVersions: [CorkVersion] = try await listPreviousCorkVersions()
-
+                        
                         self.availableVersionsLoadingState = .loaded(versions: downloadedAvailableVersions)
                     }
                     catch let availableVersionListingError
@@ -95,18 +113,42 @@ struct DowngradeCorkView: View
                         self.availableVersionsLoadingState = .failed(error: availableVersionListingError.localizedDescription)
                     }
                 }
-        case .loaded(let versions):
-            AvailableVersionsList(availableVersions: versions)
-                .sheet(item: Bindable(downgradeState).sheetToShow) { sheetType in
-                    switch sheetType
-                    {
-                    case .downloading:
-                        
+            case .loaded(let versions):
+                AvailableVersionsList(availableVersions: versions)
+                    .sheet(item: Bindable(downgradeState).sheetToShow) { sheetType in
+                        switch sheetType
+                        {
+                        case .downloading(let versionToDowngradeTo):
+                            DownloadingSheetContents(versionToDowngradeTo: versionToDowngradeTo)
+                        }
                     }
+                    .environment(downgradeState)
+            case .failed(let error):
+                ContentUnavailableView {
+                    Label("downgrade-cork.failed.title", image: "custom.arrow.down.app.badge.xmark")
+                } description: {
+                    Text(error)
+                } actions: {
+                    AsyncButton
+                    {                        
+                        do
+                        {
+                            let downloadedAvailableVersions: [CorkVersion] = try await listPreviousCorkVersions()
+                            
+                            self.availableVersionsLoadingState = .loaded(versions: downloadedAvailableVersions)
+                        }
+                        catch let availableVersionListingError
+                        {
+                            self.availableVersionsLoadingState = .failed(error: availableVersionListingError.localizedDescription)
+                        }
+                    } label: {
+                        Text("add-tap.error.action")
+                    }
+                    .asyncButtonStyle(.pulse)
                 }
-        case .failed(let error):
-            ContentUnavailableView("downgrade-cork.failed.title", image: "custom.arrow.down.app.badge.xmark", description: Text(error))
+            }
         }
+        .frame(minWidth: 450, minHeight: 300)
     }
 
     private func listPreviousCorkVersions() async throws(PreviousReleasesFetchingError) -> [CorkVersion]
@@ -147,9 +189,9 @@ private struct AvailableVersionsList: View
 {
     @LazyInjected(\.appConstants) var appConstants
     
-    let availableVersions: [DowngradeCorkView.CorkVersion]
+    @Environment(DowngradeCorkView.DowngradeState.self) var downgradeState
     
-    private let downloader: Downloader = .init()
+    let availableVersions: [DowngradeCorkView.CorkVersion]
 
     @State private var selectedVersionToDowngradeToID: DowngradeCorkView.CorkVersion.ID?
 
@@ -159,40 +201,42 @@ private struct AvailableVersionsList: View
         {
             ForEach(availableVersions)
             { version in
-                Text(version.versionName)
+                VersionListRow(availableVersion: version)
             }
         }
         .listStyle(.bordered)
         .alternatingRowBackgrounds(.enabled)
         .safeAreaInset(edge: .bottom, alignment: .trailing)
         {
-            AsyncButton
+            HStack(alignment: .center, spacing: 10)
             {
-                if let selectedVersionToDowngradeToID, let selectedVersionToDowngradeTo = availableVersions.first(where: { $0.id == selectedVersionToDowngradeToID })
+                AsyncButton
                 {
-                    print("Would download release \(selectedVersionToDowngradeTo.versionName), URL: \(selectedVersionToDowngradeTo.versionDownloadURL)")
-                    
-                    do
+                    if let selectedVersionToDowngradeToID, let selectedVersionToDowngradeTo = availableVersions.first(where: { $0.id == selectedVersionToDowngradeToID }), let corkZipDownloadURL = selectedVersionToDowngradeTo.assets.first(where: { $0.name == "Cork.zip" })
                     {
-                        let finishedDownloadURL: URL = try await downloader.downloadFile(from: selectedVersionToDowngradeTo.versionDownloadURL)
+                        print("Would download release \(selectedVersionToDowngradeTo.versionName), URL: \(corkZipDownloadURL)")
                         
-                        AppConstants.shared.logger.info("Finished download of old version and it's at this URL: \(finishedDownloadURL)")
-                    } catch let downloadingError {
-                        AppConstants.shared.logger.error("Failed while downloading Cork release: \(downloadingError)")
-                        return
+                        downgradeState.sheetToShow = .downloading(versionToDowngradeTo: selectedVersionToDowngradeTo)
                     }
-                    
-                    
+                } label: {
+                    Text("action.download")
                 }
-            } label: {
-                Text("action.download")
+                .disabled(selectedVersionToDowngradeToID == nil)
+                .padding()
+                .keyboardShortcut(.defaultAction)
             }
-            .disabled(selectedVersionToDowngradeToID == nil)
+            .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
+            .background
+            {
+                Color(nsColor: .windowBackgroundColor)
+                    .ignoresSafeArea()
+            }
         }
     }
 }
 
-private struct VersionListRow: View {
+private struct VersionListRow: View
+{
     
     let availableVersion: DowngradeCorkView.CorkVersion
     
@@ -219,6 +263,10 @@ private struct VersionListRow: View {
 
 private struct DownloadingSheetContents: View
 {
+    private let downloader: Downloader = .init()
+    
+    let versionToDowngradeTo: DowngradeCorkView.CorkVersion
+    
     enum DownloadingState
     {
         case downloading
@@ -234,16 +282,27 @@ private struct DownloadingSheetContents: View
         {
         case .downloading:
             ProgressView()
+                .task {
+                    do
+                    {
+                        let finishedDownloadURL: URL = try await downloader.downloadFile(from: versionToDowngradeTo.assets.first(where: { $0.name == "Cork.zip" })!.browserDownloadUrl)
+                        
+                        AppConstants.shared.logger.info("Finished download of old version and it's at this URL: \(finishedDownloadURL)")
+                    } catch let downloadingError {
+                        AppConstants.shared.logger.error("Failed while downloading Cork release: \(downloadingError)")
+                        return
+                    }
+                }
         case .downloaded(let locationOfDownloadedFileOnDisk):
             downloadFinishedView(withLocationOnDisk: locationOfDownloadedFileOnDisk)
         case .failed(let error):
-            <#code#>
+            Text(error.localizedDescription)
         }
     }
     
     @ViewBuilder
     private func downloadFinishedView(withLocationOnDisk locationOnDisk: URL) -> some View
     {
-        
+        Text(locationOnDisk.path())
     }
 }

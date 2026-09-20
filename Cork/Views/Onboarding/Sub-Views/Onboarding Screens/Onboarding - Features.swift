@@ -104,8 +104,7 @@ struct Onboarding_FeaturesView: View
         .navigationTitle("onboarding.title")
         .animation(.none, value: areDetailsExpanded)
         .toolbar {
-            ToolbarItem(placement: .primaryAction)
-            {
+            ToolbarItemGroup(placement: .primaryAction) {
                 Button
                 {
                     /// First, purge all the current defaults if there are any
@@ -162,8 +161,15 @@ struct Onboarding_FeaturesView: View
                     Text("action.continue")
                 }
                 .keyboardShortcut(.defaultAction)
-                //.controlSize(.large)
+                
+                Button
+                {
+                    onboardingNavigationManager.navigate(to: .corkIntroduction)
+                } label: {
+                    Text("action.back")
+                }
             }
+            
         }
     }
 }

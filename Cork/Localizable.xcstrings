@@ -8998,6 +8998,9 @@
         }
       }
     },
+    "action.back" : {
+
+    },
     "action.buy" : {
       "localizations" : {
         "cs" : {
@@ -9992,7 +9995,14 @@
       }
     },
     "action.continue" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continue"
+          }
+        }
+      }
     },
     "action.copy" : {
       "localizations" : {
@@ -10363,6 +10373,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "完成"
+          }
+        }
+      }
+    },
+    "action.download" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Download…"
           }
         }
       }
@@ -14497,7 +14517,14 @@
       }
     },
     "action.see-on-github" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open on GitHub…"
+          }
+        }
+      }
     },
     "action.show" : {
       "localizations" : {
@@ -40530,6 +40557,19 @@
       }
     },
     "disclaimer.not-affiliated-with-homebrew" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork is an independent product not affiliated with Homebrew."
+          }
+        }
+      }
+    },
+    "downgrade-cork.failed.title" : {
+
+    },
+    "downgrade-cork.open-window.label" : {
 
     },
     "downloading" : {
@@ -70306,43 +70346,43 @@
       "localizations" : {
         "cs" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Zdraví vás aplikace z celého světa"
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Begrüße die Welt der Apps"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Say hello to the world's apps"
+            "value" : "Let’s get you set up."
           }
         },
         "en-GB" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Say hello to the world's apps"
           }
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Di hola a las aplicaciones del mundo"
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Découvrez les applications du monde entier"
           }
         },
         "he" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "תגיד שלום ליישומים מכל העולם"
           }
         },
@@ -70354,19 +70394,19 @@
         },
         "it" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Di’ ciao alle app del mondo"
           }
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Say hello to the world's apps"
           }
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "전 세계 앱과 인사하기"
           }
         },
@@ -70384,43 +70424,43 @@
         },
         "pt-PT" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Diz olá às aplicações do mundo"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Скажите \"Привет\" миру приложений"
           }
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Säg hej till världens appar"
           }
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Uygulamalar dünyasına merhaba de"
           }
         },
         "uk" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Привітайтеся зі світовими додатками"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "对全世界的软件说哈喽"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "跟全世界的軟體說哈嘍"
           }
         }
@@ -113635,6 +113675,9 @@
           }
         }
       }
+    },
+    "window.downgrade" : {
+
     },
     "window.services" : {
       "localizations" : {

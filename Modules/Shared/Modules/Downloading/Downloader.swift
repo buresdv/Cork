@@ -12,7 +12,7 @@ public actor Downloader: NSObject, URLSessionDelegate, URLSessionTaskDelegate
 {
     @MainActor var progress: Progress = .init(totalItems: 100, aboveProgressBarText: nil, underProgressBarText: nil)
 
-    func downloadFile(from url: URL) async throws -> URL
+    public func downloadFile(from url: URL) async throws -> URL
     {
         let (downloadURL, response) = try await URLSession.shared.download(
             from: url, delegate: self
@@ -21,7 +21,7 @@ public actor Downloader: NSObject, URLSessionDelegate, URLSessionTaskDelegate
         return downloadURL
     }
 
-    func urlSession(
+    public func urlSession(
         _: URLSession,
         downloadTask _: URLSessionDownloadTask,
         didWriteData _: Int64,
@@ -37,7 +37,7 @@ public actor Downloader: NSObject, URLSessionDelegate, URLSessionTaskDelegate
         }
     }
 
-    nonisolated func urlSession(_: URLSession, downloadTask _: URLSessionDownloadTask, didFinishDownloadingTo _: URL)
+    nonisolated public func urlSession(_: URLSession, downloadTask _: URLSessionDownloadTask, didFinishDownloadingTo _: URL)
     {
         // Intentionally left empty
     }

@@ -9,10 +9,14 @@ import CorkNotifications
 import CorkShared
 import Defaults
 import SwiftUI
+import FactoryKit
+import CorkModels
 
 struct OnboardingView: View
 {
     @Environment(\.dismiss) var dismiss: DismissAction
+    
+    @InjectedObservable(\.appState) var appState: AppState
 
     @State private var onboardingSetupLevel: SetupLevels = .medium
 
@@ -32,7 +36,6 @@ struct OnboardingView: View
             case corkIntroduction
             case corkFeatures
             case corkPermissions
-            case corkLicense
         }
 
         var openedScreen: OnboardingScreen = .corkIntroduction
@@ -62,18 +65,9 @@ struct OnboardingView: View
                     )
                 case .corkPermissions:
                     PermissionsFixSheetContent()
-                case .corkLicense:
-                    LicensingView()
                 }
             }
             .padding()
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction)
-                {
-                    DismissSheetButton()
-                }
-            }
-            
         }
         .fixedSize()
         .environment(onboardingNavigationManager)
