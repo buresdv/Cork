@@ -78,7 +78,8 @@ let corkSharedTarget: ProjectDescription.Target = .target(
     dependencies: [
         .external(name: "Defaults"),
         .external(name: "FactoryKit"),
-        .external(name: "BetterProgress")
+        .external(name: "BetterProgress"),
+        .external(name: "ZIPFoundation")
     ],
     settings: .settings(configurations: [
         .debug(

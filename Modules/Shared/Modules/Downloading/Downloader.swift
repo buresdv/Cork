@@ -10,7 +10,7 @@ import Foundation
 
 public actor Downloader: NSObject, URLSessionDelegate, URLSessionTaskDelegate
 {
-    @MainActor var progress: Progress = .init(totalItems: 100, aboveProgressBarText: nil, underProgressBarText: nil)
+    @MainActor public var progress: Progress = .init(totalItems: 100, aboveProgressBarText: nil, underProgressBarText: nil)
 
     public func downloadFile(from url: URL) async throws -> URL
     {

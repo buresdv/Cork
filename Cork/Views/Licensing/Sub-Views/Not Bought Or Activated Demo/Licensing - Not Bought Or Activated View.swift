@@ -48,174 +48,177 @@ struct Licensing_NotBoughtOrActivatedView: View
 
     var body: some View
     {
-        VStack(alignment: .center, spacing: 15)
+        NavigationStack
         {
-            Image(nsImage: NSImage(named: "AppIcon") ?? NSImage())
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(height: 100)
-
-            VStack(alignment: .center, spacing: 25)
+            VStack(alignment: .center, spacing: 15)
             {
-                Text("licensing.not-bought-or-activated.title")
-                    .font(.title)
+                Image(nsImage: NSImage(named: "AppIcon") ?? NSImage())
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: 100)
 
-                Text("licensing.not-bought-or-activated.body")
-                    .multilineTextAlignment(.center)
-                    .frame(maxWidth: 350)
-                    .fixedSize()
-
-                VStack(alignment: .leading, spacing: 5)
+                VStack(alignment: .center, spacing: 25)
                 {
-                    Text("licensing.email")
+                    Text("licensing.not-bought-or-activated.title")
+                        .font(.title)
 
-                    HStack(alignment: .center, spacing: 20)
+                    Text("licensing.not-bought-or-activated.body")
+                        .multilineTextAlignment(.center)
+                        .frame(maxWidth: 350)
+                        .fixedSize()
+
+                    VStack(alignment: .leading, spacing: 5)
                     {
-                        TextField(text: $emailFieldContents, prompt: Text("licensing.email-field.prompt"))
-                        {
-                            Text("licensing.email")
-                        }
+                        Text("licensing.email")
 
-                        if isCheckingLicense
+                        HStack(alignment: .center, spacing: 20)
                         {
-                            if !hasCheckingFailed
+                            TextField(text: $emailFieldContents, prompt: Text("licensing.email-field.prompt"))
                             {
-                                ProgressView()
-                                    .scaleEffect(0.5, anchor: .center)
-                                    .frame(width: 1, height: 1)
-                                    .transition(.move(edge: .trailing).combined(with: .opacity))
+                                Text("licensing.email")
                             }
-                            else
+
+                            if isCheckingLicense
                             {
-                                Label("licensing.invalid-email", image: "custom.envelope.badge.questionmark")
-                                    .labelStyle(.outlinedPill(color: .red, font: .caption.bold(), iconStyle: .iconIsShown))
-                                    .transition(.move(edge: .trailing).combined(with: .opacity))
+                                if !hasCheckingFailed
+                                {
+                                    ProgressView()
+                                        .scaleEffect(0.5, anchor: .center)
+                                        .frame(width: 1, height: 1)
+                                        .transition(.move(edge: .trailing).combined(with: .opacity))
+                                }
+                                else
+                                {
+                                    Label("licensing.invalid-email", image: "custom.envelope.badge.questionmark")
+                                        .labelStyle(.outlinedPill(color: .red, font: .caption.bold(), iconStyle: .iconIsShown))
+                                        .transition(.move(edge: .trailing).combined(with: .opacity))
+                                }
                             }
                         }
                     }
                 }
-            }
 
-            HStack(alignment: .firstTextBaseline, spacing: 10)
-            {
-                HStack(alignment: .firstTextBaseline, spacing: 5)
+                HStack(alignment: .firstTextBaseline, spacing: 10)
                 {
-                    ButtonThatOpensWebsites(websiteURL: URL(string: "https://corkmac.app/create-checkout-session.php")!, buttonText: "action.buy")
-                        .labelStyle(.titleOnly)
+                    HStack(alignment: .firstTextBaseline, spacing: 5)
+                    {
+                        ButtonThatOpensWebsites(websiteURL: URL(string: "https://corkmac.app/create-checkout-session.php")!, buttonText: "action.buy")
+                            .labelStyle(.titleOnly)
 
-                    Text("licensing.price.copy")
-                        .font(.subheadline)
-                        .foregroundColor(Color(nsColor: NSColor.systemGray))
-                }
+                        Text("licensing.price.copy")
+                            .font(.subheadline)
+                            .foregroundColor(Color(nsColor: NSColor.systemGray))
+                    }
 
-                Spacer()
+                    Spacer()
 
-                if let demoActivatedAt
-                {
-                    if ((demoActivatedAt.timeIntervalSinceNow) + AppConstants.shared.demoLengthInSeconds) > 0
-                    { // Check if there is still time on the demo
-                        Button
-                        {
-                            dismiss()
-                        } label: {
-                            Text("action.close")
+                    if let demoActivatedAt
+                    {
+                        if ((demoActivatedAt.timeIntervalSinceNow) + AppConstants.shared.demoLengthInSeconds) > 0
+                        { // Check if there is still time on the demo
+                            Button
+                            {
+                                dismiss()
+                            } label: {
+                                Text("action.close")
+                            }
+                            .keyboardShortcut(.cancelAction)
                         }
-                        .keyboardShortcut(.cancelAction)
+                        else
+                        {
+                            Button
+                            {
+                                /// Nothing should be here, since the demo cannot be activated again
+                            } label: {
+                                Text("action.activate-demo")
+                            }
+                            .disabled(isDemoButtonDisabled)
+                        }
                     }
                     else
                     {
                         Button
                         {
-                            /// Nothing should be here, since the demo cannot be activated again
+                            demoActivatedAt = .now
                         } label: {
                             Text("action.activate-demo")
                         }
                         .disabled(isDemoButtonDisabled)
                     }
-                }
-                else
-                {
-                    Button
+
+                    AsyncButton
                     {
-                        demoActivatedAt = .now
+                        withAnimation
+                        {
+                            isCheckingLicense = true
+                        }
+
+                        defer
+                        {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3)
+                            {
+                                withAnimation
+                                {
+                                    isCheckingLicense = false
+                                    hasCheckingFailed = false
+                                }
+                            }
+                        }
+
+                        do
+                        {
+                            let hasSpecifiedUserBoughtCork: Bool = try await checkIfUserBoughtCork(for: emailFieldContents)
+
+                            AppConstants.shared.logger.debug("Has \(emailFieldContents) bought Cork? \(hasSpecifiedUserBoughtCork ? "YES" : "NO")")
+
+                            if hasSpecifiedUserBoughtCork
+                            {
+                                appState.licensingState = .bought
+                            }
+                            else
+                            {
+                                withAnimation
+                                {
+                                    hasCheckingFailed = true
+                                }
+                            }
+                        }
+                        catch let licenseCheckingError as CorkLicenseRetrievalError
+                        {
+                            AppConstants.shared.logger.error("\(licenseCheckingError.localizedDescription, privacy: .public)")
+
+                            switch licenseCheckingError
+                            {
+                            case .authorizationComplexNotEncodedProperly:
+                                appState.showAlert(errorToShow: .licenseCheckingFailedDueToAuthorizationComplexNotBeingEncodedProperly)
+                            case .notConnectedToTheInternet:
+                                appState.showAlert(errorToShow: .licenseCheckingFailedDueToNoInternet)
+                            case .operationTimedOut:
+                                appState.showAlert(errorToShow: .licenseCheckingFailedDueToTimeout)
+                            case .otherError(let localizedDescription):
+                                appState.showAlert(errorToShow: .licenseCheckingFailedForOtherReason(localizedDescription: localizedDescription))
+                            }
+                        }
                     } label: {
-                        Text("action.activate-demo")
+                        Text("action.check-license")
                     }
-                    .disabled(isDemoButtonDisabled)
+                    .keyboardShortcut(.defaultAction)
+                    .disabled(emailFieldContents.isEmpty || !emailFieldContents.contains("@") || !emailFieldContents.contains("."))
+                    .disabledWhenLoading()
+                    .asyncButtonStyle(.none)
                 }
-
-                AsyncButton
-                {
-                    withAnimation
-                    {
-                        isCheckingLicense = true
-                    }
-
-                    defer
-                    {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 3)
-                        {
-                            withAnimation
-                            {
-                                isCheckingLicense = false
-                                hasCheckingFailed = false
-                            }
-                        }
-                    }
-
-                    do
-                    {
-                        let hasSpecifiedUserBoughtCork: Bool = try await checkIfUserBoughtCork(for: emailFieldContents)
-
-                        AppConstants.shared.logger.debug("Has \(emailFieldContents) bought Cork? \(hasSpecifiedUserBoughtCork ? "YES" : "NO")")
-
-                        if hasSpecifiedUserBoughtCork
-                        {
-                            appState.licensingState = .bought
-                        }
-                        else
-                        {
-                            withAnimation
-                            {
-                                hasCheckingFailed = true
-                            }
-                        }
-                    }
-                    catch let licenseCheckingError as CorkLicenseRetrievalError
-                    {
-                        AppConstants.shared.logger.error("\(licenseCheckingError.localizedDescription, privacy: .public)")
-
-                        switch licenseCheckingError
-                        {
-                        case .authorizationComplexNotEncodedProperly:
-                            appState.showAlert(errorToShow: .licenseCheckingFailedDueToAuthorizationComplexNotBeingEncodedProperly)
-                        case .notConnectedToTheInternet:
-                            appState.showAlert(errorToShow: .licenseCheckingFailedDueToNoInternet)
-                        case .operationTimedOut:
-                            appState.showAlert(errorToShow: .licenseCheckingFailedDueToTimeout)
-                        case .otherError(let localizedDescription):
-                            appState.showAlert(errorToShow: .licenseCheckingFailedForOtherReason(localizedDescription: localizedDescription))
-                        }
-                    }
-                } label: {
-                    Text("action.check-license")
-                }
-                .keyboardShortcut(.defaultAction)
-                .disabled(emailFieldContents.isEmpty || !emailFieldContents.contains("@") || !emailFieldContents.contains("."))
-                .disabledWhenLoading()
-                .asyncButtonStyle(.none)
             }
-        }
-        .padding()
-        .fixedSize()
-        .animation(.easeInOut, value: isCheckingLicense)
-        .animation(.easeInOut, value: hasCheckingFailed)
-        .onAppear
-        {
-            if let demoActivatedAt
+            .padding()
+            .fixedSize()
+            .animation(.easeInOut, value: isCheckingLicense)
+            .animation(.easeInOut, value: hasCheckingFailed)
+            .onAppear
             {
-                let timeIntervalSinceDemoWasActivated: TimeInterval = demoActivatedAt.timeIntervalSinceNow
-                AppConstants.shared.logger.debug("Time interval since demo was activated: \(timeIntervalSinceDemoWasActivated, privacy: .public)")
+                if let demoActivatedAt
+                {
+                    let timeIntervalSinceDemoWasActivated: TimeInterval = demoActivatedAt.timeIntervalSinceNow
+                    AppConstants.shared.logger.debug("Time interval since demo was activated: \(timeIntervalSinceDemoWasActivated, privacy: .public)")
+                }
             }
         }
     }

@@ -9,6 +9,8 @@ import CorkShared
 import SwiftUI
 import FactoryKit
 import ButtonKit
+import ApplicationInspector
+import ZIPFoundation
 
 struct DowngradeCorkView: View
 {
@@ -270,7 +272,7 @@ private struct DownloadingSheetContents: View
     enum DownloadingState
     {
         case downloading
-        case downloaded(locationOfDownloadedFileOnDisk: URL)
+        case downloaded(finalApplication: Application)
         case failed(error: Error)
     }
     
@@ -278,31 +280,110 @@ private struct DownloadingSheetContents: View
     
     var body: some View
     {
-        switch downloadingState
+        NavigationStack
         {
-        case .downloading:
-            ProgressView()
-                .task {
-                    do
+            switch downloadingState
+            {
+            case .downloading:
+                ProgressView(downloader.progress)
+                    .task
                     {
-                        let finishedDownloadURL: URL = try await downloader.downloadFile(from: versionToDowngradeTo.assets.first(where: { $0.name == "Cork.zip" })!.browserDownloadUrl)
+                        do
+                        {
+                            downloader.progress.setText(to: .belowBar(String(localized: "add-package.install.downloading-package-\(versionToDowngradeTo.versionName)")))
+                            
+                            let finishedDownloadURL: URL = try await downloader.downloadFile(from: versionToDowngradeTo.assets.first(where: { $0.name == "Cork.zip" })!.browserDownloadUrl)
+                            
+                            AppConstants.shared.logger.info("Finished download of old version and it's at this URL: \(finishedDownloadURL)")
+                            
+                            downloader.progress.setText(to: .belowBar("downgrade-cork.step.processing-\(versionToDowngradeTo.versionName)"))
+                            
+                            let constructedFinalApp: Application = try await processDownloadedData(locationOnDisk: finishedDownloadURL)
+                            
+                            downloadingState = .downloaded(finalApplication: constructedFinalApp)
+                            
+                        } catch let downloadingError {
+                            AppConstants.shared.logger.error("Failed while downloading Cork release: \(downloadingError)")
+                            
+                            downloadingState = .failed(error: downloadingError)
+                            
+                            return
+                        }
+                    }
+            case .downloaded(let finalApplication):
+                downloadFinishedView(finalApplication: finalApplication)
+            case .failed(let error):
+                if error is DownloadedDataProcessingError
+                {
+                    switch error
+                    {
+                    case DownloadedDataProcessingError.couldNotParseApplication(let error, let urlForTheUserToGetTheAppThemselves):
+                        Text(error.localizedDescription)
                         
-                        AppConstants.shared.logger.info("Finished download of old version and it's at this URL: \(finishedDownloadURL)")
-                    } catch let downloadingError {
-                        AppConstants.shared.logger.error("Failed while downloading Cork release: \(downloadingError)")
-                        return
+                        RevealInFinderButtonWithArbitraryAction
+                        {
+                            urlForTheUserToGetTheAppThemselves.revealInFinder(.openParentDirectoryAndHighlightTarget)
+                        }
+                        
+                    default:
+                        Text(error.localizedDescription)
                     }
                 }
-        case .downloaded(let locationOfDownloadedFileOnDisk):
-            downloadFinishedView(withLocationOnDisk: locationOfDownloadedFileOnDisk)
-        case .failed(let error):
-            Text(error.localizedDescription)
+                else
+                {
+                    Text(error.localizedDescription)
+                }
+            }
         }
     }
     
     @ViewBuilder
-    private func downloadFinishedView(withLocationOnDisk locationOnDisk: URL) -> some View
+    private func downloadFinishedView(finalApplication: Application) -> some View
     {
-        Text(locationOnDisk.path())
+        DraggableAppProxyIcon(app: finalApplication, width: 100)
+    }
+    
+    private enum DownloadedDataProcessingError: LocalizedError
+    {
+        case couldNotUnzipTempArchive(error: Error)
+        case couldNotParseApplication(error: Application.ApplicationInitializationError, urlForTheUserToGetTheAppThemselves: URL)
+        
+        var errorDescription: String?
+        {
+            switch self
+            {
+            case .couldNotUnzipTempArchive(let error):
+                return String(localized: "downgrade-cork.error.could-not-unzip.\(error.localizedDescription)")
+            case .couldNotParseApplication(let error, let urlForTheUserToGetTheAppThemselves):
+                return String(localized: "downgrade-cork.error.could-not-construct-app.\(error.localizedDescription)")
+            }
+        }
+    }
+    
+    nonisolated private func processDownloadedData(
+        locationOnDisk: URL
+    ) async throws(DownloadedDataProcessingError) -> Application
+    {
+        let fileManager: FileManager = FileManager.default
+        
+        let unzipTarget: URL = .temporaryDirectory.appendingPathComponent("Cork", conformingTo: .application)
+        
+        do {
+            try fileManager.unzipItem(at: locationOnDisk, to: unzipTarget)
+        } catch let archiveUnzippingError {
+            AppConstants.shared.logger.error("Failed while unzipping the downloaded archive: \(archiveUnzippingError)")
+            
+            throw .couldNotUnzipTempArchive(error: archiveUnzippingError)
+        }
+        
+        do
+        {
+            return try .init(from: unzipTarget)
+            
+        } catch let applicationConstructionError {
+            AppConstants.shared.logger.error("Failed while constructing downloaded app: \(applicationConstructionError)")
+            
+            throw .couldNotParseApplication(error: applicationConstructionError, urlForTheUserToGetTheAppThemselves: unzipTarget)
+        }
     }
 }

@@ -794,6 +794,9 @@ struct CorkApp: App
                             hasFinishedLicensingWorkflow = false
                         }
                     }
+                    else {
+                        hasFinishedLicensingWorkflow = false
+                    }
                 }
             }
         #endif

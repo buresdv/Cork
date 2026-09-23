@@ -47,6 +47,8 @@ struct Onboarding_FeaturesView: View
     @Default(.outdatedPackageInfoDisplayAmount) var outdatedPackageInfoDisplayAmount: OutdatedPackageInfoAmount
     @Default(.showOldVersionsInOutdatedPackageList) var showOldVersionsInOutdatedPackageList: Bool
     
+    @Default(.hasFinishedLicensingWorkflow) var hasFinishedLicensingWorkflow: Bool
+    
     @State private var areDetailsExpanded: Bool = false
     
     @Binding var onboardingSetupLevelNumber: Float
@@ -97,12 +99,6 @@ struct Onboarding_FeaturesView: View
             {
                 Button
                 {
-                    /// First, purge all the current defaults if there are any
-                    if let bundleID = Bundle.main.bundleIdentifier
-                    {
-                        UserDefaults.standard.removePersistentDomain(forName: bundleID)
-                    }
-
                     /// Now, do all the setup
                     if onboardingSetupLevelNumber >= 1
                     {

@@ -40573,6 +40573,12 @@
         }
       }
     },
+    "downgrade-cork.error.could-not-construct-app.%@" : {
+
+    },
+    "downgrade-cork.error.could-not-unzip.%@" : {
+
+    },
     "downgrade-cork.failed.title" : {
       "localizations" : {
         "en" : {
