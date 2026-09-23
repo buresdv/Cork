@@ -130,7 +130,7 @@ struct DowngradeCorkView: View
                     Text(error)
                 } actions: {
                     AsyncButton
-                    {                        
+                    {
                         do
                         {
                             let downloadedAvailableVersions: [CorkVersion] = try await listPreviousCorkVersions()

@@ -17,6 +17,8 @@ struct OnboardingView: View
     @Environment(\.dismiss) var dismiss: DismissAction
     
     @InjectedObservable(\.appState) var appState: AppState
+    
+    @Default(.hasFinishedOnboarding) var hasFinishedOnboarding: Bool
 
     @State private var onboardingSetupLevel: SetupLevels = .medium
 
@@ -35,7 +37,7 @@ struct OnboardingView: View
         {
             case corkIntroduction
             case corkFeatures
-            case corkPermissions
+            //case corkPermissions
         }
 
         var openedScreen: OnboardingScreen = .corkIntroduction
@@ -52,24 +54,65 @@ struct OnboardingView: View
     {
         NavigationStack
         {
-            Group
+            VStack(alignment: .center, spacing: 10)
             {
-                switch onboardingNavigationManager.openedScreen
+                headerIcon
+                    .animation(.easeIn, value: headerIconSize)
+                
+                onboardingSheetContent
+                .toolbar
                 {
-                case .corkIntroduction:
-                    Onboarding_InitialView()
-                case .corkFeatures:
-                    Onboarding_FeaturesView(
-                        onboardingSetupLevelNumber: $onboardingSetupLevelNumber,
-                        onboardingSetupLevel: $onboardingSetupLevel
-                    )
-                case .corkPermissions:
-                    PermissionsFixSheetContent()
+                    ToolbarItem(placement: .automatic)
+                    {
+                        Button
+                        {
+                            hasFinishedOnboarding = true
+                        } label: {
+                            Text("action.cancel")
+                        }
+                    }
                 }
             }
             .padding()
+            .animation(.easeIn, value: onboardingNavigationManager.openedScreen)
         }
-        .fixedSize()
         .environment(onboardingNavigationManager)
+    }
+    
+    @ViewBuilder
+    private var onboardingSheetContent: some View
+    {
+        switch onboardingNavigationManager.openedScreen
+        {
+        case .corkIntroduction:
+            Onboarding_InitialView()
+                .transition(.move(edge: .top).combined(with: .blurReplace))
+        case .corkFeatures:
+            Onboarding_FeaturesView(
+                onboardingSetupLevelNumber: $onboardingSetupLevelNumber,
+                onboardingSetupLevel: $onboardingSetupLevel
+            )
+            .transition(.move(edge: .bottom).combined(with: .blurReplace))
+        // case .corkPermissions:
+        //    PermissionsFixSheetContent()
+        }
+    }
+    
+    var headerIconSize: CGFloat {
+        if case .corkIntroduction = onboardingNavigationManager.openedScreen
+        {
+            return 100
+        }
+        else {
+            return 50
+        }
+    }
+    
+    @ViewBuilder
+    private var headerIcon: some View
+    {
+        Image(nsImage: NSImage(named: "AppIcon") ?? NSImage())
+            .resizable()
+            .frame(width: headerIconSize, height: headerIconSize, alignment: .top)
     }
 }

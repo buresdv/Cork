@@ -8999,7 +8999,15 @@
       }
     },
     "action.back" : {
-
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Back"
+          }
+        }
+      }
     },
     "action.buy" : {
       "localizations" : {
@@ -10253,7 +10261,6 @@
       }
     },
     "action.done" : {
-      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -40567,10 +40574,24 @@
       }
     },
     "downgrade-cork.failed.title" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t download the selected older version"
+          }
+        }
+      }
     },
     "downgrade-cork.open-window.label" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Downgrade Cork…"
+          }
+        }
+      }
     },
     "downloading" : {
       "extractionState" : "stale",
@@ -113677,7 +113698,14 @@
       }
     },
     "window.downgrade" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Downgrade Cork"
+          }
+        }
+      }
     },
     "window.services" : {
       "localizations" : {
