@@ -21,40 +21,42 @@ struct Licensing_SelfCompiledView: View
 
     var body: some View
     {
-        VStack(alignment: .center, spacing: 15)
+        NavigationStack
         {
-            Image(systemName: "wrench.and.screwdriver")
-                .resizable()
-                .foregroundColor(.purple)
-                .frame(width: 50, height: 50)
-
-            Text("licensing.self-compiled.title")
-                .font(.title)
-
-            Text("licensing.self-compiled.body")
-                .multilineTextAlignment(.center)
-
-            HStack(alignment: .center, spacing: 20)
+            VStack(alignment: .center, spacing: 15)
             {
-                Button
-                {
-                    dismiss()
-                    if !hasFinishedLicensingWorkflow
-                    {
-                        hasFinishedLicensingWorkflow = true // Make it so that the sheet doesn't show up all the time anymore
-                    }
-                } label: {
-                    Text("action.close")
-                }
-                .keyboardShortcut(.cancelAction)
-                .keyboardShortcut(.defaultAction)
+                Image(systemName: "wrench.and.screwdriver")
+                    .resizable()
+                    .foregroundColor(.purple)
+                    .frame(width: 50, height: 50)
+
+                Text("licensing.self-compiled.title")
+                    .font(.title)
+
+                Text("licensing.self-compiled.body")
+                    .multilineTextAlignment(.center)
             }
-        }
-        .padding()
-        .fixedSize()
-        .onAppear
-        {
-            demoActivatedAt = nil // Reset the demo, since it won't be needed anymore
+            .padding()
+            .fixedSize()
+            .onAppear
+            {
+                demoActivatedAt = nil // Reset the demo, since it won't be needed anymore
+            }
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction)
+                {
+                    Button
+                    {
+                        dismiss()
+                        if !hasFinishedLicensingWorkflow
+                        {
+                            hasFinishedLicensingWorkflow = true // Make it so that the sheet doesn't show up all the time anymore
+                        }
+                    } label: {
+                        Text("action.close")
+                    }
+                }
+            }
         }
     }
 }

@@ -354,7 +354,7 @@ private struct DownloadingSheetContents: View
             {
             case .couldNotUnzipTempArchive(let error):
                 return String(localized: "downgrade-cork.error.could-not-unzip.\(error.localizedDescription)")
-            case .couldNotParseApplication(let error, let urlForTheUserToGetTheAppThemselves):
+            case .couldNotParseApplication(let error, _):
                 return String(localized: "downgrade-cork.error.could-not-construct-app.\(error.localizedDescription)")
             }
         }

@@ -97,116 +97,6 @@ struct Licensing_NotBoughtOrActivatedView: View
                         }
                     }
                 }
-
-                HStack(alignment: .firstTextBaseline, spacing: 10)
-                {
-                    HStack(alignment: .firstTextBaseline, spacing: 5)
-                    {
-                        ButtonThatOpensWebsites(websiteURL: URL(string: "https://corkmac.app/create-checkout-session.php")!, buttonText: "action.buy")
-                            .labelStyle(.titleOnly)
-
-                        Text("licensing.price.copy")
-                            .font(.subheadline)
-                            .foregroundColor(Color(nsColor: NSColor.systemGray))
-                    }
-
-                    Spacer()
-
-                    if let demoActivatedAt
-                    {
-                        if ((demoActivatedAt.timeIntervalSinceNow) + AppConstants.shared.demoLengthInSeconds) > 0
-                        { // Check if there is still time on the demo
-                            Button
-                            {
-                                dismiss()
-                            } label: {
-                                Text("action.close")
-                            }
-                            .keyboardShortcut(.cancelAction)
-                        }
-                        else
-                        {
-                            Button
-                            {
-                                /// Nothing should be here, since the demo cannot be activated again
-                            } label: {
-                                Text("action.activate-demo")
-                            }
-                            .disabled(isDemoButtonDisabled)
-                        }
-                    }
-                    else
-                    {
-                        Button
-                        {
-                            demoActivatedAt = .now
-                        } label: {
-                            Text("action.activate-demo")
-                        }
-                        .disabled(isDemoButtonDisabled)
-                    }
-
-                    AsyncButton
-                    {
-                        withAnimation
-                        {
-                            isCheckingLicense = true
-                        }
-
-                        defer
-                        {
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 3)
-                            {
-                                withAnimation
-                                {
-                                    isCheckingLicense = false
-                                    hasCheckingFailed = false
-                                }
-                            }
-                        }
-
-                        do
-                        {
-                            let hasSpecifiedUserBoughtCork: Bool = try await checkIfUserBoughtCork(for: emailFieldContents)
-
-                            AppConstants.shared.logger.debug("Has \(emailFieldContents) bought Cork? \(hasSpecifiedUserBoughtCork ? "YES" : "NO")")
-
-                            if hasSpecifiedUserBoughtCork
-                            {
-                                appState.licensingState = .bought
-                            }
-                            else
-                            {
-                                withAnimation
-                                {
-                                    hasCheckingFailed = true
-                                }
-                            }
-                        }
-                        catch let licenseCheckingError as CorkLicenseRetrievalError
-                        {
-                            AppConstants.shared.logger.error("\(licenseCheckingError.localizedDescription, privacy: .public)")
-
-                            switch licenseCheckingError
-                            {
-                            case .authorizationComplexNotEncodedProperly:
-                                appState.showAlert(errorToShow: .licenseCheckingFailedDueToAuthorizationComplexNotBeingEncodedProperly)
-                            case .notConnectedToTheInternet:
-                                appState.showAlert(errorToShow: .licenseCheckingFailedDueToNoInternet)
-                            case .operationTimedOut:
-                                appState.showAlert(errorToShow: .licenseCheckingFailedDueToTimeout)
-                            case .otherError(let localizedDescription):
-                                appState.showAlert(errorToShow: .licenseCheckingFailedForOtherReason(localizedDescription: localizedDescription))
-                            }
-                        }
-                    } label: {
-                        Text("action.check-license")
-                    }
-                    .keyboardShortcut(.defaultAction)
-                    .disabled(emailFieldContents.isEmpty || !emailFieldContents.contains("@") || !emailFieldContents.contains("."))
-                    .disabledWhenLoading()
-                    .asyncButtonStyle(.none)
-                }
             }
             .padding()
             .fixedSize()
@@ -220,6 +110,136 @@ struct Licensing_NotBoughtOrActivatedView: View
                     AppConstants.shared.logger.debug("Time interval since demo was activated: \(timeIntervalSinceDemoWasActivated, privacy: .public)")
                 }
             }
+            .toolbar
+            {
+                ToolbarItem(placement: .automatic)
+                {
+                    HStack(alignment: .firstTextBaseline, spacing: 5)
+                    {
+                        ButtonThatOpensWebsites(websiteURL: URL(string: "https://corkmac.app")!, buttonText: "action.buy")
+                            .labelStyle(.titleOnly)
+
+                        /*
+                        Text("licensing.price.copy")
+                            .font(.subheadline)
+                            .foregroundColor(Color(nsColor: NSColor.systemGray))
+                         */
+                    }
+                }
+                
+                ToolbarItem(placement: .cancellationAction)
+                {
+                    activateDemoButton
+                }
+                
+                ToolbarItem(placement: .confirmationAction)
+                {
+                    activateLicenseButton
+                }
+            }
         }
+    }
+    
+    @ViewBuilder
+    private var activateDemoButton: some View
+    {
+        if let demoActivatedAt
+        {
+            if ((demoActivatedAt.timeIntervalSinceNow) + AppConstants.shared.demoLengthInSeconds) > 0
+            { // Check if there is still time on the demo
+                Button
+                {
+                    dismiss()
+                } label: {
+                    Text("action.close")
+                }
+                .keyboardShortcut(.cancelAction)
+            }
+            else
+            {
+                Button
+                {
+                    /// Nothing should be here, since the demo cannot be activated again
+                } label: {
+                    Text("action.activate-demo")
+                }
+                .disabled(isDemoButtonDisabled)
+            }
+        }
+        else
+        {
+            Button
+            {
+                demoActivatedAt = .now
+            } label: {
+                Text("action.activate-demo")
+            }
+            .disabled(isDemoButtonDisabled)
+        }
+    }
+    
+    @ViewBuilder
+    private var activateLicenseButton: some View
+    {
+        AsyncButton
+        {
+            withAnimation
+            {
+                isCheckingLicense = true
+            }
+
+            defer
+            {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3)
+                {
+                    withAnimation
+                    {
+                        isCheckingLicense = false
+                        hasCheckingFailed = false
+                    }
+                }
+            }
+
+            do
+            {
+                let hasSpecifiedUserBoughtCork: Bool = try await checkIfUserBoughtCork(for: emailFieldContents)
+
+                AppConstants.shared.logger.debug("Has \(emailFieldContents) bought Cork? \(hasSpecifiedUserBoughtCork ? "YES" : "NO")")
+
+                if hasSpecifiedUserBoughtCork
+                {
+                    appState.licensingState = .bought
+                }
+                else
+                {
+                    withAnimation
+                    {
+                        hasCheckingFailed = true
+                    }
+                }
+            }
+            catch let licenseCheckingError as CorkLicenseRetrievalError
+            {
+                AppConstants.shared.logger.error("\(licenseCheckingError.localizedDescription, privacy: .public)")
+
+                switch licenseCheckingError
+                {
+                case .authorizationComplexNotEncodedProperly:
+                    appState.showAlert(errorToShow: .licenseCheckingFailedDueToAuthorizationComplexNotBeingEncodedProperly)
+                case .notConnectedToTheInternet:
+                    appState.showAlert(errorToShow: .licenseCheckingFailedDueToNoInternet)
+                case .operationTimedOut:
+                    appState.showAlert(errorToShow: .licenseCheckingFailedDueToTimeout)
+                case .otherError(let localizedDescription):
+                    appState.showAlert(errorToShow: .licenseCheckingFailedForOtherReason(localizedDescription: localizedDescription))
+                }
+            }
+        } label: {
+            Text("action.check-license")
+        }
+        .keyboardShortcut(.defaultAction)
+        .disabled(emailFieldContents.isEmpty || !emailFieldContents.contains("@") || !emailFieldContents.contains("."))
+        .disabledWhenLoading()
+        .asyncButtonStyle(.none)
     }
 }

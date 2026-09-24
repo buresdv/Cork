@@ -54100,6 +54100,7 @@
       }
     },
     "licensing.price.copy" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
