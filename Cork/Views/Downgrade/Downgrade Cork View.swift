@@ -133,20 +133,18 @@ struct DowngradeCorkView: View
                 } actions: {
                     AsyncButton
                     {
-                        do
-                        {
-                            let downloadedAvailableVersions: [CorkVersion] = try await listPreviousCorkVersions()
-                            
-                            self.availableVersionsLoadingState = .loaded(versions: downloadedAvailableVersions)
-                        }
-                        catch let availableVersionListingError
-                        {
-                            self.availableVersionsLoadingState = .failed(error: availableVersionListingError.localizedDescription)
-                        }
+                        let downloadedAvailableVersions: [CorkVersion] = try await listPreviousCorkVersions()
+                        
+                        self.availableVersionsLoadingState = .loaded(versions: downloadedAvailableVersions)
                     } label: {
                         Text("add-tap.error.action")
                     }
-                    .asyncButtonStyle(.pulse)
+                    .asyncButtonStyle(.overlay)
+                    .onButtonError
+                    { error in
+                        self.availableVersionsLoadingState = .failed(error: error.localizedDescription)
+                    }
+                    .disabledWhenLoading()
                 }
             }
         }
@@ -369,7 +367,12 @@ private struct DownloadingSheetContents: View
         let unzipTarget: URL = .temporaryDirectory.appendingPathComponent("Cork", conformingTo: .application)
         
         do {
+            AppConstants.shared.logger.info("Will unzip downloaded archive at \(locationOnDisk) to \(unzipTarget)")
+            
             try fileManager.unzipItem(at: locationOnDisk, to: unzipTarget)
+            
+            AppConstants.shared.logger.info("Unzipped downloaded app to: \(unzipTarget)")
+            
         } catch let archiveUnzippingError {
             AppConstants.shared.logger.error("Failed while unzipping the downloaded archive: \(archiveUnzippingError)")
             
@@ -378,6 +381,7 @@ private struct DownloadingSheetContents: View
         
         do
         {
+            AppConstants.shared.logger.info("Will try to initialize app from unzip target: \(unzipTarget)")
             return try .init(from: unzipTarget)
             
         } catch let applicationConstructionError {
