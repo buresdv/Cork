@@ -9,7 +9,7 @@ import Foundation
 
 public enum DataDownloadingError: LocalizedError
 {
-    case invalidResponseCode(responseCode: Int?), noDataReceived, invalidURL, couldntExecuteRequest(error: String)
+    case invalidResponseCode(responseCode: Int?), noDataReceived, invalidURL, couldntExecuteRequest(error: String), timedOut
 
     public var errorDescription: String?
     {
@@ -30,6 +30,8 @@ public enum DataDownloadingError: LocalizedError
             return String(localized: "error.data-downloading.invalid-url")
         case .couldntExecuteRequest(let error):
             return String(localized: "error.data-downloading.couldnt-execute-request.\(error)")
+        case .timedOut:
+            return String(localized: "error.data-downloading.timed-out")
         }
     }
 }
@@ -76,13 +78,17 @@ public func downloadDataFromURL(
             let responseCast: HTTPURLResponse? = response as? HTTPURLResponse
             throw DataDownloadingError.invalidResponseCode(responseCode: responseCast?.statusCode)
         }
-
+        
         if data.isEmpty
         {
             throw DataDownloadingError.noDataReceived
         }
 
         return data
+    }
+    catch let urlError as URLError where urlError.code == .timedOut
+    {
+        throw .timedOut
     }
     catch let requestExecutionError
     {

@@ -12,7 +12,6 @@ import FactoryKit
 @Observable @MainActor
 public class ServicesNavigationManager
 {
-    @CasePathable
     public enum DetailDestination: Hashable
     {
         case service(service: HomebrewService)

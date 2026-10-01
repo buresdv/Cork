@@ -44,7 +44,6 @@ func corkTarget(configureWithSelfCompiled: Bool) -> ProjectDescription.Target {
             .external(name: "FactoryKit"),
             .external(name: "Defaults"),
             .external(name: "DefaultsMacros"),
-            .external(name: "SwiftNavigation"),
             .package(product: "SwiftLintBuildToolPlugin", type: .plugin)
         ], settings: .settings(configurations: [
             .debug(
@@ -179,8 +178,7 @@ let corkModelsTarget: ProjectDescription.Target = .target(
         .target(corkNotificationsTarget),
         .external(name: "FactoryKit"),
         .external(name: "Defaults"),
-        .external(name: "DefaultsMacros"),
-        .external(name: "SwiftNavigation")
+        .external(name: "DefaultsMacros")
     ],
     settings: .settings(configurations: [
         .debug(

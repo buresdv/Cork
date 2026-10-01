@@ -145,7 +145,7 @@ public extension BrewTap
             infoRetrievalURL = .init(string: "https://packages.homebrew.corkmac.app/casks")!
         }
 
-        do
+        do throws(DataDownloadingError)
         {
             let downloadedData: Data = try await downloadDataFromURL(infoRetrievalURL)
 
@@ -155,7 +155,16 @@ public extension BrewTap
         }
         catch let jsonDownloadingError
         {
-            throw .couldNotDownloadJson(error: jsonDownloadingError)
+            if case .timedOut = jsonDownloadingError
+            {
+                appConstants.logger.error("Failed to use Speakeasy to download the needed JSON. Will use Homebrew instead")
+                
+                return try await self.loadTapJSONDataForThirdPartyTap()
+            }
+            else
+            {
+                throw .couldNotDownloadJson(error: jsonDownloadingError)
+            }
         }
     }
 
