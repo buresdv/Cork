@@ -364,7 +364,16 @@ private struct DownloadingSheetContents: View
     {
         let fileManager: FileManager = FileManager.default
         
-        let unzipTarget: URL = .temporaryDirectory.appendingPathComponent("Cork", conformingTo: .application)
+        let unzipTarget: URL = .temporaryDirectory.appendingPathComponent("Cork")
+        
+        AppConstants.shared.logger.info("Will check if we need to delete any old downloads.")
+        
+        if FileManager.default.fileExists(atPath: unzipTarget.path)
+        {
+            AppConstants.shared.logger.info("There is already an extracted executable at \(unzipTarget). Will try to remove it")
+            
+            try? FileManager.default.removeItem(at: unzipTarget)
+        }
         
         do {
             AppConstants.shared.logger.info("Will unzip downloaded archive at \(locationOnDisk) to \(unzipTarget)")
@@ -381,8 +390,11 @@ private struct DownloadingSheetContents: View
         
         do
         {
-            AppConstants.shared.logger.info("Will try to initialize app from unzip target: \(unzipTarget)")
-            return try .init(from: unzipTarget)
+            let corkAppInUnzipTarget: URL = unzipTarget.appendingPathComponent("Cork.app")
+
+            AppConstants.shared.logger.info("Will try to initialize app from unzip target: \(unzipTarget). Will attach the Cork app fragment for a final URL: \(corkAppInUnzipTarget).")
+
+            return try .init(from: corkAppInUnzipTarget)
             
         } catch let applicationConstructionError {
             AppConstants.shared.logger.error("Failed while constructing downloaded app: \(applicationConstructionError)")
