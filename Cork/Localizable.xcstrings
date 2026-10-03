@@ -265,6 +265,16 @@
         }
       }
     },
+    "%@ - %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ - %2$@"
+          }
+        }
+      }
+    },
     "%@ → %@" : {
       "localizations" : {
         "cs" : {
@@ -20020,7 +20030,6 @@
       }
     },
     "add-package.install.finished" : {
-      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -38686,14 +38695,7 @@
       }
     },
     "bothManagedAndUnmanaged" : {
-      "localizations" : {
-        "he" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "bothManagedAndUnmanaged"
-          }
-        }
-      }
+
     },
     "brewfile.export.default-export-name-%@" : {
       "localizations" : {
@@ -40574,17 +40576,54 @@
       }
     },
     "downgrade-cork.error.could-not-construct-app.%@" : {
-
+      "comment" : "Placeholder is the error produced while constructing app",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t read information about the downloaded app: %@"
+          }
+        }
+      }
     },
     "downgrade-cork.error.could-not-unzip.%@" : {
-
+      "comment" : "Placeholder is the error produced during unzipping",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t unzip the downloaded app archive: %@"
+          }
+        }
+      }
     },
     "downgrade-cork.failed.title" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn’t download the selected older version"
+          }
+        }
+      }
+    },
+    "downgrade-cork.instructions" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Drag the app to your preferred location:"
+          }
+        }
+      }
+    },
+    "downgrade-cork.listing-failed.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t load available Cork versions"
           }
         }
       }
@@ -40595,6 +40634,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Downgrade Cork…"
+          }
+        }
+      }
+    },
+    "downgrade-cork.search.prompt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Available versions"
+          }
+        }
+      }
+    },
+    "downgrade-cork.success.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Older version was successfully downloaded"
           }
         }
       }
@@ -41974,43 +42033,43 @@
       "localizations" : {
         "cs" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Server Homebrew poskytnul chybnou odezvu: %lld"
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Der Homebrew-Server hat den falschen Antwortcode zurückgegeben: %lld"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Homebrew server returned the wrong response code: %lld"
+            "value" : "Server returned the wrong response code: %lld"
           }
         },
         "en-GB" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Homebrew server returned the wrong response code: %lld"
           }
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "El servidor de Homebrew devolvió el código de respuesta incorrecto:  %lld"
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Le serveur Homebrew a retourné le mauvais code de retour: %lld"
           }
         },
         "he" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "שרת Homebrew החזיר קוד תגובה שגוי: %lld"
           }
         },
@@ -42022,19 +42081,19 @@
         },
         "it" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Il server Homebrew ha restituito il codice risposta errato: %lld"
           }
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Homebrew server returned the wrong response code: %lld"
           }
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Homebrew server returned the wrong response code: %lld"
           }
         },
@@ -42052,43 +42111,43 @@
         },
         "pt-PT" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "O servidor Homebrew devolveu o código de resposta errado: %lld"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Сервер Homebrew вернул некорректный код ответа: %lld"
           }
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Homebrew server returned the wrong response code: %lld"
           }
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Homebrew sunucusu yanlış yanıt kodu döndürdü: %lld"
           }
         },
         "uk" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Сервер Homebrew повернув неправильний код відповіді: %lld"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Homebrew 服务器返回错误 %lld"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Homebrew 伺服器返回了錯誤的回應碼：%lld"
           }
         }
@@ -42098,43 +42157,43 @@
       "localizations" : {
         "cs" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Server Homebrew odpověděl s neplatným kódem, a tento kód nebylo možné přečíst"
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Der Homebrew-Server hat einen falschen Antwortcode zurückgegeben, und der bereitgestellte Antwortcode konnte nicht ordnungsgemäß gelesen werden."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Homebrew server returned the wrong response code, and the provided response code could not be properly read"
+            "value" : "Server returned the wrong response code, and the provided response code could not be properly read"
           }
         },
         "en-GB" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Homebrew server returned the wrong response code, and the provided response code could not be properly read"
           }
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "El servidor de Homebrew devolvió el código de respuesta incorrecto, dicho código de respuesta no pudo ser leeido"
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Le serveur Homebrew a retourné le mauvais code de réponse, et le code de réponse fourni ne peut pas être correctement lu"
           }
         },
         "he" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "שרת Homebrew החזיר קוד תגובה שגוי, ולא היה ניתן לקרוא כראוי את קוד השגיאה שסופק"
           }
         },
@@ -42146,19 +42205,19 @@
         },
         "it" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Il server Homebrew ha restituito il codice risposta errato e non è stato possibile leggere quello fornito"
           }
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Homebrew server returned the wrong response code, and the provided response code could not be properly read"
           }
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Homebrew server returned the wrong response code, and the provided response code could not be properly read"
           }
         },
@@ -42176,43 +42235,43 @@
         },
         "pt-PT" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "O servidor Homebrew devolveu o código de resposta errado e este não foi devidamente lido"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Сервер Homebrew вернул некорректный код ответа, который не удалось счесть"
           }
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Homebrew server returned the wrong response code, and the provided response code could not be properly read"
           }
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Homebrew sunucusu yanlış bir yanıt kodu döndürdü ve yanıt kodu doğru bir şekilde okunamadı"
           }
         },
         "uk" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Сервер Homebrew повернув неправильний код відповіді, а наданий код відповіді не може бути правильно прочитаний"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Homebrew 服务器返回未知错误"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Homebrew 伺服器回應的狀態碼不正確，提供的回應碼無法被正常讀取"
           }
         }
@@ -48926,7 +48985,14 @@
       }
     },
     "error.tap.untap.removal-of-%@-blocked-by-unknown-packages" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t remove %@ because unknown packages from it are still installed"
+          }
+        }
+      }
     },
     "error.task-cancelled" : {
       "localizations" : {
