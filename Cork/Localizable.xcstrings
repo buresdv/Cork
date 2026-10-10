@@ -14543,6 +14543,9 @@
         }
       }
     },
+    "action.select-another-version" : {
+
+    },
     "action.show" : {
       "localizations" : {
         "cs" : {
@@ -15295,6 +15298,9 @@
           }
         }
       }
+    },
+    "action.try-again" : {
+
     },
     "action.uninstall-%@" : {
       "localizations" : {
