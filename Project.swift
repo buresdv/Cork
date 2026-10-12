@@ -81,7 +81,8 @@ let corkSharedTarget: ProjectDescription.Target = .target(
         .external(name: "Defaults"),
         .external(name: "FactoryKit"),
         .external(name: "BetterProgress"),
-        .external(name: "ZIPFoundation")
+        .external(name: "ZIPFoundation"),
+        .external(name: "DavidFoundation")
     ],
     settings: .settings(configurations: [
         .debug(
@@ -180,10 +181,12 @@ let corkModelsTarget: ProjectDescription.Target = .target(
     dependencies: [
         .target(corkSharedTarget),
         .target(corkNotificationsTarget),
+        .external(name: "ApplicationInspector"),
         .external(name: "FactoryKit"),
         .external(name: "Defaults"),
         .external(name: "DefaultsMacros"),
-        .external(name: "Subprocess")
+        .external(name: "Subprocess"),
+        .external(name: "ButtonKit")
     ],
     settings: .settings(configurations: [
         .debug(

@@ -89,7 +89,7 @@ public extension OutdatedPackagesTracker
 
         // Then we can get the updating under way
         /// Introduces an empty argument in case the updating is non-greedy
-        let rawOutput: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["outdated", updatingType.argument, "--json=v2"])
+        let rawOutput: [TerminalOutput] = await shellNonStreaming(AppConstants.shared.brewExecutablePath, ["outdated", updatingType.argument, "--json=v2"])
 
         AppConstants.shared.logger.debug("""
                 Output of outdated packages retrieval: 

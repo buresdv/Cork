@@ -47,7 +47,7 @@ struct AddTapFinishedView: View
                 .task
                 { // Force-load the packages from the new tap
                     AppConstants.shared.logger.info("Will update packages")
-                    await shell(AppConstants.shared.brewExecutablePath, ["update"])
+                    await shellNonStreaming(AppConstants.shared.brewExecutablePath, ["update"])
                 }
             }
         }

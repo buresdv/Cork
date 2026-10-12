@@ -40,11 +40,11 @@ public extension BrewPackagesTracker
 
         if !shouldRemoveAllAssociatedFiles
         {
-            uninstallCommandOutput = await shell(AppConstants.shared.brewExecutablePath, ["uninstall", package.name(withPrecision: .precise)])
+            uninstallCommandOutput = await shellNonStreaming(AppConstants.shared.brewExecutablePath, ["uninstall", package.name(withPrecision: .precise)])
         }
         else
         {
-            uninstallCommandOutput = await shell(AppConstants.shared.brewExecutablePath, ["uninstall", "--zap", package.name(withPrecision: .precise)])
+            uninstallCommandOutput = await shellNonStreaming(AppConstants.shared.brewExecutablePath, ["uninstall", "--zap", package.name(withPrecision: .precise)])
         }
 
         AppConstants.shared.logger.warning("Uninstall process Standard error: \(uninstallCommandOutput.standardErrors)")

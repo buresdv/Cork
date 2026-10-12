@@ -296,7 +296,7 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable,
 
         if self.isPinned
         {
-            let pinResult: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["unpin", self.name(withPrecision: .precise)])
+            let pinResult: [TerminalOutput] = await shellNonStreaming(AppConstants.shared.brewExecutablePath, ["unpin", self.name(withPrecision: .precise)])
 
             if pinResult.containsErrors
             {
@@ -305,7 +305,7 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable,
         }
         else
         {
-            let unpinResult: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["pin", self.name(withPrecision: .precise)])
+            let unpinResult: [TerminalOutput] = await shellNonStreaming(AppConstants.shared.brewExecutablePath, ["pin", self.name(withPrecision: .precise)])
             if unpinResult.containsErrors
             {
                 AppConstants.shared.logger.error("Error unpinning: \(unpinResult.standardErrors, privacy: .public)")

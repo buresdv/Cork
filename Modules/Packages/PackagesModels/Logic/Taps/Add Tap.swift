@@ -43,13 +43,13 @@ public extension TapTracker
         {
             appConstants.logger.info("Will use forced URL: \(forcedRepoAddress.absoluteString, privacy: .public)")
             
-            tappingOutputs = await shell(AppConstants.shared.brewExecutablePath, ["tap", tap.name(withPrecision: .full), forcedRepoAddress.absoluteString])
+            tappingOutputs = await shellNonStreaming(AppConstants.shared.brewExecutablePath, ["tap", tap.name(withPrecision: .full), forcedRepoAddress.absoluteString])
         }
         else
         {
             appConstants.logger.info("Will not use a forced URL")
             
-            tappingOutputs = await shell(AppConstants.shared.brewExecutablePath, ["tap", tap.name(withPrecision: .full)])
+            tappingOutputs = await shellNonStreaming(AppConstants.shared.brewExecutablePath, ["tap", tap.name(withPrecision: .full)])
         }
         
 

@@ -17,7 +17,7 @@ extension ServicesTracker
         serviceModificationProgress: ServiceModificationProgress
     ) async throws(ServicesFatalError)
     {
-        for await output in shell(AppConstants.shared.brewExecutablePath, ["services", "start", serviceToStart.name])
+        for await output in await shell(AppConstants.shared.brewExecutablePath, ["services", "start", serviceToStart.name])
         {
             switch output
             {

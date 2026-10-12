@@ -297,7 +297,7 @@ private extension View
             {
                 AppConstants.shared.logger.info("Started Analytics startup action at \(Date())")
 
-                async let analyticsQueryCommand: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["analytics"])
+                async let analyticsQueryCommand: [TerminalOutput] = await shellNonStreaming(AppConstants.shared.brewExecutablePath, ["analytics"])
 
                 if await analyticsQueryCommand.standardOutputs.joined().localizedCaseInsensitiveContains("Analytics are enabled")
                 {

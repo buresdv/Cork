@@ -78,7 +78,7 @@ struct TapDecodingTest
     
     private func parseTapInfoForSpeficiedTap(tapName: String) async -> TapInfo?
     {
-        let coreTapRawOutput: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["tap-info", "--json", tapName])
+        let coreTapRawOutput: [TerminalOutput] = await shellNonStreaming(AppConstants.shared.brewExecutablePath, ["tap-info", "--json", tapName])
         
         guard let tapInfoAsData: Data = coreTapRawOutput.first?.description.data(using: .utf8) else
         {

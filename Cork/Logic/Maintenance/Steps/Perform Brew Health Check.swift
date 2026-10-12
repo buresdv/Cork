@@ -25,7 +25,7 @@ enum HealthCheckError: LocalizedError
 
 func performBrewHealthCheck() async throws(HealthCheckError)
 {
-    let commandResult: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["doctor"])
+    let commandResult: [TerminalOutput] = await shellNonStreaming(AppConstants.shared.brewExecutablePath, ["doctor"])
 
     AppConstants.shared.logger.debug("Raw command result for health check: \(commandResult)")
     

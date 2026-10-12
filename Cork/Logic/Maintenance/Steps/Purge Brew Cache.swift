@@ -16,7 +16,7 @@ import CorkTerminalFunctions
 
 func purgeBrewCache() async throws -> [TerminalOutput]
 {
-    async let commandResult: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["cleanup"])
+    async let commandResult: [TerminalOutput] = await shellNonStreaming(AppConstants.shared.brewExecutablePath, ["cleanup"])
 
     return await commandResult
 }

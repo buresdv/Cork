@@ -57,7 +57,7 @@ struct ReinstallCorruptedPackageView: View
                 }
                 .task
                 {
-                    let reinstallationResult: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["reinstall", corruptedPackageToReinstall.name])
+                    let reinstallationResult: [TerminalOutput] = await shellNonStreaming(AppConstants.shared.brewExecutablePath, ["reinstall", corruptedPackageToReinstall.name])
                     AppConstants.shared.logger.debug("Reinstallation result:\nStandard output: \(reinstallationResult.standardOutputs, privacy: .public)\nStandard error:\(reinstallationResult.standardErrors, privacy: .public)")
 
                     corruptedPackageReinstallationStage = .finished

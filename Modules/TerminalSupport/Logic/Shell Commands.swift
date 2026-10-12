@@ -157,7 +157,7 @@ public extension ShellManager
         
         var newCombinedEnvironmentObjects: [EnvironmentVariable]
         
-        newCombinedEnvironmentObjects = try await self.userEnvironmentObjects() + self.processEnvironmentObjects()
+        newCombinedEnvironmentObjects = try await self.processEnvironmentObjects() + self.userEnvironmentObjects()
         
         // MARK: - Add the other mandatory env vars
         

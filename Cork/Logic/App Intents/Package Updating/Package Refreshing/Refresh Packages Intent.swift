@@ -35,7 +35,7 @@ struct RefreshPackagesIntent: AppIntent
 
     func perform() async throws -> some ReturnsValue<RefreshIntentResult>
     {
-        let refreshCommandResult: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["update"])
+        let refreshCommandResult: [TerminalOutput] = await shellNonStreaming(AppConstants.shared.brewExecutablePath, ["update"])
 
         if refreshCommandResult.containsErrors
         {

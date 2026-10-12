@@ -129,7 +129,7 @@ private extension TapTracker
         brewPackagesTracker: BrewPackagesTracker
     ) async throws(TapTracker.UntapError)
     {
-        let untapResult: [TerminalOutput] = await shell(appConstants.brewExecutablePath, ["untap", tapToRemove.name(withPrecision: .full)])
+        let untapResult: [TerminalOutput] = await shellNonStreaming(appConstants.brewExecutablePath, ["untap", tapToRemove.name(withPrecision: .full)])
 
         if untapResult.contains("Untapped", in: .standardOutputs, .standardErrors)
         {

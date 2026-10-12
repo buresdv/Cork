@@ -707,7 +707,7 @@ struct CorkApp: App
 
             Task
             {
-                var updateResult: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["update"])
+                var updateResult: [TerminalOutput] = await shellNonStreaming(AppConstants.shared.brewExecutablePath, ["update"])
 
                 AppConstants.shared.logger.debug("Update result:\nStandard output: \(updateResult.standardOutputs, privacy: .public)\nStandard error: \(updateResult.standardErrors, privacy: .public)")
 

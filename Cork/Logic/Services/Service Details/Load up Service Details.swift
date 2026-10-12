@@ -22,7 +22,7 @@ extension HomebrewService
             self.isLoadingDetails = false
         }
 
-        let rawOutput: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["services", "info", self.name, "--json"])
+        let rawOutput: [TerminalOutput] = await shellNonStreaming(AppConstants.shared.brewExecutablePath, ["services", "info", self.name, "--json"])
 
         let decoder: JSONDecoder = {
             let decoder: JSONDecoder = .init()

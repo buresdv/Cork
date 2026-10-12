@@ -58,7 +58,7 @@ extension OutdatedPackagesTracker
         
         var processError: UpdateAllPackagesView.CompleteUpdatingError?
 
-        for await output in shell(AppConstants.shared.brewExecutablePath, ["upgrade", includeGreedyPackages ? "--greedy" : ""])
+        for await output in await shell(AppConstants.shared.brewExecutablePath, ["upgrade", includeGreedyPackages ? "--greedy" : ""])
         {
             updateProgressTracker.insertOutput(output)
 

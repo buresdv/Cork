@@ -9,16 +9,18 @@ import Defaults
 import Foundation
 
 public final class EnvironmentVariable: Identifiable, Codable, Hashable, Defaults.Serializable, Sendable
-{    
-    public static func == (lhs: borrowing EnvironmentVariable, rhs: borrowing EnvironmentVariable) -> Bool {
+{
+    public static func == (lhs: borrowing EnvironmentVariable, rhs: borrowing EnvironmentVariable) -> Bool
+    {
         lhs.key == rhs.key && lhs.value == rhs.value
     }
-    
-    public func hash(into hasher: inout Hasher) {
+
+    public func hash(into hasher: inout Hasher)
+    {
         hasher.combine(self.key)
         hasher.combine(self.value)
     }
-    
+
     public let id: UUID
 
     public let key: String
@@ -48,9 +50,11 @@ public extension [String: String]
 {
     init(environmentVariables: [EnvironmentVariable])
     {
-        self.init(environmentVariables: environmentVariables.map
-        { environmentVariable in
-            .init(key: environmentVariable.key, value: environmentVariable.value)
-        })
+        self.init()
+
+        for environmentVariable in environmentVariables
+        {
+            self[environmentVariable.key] = environmentVariable.value
+        }
     }
 }
