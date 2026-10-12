@@ -96,6 +96,8 @@ public extension DisplayableAlert
             return BrewPackage.PackageLoadingError.triedToThreatFolderContainingPackagesAsPackage(packageType: packageType).localizedDescription
         case .couldNotDeleteCachedDownloads(let associatedError):
             return associatedError
+        case .couldNotRemoveQuarantine(let error):
+            return error
         }
     }
 }

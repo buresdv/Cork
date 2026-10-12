@@ -647,7 +647,9 @@ private extension View
 
                 case .tapLoadingFailedDueToTapItself:
                     EmptyView()
-                case .couldNotDeleteCachedDownloads(error: let error):
+                case .couldNotDeleteCachedDownloads:
+                    EmptyView()
+                case .couldNotRemoveQuarantine:
                     EmptyView()
                 }
             } message: { error in

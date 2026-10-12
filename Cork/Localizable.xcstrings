@@ -13102,6 +13102,26 @@
         }
       }
     },
+    "action.remove-quarantine" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remove quarantine…"
+          }
+        }
+      }
+    },
+    "action.remove-quarantine.for-executable-%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remove %@ from quarantine"
+          }
+        }
+      }
+    },
     "action.repair-%@" : {
       "localizations" : {
         "cs" : {
@@ -37254,6 +37274,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ 已損毀"
+          }
+        }
+      }
+    },
+    "alert.quarantine-removal-failed.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t remove quarantine"
           }
         }
       }
@@ -71058,6 +71088,46 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "取消鎖定 %@ 版本"
+          }
+        }
+      }
+    },
+    "package-details.cask.warning.is-quarantined" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The app linked to this Cask is quarantined"
+          }
+        }
+      }
+    },
+    "package-details.cask.warning.is-quarantined.confirmation.explanation" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quarantine is a safety feature designed to protect you from viruses.\nBy removing the app from quarantine, you take full responsibility for what the app might do to your Mac."
+          }
+        }
+      }
+    },
+    "package-details.cask.warning.is-quarantined.confirmation.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Are you sure you want to remove the linked app from quarantine?"
+          }
+        }
+      }
+    },
+    "package-details.cask.warning.is-quarantined.explanation" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To resolve this warning, try opening the app. Then reopen the detail.\nIf the warning does not disappear, try forcefully removing the app from system quarantine."
           }
         }
       }

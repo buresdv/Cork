@@ -9,9 +9,12 @@ import CorkShared
 import Defaults
 import SwiftUI
 import CorkModels
+import ApplicationInspector
 
 struct BasicPackageInfoView: View
 {
+    @Environment(\.caskApplication) var caskApplication
+    
     @Default(.caveatDisplayOptions) var caveatDisplayOptions: PackageCaveatDisplay
 
     let package: BrewPackage
@@ -49,10 +52,16 @@ struct BasicPackageInfoView: View
         {
             return true
         }
-        else
+        
+        if let caskApplication
         {
-            return false
+            if caskApplication.isQuarantined
+            {
+                return true
+            }
         }
+        
+        return false
     }
 
     var body: some View
@@ -80,6 +89,8 @@ struct BasicPackageInfoView: View
                 )
                 
                 PackageWarningsView(warnings: packageDetails.warnings)
+                
+                CaskExecutableWarnings()
 
                 PackageCaveatFullDisplayView(
                     caveats: packageDetails.caveats,

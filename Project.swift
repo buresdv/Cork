@@ -37,6 +37,7 @@ func corkTarget(configureWithSelfCompiled: Bool) -> ProjectDescription.Target {
             .target(corkTerminalFunctionsTarget),
             .target(corkIntentsTarget),
             .target(corkFeature_brewfiles),
+            .target(corkFeature_xattrHandling),
             .external(name: "LaunchAtLogin"),
             .external(name: "DavidFoundation"),
             .external(name: "ApplicationInspector"),
@@ -217,6 +218,39 @@ let corkIntentsTarget: ProjectDescription.Target = .target(
     ])
 )
 
+let corkFeature_xattrHandling: ProjectDescription.Target = .target(
+    name: "CorkFeature_XattrHandling",
+    destinations: [.mac],
+    product: .staticLibrary,
+    bundleId: "eu.davidbures.cork-feature.xattr-handling",
+    deploymentTargets: .macOS("14.0.0"),
+    sources: [
+        "Modules/Features/XATTR Handling/**/*.swift"
+    ],
+    resources: [
+        "Cork/**/*.xcassets",
+        "Cork/**/*.xcstrings",
+        "PrivacyInfo.xcprivacy",
+    ],
+    dependencies: [
+        .target(corkSharedTarget),
+        .external(name: "FactoryKit"),
+        .external(name: "Defaults"),
+        .external(name: "DefaultsMacros"),
+        .external(name: "XAttr")
+    ],
+    settings: .settings(configurations: [
+        .debug(
+            name: "Debug",
+            xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
+        ),
+        .release(
+            name: "Release",
+            xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
+        )
+    ])
+)
+
 let corkFeature_brewfiles: ProjectDescription.Target = .target(
     name: "CorkFeature_Brewfiles",
     destinations: [.mac],
@@ -314,6 +348,7 @@ let project = Project(
         corkNotificationsTarget,
         corkHelpTarget,
         corkFeature_brewfiles,
+        corkFeature_xattrHandling,
         corkTestsTarget,
         corkTerminalFunctionsTestsTarget
     ]

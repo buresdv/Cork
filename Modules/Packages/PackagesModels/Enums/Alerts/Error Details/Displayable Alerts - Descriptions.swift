@@ -90,6 +90,8 @@ public extension DisplayableAlert
             return String(localized: "alert.homebrew-broken.title")
         case .couldNotDeleteCachedDownloads:
             return String(localized: "alert.cache-deletion-failed.title")
+        case .couldNotRemoveQuarantine:
+            return String(localized: "alert.quarantine-removal-failed.title")
         }
     }
 }
