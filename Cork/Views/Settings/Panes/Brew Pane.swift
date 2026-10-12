@@ -95,6 +95,8 @@ struct BrewPane: View
                 }
 
                 CustomHomebrewExecutableView()
+                
+                CustomEnvVariablesView()
             }
         }
     }
