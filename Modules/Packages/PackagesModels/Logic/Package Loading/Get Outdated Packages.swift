@@ -85,7 +85,7 @@ public extension OutdatedPackagesTracker
     ) async throws -> Set<OutdatedPackage>
     {
         // First, we have to pull the newest updates
-        await shell(AppConstants.shared.brewExecutablePath, ["update"])
+        await shellNonStreaming(AppConstants.shared.brewExecutablePath, ["update"])
 
         // Then we can get the updating under way
         /// Introduces an empty argument in case the updating is non-greedy

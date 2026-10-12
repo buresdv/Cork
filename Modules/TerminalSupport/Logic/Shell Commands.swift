@@ -227,7 +227,7 @@ public extension Container
 }
 
 @discardableResult
-public func shell(
+public func shellNonStreaming(
     _ launchPath: URL,
     _ arguments: [String],
     environment: [EnvironmentVariable]? = nil,
@@ -243,8 +243,24 @@ public func shell(
         AppConstants.shared.logger.info("Working directory configured: \(workingDirectory)")
         task.currentDirectoryURL = workingDirectory
     }
+    
+    // MARK: - Set up the environment
+    var finalEnvironment: [EnvironmentVariable]?
+    
+    if let environment
+    {
+        finalEnvironment = try? await Container.shared.shellManager.resolve().combinedEnvironmentObjects() + environment
+    }
+    else
+    {
+        finalEnvironment = try? await Container.shared.shellManager.resolve().combinedEnvironmentObjects()
+    }
 
-    task.environment = finalEnvironment
+    if let finalEnvironment
+    {
+        task.environment = .init(environmentVariables: finalEnvironment)
+    }
+    
     task.launchPath = launchPath.path
 
     /// Filter out empty things from the arguments so they don't fuck it up
@@ -352,45 +368,11 @@ public func shell(
 public func shell(
     _ launchPath: URL,
     _ arguments: [String],
-    environment _: [String: String]? = nil,
+    environment: [EnvironmentVariable]? = nil,
     workingDirectory: URL? = nil
-) -> AsyncStream<TerminalOutput>
+) async -> AsyncStream<TerminalOutput>
 {
     let task: Process = .init()
-
-    var finalEnvironment: [String: String] = ProcessInfo.processInfo.environment
-
-    // Disable trust until I can implement a UI for it
-    // TODO: Implement trusting and remove this
-    finalEnvironment["HOMEBREW_NO_REQUIRE_TAP_TRUST"] = "1"
-
-    // MARK: - Set up mirrors if the environment variables exist
-
-    if let brewApiDomain = ProcessInfo.processInfo.environment["HOMEBREW_API_DOMAIN"]
-    {
-        finalEnvironment["HOMEBREW_API_DOMAIN"] = brewApiDomain
-    }
-    if let brewBottleDomain = ProcessInfo.processInfo.environment["HOMEBREW_BOTTLE_DOMAIN"]
-    {
-        finalEnvironment["HOMEBREW_BOTTLE_DOMAIN"] = brewBottleDomain
-    }
-
-    // MARK: - Set up proxy if it's enabled
-
-    if let proxySettings = AppConstants.shared.proxySettings
-    {
-        AppConstants.shared.logger.info("Proxy is enabled")
-        finalEnvironment["ALL_PROXY"] = "\(proxySettings.host):\(proxySettings.port)"
-    }
-
-    // MARK: - Block automatic cleanup is configured
-
-    if !UserDefaults.standard.bool(forKey: "isAutomaticCleanupEnabled")
-    {
-        finalEnvironment["HOMEBREW_NO_INSTALL_CLEANUP"] = "TRUE"
-    }
-
-    // AppConstants.shared.logger.debug("Final environment: \(finalEnvironment)")
 
     // MARK: - Set working directory if provided
 
@@ -399,13 +381,25 @@ public func shell(
         AppConstants.shared.logger.info("Working directory configured: \(workingDirectory)")
         task.currentDirectoryURL = workingDirectory
     }
+    
+    // MARK: - Set up the environment
+    var finalEnvironment: [EnvironmentVariable]?
+    
+    if let environment
+    {
+        finalEnvironment = try? await Container.shared.shellManager.resolve().combinedEnvironmentObjects() + environment
+    }
+    else
+    {
+        finalEnvironment = try? await Container.shared.shellManager.resolve().combinedEnvironmentObjects()
+    }
 
-    let sudoHelperURL: URL = Bundle.main.resourceURL!.appendingPathComponent("Sudo Helper", conformingTo: .executable)
-
-    finalEnvironment["SUDO_ASKPASS"] = sudoHelperURL.path
-
-    task.environment = finalEnvironment
-    task.launchPath = launchPath.absoluteString
+    if let finalEnvironment
+    {
+        task.environment = .init(environmentVariables: finalEnvironment)
+    }
+    
+    task.launchPath = launchPath.path
 
     /// Filter out empty things from the arguments so they don't fuck it up
     task.arguments = arguments.filter { $0 != "" }
@@ -502,53 +496,38 @@ public func shell(
 public func shell(
     _ launchPath: URL,
     _ arguments: [String],
-    environment _: [String: String]? = nil,
+    environment: [EnvironmentVariable]? = nil,
     workingDirectory: URL? = nil
-) -> (stream: AsyncStream<TerminalOutput>, process: Process)
+) async -> (stream: AsyncStream<TerminalOutput>, process: Process)
 {
     let task: Process = .init()
 
-    var finalEnvironment: [String: String] = ProcessInfo.processInfo.environment
-    finalEnvironment["HOMEBREW_NO_REQUIRE_TAP_TRUST"] = "1"
-
-    if let brewApiDomain = ProcessInfo.processInfo.environment["HOMEBREW_API_DOMAIN"]
-    {
-        finalEnvironment["HOMEBREW_API_DOMAIN"] = brewApiDomain
-    }
-    if let brewBottleDomain = ProcessInfo.processInfo.environment["HOMEBREW_BOTTLE_DOMAIN"]
-    {
-        finalEnvironment["HOMEBREW_BOTTLE_DOMAIN"] = brewBottleDomain
-    }
-
-    if let proxySettings = AppConstants.shared.proxySettings
-    {
-        AppConstants.shared.logger.info("Proxy is enabled")
-        finalEnvironment["ALL_PROXY"] = "\(proxySettings.host):\(proxySettings.port)"
-    }
-
-    if Defaults[.isAutomaticCleanupEnabled]
-    {
-        finalEnvironment["HOMEBREW_NO_INSTALL_CLEANUP"] = "TRUE"
-    }
-
-    if UserDefaults.standard.bool(forKey: "automaticallyAcceptEULA")
-    {
-        finalEnvironment["HOMEBREW_ACCEPT_EULA"] = "Y"
-    }
-
-    // AppConstants.shared.logger.debug("Final environment: \(finalEnvironment)")
+    // MARK: - Set working directory if provided
 
     if let workingDirectory
     {
         AppConstants.shared.logger.info("Working directory configured: \(workingDirectory)")
         task.currentDirectoryURL = workingDirectory
     }
+    
+    // MARK: - Set up the environment
+    var finalEnvironment: [EnvironmentVariable]?
+    
+    if let environment
+    {
+        finalEnvironment = try? await Container.shared.shellManager.resolve().combinedEnvironmentObjects() + environment
+    }
+    else
+    {
+        finalEnvironment = try? await Container.shared.shellManager.resolve().combinedEnvironmentObjects()
+    }
 
-    let sudoHelperURL: URL = Bundle.main.resourceURL!.appendingPathComponent("Sudo Helper", conformingTo: .executable)
-    finalEnvironment["SUDO_ASKPASS"] = sudoHelperURL.path
-
-    task.environment = finalEnvironment
-    task.launchPath = launchPath.absoluteString
+    if let finalEnvironment
+    {
+        task.environment = .init(environmentVariables: finalEnvironment)
+    }
+    
+    task.launchPath = launchPath.path
     task.arguments = arguments.filter { $0 != "" }
 
     let pipe: Pipe = .init()

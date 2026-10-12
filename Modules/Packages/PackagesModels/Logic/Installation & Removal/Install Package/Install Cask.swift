@@ -20,7 +20,7 @@ extension InstallationProgressTracker
         AppConstants.shared.logger.info("Package is Cask")
         AppConstants.shared.logger.debug("Installing package \(caskToInstall.name(withPrecision: .precise), privacy: .public)")
 
-        let (stream, process): (AsyncStream<TerminalOutput>, Process) = shell(AppConstants.shared.brewExecutablePath, ["install", "--cask", caskToInstall.name(withPrecision: .precise)])
+        let (stream, process): (AsyncStream<TerminalOutput>, Process) = await shell(AppConstants.shared.brewExecutablePath, ["install", "--cask", caskToInstall.name(withPrecision: .precise)])
         installationProcess = process
 
         var consolidatedUnimplementedOutput: [TerminalOutput] = .init()

@@ -21,7 +21,7 @@ extension InstallationProgressTracker
 
         var packageDependencies: [String] = .init()
 
-        let (stream, process): (AsyncStream<TerminalOutput>, Process) = shell(AppConstants.shared.brewExecutablePath, ["install", formulaToInstall.name(withPrecision: .precise)])
+        let (stream, process): (AsyncStream<TerminalOutput>, Process) = await shell(AppConstants.shared.brewExecutablePath, ["install", formulaToInstall.name(withPrecision: .precise)])
         installationProcess = process
 
         var consolidatedUnimplementedOutput: [TerminalOutput] = .init()
