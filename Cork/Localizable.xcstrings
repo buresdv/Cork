@@ -10284,6 +10284,7 @@
       }
     },
     "action.delete" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -12191,6 +12192,9 @@
           }
         }
       }
+    },
+    "action.preview-env-variables" : {
+
     },
     "action.preview-package-app-would-be-adopted-as.%@" : {
       "comment" : "A context menu item that previews the app that would be adopted. The argument is a localized string describing the app that would be adopted.",
@@ -83475,7 +83479,27 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Show inherited Environment variables"
+            "value" : "Show variables inherited from the Cork process"
+          }
+        }
+      }
+    },
+    "settings.brew.custom-env-variables.show-mandatory-variables.toggle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show mandatory variables"
+          }
+        }
+      }
+    },
+    "settings.brew.custom-env-variables.show-user-variables.toggle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show variables inherited from your user"
           }
         }
       }
@@ -83552,7 +83576,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Inherited Environment Variables"
+            "value" : "Inherited variables"
           }
         }
       }
@@ -83565,6 +83589,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Key"
+          }
+        }
+      }
+    },
+    "settings.brew.custom-env.variables.mandatory.label" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mandatory variables"
+          }
+        }
+      }
+    },
+    "settings.brew.custom-env.variables.user-inherited.label" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "User-inherited variables"
           }
         }
       }

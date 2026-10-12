@@ -22,6 +22,9 @@ public actor ShellManager
     private var cachedProcessEnvironmentObjects: [EnvironmentVariable]?
     private var cachedProcessEnvironmentDictionary: [String: String]?
     
+    private var cachedMandatoryEnvironmentObjects: [EnvironmentVariable]?
+    private var cachedMandatoryEnvironmentDictionary: [String: String]?
+    
     private var cachedCombinedEnvironmentObjects: [EnvironmentVariable]?
     private var cachedCombinedEnvironmentDictionary: [String: String]?
     
@@ -140,6 +143,43 @@ public extension ShellManager
         cachedProcessEnvironmentDictionary = newProcessEnvironmentDictionary
         
         return newProcessEnvironmentDictionary
+    }
+}
+
+public extension ShellManager
+{
+    func mandatoryEnvironmentObjects() -> [EnvironmentVariable]
+    {
+        if let cachedMandatoryEnvironmentObjects
+        {
+            appConstants.logger.debug("Hit cache for mandatory environment objects")
+            
+            return cachedMandatoryEnvironmentObjects
+        }
+        
+        var newMandatoryEnvironmentObjects: [EnvironmentVariable] = [EnvironmentVariable]()
+        
+        newMandatoryEnvironmentObjects.addMandatoryEnvironmentVariables()
+        
+        cachedMandatoryEnvironmentObjects = newMandatoryEnvironmentObjects
+        
+        return newMandatoryEnvironmentObjects
+    }
+    
+    func mandatoryEnvironmentDictionary() -> [String: String]
+    {
+        if let cachedMandatoryEnvironmentDictionary
+        {
+            appConstants.logger.debug("Hit cache for mandatory environment dictionary")
+            
+            return cachedMandatoryEnvironmentDictionary
+        }
+        
+        let newMandatoryEnvironmentDictionary: [String: String] = .init(environmentVariables: self.mandatoryEnvironmentObjects())
+        
+        cachedMandatoryEnvironmentDictionary = newMandatoryEnvironmentDictionary
+        
+        return newMandatoryEnvironmentDictionary
     }
 }
 
