@@ -8,6 +8,7 @@
 import Foundation
 import CorkShared
 import CorkTerminalFunctions
+import Subprocess
 
 public extension BrewPackagesTracker
 {

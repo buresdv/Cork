@@ -51,6 +51,7 @@ struct CustomEnvVariablesView: View
                                 }
                         }
                     } header: {
+                        /*
                         HStack(alignment: .center)
                         {
                             Text("settings.brew.custom-env.variables.custom.label")
@@ -100,7 +101,9 @@ struct CustomEnvVariablesView: View
                                     }
                                 }
                             }
+                         
                         }
+                         */
                     }
 
                     if showInheritedEnvVariables

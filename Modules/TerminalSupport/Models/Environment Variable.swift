@@ -8,12 +8,21 @@
 import Defaults
 import Foundation
 
-public class EnvironmentVariable: Identifiable, Codable, Defaults.Serializable
-{
-    public var id: UUID
+public final class EnvironmentVariable: Identifiable, Codable, Hashable, Defaults.Serializable, Sendable
+{    
+    public static func == (lhs: borrowing EnvironmentVariable, rhs: borrowing EnvironmentVariable) -> Bool {
+        lhs.key == rhs.key && lhs.value == rhs.value
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(self.key)
+        hasher.combine(self.value)
+    }
+    
+    public let id: UUID
 
-    public var key: String
-    public var value: String
+    public let key: String
+    public let value: String
 
     public init(key: String, value: String)
     {

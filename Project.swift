@@ -45,6 +45,7 @@ func corkTarget(configureWithSelfCompiled: Bool) -> ProjectDescription.Target {
             .external(name: "FactoryKit"),
             .external(name: "Defaults"),
             .external(name: "DefaultsMacros"),
+            .external(name: "Subprocess"),
             .package(product: "SwiftLintBuildToolPlugin", type: .plugin)
         ], settings: .settings(configurations: [
             .debug(
@@ -132,6 +133,7 @@ let corkTerminalFunctionsTarget: ProjectDescription.Target = .target(
     ],
     dependencies: [
         .target(corkSharedTarget),
+        .external(name: "Subprocess"),
         .external(name: "FactoryKit")
     ],
     settings: .settings(configurations: [
@@ -180,7 +182,8 @@ let corkModelsTarget: ProjectDescription.Target = .target(
         .target(corkNotificationsTarget),
         .external(name: "FactoryKit"),
         .external(name: "Defaults"),
-        .external(name: "DefaultsMacros")
+        .external(name: "DefaultsMacros"),
+        .external(name: "Subprocess")
     ],
     settings: .settings(configurations: [
         .debug(
