@@ -16,6 +16,8 @@ struct Onboarding_FeaturesView: View
     
     @Environment(\.dismiss) var dismiss: DismissAction
     
+    @Default(.hasFinishedOnboarding) var hasFinishedOnboarding: Bool
+    
     @Default(.showRealTimeTerminalOutputOfOperations) var showRealTimeTerminalOutputOfOperations: Bool
     @Default(.allowMoreCompleteUninstallations) var allowMoreCompleteUninstallations: Bool
 
@@ -45,6 +47,8 @@ struct Onboarding_FeaturesView: View
     @Default(.outdatedPackageInfoDisplayAmount) var outdatedPackageInfoDisplayAmount: OutdatedPackageInfoAmount
     @Default(.showOldVersionsInOutdatedPackageList) var showOldVersionsInOutdatedPackageList: Bool
     
+    @Default(.hasFinishedLicensingWorkflow) var hasFinishedLicensingWorkflow: Bool
+    
     @State private var areDetailsExpanded: Bool = false
     
     @Binding var onboardingSetupLevelNumber: Float
@@ -53,19 +57,6 @@ struct Onboarding_FeaturesView: View
     var body: some View
     {
         VStack(alignment: .center, spacing: 20, content: {
-            Image(nsImage: NSImage(named: "AppIcon") ?? NSImage())
-                .resizable()
-                .frame(width: 100, height: 100)
-
-            if !areDetailsExpanded
-            {
-                VStack(alignment: .center, spacing: 5, content: {
-                    Text("onboarding.title")
-                        .font(.title)
-
-                    Text("onboarding.subtitle")
-                })
-            }
 
             VStack(alignment: .leading, spacing: 10, content: {
                 OnboardingDefaultsSlider(setupLevel: $onboardingSetupLevel, sliderValue: $onboardingSetupLevelNumber)
@@ -101,19 +92,13 @@ struct Onboarding_FeaturesView: View
                 .betterDisclosureGroupStyle()
             })
         })
-        .navigationTitle("onboarding.title")
         .animation(.none, value: areDetailsExpanded)
-        .toolbar {
+        .toolbar
+        {
             ToolbarItem(placement: .primaryAction)
             {
                 Button
                 {
-                    /// First, purge all the current defaults if there are any
-                    if let bundleID = Bundle.main.bundleIdentifier
-                    {
-                        UserDefaults.standard.removePersistentDomain(forName: bundleID)
-                    }
-
                     /// Now, do all the setup
                     if onboardingSetupLevelNumber >= 1
                     {
@@ -157,13 +142,13 @@ struct Onboarding_FeaturesView: View
 
                     AppConstants.shared.logger.info("Onboarding finished")
 
-                    onboardingNavigationManager.navigate(to: .corkPermissions)
+                    hasFinishedOnboarding = true
                 } label: {
-                    Text("action.continue")
+                    Text("action.done")
                 }
                 .keyboardShortcut(.defaultAction)
-                //.controlSize(.large)
             }
+            
         }
     }
 }

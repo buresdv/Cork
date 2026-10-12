@@ -29,7 +29,7 @@ public enum DataDownloadingError: LocalizedError
         case .invalidURL:
             return String(localized: "error.data-downloading.invalid-url")
         case .couldntExecuteRequest(let error):
-            return String(localized: "error.data-downloading.couldnt-execute-request.\(error)")
+            return error
         case .timedOut:
             return String(localized: "error.data-downloading.timed-out")
         }
@@ -39,6 +39,7 @@ public enum DataDownloadingError: LocalizedError
 public func downloadDataFromURL(
     _ url: URL,
     parameters: [URLQueryItem]? = nil,
+    headers: [AnyHashable: Any]? = nil,
     cachingPolicy: URLRequest.CachePolicy = .useProtocolCachePolicy
 ) async throws(DataDownloadingError) -> Data
 {
@@ -51,7 +52,9 @@ public func downloadDataFromURL(
             kCFNetworkProxiesHTTPProxy: AppConstants.shared.proxySettings!.host
         ] as [AnyHashable: Any]
     }
-
+    
+    sessionConfiguration.httpAdditionalHeaders = headers
+    
     let session: URLSession = .init(configuration: sessionConfiguration)
 
     var urlComponents: URLComponents? = .init(url: url, resolvingAgainstBaseURL: false)

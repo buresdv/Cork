@@ -265,6 +265,16 @@
         }
       }
     },
+    "%@ - %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ - %2$@"
+          }
+        }
+      }
+    },
     "%@ → %@" : {
       "localizations" : {
         "cs" : {
@@ -8998,6 +9008,17 @@
         }
       }
     },
+    "action.back" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Back"
+          }
+        }
+      }
+    },
     "action.buy" : {
       "localizations" : {
         "cs" : {
@@ -9996,7 +10017,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Continue…"
+            "value" : "Continue"
           }
         }
       }
@@ -10250,7 +10271,6 @@
       }
     },
     "action.done" : {
-      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -10370,6 +10390,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "完成"
+          }
+        }
+      }
+    },
+    "action.download" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Download…"
           }
         }
       }
@@ -13133,26 +13163,6 @@
         }
       }
     },
-    "action.remove-quarantine" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Remove quarantine…"
-          }
-        }
-      }
-    },
-    "action.remove-quarantine.for-executable-%@" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Remove %@ from quarantine"
-          }
-        }
-      }
-    },
     "action.repair-%@" : {
       "localizations" : {
         "cs" : {
@@ -14523,6 +14533,19 @@
         }
       }
     },
+    "action.see-on-github" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open on GitHub…"
+          }
+        }
+      }
+    },
+    "action.select-another-version" : {
+
+    },
     "action.show" : {
       "localizations" : {
         "cs" : {
@@ -15275,6 +15298,9 @@
           }
         }
       }
+    },
+    "action.try-again" : {
+
     },
     "action.uninstall-%@" : {
       "localizations" : {
@@ -20010,7 +20036,6 @@
       }
     },
     "add-package.install.finished" : {
-      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -37309,16 +37334,6 @@
         }
       }
     },
-    "alert.quarantine-removal-failed.title" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Couldn’t remove quarantine"
-          }
-        }
-      }
-    },
     "alert.restart-or-reinstall" : {
       "localizations" : {
         "cs" : {
@@ -38686,14 +38701,7 @@
       }
     },
     "bothManagedAndUnmanaged" : {
-      "localizations" : {
-        "he" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "bothManagedAndUnmanaged"
-          }
-        }
-      }
+
     },
     "brewfile.export.default-export-name-%@" : {
       "localizations" : {
@@ -40568,7 +40576,90 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cork in an independent product not affiliated with Homebrew"
+            "value" : "Cork is an independent product not affiliated with Homebrew."
+          }
+        }
+      }
+    },
+    "downgrade-cork.error.could-not-construct-app.%@" : {
+      "comment" : "Placeholder is the error produced while constructing app",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t read information about the downloaded app: %@"
+          }
+        }
+      }
+    },
+    "downgrade-cork.error.could-not-unzip.%@" : {
+      "comment" : "Placeholder is the error produced during unzipping",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t unzip the downloaded app archive: %@"
+          }
+        }
+      }
+    },
+    "downgrade-cork.failed.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t download the selected older version"
+          }
+        }
+      }
+    },
+    "downgrade-cork.instructions" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Drag the app to your preferred location:"
+          }
+        }
+      }
+    },
+    "downgrade-cork.listing-failed.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t load available Cork versions"
+          }
+        }
+      }
+    },
+    "downgrade-cork.open-window.label" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Downgrade Cork…"
+          }
+        }
+      }
+    },
+    "downgrade-cork.search.prompt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Available versions"
+          }
+        }
+      }
+    },
+    "downgrade-cork.success.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Older version was successfully downloaded"
           }
         }
       }
@@ -41948,43 +42039,43 @@
       "localizations" : {
         "cs" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Server Homebrew poskytnul chybnou odezvu: %lld"
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Der Homebrew-Server hat den falschen Antwortcode zurückgegeben: %lld"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Homebrew server returned the wrong response code: %lld"
+            "value" : "Server returned the wrong response code: %lld"
           }
         },
         "en-GB" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Homebrew server returned the wrong response code: %lld"
           }
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "El servidor de Homebrew devolvió el código de respuesta incorrecto:  %lld"
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Le serveur Homebrew a retourné le mauvais code de retour: %lld"
           }
         },
         "he" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "שרת Homebrew החזיר קוד תגובה שגוי: %lld"
           }
         },
@@ -41996,19 +42087,19 @@
         },
         "it" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Il server Homebrew ha restituito il codice risposta errato: %lld"
           }
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Homebrew server returned the wrong response code: %lld"
           }
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Homebrew server returned the wrong response code: %lld"
           }
         },
@@ -42026,43 +42117,43 @@
         },
         "pt-PT" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "O servidor Homebrew devolveu o código de resposta errado: %lld"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Сервер Homebrew вернул некорректный код ответа: %lld"
           }
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Homebrew server returned the wrong response code: %lld"
           }
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Homebrew sunucusu yanlış yanıt kodu döndürdü: %lld"
           }
         },
         "uk" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Сервер Homebrew повернув неправильний код відповіді: %lld"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Homebrew 服务器返回错误 %lld"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Homebrew 伺服器返回了錯誤的回應碼：%lld"
           }
         }
@@ -42072,43 +42163,43 @@
       "localizations" : {
         "cs" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Server Homebrew odpověděl s neplatným kódem, a tento kód nebylo možné přečíst"
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Der Homebrew-Server hat einen falschen Antwortcode zurückgegeben, und der bereitgestellte Antwortcode konnte nicht ordnungsgemäß gelesen werden."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Homebrew server returned the wrong response code, and the provided response code could not be properly read"
+            "value" : "Server returned the wrong response code, and the provided response code could not be properly read"
           }
         },
         "en-GB" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Homebrew server returned the wrong response code, and the provided response code could not be properly read"
           }
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "El servidor de Homebrew devolvió el código de respuesta incorrecto, dicho código de respuesta no pudo ser leeido"
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Le serveur Homebrew a retourné le mauvais code de réponse, et le code de réponse fourni ne peut pas être correctement lu"
           }
         },
         "he" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "שרת Homebrew החזיר קוד תגובה שגוי, ולא היה ניתן לקרוא כראוי את קוד השגיאה שסופק"
           }
         },
@@ -42120,19 +42211,19 @@
         },
         "it" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Il server Homebrew ha restituito il codice risposta errato e non è stato possibile leggere quello fornito"
           }
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Homebrew server returned the wrong response code, and the provided response code could not be properly read"
           }
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Homebrew server returned the wrong response code, and the provided response code could not be properly read"
           }
         },
@@ -42150,43 +42241,43 @@
         },
         "pt-PT" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "O servidor Homebrew devolveu o código de resposta errado e este não foi devidamente lido"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Сервер Homebrew вернул некорректный код ответа, который не удалось счесть"
           }
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Homebrew server returned the wrong response code, and the provided response code could not be properly read"
           }
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Homebrew sunucusu yanlış bir yanıt kodu döndürdü ve yanıt kodu doğru bir şekilde okunamadı"
           }
         },
         "uk" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Сервер Homebrew повернув неправильний код відповіді, а наданий код відповіді не може бути правильно прочитаний"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Homebrew 服务器返回未知错误"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Homebrew 伺服器回應的狀態碼不正確，提供的回應碼無法被正常讀取"
           }
         }
@@ -42436,16 +42527,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "從 Homebrew 伺服器獲取熱門套件時未收到任何資料"
-          }
-        }
-      }
-    },
-    "error.data-downloading.timed-out" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Download timed out"
           }
         }
       }
@@ -48910,7 +48991,14 @@
       }
     },
     "error.tap.untap.removal-of-%@-blocked-by-unknown-packages" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t remove %@ because unknown packages from it are still installed"
+          }
+        }
+      }
     },
     "error.task-cancelled" : {
       "localizations" : {
@@ -49662,6 +49750,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Some packages might have files that are not usually accessible.\nFor Cork to manage them properly, it needs your permission."
+          }
+        }
+      }
+    },
+    "fix-permissions.explanation.instructions" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Drag the icon below into „Full Disk Access“ pane of System Settings."
+          }
+        }
+      }
+    },
+    "fix-permissions.explanation.instructions.step-1.text" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open System Settings"
           }
         }
       }
@@ -54062,6 +54172,7 @@
       }
     },
     "licensing.price.copy" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -70335,43 +70446,43 @@
       "localizations" : {
         "cs" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Zdraví vás aplikace z celého světa"
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Begrüße die Welt der Apps"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Say hello to the world's apps"
+            "value" : "Let’s get you set up."
           }
         },
         "en-GB" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Say hello to the world's apps"
           }
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Di hola a las aplicaciones del mundo"
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Découvrez les applications du monde entier"
           }
         },
         "he" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "תגיד שלום ליישומים מכל העולם"
           }
         },
@@ -70383,19 +70494,19 @@
         },
         "it" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Di’ ciao alle app del mondo"
           }
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Say hello to the world's apps"
           }
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "전 세계 앱과 인사하기"
           }
         },
@@ -70413,43 +70524,43 @@
         },
         "pt-PT" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Diz olá às aplicações do mundo"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Скажите \"Привет\" миру приложений"
           }
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Säg hej till världens appar"
           }
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Uygulamalar dünyasına merhaba de"
           }
         },
         "uk" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Привітайтеся зі світовими додатками"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "对全世界的软件说哈喽"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "跟全世界的軟體說哈嘍"
           }
         }
@@ -71199,46 +71310,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "取消鎖定 %@ 版本"
-          }
-        }
-      }
-    },
-    "package-details.cask.warning.is-quarantined" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The app linked to this Cask is quarantined"
-          }
-        }
-      }
-    },
-    "package-details.cask.warning.is-quarantined.confirmation.explanation" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Quarantine is a safety feature designed to protect you from viruses.\nBy removing the app from quarantine, you take full responsibility for what the app might do to your Mac."
-          }
-        }
-      }
-    },
-    "package-details.cask.warning.is-quarantined.confirmation.title" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Are you sure you want to remove the linked app from quarantine?"
-          }
-        }
-      }
-    },
-    "package-details.cask.warning.is-quarantined.explanation" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "To resolve this warning, try opening the app. Then reopen the detail.\nIf the warning does not disappear, try forcefully removing the app from system quarantine."
           }
         }
       }
@@ -98811,7 +98882,14 @@
       }
     },
     "start-page.additional-permissions.title" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork needs additional permissions to work"
+          }
+        }
+      }
     },
     "start-page.adoptable-packages.available.%lld" : {
       "comment" : "A label that reads \"Available\" followed by the number of available packages.",
@@ -113694,6 +113772,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "關於"
+          }
+        }
+      }
+    },
+    "window.downgrade" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Downgrade Cork"
           }
         }
       }

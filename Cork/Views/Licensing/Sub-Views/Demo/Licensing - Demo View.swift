@@ -10,6 +10,7 @@ import CorkShared
 import Defaults
 import CorkModels
 import FactoryKit
+import EventKit
 
 struct Licensing_DemoView: View
 {
@@ -21,16 +22,23 @@ struct Licensing_DemoView: View
 
     var body: some View
     {
-        VStack(alignment: .center, spacing: 15)
+        NavigationStack
         {
-            if let demoActivatedAt
+            VStack(alignment: .center, spacing: 15)
             {
-                Text("licensing.demo-activated.title")
-                    .font(.title)
+                if let demoActivatedAt
+                {
+                    Text("licensing.demo-activated.title")
+                        .font(.title)
 
-                Text("licensing.demo.time-until-\((demoActivatedAt + AppConstants.shared.demoLengthInSeconds).formatted(date: .complete, time: .complete))")
-
-                HStack
+                    Text("licensing.demo.time-until-\((demoActivatedAt + AppConstants.shared.demoLengthInSeconds).formatted(date: .complete, time: .complete))")
+                }
+            }
+            .padding()
+            .fixedSize()
+            .toolbar
+            {
+                ToolbarItem(placement: .cancellationAction)
                 {
                     Button
                     {
@@ -39,9 +47,10 @@ struct Licensing_DemoView: View
                         Text("action.close")
                     }
                     .keyboardShortcut(.cancelAction)
+                }
 
-                    Spacer()
-
+                ToolbarItem(placement: .primaryAction)
+                {
                     Button
                     {
                         appState.licensingState = .notBoughtOrHasNotActivatedDemo
@@ -50,9 +59,20 @@ struct Licensing_DemoView: View
                     }
                     .keyboardShortcut(.defaultAction)
                 }
+
+                /*
+                ToolbarItem(placement: .automatic)
+                {
+                    Button
+                    {
+                        addReminderAboutDemoRuningOut()
+                    } label: {
+                        Text("action.add-reminder")
+                    }
+
+                }
+                 */
             }
         }
-        .padding()
-        .fixedSize()
     }
 }

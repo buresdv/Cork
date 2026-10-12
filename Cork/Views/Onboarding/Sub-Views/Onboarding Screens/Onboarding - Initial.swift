@@ -15,10 +15,6 @@ struct Onboarding_InitialView: View
     {
         VStack(alignment: .center, spacing: 20)
         {
-            Image(nsImage: NSImage(named: "AppIcon") ?? NSImage())
-                .resizable()
-                .frame(width: 100, height: 100)
-
             VStack(alignment: .center, spacing: 5, content: {
                 Text("onboarding.title")
                     .font(.title)
