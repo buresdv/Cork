@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftNavigation
 import FactoryKit
 
 @Observable @MainActor

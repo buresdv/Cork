@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftNavigation
 
 /// Class for controlling the opened panes, and providing information about the status of the currently opened pane
 @Observable @MainActor

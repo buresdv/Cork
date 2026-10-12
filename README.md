@@ -54,28 +54,36 @@ Pre-compiled, always up-to-date versions are available from my Homebrew tap. You
 However, if you don't want to do any of the above, you can always compile Cork yourself. See below for instructions.
 
 ## Screenshots
+
 ### Main Window
+
 ![Start Page](https://github.com/user-attachments/assets/68a0995e-b350-414b-909c-3755975b00a1)
 ![Outdated Packages](https://github.com/user-attachments/assets/c8ce56ad-954e-4a00-80e2-14035fa809d3)
 ![Adoptable Packages](https://github.com/user-attachments/assets/044b9a61-191d-4bc0-984f-ea91b5004d49)
 
 ### Package Info
+
 ![Package Info](https://github.com/user-attachments/assets/f45b4e67-b44f-4e9d-9887-2ad361a14f15)
 ![Package Info](https://github.com/user-attachments/assets/2557214a-9551-4dd3-9b64-a82d93c20d42)
 
 ### Tap Info
+
 ![Tap Info](https://github.com/user-attachments/assets/2888524c-0e65-4f56-8cc6-0ad7ba811581)
 
 ### Install Package
+
 ![Install Package](https://github.com/user-attachments/assets/ca2e13a8-3c35-467e-ace1-5e705776f294)
 
 ### Add Taps
+
 ![Add Taps](https://github.com/user-attachments/assets/173b54e1-2da1-49f4-b459-3982f0c18b9a)
 
 ### Brew Maintenance
+
 ![Brew Maintenance](https://github.com/user-attachments/assets/a441ea2f-8822-450c-bf90-c9e961016d0d)
 
 ## Media
+
 Do you run a blog, a magazine, make videos, or just make content about apps for fun? Get in touch at dev@corkmac.app!
 
 I will provide you with the newest release and development version, answer any questions you have, and introduce you to Cork personally (and for free, or course), so you can focus on creating.
@@ -86,10 +94,10 @@ Compiling Cork is simple, as it does not have many dependencies. It uses Tuist t
 
 Prerequisites:
 
-* macOS Ventura or newer
-* Xcode 16 or newer
-* Git
-* Homebrew
+- macOS Ventura or newer
+- Xcode 16 or newer
+- Git
+- Homebrew
 
 ### Instructions:
 
@@ -98,13 +106,14 @@ Prerequisites:
 
 #### Before you begin
 
-*Skip if you already have an Apple Developer account*
+_Skip if you already have an Apple Developer account_
 
 0. Enroll your account in the developer program at [https://developer.apple.com/](https://developer.apple.com/). You don't need a paid account, a free one works fine
 1. Install Xcode
 2. In the Terminal, run the following command: `﻿sudo xcode-select -s /Applications/Xcode.app`
-    
-    *This command allows the Terminal to interact with Xcode's Terminal features, which is necessary for Mise and Tuist to work.*
+
+   _This command allows the Terminal to interact with Xcode's Terminal features, which is necessary for Mise and Tuist to work._
+
 3. Add your Developer account to Xcode. To do so, in the Menu bar, click `Xcode → Settings`, and in the window that opens, click `Accounts`. You can add your account there
 4. After you add your account, it will appear in the list of Apple IDs on the left of the screen. Select your account there
 5. At the bottom of the screen, click `Manage Certificates...`
@@ -113,24 +122,25 @@ Prerequisites:
 
 #### Installing Tuist and Its Prerequisites
 
-*Skip if you already have Tuist and Mise installed*
+_Skip if you already have Tuist and Mise installed_
 
 #### Installing Mise
 
-*Cork uses Mise to prevent conflicts arising from mismatched Tuist versions across Macs. Mise is a tool similar to Homebrew, but offers some advantages for Tuist specifically, like the aforementioned version synchronization.*
+_Cork uses Mise to prevent conflicts arising from mismatched Tuist versions across Macs. Mise is a tool similar to Homebrew, but offers some advantages for Tuist specifically, like the aforementioned version synchronization._
 
 1. Install Mise using `curl https://mise.run | sh`
 2. Initialize Mise using the command you see after the installation finishes. It's located under `mise: run the following to activate mise in your shell:`.\
-In my case, it was `echo "eval \"\$(/Users/david/.local/bin/mise activate zsh)\"" >> "/Users/david/.zshrc"`
-> [!CAUTION]
-> Make sure to copy the command Mise itself gives you, and not the one I used above. This command is only valid for my Mac, and will not work on your machine.
+   In my case, it was `echo "eval \"\$(/Users/david/.local/bin/mise activate zsh)\"" >> "/Users/david/.zshrc"`
+
+   > [!CAUTION]
+   > Make sure to copy the command Mise itself gives you, and not the one I used above. This command is only valid for my Mac, and will not work on your machine.
 
 3. Add `mise` to your path using one of the following commands, depending on your shell.
+
 - **zsh**: `echo 'eval "$(~/.local/bin/mise activate zsh)"' >> ~/.zshrc`
 - **bash**: `echo 'eval "$(~/.local/bin/mise activate bash)"' >> ~/.bashrc`
 - **fish**: `echo '~/.local/bin/mise activate fish | source' >> ~/.config/fish/config.fish`
-> [!TIP]
-> **zsh** is the default macOS shell.
+  > [!TIP] > **zsh** is the default macOS shell.
 
 > [!NOTE]
 > If you don't know which shell you're running, use the command `echo $SHELL`. The last part of the output after the last slash is the name of your shell
@@ -143,12 +153,13 @@ In my case, it was `echo "eval \"\$(/Users/david/.local/bin/mise activate zsh)\"
 #### Compiling Cork
 
 0. I recommend you pick a version of Cork marked by one of the version tags which define released versions. If you decide to compile the current state of any of the branches, you might encounter experience-breaking bugs and unfinished features
-1. Use the command `git clone https://github.com/buresdv/Cork.git && cd Cork && git checkout <VERSION TAG>; mise exec tuist@4.50.2 -- tuist install && mise exec tuist@4.50.2 -- tuist generate --no-binary-cache`.
-  - Mise will ask you to trust the local [`.mise.toml`](.mise.toml).
-  - You can either:
-    - Say yes, to always use `tuist` version 4.50.2 in this directory.
-    - Say no, and the command will use `tuist` 4.50.2 anyway, but future invocations of `tuist` will not be version controlled.
-  - Xcode will open the project.
+1. Use the command `git clone https://github.com/buresdv/Cork.git && cd Cork && git checkout <VERSION TAG>; mise exec tuist@4.208.0 -- tuist install && mise exec tuist@4.208.0 -- tuist generate --no-binary-cache`.
+
+- Mise will ask you to trust the local [`.mise.toml`](.mise.toml).
+- You can either:
+  - Say yes, to always use `tuist` version 4.50.2 in this directory.
+  - Say no, and the command will use `tuist` 4.50.2 anyway, but future invocations of `tuist` will not be version controlled.
+- Xcode will open the project.
 
 <div style= "margin-left: 1rem">
   <details>
@@ -170,9 +181,9 @@ In my case, it was `echo "eval \"\$(/Users/david/.local/bin/mise activate zsh)\"
 5. Under `Signing`, switch the `Team` dropdown to `None`
 6. Under `Signing → macOS`, switch the `Signing Certificate` to `Sign to Run Locally`
 7. If it isn't already selected, change the Build Scheme to `Self-Compiled` in Xcode's [toolbar](https://developer.apple.com/design/human-interface-guidelines/toolbars#macOS).
-  ![Build Scheme Selector](https://files.catbox.moe/ofufd1.jpg)
-> [!WARNING]
-> If you don't select the correct Build Scheme, Cork will require you to put in a license.
+   ![Build Scheme Selector](https://files.catbox.moe/ofufd1.jpg)
+   > [!WARNING]
+   > If you don't select the correct Build Scheme, Cork will require you to put in a license.
 8. In the Menu Bar, click `Product → Archive` and wait for the building to finish
 9. A new window will open. From the list of Cork rows, select the topmost one, and click `Distribute App`
 10. In the popup that appears, click `Custom`, then click `Next` in the bottom right of the popup

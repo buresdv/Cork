@@ -52,7 +52,7 @@ public func shell(
         finalEnvironment["HOMEBREW_NO_INSTALL_CLEANUP"] = "TRUE"
     }
 
-    AppConstants.shared.logger.debug("Final environment: \(finalEnvironment)")
+    // AppConstants.shared.logger.debug("Final environment: \(finalEnvironment)")
 
     // MARK: - Set working directory if provided
 
@@ -91,6 +91,7 @@ public func shell(
     let standardOutput = pipe.fileHandleForReading.readDataToEndOfFile()
     let standardError = errorPipe.fileHandleForReading.readDataToEndOfFile()
 
+    print("Raw STDOUT: \(String(data: standardOutput, encoding: .utf8))")
     print("Raw STDERROR: \(String(data: standardError, encoding: .utf8))")
 
     var allOutputs: [TerminalOutput] = .init()
@@ -211,7 +212,7 @@ public func shell(
         finalEnvironment["HOMEBREW_NO_INSTALL_CLEANUP"] = "TRUE"
     }
 
-    AppConstants.shared.logger.debug("Final environment: \(finalEnvironment)")
+    // AppConstants.shared.logger.debug("Final environment: \(finalEnvironment)")
 
     // MARK: - Set working directory if provided
 
@@ -357,7 +358,7 @@ public func shell(
         finalEnvironment["HOMEBREW_ACCEPT_EULA"] = "Y"
     }
 
-    AppConstants.shared.logger.debug("Final environment: \(finalEnvironment)")
+    // AppConstants.shared.logger.debug("Final environment: \(finalEnvironment)")
 
     if let workingDirectory
     {
