@@ -9991,6 +9991,16 @@
         }
       }
     },
+    "action.continue" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continue…"
+          }
+        }
+      }
+    },
     "action.copy" : {
       "localizations" : {
         "cs" : {
@@ -10240,6 +10250,7 @@
       }
     },
     "action.done" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -10484,6 +10495,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "切換到終端機完成"
+          }
+        }
+      }
+    },
+    "action.fix-permissions" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fix permissions…"
           }
         }
       }
@@ -11728,6 +11749,16 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Open detail for %@"
+          }
+        }
+      }
+    },
+    "action.open-full-disk-access-settings" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open System Settings"
           }
         }
       }
@@ -40532,6 +40563,16 @@
         }
       }
     },
+    "disclaimer.not-affiliated-with-homebrew" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork in an independent product not affiliated with Homebrew"
+          }
+        }
+      }
+    },
     "downloading" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -42400,7 +42441,14 @@
       }
     },
     "error.data-downloading.timed-out" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Download timed out"
+          }
+        }
+      }
     },
     "error.finder-reveal.could-not-find-package-in-parent" : {
       "localizations" : {
@@ -49608,6 +49656,66 @@
         }
       }
     },
+    "fix-permissions.explanation.body" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Some packages might have files that are not usually accessible.\nFor Cork to manage them properly, it needs your permission."
+          }
+        }
+      }
+    },
+    "fix-permissions.explanation.instructions.step-1.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Step 1"
+          }
+        }
+      }
+    },
+    "fix-permissions.explanation.instructions.step-2.text" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Drag Cork into System Settings"
+          }
+        }
+      }
+    },
+    "fix-permissions.explanation.instructions.step-2.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Step 2"
+          }
+        }
+      }
+    },
+    "fix-permissions.explanation.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork needs additional permissions to manage your packages"
+          }
+        }
+      }
+    },
+    "fix-permissions.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fix Cork Permissions"
+          }
+        }
+      }
+    },
     "generic.false" : {
       "localizations" : {
         "cs" : {
@@ -49979,6 +50087,9 @@
           }
         }
       }
+    },
+    "Hello, world!" : {
+
     },
     "Hello, World!" : {
       "localizations" : {
@@ -98698,6 +98809,9 @@
           }
         }
       }
+    },
+    "start-page.additional-permissions.title" : {
+
     },
     "start-page.adoptable-packages.available.%lld" : {
       "comment" : "A label that reads \"Available\" followed by the number of available packages.",
