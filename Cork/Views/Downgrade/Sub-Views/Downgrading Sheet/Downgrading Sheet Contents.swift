@@ -49,8 +49,8 @@ struct DownloadingSheetContents: View
                             Text("action.cancel")
                         }
                     }
-                case .downloaded(let finalApplication):
-                    ToolbarItem(placement: .primaryAction)
+                case .downloaded:
+                    ToolbarItem(placement: .automatic)
                     {
                         Button
                         {
@@ -59,8 +59,8 @@ struct DownloadingSheetContents: View
                             Text("add-package.install.finished")
                         }
                     }
-                case .failed(let error):
-                    ToolbarItem(placement: .primaryAction)
+                case .failed:
+                    ToolbarItem(placement: .automatic)
                     {
                         Button
                         {
