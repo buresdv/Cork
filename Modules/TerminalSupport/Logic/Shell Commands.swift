@@ -15,19 +15,19 @@ import System
 public actor ShellManager
 {
     @Injected(\.appConstants) var appConstants
-    
+
     private var cachedUserEnvironmentObjects: [EnvironmentVariable]?
     private var cachedUserEnvironmentDictionary: [String: String]?
-    
+
     private var cachedProcessEnvironmentObjects: [EnvironmentVariable]?
     private var cachedProcessEnvironmentDictionary: [String: String]?
-    
+
     private var cachedMandatoryEnvironmentObjects: [EnvironmentVariable]?
     private var cachedMandatoryEnvironmentDictionary: [String: String]?
-    
+
     private var cachedCombinedEnvironmentObjects: [EnvironmentVariable]?
     private var cachedCombinedEnvironmentDictionary: [String: String]?
-    
+
     public static let sudoHelperURL: URL = Bundle.main.resourceURL!.appendingPathComponent("Sudo Helper", conformingTo: .executable)
 }
 
@@ -46,20 +46,18 @@ public extension ShellManager
 
         var userEnvironment: [EnvironmentVariable] = .init()
 
-        print("Raw command result: \(commandResult.standardOutput)")
-        print("Raw command error: \(commandResult.standardError)")
-        
         /// Get individual lines from the output - one line per one env definition
         for line in commandResult.standardOutput.split(separator: "\n")
         {
-            print("Raw line: \(line)")
             /// Split the env definition into a name and value
             let splitEnvVariable = line.split(separator: "=", maxSplits: 1, omittingEmptySubsequences: false)
-            
-            guard let userVariableKey = splitEnvVariable.first, let userVariableValue = splitEnvVariable.last else {
+
+            guard let userVariableKey = splitEnvVariable.first, let userVariableValue = splitEnvVariable.last
+            else
+            {
                 continue
             }
-            
+
             userEnvironment.append(
                 .init(
                     key: String(userVariableKey),
@@ -75,6 +73,7 @@ public extension ShellManager
 // MARK: - Retrieval functions
 
 // MARK: - User Environment
+
 public extension ShellManager
 {
     func userEnvironmentObjects() async throws -> [EnvironmentVariable]
@@ -82,35 +81,36 @@ public extension ShellManager
         if let cachedUserEnvironmentObjects
         {
             appConstants.logger.debug("Hit cache for user environment objects")
-            
+
             return cachedUserEnvironmentObjects
         }
-        
+
         let newUserEnvironmentObjects = try await self.getUserEnv()
-        
+
         self.cachedUserEnvironmentObjects = newUserEnvironmentObjects
-        
+
         return newUserEnvironmentObjects
     }
-    
+
     func userEnvironmentDictionary() async throws -> [String: String]
     {
         if let cachedUserEnvironmentDictionary
         {
             appConstants.logger.debug("Hit cache for user environment dictionary")
-            
+
             return cachedUserEnvironmentDictionary
         }
-        
-        let newUserEnvironmentDictionary = [String: String].init(environmentVariables: try await self.userEnvironmentObjects())
-        
+
+        let newUserEnvironmentDictionary = try [String: String](environmentVariables: await self.userEnvironmentObjects())
+
         self.cachedUserEnvironmentDictionary = newUserEnvironmentDictionary
-        
+
         return newUserEnvironmentDictionary
     }
 }
 
 // MARK: - Process Environment
+
 public extension ShellManager
 {
     func processEnvironmentObjects() -> [EnvironmentVariable]
@@ -118,30 +118,30 @@ public extension ShellManager
         if let cachedProcessEnvironmentObjects
         {
             appConstants.logger.debug("Hit cache for process environment objects")
-            
+
             return cachedProcessEnvironmentObjects
         }
-        
+
         let newProcessEnvironmentObjects: [EnvironmentVariable] = .init(environment: ProcessInfo.processInfo.environment)
-        
+
         cachedProcessEnvironmentObjects = newProcessEnvironmentObjects
-        
+
         return newProcessEnvironmentObjects
     }
-    
+
     func processEnvironmentDictionary() -> [String: String]
     {
         if let cachedProcessEnvironmentDictionary
         {
             appConstants.logger.debug("Hit cache for process environment dictionary")
-            
+
             return cachedProcessEnvironmentDictionary
         }
-        
+
         let newProcessEnvironmentDictionary: [String: String] = ProcessInfo.processInfo.environment
-        
+
         cachedProcessEnvironmentDictionary = newProcessEnvironmentDictionary
-        
+
         return newProcessEnvironmentDictionary
     }
 }
@@ -153,37 +153,38 @@ public extension ShellManager
         if let cachedMandatoryEnvironmentObjects
         {
             appConstants.logger.debug("Hit cache for mandatory environment objects")
-            
+
             return cachedMandatoryEnvironmentObjects
         }
-        
-        var newMandatoryEnvironmentObjects: [EnvironmentVariable] = [EnvironmentVariable]()
-        
+
+        var newMandatoryEnvironmentObjects: [EnvironmentVariable] = .init()
+
         newMandatoryEnvironmentObjects.addMandatoryEnvironmentVariables()
-        
+
         cachedMandatoryEnvironmentObjects = newMandatoryEnvironmentObjects
-        
+
         return newMandatoryEnvironmentObjects
     }
-    
+
     func mandatoryEnvironmentDictionary() -> [String: String]
     {
         if let cachedMandatoryEnvironmentDictionary
         {
             appConstants.logger.debug("Hit cache for mandatory environment dictionary")
-            
+
             return cachedMandatoryEnvironmentDictionary
         }
-        
+
         let newMandatoryEnvironmentDictionary: [String: String] = .init(environmentVariables: self.mandatoryEnvironmentObjects())
-        
+
         cachedMandatoryEnvironmentDictionary = newMandatoryEnvironmentDictionary
-        
+
         return newMandatoryEnvironmentDictionary
     }
 }
 
 // MARK: - Combined Environment
+
 public extension ShellManager
 {
     func combinedEnvironmentObjects() async throws -> [EnvironmentVariable]
@@ -191,36 +192,40 @@ public extension ShellManager
         if let cachedCombinedEnvironmentObjects
         {
             appConstants.logger.debug("Hit cache for combined environment objects")
-            
+
             return cachedCombinedEnvironmentObjects
         }
-        
+
         var newCombinedEnvironmentObjects: [EnvironmentVariable]
-        
+
         newCombinedEnvironmentObjects = try await self.processEnvironmentObjects() + self.userEnvironmentObjects()
-        
+
         // MARK: - Add the other mandatory env vars
-        
+
         newCombinedEnvironmentObjects.addMandatoryEnvironmentVariables()
-        
+
+        // MARK: - Deduplicate
+
+        newCombinedEnvironmentObjects.deduplicated()
+
         self.cachedCombinedEnvironmentObjects = newCombinedEnvironmentObjects
-        
+
         return newCombinedEnvironmentObjects
     }
-    
+
     func combinedEnvironmentDictionary() async throws -> [String: String]
     {
         if let cachedCombinedEnvironmentDictionary
         {
             appConstants.logger.debug("Hit cache for combined environment dictionary")
-            
+
             return cachedCombinedEnvironmentDictionary
         }
-        
-        let newCombinedEnvironmentDictionary: [String: String] = .init(environmentVariables: try await self.combinedEnvironmentObjects())
-        
+
+        let newCombinedEnvironmentDictionary: [String: String] = try .init(environmentVariables: await self.combinedEnvironmentObjects())
+
         self.cachedCombinedEnvironmentDictionary = newCombinedEnvironmentDictionary
-        
+
         return newCombinedEnvironmentDictionary
     }
 }
@@ -230,27 +235,44 @@ private extension [EnvironmentVariable]
     mutating func addMandatoryEnvironmentVariables()
     {
         Container.shared.appConstants.resolve().logger.debug("Will add mandatory ENV variables")
-        
+
         var incomingEnvironmentVariableArray: [EnvironmentVariable] = self
-        
+
         // TODO: Implement trusting and remove this
         incomingEnvironmentVariableArray.append(.init(key: "HOMEBREW_NO_REQUIRE_TAP_TRUST", value: "1"))
-        
+
         if let proxySettings = AppConstants.shared.proxySettings
         {
             Container.shared.appConstants.resolve().logger.info("Proxy is enabled")
-            
+
             incomingEnvironmentVariableArray.append(.init(key: "ALL_PROXY", value: "\(proxySettings.host):\(proxySettings.port)"))
         }
-        
+
         if Defaults[.isAutomaticCleanupEnabled]
         {
             incomingEnvironmentVariableArray.append(.init(key: "HOMEBREW_NO_INSTALL_CLEANUP", value: "TRUE"))
         }
-        
+
         incomingEnvironmentVariableArray.append(.init(key: "SUDO_ASKPASS", value: ShellManager.sudoHelperURL.path))
-        
+
         self = incomingEnvironmentVariableArray
+    }
+}
+
+private extension [EnvironmentVariable]
+{
+    mutating func deduplicated()
+    {
+        var seenKeys = Set<String>()
+
+        seenKeys.reserveCapacity(self.count)
+
+        /// Has to be reversed because we want to keep the last value in (the user variables)
+        let deduplicatedReversedArray = self.reversed()
+            .filter { seenKeys.insert($0.key).inserted }
+
+        /// Reverse it again into the original order
+        self = [EnvironmentVariable](deduplicatedReversedArray.reversed())
     }
 }
 
@@ -283,10 +305,11 @@ public func shellNonStreaming(
         AppConstants.shared.logger.info("Working directory configured: \(workingDirectory)")
         task.currentDirectoryURL = workingDirectory
     }
-    
+
     // MARK: - Set up the environment
+
     var finalEnvironment: [EnvironmentVariable]?
-    
+
     if let environment
     {
         finalEnvironment = try? await Container.shared.shellManager.resolve().combinedEnvironmentObjects() + environment
@@ -300,7 +323,7 @@ public func shellNonStreaming(
     {
         task.environment = .init(environmentVariables: finalEnvironment)
     }
-    
+
     task.launchPath = launchPath.path
 
     /// Filter out empty things from the arguments so they don't fuck it up
@@ -365,6 +388,7 @@ public func shellNonStreaming(
                 }
 
                 currentSectionInErrorBlob = line
+
                 isCurrentSectionInErrorBlobWarning = line.hasPrefix("Warning:")
             }
             else if !currentSectionInErrorBlob.isEmpty
@@ -421,10 +445,11 @@ public func shell(
         AppConstants.shared.logger.info("Working directory configured: \(workingDirectory)")
         task.currentDirectoryURL = workingDirectory
     }
-    
+
     // MARK: - Set up the environment
+
     var finalEnvironment: [EnvironmentVariable]?
-    
+
     if let environment
     {
         finalEnvironment = try? await Container.shared.shellManager.resolve().combinedEnvironmentObjects() + environment
@@ -438,7 +463,7 @@ public func shell(
     {
         task.environment = .init(environmentVariables: finalEnvironment)
     }
-    
+
     task.launchPath = launchPath.path
 
     /// Filter out empty things from the arguments so they don't fuck it up
@@ -549,10 +574,11 @@ public func shell(
         AppConstants.shared.logger.info("Working directory configured: \(workingDirectory)")
         task.currentDirectoryURL = workingDirectory
     }
-    
+
     // MARK: - Set up the environment
+
     var finalEnvironment: [EnvironmentVariable]?
-    
+
     if let environment
     {
         finalEnvironment = try? await Container.shared.shellManager.resolve().combinedEnvironmentObjects() + environment
@@ -566,7 +592,7 @@ public func shell(
     {
         task.environment = .init(environmentVariables: finalEnvironment)
     }
-    
+
     task.launchPath = launchPath.path
     task.arguments = arguments.filter { $0 != "" }
 
