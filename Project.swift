@@ -2,8 +2,8 @@ import ProjectDescription
 
 let settings = Environment.selfCompiled.getBoolean(default: false)
 
-let version: String = "2.0.3"
-let build: String = "146"
+let version: String = "2.0.4"
+let build: String = "151"
 
 func corkTarget(configureWithSelfCompiled: Bool) -> ProjectDescription.Target {
     var additionalCompilationConditions = [String]()
@@ -181,6 +181,7 @@ let corkModelsTarget: ProjectDescription.Target = .target(
     dependencies: [
         .target(corkSharedTarget),
         .target(corkNotificationsTarget),
+        .target(corkTerminalFunctionsTarget),
         .external(name: "ApplicationInspector"),
         .external(name: "FactoryKit"),
         .external(name: "Defaults"),
