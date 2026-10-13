@@ -654,6 +654,8 @@ private extension View
                     EmptyView()
                 case .couldNotRemoveQuarantine:
                     EmptyView()
+                case .couldNotConstructConsolidatedEnvironmentVariables:
+                    EmptyView()
                 }
             } message: { error in
                 if let recoverySuggestion = error.recoverySuggestion

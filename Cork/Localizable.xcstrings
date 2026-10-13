@@ -12194,7 +12194,14 @@
       }
     },
     "action.preview-env-variables" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preview final environment…"
+          }
+        }
+      }
     },
     "action.preview-package-app-would-be-adopted-as.%@" : {
       "comment" : "A context menu item that previews the app that would be adopted. The argument is a localized string describing the app that would be adopted.",
@@ -31312,6 +31319,9 @@
           }
         }
       }
+    },
+    "alert.could-not-consolidate-environment.title" : {
+
     },
     "alert.could-not-create-metadata-directory-or-folder.message" : {
       "localizations" : {
@@ -83621,6 +83631,46 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Value"
+          }
+        }
+      }
+    },
+    "settings.brew.custom-env.variables.window.display-as-objects.picker.label" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Table"
+          }
+        }
+      }
+    },
+    "settings.brew.custom-env.variables.window.display-as-string.picker.label" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Text"
+          }
+        }
+      }
+    },
+    "settings.brew.custom-env.variables.window.subtitle.includes-%lld-variables" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Using %lld variables"
+          }
+        }
+      }
+    },
+    "settings.brew.custom-env.variables.window.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Environment Variables"
           }
         }
       }

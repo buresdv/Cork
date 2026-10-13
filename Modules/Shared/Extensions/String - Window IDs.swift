@@ -17,4 +17,5 @@ public extension String
     static let errorInspectorWindowID: String = "error-inspector"
     static let fullPackageListWindowID: String = "full-package-list"
     static let corkDowngradeWindowID: String = "downgrade"
+    static let environmentPreviewWindowID: String = "environment-preview"
 }

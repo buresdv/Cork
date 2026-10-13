@@ -10,10 +10,13 @@ import CorkTerminalFunctions
 import Defaults
 import SwiftUI
 import FactoryKit
+import ButtonKit
+import CorkModels
 
 struct CustomEnvVariablesView: View
 {
     @Injected(\.shellManager) var shellManager
+    @InjectedObservable(\.appState) var appState
     
     @Default(.allowAdvancedHomebrewSettings) var allowAdvancedHomebrewSettings: Bool
     @Default(.customEnvVariables) var customEnvVariables: [EnvironmentVariable]
@@ -21,6 +24,8 @@ struct CustomEnvVariablesView: View
     @Default(.showInheritedEnvVariables) var showInheritedEnvVariables: Bool
     @Default(.showUserEnvVariables) var showUserEnvVariables: Bool
     @Default(.showMandatoryEnvVariables) var showMandatoryEnvVariables: Bool
+    
+    @Environment(\.openWindow) var openWindow: OpenWindowAction
 
     @State private var isShowingCustomEnvVarAdditionPopover: Bool = false
     @State private var customVariableKey: String = ""
@@ -43,7 +48,7 @@ struct CustomEnvVariablesView: View
             return userEnvVariables
         }
         
-        return userEnvVariables.filter({ $0.key.localizedCaseInsensitiveContains(searchText) })
+        return userEnvVariables.filter({ $0.key.localizedCaseInsensitiveContains(searchText) || $0.value.localizedCaseInsensitiveContains(searchText) })
     }
     
     var shownProcessVariables: [EnvironmentVariable]
@@ -56,7 +61,7 @@ struct CustomEnvVariablesView: View
             return processEnvVariables
         }
         
-        return processEnvVariables.filter({ $0.key.localizedCaseInsensitiveContains(searchText) })
+        return processEnvVariables.filter({ $0.key.localizedCaseInsensitiveContains(searchText) || $0.value.localizedCaseInsensitiveContains(searchText) })
     }
 
     var shownMandatoryVariables: [EnvironmentVariable]
@@ -231,8 +236,18 @@ struct CustomEnvVariablesView: View
                     self.mandatoryEnvVariables = await shellManager.mandatoryEnvironmentObjects()
                 }
                 
-                Button {
-                    print("Ahoj")
+                AsyncButton
+                {
+                    do
+                    {
+                        let consolidatedEnvironmentVariables: [EnvironmentVariable] = try await shellManager.combinedEnvironmentObjects()
+                        
+                        openWindow(id: .environmentPreviewWindowID, value: consolidatedEnvironmentVariables)
+                    }
+                    catch let objectRetrievalError
+                    {
+                        appState.showAlert(errorToShow: .couldNotConstructConsolidatedEnvironmentVariables(error: objectRetrievalError.localizedDescription))
+                    }
                 } label: {
                     Text("action.preview-env-variables")
                 }

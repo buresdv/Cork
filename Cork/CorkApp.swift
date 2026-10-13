@@ -319,6 +319,14 @@ struct CorkApp: App
             }
         }
         .windowToolbarStyle(.unifiedCompact)
+        
+        WindowGroup(id: .environmentPreviewWindowID, for: [EnvironmentVariable].self)
+        { $environmentVariables in
+            if let environmentVariables
+            {
+                EnvironmentVariablesPreview(environmentVariablesToPreview: environmentVariables.sorted(by: { $0.key > $1.key }))
+            }
+        }
 
         Window("window.downgrade", id: .corkDowngradeWindowID)
         {

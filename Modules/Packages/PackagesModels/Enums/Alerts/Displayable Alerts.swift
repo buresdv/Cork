@@ -32,6 +32,8 @@ public enum DisplayableAlert: LocalizedError
     case couldNotDeleteCachedDownloads(error: String)
     
     case couldNotRemoveQuarantine(error: String)
+    
+    case couldNotConstructConsolidatedEnvironmentVariables(error: String)
 
     // MARK: - Brewfile exporting/importing
 
