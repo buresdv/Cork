@@ -17577,8 +17577,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "Package %@ was likely installed"
+            "state": "translated",
+            "value": "软件包 %@ 可能已经安装"
           }
         },
         "zh-Hant": {
@@ -17701,8 +17701,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "Package %@ was likely installed"
+            "state": "translated",
+            "value": "软件包 %@ 可能已经安装"
           }
         },
         "zh-Hant": {
@@ -23677,8 +23677,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "Get in touch with the developer of the app that you’re trying to install to find out if they offer the app for you Mac’s architecture."
+            "state": "translated",
+            "value": "联系你正在尝试安装的应用的开发者，确认该应用是否支持你的苹果电脑的架构。"
           }
         },
         "zh-Hant": {
@@ -23926,8 +23926,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "There were some unexpected Homebrew outputs, and some of them were errors.\nCheck below for more information, and decide if they seem important."
+            "state": "translated",
+            "value": "出现了一些意外的 Homebrew 输出，且其中一些是错误。\n检查以下内容以获取更多信息，并判断它们是否重要。"
           }
         },
         "zh-Hant": {
@@ -24050,8 +24050,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "There were some unexpected Homebrew outputs.\nCheck below for more information, and decide if they seem important."
+            "state": "translated",
+            "value": "有一些意外的 Homebrew 输出。\n检查以下内容以获取更多信息，并判断它们是否重要。"
           }
         },
         "zh-Hant": {
@@ -28054,8 +28054,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "Customise tap…"
+            "state": "translated",
+            "value": "正在自定义扩展仓库…"
           }
         },
         "zh-Hant": {
@@ -29542,8 +29542,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "Invalid Tap host"
+            "state": "translated",
+            "value": "无效的扩展仓库托管"
           }
         },
         "zh-Hant": {
@@ -29666,8 +29666,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "This Tap host doesn’t exist. Try a different one."
+            "state": "translated",
+            "value": "这个扩展仓库托管不存在。尝试不同的托管。"
           }
         },
         "zh-Hant": {
@@ -29790,8 +29790,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "Invalid Tap name"
+            "state": "translated",
+            "value": "无效的拓展仓库名称"
           }
         },
         "zh-Hant": {
@@ -30287,8 +30287,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "Couldn’t create pattern for reading the Package’s description."
+            "state": "translated",
+            "value": "无法创建用于读取软件包简介的正则规则。"
           }
         },
         "zh-Hant": {
@@ -36751,7 +36751,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "你还有从 %@ 安装的软件包\n请卸载它们并重试"
+            "value": "软件包 %@ 仍然通过这个拓展仓库安装。\n卸载它们并重新尝试"
           }
         },
         "zh-Hant": {
@@ -36884,14 +36884,20 @@
             "plural": {
               "one": {
                 "stringUnit": {
-                  "state": "new",
-                  "value": "You have %2$lld package installed from this tap that needs to be uninstalled before you can remove this tap:\n\n%1$@"
+                  "state": "translated",
+                  "value": "יש לך חבילה %2$lld מותקנת מברז זה, שיש להסיר את התקנתה לפני שתוכל להסיר את הברז."
                 }
               },
               "other": {
                 "stringUnit": {
-                  "state": "new",
-                  "value": "You have %2$lld packages installed from this tap that need to be uninstalled before you can remove this tap:\n\n%1$@"
+                  "state": "translated",
+                  "value": "יש לך %2$lld חבילות מותקנות מברז זה, שיש להסיר את התקנתן לפני שתוכל להסיר את הברז."
+                }
+              },
+              "two": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "יש לך %2$lld חבילות מותקנות מברז זה, שיש להסיר את התקנתן לפני שתוכל להסיר את הברז."
                 }
               }
             }
@@ -37106,8 +37112,8 @@
               },
               "other": {
                 "stringUnit": {
-                  "state": "new",
-                  "value": "You have %2$lld packages installed from this tap that need to be uninstalled before you can remove this tap:\n\n%1$@"
+                  "state": "translated",
+                  "value": "你有 %@ 个软件包安装自这个拓展仓库，先卸载软件包再移除该拓展仓库。\n\n%1$@"
                 }
               }
             }
@@ -37174,8 +37180,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "You still have some packages installed from this tap.\nOpen the tap detail to learn more."
+            "state": "translated",
+            "value": "עדיין יש לך חבילות מותקנות מברז זה.\nפתח את פרטי הברז למידע נוסף."
           }
         },
         "id": {
@@ -37246,8 +37252,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "You still have some packages installed from this tap.\nOpen the tap detail to learn more."
+            "state": "translated",
+            "value": "你仍然有一些安装自该拓展仓库的软件包。\n打开拓展仓库详情获取更多信息。"
           }
         },
         "zh-Hant": {
@@ -41726,8 +41732,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "App is already installed at %@"
+            "state": "translated",
+            "value": "应用已经在 %@ 下安装"
           }
         },
         "zh-Hant": {
@@ -44337,8 +44343,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "There was no information about the Tap in the output"
+            "state": "translated",
+            "value": "在输出中没有关于这个拓展仓库的信息"
           }
         },
         "zh-Hant": {
@@ -47498,7 +47504,7 @@
         "he": {
           "stringUnit": {
             "state": "translated",
-            "value": "Homebrew השיב JSON עם השגיאה הבאה:\n%@"
+            "value": "Homebrew החזיר JSON עם השגיאה הבאה:\n%@"
           }
         },
         "id": {
@@ -48065,8 +48071,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "A required post-install step failed: %@"
+            "state": "translated",
+            "value": "一个必要的安装后步骤失败：%@"
           }
         },
         "zh-Hant": {
@@ -49307,8 +49313,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "Homebrew provided no information to read in the output"
+            "state": "translated",
+            "value": "Homebrew 在输出中未提供用于阅读的信息"
           }
         },
         "zh-Hant": {
@@ -49431,8 +49437,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "Homebrew didn’t return any JSON data"
+            "state": "translated",
+            "value": "Homebrew 没有返回任何 JSON 数据"
           }
         },
         "zh-Hant": {
@@ -49607,8 +49613,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Removal of tap %1$@ blocked by %2$@"
+            "state": "translated",
+            "value": "הסרת הברז %1$@ נחסמה על ידי %2$@"
           }
         },
         "id": {
@@ -49679,8 +49685,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "Removal of tap %1$@ blocked by %2$@"
+            "state": "translated",
+            "value": "移除扩展仓库 %1$@ 时被 %2$@ 锁定"
           }
         },
         "zh-Hant": {
@@ -49804,8 +49810,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "The loading process was unexpectedly terminated"
+            "state": "translated",
+            "value": "加载过程被意外中止"
           }
         },
         "zh-Hant": {
@@ -49928,8 +49934,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "Terminal is required to install this Package"
+            "state": "translated",
+            "value": "安装此软件包需要终端"
           }
         },
         "zh-Hant": {
@@ -53081,8 +53087,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Warnings..."
+            "state": "translated",
+            "value": "אזהרות..."
           }
         },
         "id": {
@@ -53153,8 +53159,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "Warnings..."
+            "state": "translated",
+            "value": "警告..."
           }
         },
         "zh-Hant": {
@@ -53205,8 +53211,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "These warnings tell you about something going wrong with Homebrew itself.\nDo not report what you see here to Cork, read the warnings to learn more about where to report them."
+            "state": "translated",
+            "value": "אזהרות אלו מספרות לך על דברים שהשתבשו ב-Homebrew עצמו.\nאין לדווח על מה שמוצג כאן ל-Cork, קרא את האזהרות כדי לגלות כיצד ואיפה לדווח על שגיאות אלו."
           }
         },
         "id": {
@@ -53277,8 +53283,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "These warnings tell you about something going wrong with Homebrew itself.\nDo not report what you see here to Cork, read the warnings to learn more about where to report them."
+            "state": "translated",
+            "value": "这些警告说明 Homebrew 自身发生问题。\n不要将其报告给 Cork，阅读警告以了解应该将其报告向何处。"
           }
         },
         "zh-Hant": {
@@ -60421,8 +60427,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "Couldn’t read the selected adoption candidate for %@"
+            "state": "translated",
+            "value": "无法读取为 %@ 选定的采用候选对象"
           }
         },
         "zh-Hant": {
@@ -72033,8 +72039,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "Dependants"
+            "state": "translated",
+            "value": "依赖项"
           }
         },
         "zh-Hant": {
@@ -75390,8 +75396,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "Package List"
+            "state": "translated",
+            "value": "软件包列表"
           }
         },
         "zh-Hant": {
@@ -101399,14 +101405,20 @@
             "plural": {
               "one": {
                 "stringUnit": {
-                  "state": "new",
-                  "value": "Homebrew reported %lld issue with itself"
+                  "state": "translated",
+                  "value": "Homebrew דיווח על שגיאה %lld בתוכו"
                 }
               },
               "other": {
                 "stringUnit": {
-                  "state": "new",
-                  "value": "Homebrew reported %lld issues with itself"
+                  "state": "translated",
+                  "value": "Homebrew דיווח על %lld שגיאות בתוכו"
+                }
+              },
+              "two": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Homebrew דיווח על %lld שגיאות בתוכו"
                 }
               }
             }
@@ -101621,8 +101633,8 @@
               },
               "other": {
                 "stringUnit": {
-                  "state": "new",
-                  "value": "Homebrew reported %lld issues with itself"
+                  "state": "translated",
+                  "value": "Homebrew 报告了 %@ 个自身相关的问题"
                 }
               }
             }
@@ -103092,8 +103104,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Issues with Homebrew"
+            "state": "translated",
+            "value": "שגיאות ב-Homebrew"
           }
         },
         "id": {
@@ -103164,8 +103176,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "Issues with Homebrew"
+            "state": "translated",
+            "value": "Homebrew 相关问题"
           }
         },
         "zh-Hant": {
@@ -103216,8 +103228,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Packages"
+            "state": "translated",
+            "value": "חבילות"
           }
         },
         "id": {
@@ -103288,8 +103300,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "Packages"
+            "state": "translated",
+            "value": "软件包"
           }
         },
         "zh-Hant": {
@@ -103340,8 +103352,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Recommendations"
+            "state": "translated",
+            "value": "המלצות"
           }
         },
         "id": {
@@ -103412,8 +103424,8 @@
         },
         "zh-Hans": {
           "stringUnit": {
-            "state": "new",
-            "value": "Recommendations"
+            "state": "translated",
+            "value": "建议"
           }
         },
         "zh-Hant": {
