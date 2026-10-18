@@ -1,13 +1,13 @@
 {
-  "originHash" : "b8cede094fee2bfae0142eb1ca45d86502d6a1f6e98e359d623f870d5366e22b",
+  "originHash" : "600dc717047fefafae8443fb424cbc1c408c764b6db1f4cb4f6619ed9c04128b",
   "pins" : [
     {
       "identity" : "applicationinspector",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/buresdv/ApplicationInspector",
       "state" : {
-        "revision" : "72d9888b3da342df026254a940553c31b72daec8",
-        "version" : "1.0.0"
+        "revision" : "9c82bb38fcef2b7b43bcf38516dd7948d7b03725",
+        "version" : "1.2.0"
       }
     },
     {

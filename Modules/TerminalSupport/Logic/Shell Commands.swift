@@ -361,8 +361,7 @@ public func shellNonStreaming(
     }
 
     if let errorOutput: String = String(data: standardError, encoding: .utf8),
-       !errorOutput.isEmpty,
-       !errorOutput.containsAny(of: Container.shared.appConstants().disqualifyingSymbolsForTerminalOutputs)
+       !errorOutput.isEmpty
     {
         /// We have to do this fuckery because Homebrew is inconsistent again. The blocks in the consolidated error output are sometimes split by an empty line, and sometimes just not.
 
@@ -373,7 +372,8 @@ public func shellNonStreaming(
         {
             if line.hasPrefix("Warning:") || line.hasPrefix("Error:") || line.hasPrefix("==>")
             {
-                if !currentSectionInErrorBlob.isEmpty
+                if !currentSectionInErrorBlob.isEmpty,
+                   !currentSectionInErrorBlob.containsAny(of: Container.shared.appConstants().disqualifyingSymbolsForTerminalOutputs)
                 {
                     if isCurrentSectionInErrorBlobWarning
                     {
@@ -398,7 +398,8 @@ public func shellNonStreaming(
         }
 
         /// Idk there's a dangling section
-        if !currentSectionInErrorBlob.isEmpty
+        if !currentSectionInErrorBlob.isEmpty,
+           !currentSectionInErrorBlob.containsAny(of: Container.shared.appConstants().disqualifyingSymbolsForTerminalOutputs)
         {
             if isCurrentSectionInErrorBlobWarning
             {

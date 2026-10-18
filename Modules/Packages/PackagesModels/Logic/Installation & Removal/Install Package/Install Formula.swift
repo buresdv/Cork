@@ -28,7 +28,7 @@ extension InstallationProgressTracker
         var installError: InstallationError.ImplementedError.FormulaInstallError?
 
         let ignoredOutputs: [any RegexComponent] = [
-            /Would install \d formula/
+            // Would install \d formula/
         ]
 
         /// These child progresses have to be here so the progress can move in a more granual way, instead of being stuck
