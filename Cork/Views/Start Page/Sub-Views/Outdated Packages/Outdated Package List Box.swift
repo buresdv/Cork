@@ -122,7 +122,7 @@ struct OutdatedPackageListBox: View
                 switch outdatedPackagesTracker.outdatedPackageListBoxViewType
                 {
                 case .managedOnly, .bothManagedAndUnmanaged:
-                    Text("start-page.updates.count-\(outdatedPackagesTracker.allDisplayableOutdatedPackages.count)")
+                    Text("start-page.updates.count-\(outdatedPackagesTracker.allDisplayableOutdatedPackages.count - outdatedPackagesTracker.packagesThatUpdateThemselves.count)")
                 case .unmanagedOnly:
                     Text("start-page.updates.only-unmanaged.count-\(outdatedPackagesTracker.allDisplayableOutdatedPackages.count)")
                 }
