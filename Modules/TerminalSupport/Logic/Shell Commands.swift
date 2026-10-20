@@ -248,7 +248,7 @@ private extension [EnvironmentVariable]
             incomingEnvironmentVariableArray.append(.init(key: "ALL_PROXY", value: "\(proxySettings.host):\(proxySettings.port)"))
         }
 
-        if Defaults[.isAutomaticCleanupEnabled]
+        if !Defaults[.isAutomaticCleanupEnabled]
         {
             incomingEnvironmentVariableArray.append(.init(key: "HOMEBREW_NO_INSTALL_CLEANUP", value: "TRUE"))
         }

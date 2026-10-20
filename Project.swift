@@ -3,7 +3,7 @@ import ProjectDescription
 let settings = Environment.selfCompiled.getBoolean(default: false)
 
 let version: String = "2.1.0"
-let build: String = "152"
+let build: String = "153"
 
 func corkTarget(configureWithSelfCompiled: Bool) -> ProjectDescription.Target {
     var additionalCompilationConditions = [String]()
