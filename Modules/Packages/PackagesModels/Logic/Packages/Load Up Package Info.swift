@@ -47,6 +47,14 @@ public extension BrewPackage
             /// Description of the formula
             let desc: String?
 
+            struct FormulaVersions: Codable
+            {
+                let stable: String
+            }
+            
+            /// Versions provided in the Formula JSON
+            let versions: FormulaVersions
+            
             /// Homepage of the formula
             let homepage: URL
 
@@ -188,6 +196,9 @@ public extension BrewPackage
             /// Description of the cask
             let desc: String?
 
+            /// Version from the Cask JSON
+            let version: String
+            
             /// Homepage of the cask
             let homepage: URL
 
@@ -358,6 +369,7 @@ public extension BrewPackage
                 return try .init(
                     name: formulaInfo.name,
                     description: formulaInfo.desc,
+                    versionsFromJSON: formulaInfo.versions.stable,
                     homepage: formulaInfo.homepage,
                     tap: .init(name: formulaInfo.tap),
                     installedAsDependency: formulaInfo.installed.first?.isDependencyOfAnotherPackage ?? false,
@@ -382,6 +394,7 @@ public extension BrewPackage
                 return .init(
                     name: caskInfo.token,
                     description: caskInfo.desc,
+                    versionsFromJSON: caskInfo.version,
                     homepage: caskInfo.homepage,
                     tap: try .init(name: caskInfo.tap),
                     installedAsDependency: false,

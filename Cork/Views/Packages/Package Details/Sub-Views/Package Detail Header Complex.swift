@@ -12,6 +12,7 @@ import SwiftUI
 
 struct PackageDetailHeaderComplex: View
 {
+    @Injected(\.appConstants) var appConstants: AppConstants
     @InjectedObservable(\.appState) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
@@ -29,9 +30,35 @@ struct PackageDetailHeaderComplex: View
         {
             HStack(alignment: .firstTextBaseline, spacing: 5)
             {
+                let packageVersionsToDisplay: [String] =
+                {
+                    if package.versions.isEmpty
+                    {
+                        appConstants.logger.debug("The package has no local version - will try to get it from the JSON")
+                        
+                        /// See if there are any versions to be gotten in the JSON
+                        if !packageDetails.versionFromJSON.isEmpty
+                        {
+                            appConstants.logger.debug("Will replace missing local version with the version from JSON ")
+                            return [packageDetails.versionFromJSON]
+                        }
+                        else
+                        {
+                            appConstants.logger.warning("There are no local or JSON versions for package \(package.name(withPrecision: .precise))")
+                            return package.versions
+                        }
+                    }
+                    else
+                    {
+                        appConstants.logger.debug("The package already has a local version - no need to do anything")
+                        return package.versions
+                    }
+                    
+                }()
+                
                 package.nameView(
                     withComponents: .boundVersion,
-                    .installedVersions(package.versions),
+                    .installedVersions(packageVersionsToDisplay),
                     isExemptFromHighlighting: true
                 )
                 .font(.title)

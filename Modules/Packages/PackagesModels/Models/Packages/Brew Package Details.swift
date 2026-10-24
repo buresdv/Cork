@@ -35,6 +35,8 @@ public extension BrewPackage
         public let name: String
 
         public let description: String?
+        
+        public let versionFromJSON: String
 
         public let homepage: URL
         public let tap: BrewTap
@@ -57,6 +59,7 @@ public extension BrewPackage
         public init(
             name: String,
             description: String?,
+            versionsFromJSON: String,
             homepage: URL,
             tap: BrewTap,
             installedAsDependency: Bool,
@@ -71,6 +74,7 @@ public extension BrewPackage
         ){
             self.name = name
             self.description = description
+            self.versionFromJSON = versionsFromJSON
             self.homepage = homepage
             self.tap = tap
             self.installedAsDependency = installedAsDependency
