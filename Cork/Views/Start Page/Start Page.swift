@@ -152,7 +152,10 @@ struct StartPage: View
                                 HomebrewWarningsSection()
                             }
                             
-                            AdditionalPermissionsRequired()
+                            if issues.contains(.fullDiskAccessPermissionsRequired)
+                            {
+                                AdditionalPermissionsRequired()
+                            }
                         }
                         
                     }
