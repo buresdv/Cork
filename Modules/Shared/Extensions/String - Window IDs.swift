@@ -18,4 +18,5 @@ public extension String
     static let fullPackageListWindowID: String = "full-package-list"
     static let corkDowngradeWindowID: String = "downgrade"
     static let environmentPreviewWindowID: String = "environment-preview"
+    static let packageInsightsWindowID: String = "package-insights"
 }

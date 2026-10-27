@@ -45,9 +45,9 @@ public struct CachedDownload: Identifiable, Hashable
             switch self
             {
             case .formula:
-                return .purple
+                return BrewPackage.PackageType.formula.color
             case .cask:
-                return .orange
+                return BrewPackage.PackageType.cask.color
             case .other:
                 return .mint
             default:

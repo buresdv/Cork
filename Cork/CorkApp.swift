@@ -332,6 +332,11 @@ struct CorkApp: App
         {
             DowngradeCorkView()
         }
+        
+        Window("window.package-insights", id: .packageInsightsWindowID)
+        {
+            Text("Hello, World!")
+        }
 
         Settings
         {
@@ -591,6 +596,10 @@ struct CorkApp: App
         DeleteCachedDownloadsButton(appState: appState)
             .keyboardShortcut("m", modifiers: [.command, .option])
             .disabled(cachedDownloadsTracker.cachedDownloadsSize == 0)
+        
+        Divider()
+        
+        ShowPackageInsightsButton()
     }
 
     @ViewBuilder

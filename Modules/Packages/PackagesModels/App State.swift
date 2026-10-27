@@ -10,12 +10,15 @@ import CorkShared
 import Foundation
 import Observation
 import SwiftUI
+import FactoryKit
 @preconcurrency import UserNotifications
 
 /// Class that holds the global state of the app, excluding services
 @Observable @MainActor
 public final class AppState
 {
+    @ObservationIgnored @Injected(\.appConstants) var appConstants
+    
     public init()
     {
         print("AppState init fired")
@@ -30,7 +33,7 @@ public final class AppState
             }
         }
     }
-
+    
     isolated deinit
     {
         fullDiskAccessObservationTask?.cancel()
@@ -193,6 +196,10 @@ public final class AppState
         }
     }
 
+    // MARK: - Homebrew files size
+    public private(set) var formulaFolderSize: Int64 = Container.shared.appConstants.resolve().brewCellarPath.directorySize
+    public private(set) var caskFolderSize: Int64 = Container.shared.appConstants.resolve().brewCaskPath.directorySize
+    
     // MARK: - Full Disk Access
 
     public private(set) var hasFullDiskAccess: Bool = false

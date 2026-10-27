@@ -177,6 +177,16 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable,
                 DisplayRepresentation(title: "package-details.type.cask")
             }
         }
+        
+        public var color: Color
+        {
+            switch self {
+            case .formula:
+                return .purple
+            case .cask:
+                return .orange
+            }
+        }
     }
 
     // MARK: - Logic
