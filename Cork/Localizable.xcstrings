@@ -179,7 +179,7 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
+            "state": "translated",
             "value": "%1$@ - %2$@"
           }
         },
@@ -304,7 +304,7 @@
         "he": {
           "stringUnit": {
             "state": "translated",
-            "value": "%1$@ → %2$@"
+            "value": "%1$@ ← %2$@"
           }
         },
         "id": {
@@ -427,7 +427,7 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
+            "state": "translated",
             "value": "%1$@/%2$@"
           }
         },
@@ -9266,8 +9266,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Add"
+            "state": "translated",
+            "value": "הוסף"
           }
         },
         "id": {
@@ -9981,19 +9981,19 @@
               "one": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "יישום %lld נוסף"
+                  "value": "הוסף יישום %lld"
                 }
               },
               "other": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "%lld יישומים נוספו"
+                  "value": "הוסף %lld יישומים"
                 }
               },
               "two": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "%lld יישומים נוספו"
+                  "value": "הוסף %lld יישומים"
                 }
               }
             }
@@ -10282,8 +10282,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Back"
+            "state": "translated",
+            "value": "חזור"
           }
         },
         "id": {
@@ -11399,8 +11399,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Continue"
+            "state": "translated",
+            "value": "המשך"
           }
         },
         "id": {
@@ -11772,8 +11772,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Delete"
+            "state": "translated",
+            "value": "מחק"
           }
         },
         "id": {
@@ -12020,8 +12020,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Download…"
+            "state": "translated",
+            "value": "הורד…"
           }
         },
         "id": {
@@ -12269,8 +12269,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Fix permissions…"
+            "state": "translated",
+            "value": "תקן הרשאות…"
           }
         },
         "id": {
@@ -13637,8 +13637,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Open System Settings"
+            "state": "translated",
+            "value": "פתח את הגדרות המערכת"
           }
         },
         "id": {
@@ -14101,8 +14101,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Preview final environment…"
+            "state": "translated",
+            "value": "Náhled výsledného prostředí…"
           }
         },
         "de": {
@@ -14137,8 +14137,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Preview final environment…"
+            "state": "translated",
+            "value": "תצוגה מקדימה של הסביבה…"
           }
         },
         "id": {
@@ -15219,8 +15219,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Remove quarantine…"
+            "state": "translated",
+            "value": "Odstranit z karantény…"
           }
         },
         "de": {
@@ -15343,8 +15343,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Remove %@ from quarantine"
+            "state": "translated",
+            "value": "Odstranit %@ z karantény"
           }
         },
         "de": {
@@ -16837,8 +16837,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Open on GitHub…"
+            "state": "translated",
+            "value": "Otevřít na GitHubu…"
           }
         },
         "de": {
@@ -16873,8 +16873,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Open on GitHub…"
+            "state": "translated",
+            "value": "פתח ב-GitHub…"
           }
         },
         "id": {
@@ -16961,8 +16961,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Select another version…"
+            "state": "translated",
+            "value": "Vybrat jinou verzi…"
           }
         },
         "de": {
@@ -16997,8 +16997,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Select another version…"
+            "state": "translated",
+            "value": "בחר גרסה אחרת…"
           }
         },
         "id": {
@@ -17838,8 +17838,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Try again"
+            "state": "translated",
+            "value": "Zkusit znovu"
           }
         },
         "de": {
@@ -17874,8 +17874,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Try again"
+            "state": "translated",
+            "value": "נסה שוב"
           }
         },
         "id": {
@@ -38419,7 +38419,7 @@
         "he": {
           "stringUnit": {
             "state": "translated",
-            "value": "עדיין יש לך חבילות מותקנות מ-%@\nמחק אותן ונסה שוב"
+            "value": "החבילות %@ עדיין מותקנו מברז זה.\nמחק אותן ונסה שוב"
           }
         },
         "id": {
@@ -38624,14 +38624,20 @@
             "plural": {
               "one": {
                 "stringUnit": {
-                  "state": "new",
-                  "value": "You have %2$lld package installed from this tap that needs to be uninstalled before you can remove this tap:\n\n%1$@"
+                  "state": "translated",
+                  "value": "יש לך חבילה %2$lld מותקנת מברז זה, שיש להסיר את התקנתה לפני הסרת ברז זה:\n\n%1$@"
                 }
               },
               "other": {
                 "stringUnit": {
-                  "state": "new",
-                  "value": "You have %2$lld packages installed from this tap that need to be uninstalled before you can remove this tap:\n\n%1$@"
+                  "state": "translated",
+                  "value": "יש לך %2$lld חבילות מותקנות מברז זה, שיש להסיר את התקנתן לפני הסרת ברז זה:\n\n%1$@"
+                }
+              },
+              "two": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "יש לך %2$lld חבילות מותקנות מברז זה, שיש להסיר את התקנתן לפני הסרת ברז זה:\n\n%1$@"
                 }
               }
             }
@@ -38914,8 +38920,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "You still have some packages installed from this tap.\nOpen the tap detail to learn more."
+            "state": "translated",
+            "value": "עדיין יש לך חבילות מותקנות מברז זה. \nפתח את פרטי הברז כדי ללמוד עוד."
           }
         },
         "id": {
@@ -39995,8 +40001,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Couldn’t remove quarantine"
+            "state": "translated",
+            "value": "Při odstraňování karantény se vyskytla chyba"
           }
         },
         "de": {
@@ -43224,8 +43230,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Cork is an independent product not affiliated with Homebrew."
+            "state": "translated",
+            "value": "Cork je nezávislý produkt bez právního spojení s Homebrew."
           }
         },
         "de": {
@@ -43260,8 +43266,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Cork is an independent product not affiliated with Homebrew."
+            "state": "translated",
+            "value": "Cork הוא מוצר עצמאי ואינו מזוהה או קשור ל-Homebrew."
           }
         },
         "id": {
@@ -43349,8 +43355,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Couldn’t read information about the downloaded app: %@"
+            "state": "translated",
+            "value": "Při čtení o informací o stažené aplikaci se vyskytla chyba: %@"
           }
         },
         "de": {
@@ -43385,8 +43391,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Couldn’t read information about the downloaded app: %@"
+            "state": "translated",
+            "value": "לא היה ניתן לקרוא מידע על היישום: %@"
           }
         },
         "id": {
@@ -43474,8 +43480,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Couldn’t unzip the downloaded app archive: %@"
+            "state": "translated",
+            "value": "Při rozbalování archivu s aplikací se vyskytla chyba: %@"
           }
         },
         "de": {
@@ -43510,8 +43516,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Couldn’t unzip the downloaded app archive: %@"
+            "state": "translated",
+            "value": "לא היה ניתן לחלץ את ארכיון היישום שהורד: %@"
           }
         },
         "id": {
@@ -43599,8 +43605,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Couldn’t download the selected older version"
+            "state": "translated",
+            "value": "Při stahování starší verze se vyskytla chyba"
           }
         },
         "de": {
@@ -43635,8 +43641,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Couldn’t download the selected older version"
+            "state": "translated",
+            "value": "לא היה ניתן להוריד את הגרסה הישנה שנבחרה"
           }
         },
         "id": {
@@ -43723,8 +43729,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Drag the app to your preferred location:"
+            "state": "translated",
+            "value": "Přetáhněte aplikaci do adresáře, kde ji chcete uložit:"
           }
         },
         "de": {
@@ -43759,8 +43765,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Drag the app to your preferred location:"
+            "state": "translated",
+            "value": "גרור את היישום ליעד לבחירתך:"
           }
         },
         "id": {
@@ -43847,8 +43853,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Couldn’t load available Cork versions"
+            "state": "translated",
+            "value": "Při načítání dostupných verzí Corku se vyskytla chyba"
           }
         },
         "de": {
@@ -43883,8 +43889,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Couldn’t load available Cork versions"
+            "state": "translated",
+            "value": "לא היה ניתן לטעון גרסאות זמינות של Cork"
           }
         },
         "id": {
@@ -43971,8 +43977,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Downgrade Cork…"
+            "state": "translated",
+            "value": "Stáhnout starší verzi…"
           }
         },
         "de": {
@@ -44007,8 +44013,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Downgrade Cork…"
+            "state": "translated",
+            "value": "שנמך את Cork…"
           }
         },
         "id": {
@@ -44095,8 +44101,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Available versions"
+            "state": "translated",
+            "value": "Dostupné verze"
           }
         },
         "de": {
@@ -44131,8 +44137,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Available versions"
+            "state": "translated",
+            "value": "גרסאות זמינות"
           }
         },
         "id": {
@@ -44219,8 +44225,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Older version was successfully downloaded"
+            "state": "translated",
+            "value": "Starší verze byla úspěšně stažena"
           }
         },
         "de": {
@@ -44255,8 +44261,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Older version was successfully downloaded"
+            "state": "translated",
+            "value": "הורדת הגרסה הישנה הושלמה בהצלחה"
           }
         },
         "id": {
@@ -45715,7 +45721,7 @@
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Server Homebrew poskytnul chybnou odezvu: %lld"
+            "value": "Server poskytnul chybnou odezvu: %lld"
           }
         },
         "de": {
@@ -45751,7 +45757,7 @@
         "he": {
           "stringUnit": {
             "state": "translated",
-            "value": "שרת Homebrew החזיר קוד תגובה שגוי: %lld"
+            "value": "השרת החזיר קוד תגובה שגוי: %lld"
           }
         },
         "id": {
@@ -45839,7 +45845,7 @@
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Server Homebrew odpověděl s neplatným kódem, a tento kód nebylo možné přečíst"
+            "value": "Server odpověděl s neplatným kódem, a tento kód nebylo možné přečíst"
           }
         },
         "de": {
@@ -45875,7 +45881,7 @@
         "he": {
           "stringUnit": {
             "state": "translated",
-            "value": "שרת Homebrew החזיר קוד תגובה שגוי, ולא היה ניתן לקרוא כראוי את קוד השגיאה שסופק"
+            "value": "השרת החזיר קוד תגובה שגוי, ולא היה ניתן לקרוא כראוי את קוד השגיאה שסופק"
           }
         },
         "id": {
@@ -46210,8 +46216,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Download timed out"
+            "state": "translated",
+            "value": "Vypršel časový limit pro stahování"
           }
         },
         "de": {
@@ -52705,8 +52711,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Removal of tap %1$@ blocked by %2$@"
+            "state": "translated",
+            "value": "הסרת ברז %1$@ נחסמה על-ידי %2$@"
           }
         },
         "id": {
@@ -52793,8 +52799,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Couldn’t remove %@ because unknown packages from it are still installed"
+            "state": "translated",
+            "value": "Pípu %@ se nepodařilo odstranit, protože jsou z ní stéle nainstalované nějaké balíčky"
           }
         },
         "de": {
@@ -52829,8 +52835,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Couldn’t remove %@ because unknown packages from it are still installed"
+            "state": "translated",
+            "value": "לא היה ניתן להסיר את %@ בגלל שחבילות לא ידועות ממנו עדיין מותקנות"
           }
         },
         "id": {
@@ -53661,8 +53667,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Some packages might have files that are not usually accessible.\nFor Cork to manage them properly, it needs your permission."
+            "state": "translated",
+            "value": "Některé balíčky mohou obsahovat soubory, které nejsou bez dalších oprávnění dostupné.\nCork pro jejich správu potřebuje vaše povolení."
           }
         },
         "de": {
@@ -53697,8 +53703,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Some packages might have files that are not usually accessible.\nFor Cork to manage them properly, it needs your permission."
+            "state": "translated",
+            "value": "חבילות מסוימות עשויות להכיל קבצים שאינם נגישים בדרך כלל.\nכדי ש-Cork תוכל לנהל אותם כראוי, יש צורך בהרשאה שלך."
           }
         },
         "id": {
@@ -53786,8 +53792,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Drag the icon below into „Full Disk Access“ pane of System Settings."
+            "state": "translated",
+            "value": "Přetáhněte ikonu do části „Plný přístup k disku“ v Nastavení systému."
           }
         },
         "de": {
@@ -53822,8 +53828,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Drag the icon below into „Full Disk Access“ pane of System Settings."
+            "state": "translated",
+            "value": "גרור את האייקון למטה לרשימת ״גישה מלאה לכונן״ בהגדרות המערכת."
           }
         },
         "id": {
@@ -53911,8 +53917,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Open System Settings"
+            "state": "translated",
+            "value": "Otevřít Nastavení systému"
           }
         },
         "de": {
@@ -53947,8 +53953,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Open System Settings"
+            "state": "translated",
+            "value": "פתח את הגדרות המערכת"
           }
         },
         "id": {
@@ -54035,8 +54041,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Step 1"
+            "state": "translated",
+            "value": "Krok 1"
           }
         },
         "de": {
@@ -54071,8 +54077,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Step 1"
+            "state": "translated",
+            "value": "שלב 1"
           }
         },
         "id": {
@@ -54159,8 +54165,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Drag Cork into System Settings"
+            "state": "translated",
+            "value": "Přetáhněte Cork do Nastavení systému"
           }
         },
         "de": {
@@ -54195,8 +54201,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Drag Cork into System Settings"
+            "state": "translated",
+            "value": "גרור את Cork להגדרות המערכת"
           }
         },
         "id": {
@@ -54283,8 +54289,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Step 2"
+            "state": "translated",
+            "value": "Krok 2"
           }
         },
         "de": {
@@ -54319,8 +54325,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Step 2"
+            "state": "translated",
+            "value": "שלב 2"
           }
         },
         "id": {
@@ -54407,8 +54413,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Cork needs additional permissions to manage your packages"
+            "state": "translated",
+            "value": "Cork potřebuje pro správu vašich balíčků další oprávnění"
           }
         },
         "de": {
@@ -54443,8 +54449,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Cork needs additional permissions to manage your packages"
+            "state": "translated",
+            "value": "ל-Cork יש צורך בהרשאות נוספות כדי לנהל את החבילות שלך"
           }
         },
         "id": {
@@ -54531,8 +54537,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Fix Cork Permissions"
+            "state": "translated",
+            "value": "Opravit oprávnění"
           }
         },
         "de": {
@@ -54567,8 +54573,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Fix Cork Permissions"
+            "state": "translated",
+            "value": "תקן את ההרשאות של Cork"
           }
         },
         "id": {
@@ -57296,8 +57302,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Warnings..."
+            "state": "translated",
+            "value": "אזהרות..."
           }
         },
         "id": {
@@ -57420,8 +57426,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "These warnings tell you about something going wrong with Homebrew itself.\nDo not report what you see here to Cork, read the warnings to learn more about where to report them."
+            "state": "translated",
+            "value": "אזהרות אלו מספרות לך על דברים שהשתבשו ב-Homebrew עצמו.\nאין לדווח על מה שמוצג כאן ל-Cork, קרא את האזהרות כדי לגלות כיצד ואיפה לדווח על שגיאות אלו."
           }
         },
         "id": {
@@ -74524,7 +74530,7 @@
         "cs": {
           "stringUnit": {
             "state": "translated",
-            "value": "Zdraví vás aplikace z celého světa"
+            "value": "Nastavme si Cork"
           }
         },
         "de": {
@@ -74560,7 +74566,7 @@
         "he": {
           "stringUnit": {
             "state": "translated",
-            "value": "תגיד שלום ליישומים מכל העולם"
+            "value": "בואו נכין אתכם לעבודה."
           }
         },
         "id": {
@@ -75395,8 +75401,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "The app linked to this Cask is quarantined"
+            "state": "translated",
+            "value": "Aplikace spojená s tímto soudkem se v karanténě"
           }
         },
         "de": {
@@ -75519,8 +75525,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Quarantine is a safety feature designed to protect you from viruses.\\nBy removing the app from quarantine, you take full responsibility for what the app might do to your Mac."
+            "state": "translated",
+            "value": "Karanténa chrání váš Mac před viry.\nPokud aplikaci sami z karantény odstraníte, jste plně zodpovědní za to, co s vašim systémem udělá."
           }
         },
         "de": {
@@ -75643,8 +75649,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Are you sure you want to remove the linked app from quarantine?"
+            "state": "translated",
+            "value": "Opravdu chcete tuhle propojenou aplikaci odstranit z karantény?"
           }
         },
         "de": {
@@ -75767,8 +75773,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "To resolve this warning, try opening the app. Then reopen the Cask detail.\nIf the warning does not disappear, try forcefully removing the app from system quarantine."
+            "state": "translated",
+            "value": "Napřed zkuste propojenou aplikaci otevřít. Poté znovu otevřete detaily tohoto soudku.\nPokud varování nezmizí, můžete zkusit propojenou aplikaci ručně odstranit z karantény."
           }
         },
         "de": {
@@ -87916,8 +87922,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Homebrew environment variables"
+            "state": "translated",
+            "value": "Proměnné prostředí"
           }
         },
         "de": {
@@ -87952,8 +87958,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Homebrew environment variables"
+            "state": "translated",
+            "value": "משתנים מסביבת Homebrew"
           }
         },
         "id": {
@@ -88040,8 +88046,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Show variables inherited from the Cork process"
+            "state": "translated",
+            "value": "Zobrazit proměnné poskytnuté Corkem"
           }
         },
         "de": {
@@ -88076,8 +88082,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Show variables inherited from the Cork process"
+            "state": "translated",
+            "value": "הצג משתנים שנורשו מתהליכי Cork"
           }
         },
         "id": {
@@ -88164,8 +88170,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Show mandatory variables"
+            "state": "translated",
+            "value": "Zobrazit povinné proměnné"
           }
         },
         "de": {
@@ -88200,8 +88206,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Show mandatory variables"
+            "state": "translated",
+            "value": "הצג משתני חובה"
           }
         },
         "id": {
@@ -88288,8 +88294,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Show variables inherited from your user"
+            "state": "translated",
+            "value": "Zobrazit proměnné poskytnuté uživatelem"
           }
         },
         "de": {
@@ -88324,8 +88330,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Show variables inherited from your user"
+            "state": "translated",
+            "value": "הצג משתנים שנורשו מהמשתמש שלך"
           }
         },
         "id": {
@@ -88413,8 +88419,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Key:"
+            "state": "translated",
+            "value": "Klíč:"
           }
         },
         "de": {
@@ -88449,8 +88455,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Key:"
+            "state": "translated",
+            "value": "מפתח:"
           }
         },
         "id": {
@@ -88538,7 +88544,7 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
+            "state": "translated",
             "value": "HOMEBREW_HOME"
           }
         },
@@ -88663,8 +88669,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Value:"
+            "state": "translated",
+            "value": "Hodnota:"
           }
         },
         "de": {
@@ -88699,8 +88705,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Value:"
+            "state": "translated",
+            "value": "ערך:"
           }
         },
         "id": {
@@ -88788,8 +88794,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Where\\ the\\ heart\\ is"
+            "state": "translated",
+            "value": "Kde\\ mám\\ srdce"
           }
         },
         "de": {
@@ -88913,8 +88919,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Custom Environment Variables"
+            "state": "translated",
+            "value": "Vlastní proměnné prostředí"
           }
         },
         "de": {
@@ -88949,8 +88955,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Custom Environment Variables"
+            "state": "translated",
+            "value": "משתנים מסביבה מותאמת אישית"
           }
         },
         "id": {
@@ -89037,8 +89043,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Inherited variables"
+            "state": "translated",
+            "value": "Poskytnuté proměnné"
           }
         },
         "de": {
@@ -89073,8 +89079,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Inherited variables"
+            "state": "translated",
+            "value": "משתנים שנורשו"
           }
         },
         "id": {
@@ -89161,8 +89167,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Key"
+            "state": "translated",
+            "value": "Klíč"
           }
         },
         "de": {
@@ -89197,8 +89203,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Key"
+            "state": "translated",
+            "value": "מפתח"
           }
         },
         "id": {
@@ -89285,8 +89291,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Mandatory variables"
+            "state": "translated",
+            "value": "Povinné proměnné"
           }
         },
         "de": {
@@ -89321,8 +89327,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Mandatory variables"
+            "state": "translated",
+            "value": "משתני חובה"
           }
         },
         "id": {
@@ -89409,8 +89415,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "User-inherited variables"
+            "state": "translated",
+            "value": "Proměnné poskytnuté uživatelem"
           }
         },
         "de": {
@@ -89445,8 +89451,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "User-inherited variables"
+            "state": "translated",
+            "value": "משתנים שנורשו מהמשתמש"
           }
         },
         "id": {
@@ -89533,8 +89539,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Value"
+            "state": "translated",
+            "value": "Hodnota"
           }
         },
         "de": {
@@ -89569,8 +89575,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Value"
+            "state": "translated",
+            "value": "ערך"
           }
         },
         "id": {
@@ -89657,8 +89663,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Table"
+            "state": "translated",
+            "value": "Tabulka"
           }
         },
         "de": {
@@ -89693,8 +89699,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Table"
+            "state": "translated",
+            "value": "טבלה"
           }
         },
         "id": {
@@ -89781,7 +89787,7 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
+            "state": "translated",
             "value": "Text"
           }
         },
@@ -89817,8 +89823,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Text"
+            "state": "translated",
+            "value": "טקסט"
           }
         },
         "id": {
@@ -89905,8 +89911,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Using %lld variables"
+            "state": "translated",
+            "value": "Cork používá %lld proměnných"
           }
         },
         "de": {
@@ -89941,8 +89947,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Using %lld variables"
+            "state": "translated",
+            "value": "משתמש ב-%lld משתנים"
           }
         },
         "id": {
@@ -90029,8 +90035,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Environment Variables"
+            "state": "translated",
+            "value": "Proměnné prostředí"
           }
         },
         "de": {
@@ -90065,8 +90071,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Environment Variables"
+            "state": "translated",
+            "value": "משתני סביבה"
           }
         },
         "id": {
@@ -105695,8 +105701,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Cork needs additional permissions to work"
+            "state": "translated",
+            "value": "Cork potřebuje další oprávnění"
           }
         },
         "de": {
@@ -105731,8 +105737,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Cork needs additional permissions to work"
+            "state": "translated",
+            "value": "ל-Cork יש צורך בהרשאות נוספות כדי לתפקד"
           }
         },
         "id": {
@@ -108472,14 +108478,20 @@
             "plural": {
               "one": {
                 "stringUnit": {
-                  "state": "new",
-                  "value": "Homebrew reported %lld issue with itself"
+                  "state": "translated",
+                  "value": "Homebrew דיווח על שגיאה %lld בתוכו"
                 }
               },
               "other": {
                 "stringUnit": {
-                  "state": "new",
-                  "value": "Homebrew reported %lld issues with itself"
+                  "state": "translated",
+                  "value": "Homebrew דיווח על %lld שגיאות בתוכו"
+                }
+              },
+              "two": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Homebrew דיווח על %lld שגיאות בתוכו"
                 }
               }
             }
@@ -110165,8 +110177,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Issues with Homebrew"
+            "state": "translated",
+            "value": "שגיאות ב-Homebrew"
           }
         },
         "id": {
@@ -110289,8 +110301,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Packages"
+            "state": "translated",
+            "value": "חבילות"
           }
         },
         "id": {
@@ -110413,8 +110425,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Recommendations"
+            "state": "translated",
+            "value": "המלצות"
           }
         },
         "id": {
@@ -120580,8 +120592,8 @@
       "localizations": {
         "cs": {
           "stringUnit": {
-            "state": "new",
-            "value": "Downgrade Cork"
+            "state": "translated",
+            "value": "Stáhnout starší verzi Corku"
           }
         },
         "de": {
@@ -120616,8 +120628,8 @@
         },
         "he": {
           "stringUnit": {
-            "state": "new",
-            "value": "Downgrade Cork"
+            "state": "translated",
+            "value": "שנמך את Cork"
           }
         },
         "id": {
