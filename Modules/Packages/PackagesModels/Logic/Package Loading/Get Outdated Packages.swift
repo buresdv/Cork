@@ -74,7 +74,9 @@ public extension OutdatedPackagesTracker
         /// This includes only those packages that are greedy
         let difference: Set<OutdatedPackage> = outdatedPackagesGreedy.subtracting(outdatedPackagesNonGreedy)
         
-        self.outdatedPackages = outdatedPackagesNonGreedy.union(difference)
+        let allOutdatedPackages: Set<OutdatedPackage> = outdatedPackagesNonGreedy.union(difference)
+        
+        self.outdatedPackages = await allOutdatedPackages.subtracting(self.getOutdatedPackagesThatArePinned(brewPackagesTracker: brewPackagesTracker, loadedOutdatedPackages: allOutdatedPackages))
     }
 
     /// Load outdated packages into the outdated package tracker
@@ -85,11 +87,11 @@ public extension OutdatedPackagesTracker
     ) async throws -> Set<OutdatedPackage>
     {
         // First, we have to pull the newest updates
-        await shell(AppConstants.shared.brewExecutablePath, ["update"])
+        await shellNonStreaming(AppConstants.shared.brewExecutablePath, ["update"])
 
         // Then we can get the updating under way
         /// Introduces an empty argument in case the updating is non-greedy
-        let rawOutput: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["outdated", updatingType.argument, "--json=v2"])
+        let rawOutput: [TerminalOutput] = await shellNonStreaming(AppConstants.shared.brewExecutablePath, ["outdated", updatingType.argument, "--json=v2"])
 
         AppConstants.shared.logger.debug("""
                 Output of outdated packages retrieval: 
@@ -151,6 +153,19 @@ public extension OutdatedPackagesTracker
             AppConstants.shared.logger.error("There was an error decoding the outdated package retrieval output: \(decodingError.localizedDescription, privacy: .public)\n\(decodingError, privacy: .public)")
             throw OutdatedPackageRetrievalError.couldNotDecodeCommandOutput(decodingError.localizedDescription)
         }
+    }
+    
+    // TODO: Make this automatic & reactive
+    /// Get those packages that are pinned, since those can't be updated
+    private nonisolated
+    func getOutdatedPackagesThatArePinned(
+        brewPackagesTracker: BrewPackagesTracker,
+        loadedOutdatedPackages: Set<OutdatedPackage>
+    ) async -> Set<OutdatedPackage>
+    {
+        let pinnedFormulaeNames: Set<BrewPackageName> = Set(await brewPackagesTracker.successfullyLoadedFormulae.filter({ $0.isPinned }).map({ $0.getCompletePackageName() }))
+
+        return loadedOutdatedPackages.filter({ pinnedFormulaeNames.contains($0.package.getCompletePackageName()) })
     }
 
     // MARK: - Helper functions

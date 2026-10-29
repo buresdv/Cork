@@ -30,7 +30,7 @@ public extension DescriptionLoadable
             }
         }()
         
-        let descriptionLookupResult: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, commandArguments)
+        let descriptionLookupResult: [TerminalOutput] = await shellNonStreaming(AppConstants.shared.brewExecutablePath, commandArguments)
 
         AppConstants.shared.logger.debug("Raw terminal output for \(self.type.description)  : \(descriptionLookupResult)")
 

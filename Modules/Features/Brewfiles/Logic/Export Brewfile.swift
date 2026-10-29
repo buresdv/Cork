@@ -45,9 +45,9 @@ public extension BrewfileManager
 
         let brewfileParentLocation: URL = URL.temporaryDirectory
 
-        let pathRawOutput: [TerminalOutput] = await shell(URL(string: "/bin/pwd")!, ["-L"])
+        let pathRawOutput: [TerminalOutput] = await shellNonStreaming(URL(string: "/bin/pwd")!, ["-L"])
 
-        let brewfileDumpingResult: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["bundle", "-f", "dump"], workingDirectory: brewfileParentLocation)
+        let brewfileDumpingResult: [TerminalOutput] = await shellNonStreaming(AppConstants.shared.brewExecutablePath, ["bundle", "-f", "dump"], workingDirectory: brewfileParentLocation)
 
         /// Throw an error if the working directory could not be determined
         if pathRawOutput.containsErrors

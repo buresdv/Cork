@@ -14,11 +14,13 @@ struct AppIconDisplay: View
     enum DisplayType
     {
         case asIcon(
-            usingApp: Application
+            usingApp: Application,
+            customWidth: CGFloat? = nil
         )
         case asIconWithAppNameDisplayed(
             usingApp: Application,
-            namePosition: AppNamePosition
+            namePosition: AppNamePosition,
+            customWidth: CGFloat? = nil
         )
         case asPathControl(
             usingURL: URL
@@ -39,12 +41,13 @@ struct AppIconDisplay: View
     {
         switch displayType
         {
-        case .asIcon(let usingApp):
+        case .asIcon(let usingApp, let customWidth):
             ApplicationIconImage(
                 app: usingApp,
-                allowRevealingInFinderThroughIcon: allowRevealingInFinderFromIcon
+                allowRevealingInFinderThroughIcon: allowRevealingInFinderFromIcon,
+                customWidth: customWidth
             )
-        case .asIconWithAppNameDisplayed(let usingApp, let namePosition):
+        case .asIconWithAppNameDisplayed(let usingApp, let namePosition, let customWidth):
             switch namePosition
             {
             case .besideAppIcon:
@@ -52,7 +55,8 @@ struct AppIconDisplay: View
                 {
                     ApplicationIconImage(
                         app: usingApp,
-                        allowRevealingInFinderThroughIcon: allowRevealingInFinderFromIcon
+                        allowRevealingInFinderThroughIcon: allowRevealingInFinderFromIcon,
+                        customWidth: customWidth
                     )
 
                     applicationName(app: usingApp)
@@ -63,7 +67,8 @@ struct AppIconDisplay: View
                 {
                     ApplicationIconImage(
                         app: usingApp,
-                        allowRevealingInFinderThroughIcon: allowRevealingInFinderFromIcon
+                        allowRevealingInFinderThroughIcon: allowRevealingInFinderFromIcon,
+                        customWidth: customWidth
                     )
 
                     applicationName(app: usingApp)
@@ -89,6 +94,8 @@ private struct ApplicationIconImage: View
 
     let allowRevealingInFinderThroughIcon: Bool
 
+    let customWidth: CGFloat?
+
     var body: some View
     {
         if let appIconImage = app.iconImage
@@ -96,7 +103,7 @@ private struct ApplicationIconImage: View
             appIconImage
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 35)
+                .frame(width: customWidth ?? 35)
                 .contextMenu
                 {
                     Button

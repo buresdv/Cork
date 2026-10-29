@@ -129,7 +129,7 @@ private extension TapTracker
         brewPackagesTracker: BrewPackagesTracker
     ) async throws(TapTracker.UntapError)
     {
-        let untapResult: [TerminalOutput] = await shell(appConstants.brewExecutablePath, ["untap", tapToRemove.name(withPrecision: .full)])
+        let untapResult: [TerminalOutput] = await shellNonStreaming(appConstants.brewExecutablePath, ["untap", tapToRemove.name(withPrecision: .full)])
 
         if untapResult.contains("Untapped", in: .standardOutputs, .standardErrors)
         {
@@ -137,7 +137,7 @@ private extension TapTracker
         }
         else
         {
-            appConstants.logger.error("\(TapTracker.TapRemovalPurpose.removeFromHomebrewAndTracker.description, privacy: .public) of tap \(tapToRemove.name(withPrecision: .full), privacy: .public) failed")
+            appConstants.logger.error("\(TapTracker.TapRemovalPurpose.removeFromHomebrewAndTracker.description, privacy: .public) of tap \(tapToRemove.name(withPrecision: .full), privacy: .public) failed with error: \(untapResult.standardErrors), output: \(untapResult.standardOutputs)")
 
             if let partOfUntapResultThatContainsPackageNames = untapResult.first(where: { $0.description.contains("because it contains the following installed") })
             {

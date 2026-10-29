@@ -11,9 +11,9 @@ import CorkModels
 
 struct PackageSystemInfo: View
 {
-    let package: BrewPackage
+    @Environment(\.caskApplication) var caskApplication
     
-    let caskExecutable: Application?
+    let package: BrewPackage
 
     @State private var isShowingCaskSizeHelpPopover: Bool = false
 
@@ -35,13 +35,13 @@ struct PackageSystemInfo: View
     @ViewBuilder
     var caskInstalledAsLine: some View
     {
-        if let caskExecutable
+        if let caskApplication
         {
             LabeledContent
             {
                 AppIconDisplay(
                     displayType: .asIconWithAppNameDisplayed(
-                        usingApp: caskExecutable,
+                        usingApp: caskApplication,
                         namePosition: .besideAppIcon
                     ),
                     allowRevealingInFinderFromIcon: true

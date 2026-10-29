@@ -11,6 +11,11 @@ import CorkModels
 import ApplicationInspector
 import FactoryKit
 
+public extension EnvironmentValues
+{
+    @Entry var caskApplication: Application?
+}
+
 struct PackageDetailView: View, Sendable, DismissablePane
 {
     let package: BrewPackage
@@ -105,10 +110,10 @@ struct PackageDetailView: View, Sendable, DismissablePane
                         DependantsList(packageDetails: packageDetails)
 
                         PackageSystemInfo(
-                            package: packageStructureToUse,
-                            caskExecutable: caskExecutable
+                            package: packageStructureToUse
                         )
                     }
+                    .environment(\.caskApplication, caskExecutable)
                 }
             }
 

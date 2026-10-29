@@ -9,17 +9,35 @@ import AppKit
 import CorkShared
 import Foundation
 import Observation
-@preconcurrency import UserNotifications
 import SwiftUI
+@preconcurrency import UserNotifications
 
 /// Class that holds the global state of the app, excluding services
 @Observable @MainActor
 public final class AppState
 {
-    public init () {}
-    
+    public init()
+    {
+        print("AppState init fired")
+        
+        refreshFullDiskAccessStatus()
+
+        fullDiskAccessObservationTask = Task
+        { [weak self] in
+            for await _ in NotificationCenter.default.notifications(named: NSApplication.didBecomeActiveNotification)
+            {
+                self?.refreshFullDiskAccessStatus()
+            }
+        }
+    }
+
+    isolated deinit
+    {
+        fullDiskAccessObservationTask?.cancel()
+    }
+
     // MARK: - Licensing
-    
+
     public enum LicensingState
     {
         case notBoughtOrHasNotActivatedDemo
@@ -175,13 +193,43 @@ public final class AppState
         }
     }
 
+    // MARK: - Full Disk Access
+
+    public private(set) var hasFullDiskAccess: Bool = false
+
+    private var fullDiskAccessObservationTask: Task<Void, Never>?
+
+    private func refreshFullDiskAccessStatus()
+    {
+        
+        let tccDatabaseURL: URL = .init(filePath: "/Library/Preferences/com.apple.TimeMachine.plist")
+
+        AppConstants.shared.logger.debug("FDA discovery URL: \(tccDatabaseURL, privacy: .public)")
+        
+        guard let tccDatabaseHandle = FileHandle(forReadingAtPath: tccDatabaseURL.path)
+        else
+        {
+            AppConstants.shared.logger.debug("Has FDA access? NO")
+            
+            self.hasFullDiskAccess = false
+
+            return
+        }
+
+        try? tccDatabaseHandle.close()
+        
+        AppConstants.shared.logger.debug("Has FDA access? YES")
+
+        self.hasFullDiskAccess = true
+    }
+
     // MARK: - Initiating the update process from legacy contexts
 
     @objc public func startUpdateProcessForLegacySelectors(_: NSMenuItem!)
     {
         self.showSheet(ofType: .update)
 
-        //sendNotification(title: String(localized: "notification.upgrade-process-started"))
+        // sendNotification(title: String(localized: "notification.upgrade-process-started"))
     }
 }
 

@@ -89,7 +89,7 @@ public extension BrewPackage
         public func loadDependents(usingTracker installedPackagesTracker: BrewPackagesTracker) async
         {
             AppConstants.shared.logger.debug("Will load dependents for \(self.name)")
-            let packageDependentsRaw: String = await shell(AppConstants.shared.brewExecutablePath, ["uses", "--installed", name]).standardOutputs.joined()
+            let packageDependentsRaw: String = await shellNonStreaming(AppConstants.shared.brewExecutablePath, ["uses", "--installed", name]).standardOutputs.joined()
 
             let finalDependents: [String] = packageDependentsRaw.components(separatedBy: "\n").dropLast()
 

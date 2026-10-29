@@ -17,10 +17,10 @@ func searchForPackage(packageName: String, packageType: BrewPackage.PackageType)
     switch packageType
     {
     case .formula:
-        finalCommandOutputs = await shell(AppConstants.shared.brewExecutablePath, ["search", "--formulae", packageName])
+        finalCommandOutputs = await shellNonStreaming(AppConstants.shared.brewExecutablePath, ["search", "--formulae", packageName])
 
     case .cask:
-        finalCommandOutputs = await shell(AppConstants.shared.brewExecutablePath, ["search", "--casks", packageName])
+        finalCommandOutputs = await shellNonStreaming(AppConstants.shared.brewExecutablePath, ["search", "--casks", packageName])
     }
 
     AppConstants.shared.logger.info("Search found \(finalCommandOutputs.count) packages: \(finalCommandOutputs, privacy: .auto)")

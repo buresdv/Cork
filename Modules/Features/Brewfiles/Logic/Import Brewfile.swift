@@ -42,7 +42,7 @@ public extension BrewfileManager
 
         AppConstants.shared.logger.info("Brewfile import path: \(url.path)")
 
-        let brewfileImportingResultRaw: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["bundle", "--file", url.path, "--no-lock"])
+        let brewfileImportingResultRaw: [TerminalOutput] = await shellNonStreaming(AppConstants.shared.brewExecutablePath, ["bundle", "--file", url.path, "--no-lock"])
 
         AppConstants.shared.logger.info("Brewfile import result:\nStandard output: \(brewfileImportingResultRaw.standardOutputs, privacy: .public)\nStandard error: \(brewfileImportingResultRaw.standardErrors)")
 

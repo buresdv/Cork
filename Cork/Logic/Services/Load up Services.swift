@@ -69,7 +69,7 @@ extension ServicesTracker
             return decoder
         }()
 
-        let rawOutput: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["services", "list", "--json"])
+        let rawOutput: [TerminalOutput] = await shellNonStreaming(AppConstants.shared.brewExecutablePath, ["services", "list", "--json"])
 
         // MARK: - Error checking
 

@@ -1,13 +1,13 @@
 {
-  "originHash" : "90b9de3c510f1fa2106649229d7cf866f016a434e858b7fd77ef628e81c7ddd2",
+  "originHash" : "600dc717047fefafae8443fb424cbc1c408c764b6db1f4cb4f6619ed9c04128b",
   "pins" : [
     {
       "identity" : "applicationinspector",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/buresdv/ApplicationInspector",
       "state" : {
-        "revision" : "72d9888b3da342df026254a940553c31b72daec8",
-        "version" : "1.0.0"
+        "revision" : "9c82bb38fcef2b7b43bcf38516dd7948d7b03725",
+        "version" : "1.2.0"
       }
     },
     {
@@ -65,6 +65,15 @@
       }
     },
     {
+      "identity" : "swift-subprocess",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swiftlang/swift-subprocess",
+      "state" : {
+        "revision" : "55d30558b8b12c0343793421328fe81a4919c776",
+        "version" : "1.0.1"
+      }
+    },
+    {
       "identity" : "swift-syntax",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/swiftlang/swift-syntax",
@@ -74,12 +83,39 @@
       }
     },
     {
+      "identity" : "swift-system",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-system",
+      "state" : {
+        "revision" : "869129b7bf4ecc57b97d0193ad29690ca2134750",
+        "version" : "1.8.1"
+      }
+    },
+    {
+      "identity" : "swift-xattr",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jozefizso/swift-xattr",
+      "state" : {
+        "revision" : "1cd1e6bc9aecdcce31c66e2d2d5561ecd7ead83a",
+        "version" : "3.0.1"
+      }
+    },
+    {
       "identity" : "swiftlintplugins",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SimplyDanny/SwiftLintPlugins",
       "state" : {
         "revision" : "6c3d6c32a37224179dc290f21e03d1238f3d963b",
         "version" : "0.56.2"
+      }
+    },
+    {
+      "identity" : "zipfoundation",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/weichsel/ZIPFoundation",
+      "state" : {
+        "revision" : "22787ffb59de99e5dc1fbfe80b19c97a904ad48d",
+        "version" : "0.9.20"
       }
     }
   ],

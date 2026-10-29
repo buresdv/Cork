@@ -145,7 +145,7 @@ public extension BrewTap
             infoRetrievalURL = .init(string: "https://packages.homebrew.corkmac.app/casks")!
         }
 
-        do
+        do throws(DataDownloadingError)
         {
             let downloadedData: Data = try await downloadDataFromURL(infoRetrievalURL)
 
@@ -155,7 +155,16 @@ public extension BrewTap
         }
         catch let jsonDownloadingError
         {
-            throw .couldNotDownloadJson(error: jsonDownloadingError)
+            if case .timedOut = jsonDownloadingError
+            {
+                appConstants.logger.error("Failed to use Speakeasy to download the needed JSON. Will use Homebrew instead")
+                
+                return try await self.loadTapJSONDataForThirdPartyTap()
+            }
+            else
+            {
+                throw .couldNotDownloadJson(error: jsonDownloadingError)
+            }
         }
     }
 
@@ -164,7 +173,7 @@ public extension BrewTap
     /// We have to use the built-in commands, because these taps are still hosted on GitHub and don't have APIs
     private func loadTapJSONDataForThirdPartyTap() async throws(BrewTap.TapInfoLoadingError) -> Data
     {
-        let tapInfoLoadingResult: [TerminalOutput] = await shell(appConstants.brewExecutablePath, ["tap-info", "--json", self.name(withPrecision: .full)])
+        let tapInfoLoadingResult: [TerminalOutput] = await shellNonStreaming(appConstants.brewExecutablePath, ["tap-info", "--json", self.name(withPrecision: .full)])
 
         appConstants.logger.info("Result of tap info for tap \(self.name(withPrecision: .full)): \(tapInfoLoadingResult)")
 

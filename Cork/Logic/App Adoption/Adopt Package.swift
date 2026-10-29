@@ -33,7 +33,7 @@ extension MassAppAdoptionView.MassAppAdoptionTacker
             )
         }
 
-        let (stream, process): (AsyncStream<TerminalOutput>, Process) = shell(AppConstants.shared.brewExecutablePath, ["install", "--cask", "--adopt", caskToAdopt])
+        let (stream, process): (AsyncStream<TerminalOutput>, Process) = await shell(AppConstants.shared.brewExecutablePath, ["install", "--cask", "--adopt", caskToAdopt])
 
         adoptionProcess = process
 

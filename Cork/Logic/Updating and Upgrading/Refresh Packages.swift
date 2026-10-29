@@ -96,7 +96,7 @@ public extension OutdatedPackagesTracker
     {
         let showRealTimeTerminalOutputs: Bool = Defaults[.showRealTimeTerminalOutputOfOperations]
 
-        for await output in shell(AppConstants.shared.brewExecutablePath, ["update"])
+        for await output in await shell(AppConstants.shared.brewExecutablePath, ["update"])
         {
             AppConstants.shared.logger.log("Update function output: \(output.description, privacy: .public)")
 

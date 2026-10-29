@@ -297,7 +297,7 @@ private extension View
             {
                 AppConstants.shared.logger.info("Started Analytics startup action at \(Date())")
 
-                async let analyticsQueryCommand: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["analytics"])
+                async let analyticsQueryCommand: [TerminalOutput] = await shellNonStreaming(AppConstants.shared.brewExecutablePath, ["analytics"])
 
                 if await analyticsQueryCommand.standardOutputs.joined().localizedCaseInsensitiveContains("Analytics are enabled")
                 {
@@ -445,6 +445,9 @@ private extension View
                     MaintenanceView(
                         fastCacheDeletion: fastCacheDeletion
                     )
+                    
+                case .fixFullDiskAccessPermissions:
+                    PermissionsFixSheet()
                 }
             }
     }
@@ -647,7 +650,11 @@ private extension View
 
                 case .tapLoadingFailedDueToTapItself:
                     EmptyView()
-                case .couldNotDeleteCachedDownloads(error: let error):
+                case .couldNotDeleteCachedDownloads:
+                    EmptyView()
+                case .couldNotRemoveQuarantine:
+                    EmptyView()
+                case .couldNotConstructConsolidatedEnvironmentVariables:
                     EmptyView()
                 }
             } message: { error in

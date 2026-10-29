@@ -2,8 +2,8 @@ import ProjectDescription
 
 let settings = Environment.selfCompiled.getBoolean(default: false)
 
-let version: String = "2.0.3"
-let build: String = "146"
+let version: String = "2.1.1"
+let build: String = "154"
 
 func corkTarget(configureWithSelfCompiled: Bool) -> ProjectDescription.Target {
     var additionalCompilationConditions = [String]()
@@ -37,6 +37,7 @@ func corkTarget(configureWithSelfCompiled: Bool) -> ProjectDescription.Target {
             .target(corkTerminalFunctionsTarget),
             .target(corkIntentsTarget),
             .target(corkFeature_brewfiles),
+            .target(corkFeature_xattrHandling),
             .external(name: "LaunchAtLogin"),
             .external(name: "DavidFoundation"),
             .external(name: "ApplicationInspector"),
@@ -44,6 +45,7 @@ func corkTarget(configureWithSelfCompiled: Bool) -> ProjectDescription.Target {
             .external(name: "FactoryKit"),
             .external(name: "Defaults"),
             .external(name: "DefaultsMacros"),
+            .external(name: "Subprocess"),
             .package(product: "SwiftLintBuildToolPlugin", type: .plugin)
         ], settings: .settings(configurations: [
             .debug(
@@ -78,7 +80,9 @@ let corkSharedTarget: ProjectDescription.Target = .target(
     dependencies: [
         .external(name: "Defaults"),
         .external(name: "FactoryKit"),
-        .external(name: "BetterProgress")
+        .external(name: "BetterProgress"),
+        .external(name: "ZIPFoundation"),
+        .external(name: "DavidFoundation")
     ],
     settings: .settings(configurations: [
         .debug(
@@ -130,6 +134,7 @@ let corkTerminalFunctionsTarget: ProjectDescription.Target = .target(
     ],
     dependencies: [
         .target(corkSharedTarget),
+        .external(name: "Subprocess"),
         .external(name: "FactoryKit")
     ],
     settings: .settings(configurations: [
@@ -176,9 +181,13 @@ let corkModelsTarget: ProjectDescription.Target = .target(
     dependencies: [
         .target(corkSharedTarget),
         .target(corkNotificationsTarget),
+        .target(corkTerminalFunctionsTarget),
+        .external(name: "ApplicationInspector"),
         .external(name: "FactoryKit"),
         .external(name: "Defaults"),
         .external(name: "DefaultsMacros"),
+        .external(name: "Subprocess"),
+        .external(name: "ButtonKit")
     ],
     settings: .settings(configurations: [
         .debug(
@@ -204,6 +213,39 @@ let corkIntentsTarget: ProjectDescription.Target = .target(
     dependencies: [
         .target(corkSharedTarget),
         .external(name: "FactoryKit")
+    ],
+    settings: .settings(configurations: [
+        .debug(
+            name: "Debug",
+            xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
+        ),
+        .release(
+            name: "Release",
+            xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
+        )
+    ])
+)
+
+let corkFeature_xattrHandling: ProjectDescription.Target = .target(
+    name: "CorkFeature_XattrHandling",
+    destinations: [.mac],
+    product: .staticLibrary,
+    bundleId: "eu.davidbures.cork-feature.xattr-handling",
+    deploymentTargets: .macOS("14.0.0"),
+    sources: [
+        "Modules/Features/XATTR Handling/**/*.swift"
+    ],
+    resources: [
+        "Cork/**/*.xcassets",
+        "Cork/**/*.xcstrings",
+        "PrivacyInfo.xcprivacy",
+    ],
+    dependencies: [
+        .target(corkSharedTarget),
+        .external(name: "FactoryKit"),
+        .external(name: "Defaults"),
+        .external(name: "DefaultsMacros"),
+        .external(name: "XAttr")
     ],
     settings: .settings(configurations: [
         .debug(
@@ -314,6 +356,7 @@ let project = Project(
         corkNotificationsTarget,
         corkHelpTarget,
         corkFeature_brewfiles,
+        corkFeature_xattrHandling,
         corkTestsTarget,
         corkTerminalFunctionsTestsTarget
     ]

@@ -21,14 +21,14 @@ extension InstallationProgressTracker
 
         var packageDependencies: [String] = .init()
 
-        let (stream, process): (AsyncStream<TerminalOutput>, Process) = shell(AppConstants.shared.brewExecutablePath, ["install", formulaToInstall.name(withPrecision: .precise)])
+        let (stream, process): (AsyncStream<TerminalOutput>, Process) = await shell(AppConstants.shared.brewExecutablePath, ["install", formulaToInstall.name(withPrecision: .precise)])
         installationProcess = process
 
         var consolidatedUnimplementedOutput: [TerminalOutput] = .init()
         var installError: InstallationError.ImplementedError.FormulaInstallError?
 
         let ignoredOutputs: [any RegexComponent] = [
-            /Would install \d formula/
+            // Would install \d formula/
         ]
 
         /// These child progresses have to be here so the progress can move in a more granual way, instead of being stuck

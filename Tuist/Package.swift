@@ -26,11 +26,13 @@ let package = Package(
         .package(url: "https://github.com/sindresorhus/Defaults", .upToNextMajor(from: "9.0.2")),
         .package(url: "https://github.com/buresdv/DavidFoundation", .upToNextMajor(from: "2.0.1")),
         .package(url: "https://github.com/buresdv/BetterProgress", .upToNextMinor(from: "1.2.1")),
-        .package(url: "https://github.com/buresdv/ApplicationInspector", .upToNextMajor(from: "1.0.0")),
+        .package(url: "https://github.com/buresdv/ApplicationInspector", .upToNextMinor(from: "1.2.0")),
         .package(url: "https://github.com/Dean151/ButtonKit", .upToNextMajor(from: "0.6.1")),
         .package(url: "https://github.com/SimplyDanny/SwiftLintPlugins", .upToNextMajor(from: "0.56.1")),
-        .package(url: "https://github.com/hmlongco/Factory", branch: "develop")
-        
+        .package(url: "https://github.com/hmlongco/Factory", branch: "develop"),
+        .package(url: "https://github.com/weichsel/ZIPFoundation", .upToNextMajor(from: "0.9.20")),        
+        .package(url: "https://github.com/jozefizso/swift-xattr", .upToNextMajor(from: "3.0.1")),
+        .package(url: "https://github.com/swiftlang/swift-subprocess.git", .upToNextMinor(from: "1.0.1"))
     ],
     targets: [
         .target(

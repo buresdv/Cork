@@ -41,7 +41,7 @@ extension OutdatedPackagesTracker
             }
         }()
 
-        let (stream, process): (AsyncStream<TerminalOutput>, Process) = shell(appConstants.brewExecutablePath, updateCommandArguments)
+        let (stream, process): (AsyncStream<TerminalOutput>, Process) = await shell(appConstants.brewExecutablePath, updateCommandArguments)
 
         self.updateProcess = process
 

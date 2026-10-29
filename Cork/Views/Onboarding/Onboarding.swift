@@ -5,45 +5,22 @@
 //  Created by David Bureš on 21.10.2023.
 //
 
-import SwiftUI
-import CorkShared
 import CorkNotifications
+import CorkShared
 import Defaults
+import SwiftUI
+import FactoryKit
+import CorkModels
 
 struct OnboardingView: View
 {
     @Environment(\.dismiss) var dismiss: DismissAction
-
-    @Default(.showRealTimeTerminalOutputOfOperations) var showRealTimeTerminalOutputOfOperations: Bool
-    @Default(.allowMoreCompleteUninstallations) var allowMoreCompleteUninstallations: Bool
-
-    @Default(.displayAdvancedDependencies) var displayAdvancedDependencies: Bool
-
-    @Default(.caveatDisplayOptions) var caveatDisplayOptions: PackageCaveatDisplay
-    @Default(.showDescriptionsInSearchResults) var showDescriptionsInSearchResults: Bool
-
-    @Default(.showSearchFieldForDependenciesInPackageDetails) var showSearchFieldForDependenciesInPackageDetails: Bool
     
-    @Default(.showInMenuBar) var showInMenuBar: Bool
-
-    @Default(.areNotificationsEnabled) var areNotificationsEnabled: Bool
-    @Default(.outdatedPackageNotificationType) var outdatedPackageNotificationType: OutdatedPackageNotificationType
-
-    @Default(.notifyAboutPackageUpgradeResults) var notifyAboutPackageUpgradeResults: Bool
-    @Default(.notifyAboutPackageInstallationResults) var notifyAboutPackageInstallationResults: Bool
+    @InjectedObservable(\.appState) var appState: AppState
     
-    @Default(.showCompatibilityWarning) var showCompatibilityWarning: Bool
+    @Default(.hasFinishedOnboarding) var hasFinishedOnboarding: Bool
 
-    @Default(.enableDiscoverability) var enableDiscoverability: Bool
-
-    @Default(.enableRevealInFinder) var enableRevealInFinder: Bool
-
-    @Default(.displayOnlyIntentionallyInstalledPackagesByDefault) var displayOnlyIntentionallyInstalledPackagesByDefault: Bool
-
-    @Default(.outdatedPackageInfoDisplayAmount) var outdatedPackageInfoDisplayAmount: OutdatedPackageInfoAmount
-    @Default(.showOldVersionsInOutdatedPackageList) var showOldVersionsInOutdatedPackageList: Bool
-
-    @State var onboardingSetupLevel: SetupLevels = .medium
+    @State private var onboardingSetupLevel: SetupLevels = .medium
 
     /// Level numbers:
     /// - 0: Basic
@@ -53,120 +30,89 @@ struct OnboardingView: View
     /// - 4: Advanced
     @State var onboardingSetupLevelNumber: Float = 2
 
-    @State private var areDetailsExpanded: Bool = false
+    @Observable
+    class OnboardingNavigationManager
+    {
+        enum OnboardingScreen: Hashable
+        {
+            case corkIntroduction
+            case corkFeatures
+            //case corkPermissions
+        }
+
+        var openedScreen: OnboardingScreen = .corkIntroduction
+        
+        func navigate(to newScreen: OnboardingScreen)
+        {
+            self.openedScreen = newScreen
+        }
+    }
+
+    @State private var onboardingNavigationManager: OnboardingNavigationManager = .init()
 
     var body: some View
     {
-        VStack(alignment: .center, spacing: 20, content: {
-            Image(nsImage: NSImage(named: "AppIcon") ?? NSImage())
-                .resizable()
-                .frame(width: 100, height: 100)
-
-            if !areDetailsExpanded
+        NavigationStack
+        {
+            VStack(alignment: .center, spacing: 10)
             {
-                VStack(alignment: .center, spacing: 5, content: {
-                    Text("onboarding.title")
-                        .font(.title)
-
-                    Text("onboarding.subtitle")
-                })
-            }
-
-            VStack(alignment: .leading, spacing: 10, content: {
-                OnboardingDefaultsSlider(setupLevel: $onboardingSetupLevel, sliderValue: $onboardingSetupLevelNumber)
-
-                DisclosureGroup(
-                    isExpanded: $areDetailsExpanded,
-                    content: {
-                        if onboardingSetupLevelNumber < 4
+                headerIcon
+                    .animation(.easeIn, value: headerIconSize)
+                
+                onboardingSheetContent
+                .toolbar
+                {
+                    ToolbarItem(placement: .automatic)
+                    {
+                        Button
                         {
-                            Form
-                            {
-                                OnboardingBasicCategory(onboardingSetupLevelNumber: onboardingSetupLevelNumber)
-
-                                OnboardingDiscoverabilityCategory(onboardingSetupLevelNumber: onboardingSetupLevelNumber)
-
-                                OnboardingPackageFeaturesCategory(onboardingSetupLevelNumber: onboardingSetupLevelNumber)
-
-                                OnboardingTapFeaturesCategory(onboardingSetupLevelNumber: onboardingSetupLevelNumber)
-
-                                OnboardingExtrasCategory(onboardingSetupLevelNumber: onboardingSetupLevelNumber)
-                            }
-                            .formStyle(.grouped)
+                            hasFinishedOnboarding = true
+                        } label: {
+                            Text("action.cancel")
                         }
-                        else
-                        {
-                            Text("onboarding.all-features-enabled")
-                        }
-                    },
-                    label: {
-                        Text(areDetailsExpanded ? "add-package.install.hide-details" : "add-package.install.show-details")
                     }
-                )
-                .betterDisclosureGroupStyle()
-            })
-
-            Button
-            {
-                /// First, purge all the current defaults if there are any
-                if let bundleID = Bundle.main.bundleIdentifier
-                {
-                    UserDefaults.standard.removePersistentDomain(forName: bundleID)
                 }
-
-                /// Now, do all the setup
-                if onboardingSetupLevelNumber >= 1
-                {
-                    showDescriptionsInSearchResults = true
-                    showCompatibilityWarning = true
-                    outdatedPackageInfoDisplayAmount = .none
-                }
-
-                if onboardingSetupLevelNumber >= 2
-                {
-                    enableDiscoverability = true
-                    caveatDisplayOptions = .full
-                    areNotificationsEnabled = true
-                    outdatedPackageNotificationType = .both
-
-                    outdatedPackageInfoDisplayAmount = .versionOnly
-                    showOldVersionsInOutdatedPackageList = true
-
-                    displayOnlyIntentionallyInstalledPackagesByDefault = false
-                }
-
-                if onboardingSetupLevelNumber >= 3
-                {
-                    showSearchFieldForDependenciesInPackageDetails = true
-                    displayAdvancedDependencies = true
-                    allowMoreCompleteUninstallations = true
-                    showInMenuBar = true
-
-                    notifyAboutPackageUpgradeResults = true
-                    notifyAboutPackageInstallationResults = true
-
-                    outdatedPackageInfoDisplayAmount = .all
-
-                    enableRevealInFinder = true
-                }
-
-                if onboardingSetupLevelNumber >= 4
-                {
-                    showRealTimeTerminalOutputOfOperations = true
-                }
-
-                AppConstants.shared.logger.info("Onboarding finished")
-
-                dismiss()
-            } label: {
-                Text("action.done")
             }
-            .keyboardShortcut(.defaultAction)
-            .controlSize(.large)
-
-        })
-        .fixedSize()
-        .padding()
-        .animation(.none, value: areDetailsExpanded)
+            .padding()
+            .animation(.easeIn, value: onboardingNavigationManager.openedScreen)
+        }
+        .environment(onboardingNavigationManager)
+    }
+    
+    @ViewBuilder
+    private var onboardingSheetContent: some View
+    {
+        switch onboardingNavigationManager.openedScreen
+        {
+        case .corkIntroduction:
+            Onboarding_InitialView()
+                .transition(.move(edge: .top).combined(with: .blurReplace))
+        case .corkFeatures:
+            Onboarding_FeaturesView(
+                onboardingSetupLevelNumber: $onboardingSetupLevelNumber,
+                onboardingSetupLevel: $onboardingSetupLevel
+            )
+            .transition(.move(edge: .bottom).combined(with: .blurReplace))
+        // case .corkPermissions:
+        //    PermissionsFixSheetContent()
+        }
+    }
+    
+    var headerIconSize: CGFloat {
+        if case .corkIntroduction = onboardingNavigationManager.openedScreen
+        {
+            return 100
+        }
+        else {
+            return 50
+        }
+    }
+    
+    @ViewBuilder
+    private var headerIcon: some View
+    {
+        Image(nsImage: NSImage(named: "AppIcon") ?? NSImage())
+            .resizable()
+            .frame(width: headerIconSize, height: headerIconSize, alignment: .top)
     }
 }
