@@ -1,0 +1,3 @@
+about.copyright-%@
+about.copyright-%lld
+about.privacy-policy
