@@ -97,88 +97,59 @@ struct ContentView: View, Sendable
         {
             SidebarView()
         } detail: {
-            switch navigationManager.openedScreen
+            Group
             {
-            case .package(let package):
-                PackageDetailView(package: package)
-                    .frame(minWidth: 600, minHeight: 500)
-            case .tap(let tap):
-                TapDetailView(tap: tap)
-                    .frame(minWidth: 600, minHeight: 500)
-            case nil:
-                StartPage()
-                    .frame(minWidth: 600, minHeight: 500)
+                switch navigationManager.openedScreen
+                {
+                case .package(let package):
+                    PackageDetailView(package: package)
+                        .frame(minWidth: 600, minHeight: 500)
+                case .tap(let tap):
+                    TapDetailView(tap: tap)
+                        .frame(minWidth: 600, minHeight: 500)
+                case nil:
+                    StartPage()
+                        .frame(minWidth: 600, minHeight: 500)
+                }
+            }
+            .toolbar(id: "PackageActions")
+            {
+                ToolbarItem(id: "updatePackages", placement: .primaryAction)
+                {
+                    CheckForOutdatedPackagesButton()
+                }
+                .defaultCustomization(.hidden)
+
+                ToolbarItem(id: "upgradePackages", placement: .primaryAction)
+                {
+                    UpgradePackagesButton(appState: appState)
+                }
+
+                ToolbarItem(id: "addTap", placement: .primaryAction)
+                {
+                    AddTapButton(appState: appState)
+                }
+
+                ToolbarItem(id: "installPackage", placement: .primaryAction)
+                {
+                    InstallPackageButton(appState: appState)
+                }
+
+                ToolbarItem(id: "maintenance", placement: .primaryAction)
+                {
+                    self.performMaintenanceButton
+                }
+                .defaultCustomization(.hidden)
+
+                ToolbarItem(id: "manageServices", placement: .primaryAction)
+                {
+                    self.manageServicesButton
+                }
+                .defaultCustomization(.hidden)
             }
         }
         .navigationTitle("app-name")
         .navigationSubtitle("navigation.installed-packages.count-\(self.brewPackagesTracker.numberOfInstalledPackages)")
-        .toolbar(id: "PackageActions")
-        {
-            ToolbarItem(id: "updatePackages", placement: .primaryAction)
-            {
-                CheckForOutdatedPackagesButton()
-            }
-            .defaultCustomization(.hidden)
-
-            ToolbarItem(id: "upgradePackages", placement: .primaryAction)
-            {
-                UpgradePackagesButton(appState: appState)
-            }
-
-            ToolbarItem(id: "addTap", placement: .primaryAction)
-            {
-                AddTapButton(appState: appState)
-            }
-
-            ToolbarItem(id: "installPackage", placement: .primaryAction)
-            {
-                InstallPackageButton(appState: appState)
-            }
-
-            ToolbarItem(id: "maintenance", placement: .primaryAction)
-            {
-                self.performMaintenanceButton
-            }
-            .defaultCustomization(.hidden)
-
-            ToolbarItem(id: "manageServices", placement: .primaryAction)
-            {
-                self.manageServicesButton
-            }
-            .defaultCustomization(.hidden)
-
-            ToolbarItem(id: "spacer", placement: .automatic)
-            {
-                Spacer()
-            }
-            .defaultCustomization(.hidden)
-
-            ToolbarItem(id: "divider", placement: .automatic)
-            {
-                Divider()
-            }
-            .defaultCustomization(.hidden)
-
-            // TODO: Implement this button
-            /*
-             ToolbarItem(id: "installPackageDirectly", placement: .automatic)
-             {
-                 Button
-                 {
-                     AppConstants.shared.logger.info("Ahoj")
-                 } label: {
-                     Label
-                     {
-                         Text("navigation.install-package.direct")
-                     } icon: {
-                         Image(systemName: "plus.viewfinder")
-                     }
-                 }
-                 .help("navigation.install-package.direct.help")
-             }
-             .defaultCustomization(.hidden)
-              */
-        }
         .basicsSetup(of: self)
         .packageLoadingTask(of: self)
         .tapLoadingTask(of: self)
@@ -252,7 +223,7 @@ private extension View
 
                 view.brewPackagesTracker.installedFormulae = await availableFormulae ?? .init()
                 view.brewPackagesTracker.installedCasks = await availableCasks ?? .init()
-                
+
                 view.cachedDownloadsTracker.cachedDownloads = view.cachedDownloadsTracker.assignPackageTypeToCachedDownloads(cachedDownloads: view.cachedDownloadsTracker.cachedDownloads, brewPackagesTracker: view.brewPackagesTracker)
             }
     }
@@ -445,7 +416,7 @@ private extension View
                     MaintenanceView(
                         fastCacheDeletion: fastCacheDeletion
                     )
-                    
+
                 case .fixFullDiskAccessPermissions:
                     PermissionsFixSheet()
                 }
@@ -556,7 +527,7 @@ private extension View
                     }
 
                 case .couldNotRemoveTapDueToPackagesFromItStillBeingInstalled(let tap, let offendingPackages):
-                    
+
                     if let offendingPackages
                     {
                         if offendingPackages.count == 1, let offendingPackage = offendingPackages.first
@@ -570,7 +541,7 @@ private extension View
                             }
                         }
                     }
-                    
+
                     Button
                     {
                         view.appState.dismissAlert()
@@ -579,7 +550,7 @@ private extension View
                         Text("action.open-detail-for-\(tap.name(withPrecision: .full))")
                     }
                     .keyboardShortcut(.defaultAction)
-                    
+
                     Button
                     {
                         view.appState.dismissAlert()

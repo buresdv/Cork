@@ -122,6 +122,8 @@ struct AboutView: View
                 Text("about.copyright-\(String(Calendar.current.component(.year, from: .now)))")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
+                    .lineLimit(2)
+                    .fixedSize(horizontal: false, vertical: true)
 
                 VStack(alignment: .leading)
                 {
@@ -246,10 +248,14 @@ struct AboutView: View
                     }
                     .betterDisclosureGroupStyle()
                      */
-
-                    Text("about.privacy-policy")
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
+                    HStack(alignment: .center, spacing: 5)
+                    {
+                        Text("about.terms-of-service")
+                        Text("about.privacy-policy")
+                        Text("about.eula")
+                    }
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
                 }
 
                 HStack
@@ -265,7 +271,7 @@ struct AboutView: View
 
                     Button
                     {
-                        NSWorkspace.shared.open(URL(string: "https://mstdn.social/@davidbures")!)
+                        NSWorkspace.shared.open(URL(string: "https://bsky.app/profile/corkmac.app")!)
                     } label: {
                         Label("about.contact", systemImage: "paperplane")
                     }
