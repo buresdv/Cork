@@ -41,6 +41,9 @@ struct UpdateSomePackagesView: View
         .frame(maxWidth: .infinity)
         .task
         {
+            await outdatedPackagesTracker.updateSomePackages(packagesToUpdate: packagesToUpdate, updateProgressTracker: updateProgressTracker)
+            
+            /*
             var consolidatedUpdateResults: [SinglePackageUpdatingResult] = .init()
             
             /// Keep track of which package in line is being updated - So we can do "updating package 1 of 3"
@@ -60,7 +63,7 @@ struct UpdateSomePackagesView: View
 
                 updateProgressTracker.packageBeingCurrentlyUpdated = packageToUpdate
                 
-                updateProgressTracker.updateProgress.setText(to: .aboveBar(String(localized:"update-packages.incremental.package-count.\(numberInLineOfPackageBeingCurrentlyUpdated)-of-\(packagesToUpdate.count)")))
+                updateProgressTracker.updateProgress.setText(to: .aboveBar(String(localized: "update-packages.incremental.package-count.\(numberInLineOfPackageBeingCurrentlyUpdated)-of-\(packagesToUpdate.count)")))
                 
                 if let packageBeingUpdated = updateProgressTracker.packageBeingCurrentlyUpdated
                 {
@@ -105,6 +108,7 @@ struct UpdateSomePackagesView: View
             {
                 updateProgressTracker.updatingState = .erroredOut(results: failedUpdates)
             }
+             */
         }
     }
 }
