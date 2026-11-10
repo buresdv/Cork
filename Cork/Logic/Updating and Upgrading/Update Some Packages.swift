@@ -77,13 +77,27 @@ extension OutdatedPackagesTracker
         )
         
         formulaePartProgressTracker.increment(byPercentage: 100)
+        
+        appConstants.logger.debug("""
+Homebrew command for formulae:
+brew reinstall --formula \(formulaeToUpdate.map({ $0.package.name(withPrecision: .precise) }).joined(separator: " "))
+""")
     }
     
+    // MARK: - Casks updating
+    
+    /// Update the selected Casks
+    /// - Parameters:
+    ///   - casksToUpdate: Which Casks to update
+    ///   - totalPackagesSelectedForSelectiveUpdating: How many packages in total are there to update, for cfalculating how much of the total progress is dedicated to Casks
+    ///   - updateProgressTracker: Update progress tracker for reporting
+    /// - Returns: Unimplemented outputs
+    /// - Throws: Critical error
     private func updateCasks(
         casksToUpdate: [OutdatedPackage],
         totalPackagesSelectedForSelectiveUpdating: Double,
         updateProgressTracker: UpdateProgressTracker
-    ) async {
+    ) async throws -> [TerminalOutput]? {
         let percentageOfTotalNumberOfPackagesSelectedToBeUpdated: Double = Double( (Double(casksToUpdate.count) / totalPackagesSelectedForSelectiveUpdating) * 100 )
         
         appConstants.logger.debug("Percentage for casks: \(percentageOfTotalNumberOfPackagesSelectedToBeUpdated)")
@@ -94,7 +108,49 @@ extension OutdatedPackagesTracker
             totalItemsOfThisProgress: casksToUpdate.count
         )
         
-        casksPartProgressTracker.increment(byPercentage: 100)
+        let (stream, process): (AsyncStream<TerminalOutput>, Process) = await shell(AppConstants.shared.brewExecutablePath, ["reinstall", "--cask", casksToUpdate.map({ $0.package.name(withPrecision: .precise) }).joined(separator: " ")])
+        
+        for await output in stream
+        {
+            updateProgressTracker.insertOutput(output)
+            
+            output.match(as: UpdateProgressTracker.IndividialPackageUpdatingStage.self)
+            { standardCase in
+                AppConstants.shared.logger.debug("Matched update standard case: \(standardCase.description)")
+                
+                casksPartProgressTracker.increment(bySetNumber: 1)
+                
+            } onErrorOutput: { errorCase in
+                switch errorCase
+                {
+                case .postInstallStepFailed:
+                    processError = .implemented(
+                        failedPackage: packageToUpdate,
+                        error: .postInstallStepFailed(
+                            rawOutput: output.description
+                        )
+                    )
+                case .terminalRequired:
+                    processError = .implemented(
+                        failedPackage: packageToUpdate,
+                        error: .terminalRequired
+                    )
+                }
+            } onUnimplementedOutput: { unimplementedCase in
+                AppConstants.shared.logger.debug("Matched update unimplemented case: \(unimplementedCase.description)")
+                
+                switch unimplementedCase
+                {
+                case .standardOutput(let standardOutput):
+                    processUnimplementedCases.append(unimplementedCase)
+                case .standardError(let standardError):
+                    processError = .unimplemented(
+                        failedPackage: packageToUpdate,
+                        rawOutput: standardError.rawOutput
+                    )
+                }
+            }
+        }
     }
 }
 
