@@ -17,6 +17,7 @@ public extension Defaults.Keys
     // MARK: - Outdated packages
     /// Whether to show `--greedy` packages
     static let includeGreedyOutdatedPackages: Key<Bool> = .init("includeGreedyOutdatedPackages", default: false)
+    static let automaticallyExpandOutdatedPackageList: Key<Bool> = .init("automaticallyExpandOutdatedPackageList", default: false)
     
     // MARK: - Compatibility
     /// Whether to warn about packages incompatible with the user's system

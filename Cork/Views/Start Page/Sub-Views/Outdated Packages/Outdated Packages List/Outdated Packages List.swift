@@ -16,6 +16,11 @@ struct OutdatedPackagesList: View
     @Default(.outdatedPackageInfoDisplayAmount) var outdatedPackageInfoDisplayAmount
 
     @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
+    
+    @Default(.automaticallyExpandOutdatedPackageList) var automaticallyExpandOutdatedPackageList: Bool
+    
+    @State private var isManagedUpdatesDropdownExpanded: Bool = false
+    @State private var isUnmanagedUpdatesDropdownExpanded: Bool = false
 
     var areThereAnyHomebrewManagedUpdatesAvailable: Bool
     {
@@ -34,45 +39,65 @@ struct OutdatedPackagesList: View
     
     var body: some View
     {
-        switch outdatedPackageInfoDisplayAmount
+        Group
         {
-        case .none, .versionOnly:
-            
-            if areThereAnyHomebrewManagedUpdatesAvailable
+            DisclosureGroup(isExpanded: $isManagedUpdatesDropdownExpanded)
             {
-                OutdatedPackagesList_List(packageUpdatingType: .homebrew)
-            }
-            else
-            {
-                noManagedUpdatesAvailableMessage
-            }
-            
-            if areThereAnySelfManagedUpdatesAvailable
-            {
-                DisclosureGroup("start-page.updates.unmanaged-only.list")
+                switch outdatedPackageInfoDisplayAmount
                 {
-                    OutdatedPackagesList_List(packageUpdatingType: .selfUpdating)
+                case .none, .versionOnly:
+                    
+                    if areThereAnyHomebrewManagedUpdatesAvailable
+                    {
+                        OutdatedPackagesList_List(packageUpdatingType: .homebrew)
+                    }
+                    else
+                    {
+                        noManagedUpdatesAvailableMessage
+                    }
+                    
+                    if areThereAnySelfManagedUpdatesAvailable
+                    {
+                        DisclosureGroup(isExpanded: $isUnmanagedUpdatesDropdownExpanded)
+                        {
+                            OutdatedPackagesList_List(packageUpdatingType: .selfUpdating)
+                        } label: {
+                            Text("start-page.updates.unmanaged-only.list")
+                        }
+                        .betterDisclosureGroupStyle()
+                    }
+                case .all:
+                    
+                    if areThereAnyHomebrewManagedUpdatesAvailable
+                    {
+                        OutdatedPackagesList_Table(packageUpdatingType: .homebrew)
+                    }
+                    else
+                    {
+                        noManagedUpdatesAvailableMessage
+                    }
+                    
+                    if areThereAnySelfManagedUpdatesAvailable
+                    {
+                        DisclosureGroup(isExpanded: $isUnmanagedUpdatesDropdownExpanded)
+                        {
+                            OutdatedPackagesList_Table(packageUpdatingType: .selfUpdating)
+                        } label: {
+                            Text("start-page.updates.unmanaged-only.list")
+                        }
+                        .betterDisclosureGroupStyle()
+                    }
                 }
-                .betterDisclosureGroupStyle()
+            } label: {
+                Text("start-page.updates.list")
             }
-        case .all:
-            
-            if areThereAnyHomebrewManagedUpdatesAvailable
+        }
+        .onAppear
+        {
+            if automaticallyExpandOutdatedPackageList
             {
-                OutdatedPackagesList_Table(packageUpdatingType: .homebrew)
-            }
-            else
-            {
-                noManagedUpdatesAvailableMessage
-            }
-            
-            if areThereAnySelfManagedUpdatesAvailable
-            {
-                DisclosureGroup("start-page.updates.unmanaged-only.list")
-                {
-                    OutdatedPackagesList_Table(packageUpdatingType: .selfUpdating)
-                }
-                .betterDisclosureGroupStyle()
+                isManagedUpdatesDropdownExpanded = true
+                isUnmanagedUpdatesDropdownExpanded = true
             }
         }
     }

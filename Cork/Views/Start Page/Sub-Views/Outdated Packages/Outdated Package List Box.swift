@@ -16,6 +16,8 @@ struct OutdatedPackageListBox: View
     @Default(.displayOnlyIntentionallyInstalledPackagesByDefault) var displayOnlyIntentionallyInstalledPackagesByDefault: Bool
 
     @Default(.outdatedPackageInfoDisplayAmount) var outdatedPackageInfoDisplayAmount: OutdatedPackageInfoAmount
+    
+    @Default(.automaticallyExpandOutdatedPackageList) var automaticallyExpandOutdatedPackageList: Bool
 
     @InjectedObservable(\.appState) var appState: AppState
     @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
@@ -37,7 +39,7 @@ struct OutdatedPackageListBox: View
             {
                 VStack(alignment: .leading)
                 {
-                    GroupBoxHeadlineGroupWithArbitraryContent(image: outdatedPackagesTracker.allDisplayableOutdatedPackages.count == 1 ? .init(systemName: "square.and.arrow.down") : .init(systemName:"square.and.arrow.down.on.square"))
+                    GroupBoxHeadlineGroupWithArbitraryContent(image: outdatedPackagesTracker.allDisplayableOutdatedPackages.count == 1 ? .init(systemName: "square.and.arrow.down") : .init(systemName: "square.and.arrow.down.on.square"))
                     {
                         VStack(alignment: .leading, spacing: 5)
                         {
@@ -57,50 +59,7 @@ struct OutdatedPackageListBox: View
                                 }
                             }
 
-                            DisclosureGroup(isExpanded: $isDropdownExpanded)
-                            {
-                                OutdatedPackagesList()
-                                /*
-                                 switch outdatedPackageListBoxType
-                                 {
-                                 case .managedOnly:
-                                     outdatedPackageListComplex(packagesToShow: packagesManagedByHomebrew)
-                                 case .unmanagedOnly:
-                                     outdatedPackageListComplex(packagesToShow: packagesThatUpdateThemselves)
-                                 case .bothManagedAndUnmanaged:
-                                     outdatedPackageListComplex(packagesToShow: packagesManagedByHomebrew)
-
-                                     if !packagesThatUpdateThemselves.isEmpty
-                                     {
-                                         DisclosureGroup(isExpanded: $isSelfUpdatingSectionExpanded)
-                                         {
-                                             outdatedPackageListComplex(packagesToShow: packagesThatUpdateThemselves)
-                                         } label: {
-                                             Text("start-page.updates.self-updating.\(packagesThatUpdateThemselves.count).list")
-                                                 .font(.subheadline)
-                                         }
-                                     }
-                                 }
-                                 */
-                            } label: {
-                                // TODO: Fix this
-                                /*
-                                 Group
-                                 {
-                                     if outdatedPackageListBoxType == .unmanagedOnly
-                                     {
-                                         Text("start-page.updates.unmanaged-only.list")
-                                     }
-                                     else
-                                     {
-                                         Text("start-page.updates.list")
-                                     }
-                                 }
-                                  */
-
-                                Text("start-page.updates.list")
-                            }
-                            .betterDisclosureGroupStyle()
+                            OutdatedPackagesList()
                         }
                     }
                 }

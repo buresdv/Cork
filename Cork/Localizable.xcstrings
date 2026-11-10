@@ -98506,6 +98506,16 @@
         }
       }
     },
+    "settings.install-uninstall.expand-outdated-packages-list-by-default.toggle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Expand list of outdated packages by default"
+          }
+        }
+      }
+    },
     "settings.install-uninstall.include-greedy-packages.toggle" : {
       "localizations" : {
         "cs" : {
