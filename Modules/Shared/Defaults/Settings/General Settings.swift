@@ -57,4 +57,7 @@ public extension Defaults.Keys
     /// Whether the app should start without its window
     /// Not implemented at the moment
     static let startWithoutWindow: Key<Bool> = .init("startWithoutWindow", default: false)
+    
+    // MARK: - Appearance
+    static let appearance: Key<Appearance> = .init("forcedColorScheme", default: .system)
 }
