@@ -739,7 +739,7 @@
   "settings.discoverability.toggle": "Enable Discoverability",
   "settings.geeral.package-details.enable-extra-animations.toggle": "Enable extra animations",
   "settings.general": "General",
-  "settings.general.appearance": "Appearance",
+  "settings.general.appearance": "Appearance:",
   "settings.general.appearance.forced-dark": "Dark",
   "settings.general.appearance.forced-light": "Light",
   "settings.general.appearance.system": "System",
