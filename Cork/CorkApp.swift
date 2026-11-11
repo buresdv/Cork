@@ -39,6 +39,8 @@ struct CorkApp: App
 
     @Default(.demoActivatedAt) var demoActivatedAt: Date?
     @Default(.hasValidatedEmail) var hasValidatedEmail: Bool
+    
+    @Default(.appearance) var appearance: Appearance
 
     @Default(.hasFinishedOnboarding) var hasFinishedOnboarding: Bool
 
@@ -77,6 +79,7 @@ struct CorkApp: App
         Window("Main Window", id: .mainWindowID)
         {
             ContentView()
+                .preferredColorScheme(appearance.setting)
                 .sheet(isPresented: !$hasFinishedOnboarding, onDismiss: {
                     hasFinishedOnboarding = true
                 }, content: {
@@ -280,12 +283,14 @@ struct CorkApp: App
         Window("window.services", id: .servicesWindowID)
         {
             HomebrewServicesView()
+                .preferredColorScheme(appearance.setting)
         }
         .windowToolbarStyle(.unifiedCompact)
 
         Window("window.about", id: .aboutWindowID)
         {
             AboutView()
+                .preferredColorScheme(appearance.setting)
         }
         .windowResizability(.contentSize)
         .defaultPosition(.center)
@@ -298,6 +303,7 @@ struct CorkApp: App
             PackagePreview(packageToPreview: convertedMinimalPackage)
                 .navigationTitle(packageToPreview?.name(withPrecision: .precise) ?? "")
                 .environment(brewPackagesTracker)
+                .preferredColorScheme(appearance.setting)
         }
         .windowResizability(.contentSize)
         .windowToolbarStyle(.unifiedCompact)
@@ -307,6 +313,7 @@ struct CorkApp: App
             if let errorToInspect
             {
                 ErrorInspector(errorText: errorToInspect)
+                    .preferredColorScheme(appearance.setting)
             }
         }
         .windowToolbarStyle(.unifiedCompact)
@@ -316,6 +323,7 @@ struct CorkApp: App
             if let fullPackageList
             {
                 FullPackageList(packages: fullPackageList)
+                    .preferredColorScheme(appearance.setting)
             }
         }
         .windowToolbarStyle(.unifiedCompact)
@@ -325,17 +333,20 @@ struct CorkApp: App
             if let environmentVariables
             {
                 EnvironmentVariablesPreview(environmentVariablesToPreview: environmentVariables.sorted(by: { $0.key > $1.key }))
+                    .preferredColorScheme(appearance.setting)
             }
         }
 
         Window("window.downgrade", id: .corkDowngradeWindowID)
         {
             DowngradeCorkView()
+                .preferredColorScheme(appearance.setting)
         }
 
         Settings
         {
             SettingsView()
+                .preferredColorScheme(appearance.setting)
         }
         .windowResizability(.contentSize)
 

@@ -30,6 +30,8 @@ struct GeneralPane: View
     @Default(.showSearchFieldForDependenciesInPackageDetails) var showSearchFieldForDependenciesInPackageDetails: Bool
     @Default(.showInMenuBar) var showInMenuBar: Bool
     @Default(.startWithoutWindow) var startWithoutWindow: Bool
+    
+    @Default(.appearance) var appearance: Appearance
 
     @AppStorage("defaultBackupDateFormat") var defaultBackupDateFormat: Date.FormatStyle.DateStyle = .numeric
 
@@ -227,6 +229,22 @@ struct GeneralPane: View
                     }
                 } label: {
                     Text("settings.general.backup-date-format")
+                }
+                
+                LabeledContent
+                {
+                    Picker(selection: $appearance) {
+                        ForEach(Appearance.allCases)
+                        { appearanceSetting in
+                            Text(appearanceSetting.description)
+                        }
+                    } label: {
+                        Text("settings.general.appearance")
+                    }
+                    .labelsHidden()
+                    
+                } label: {
+                    Text("settings.general.appearance")
                 }
             }
         }
