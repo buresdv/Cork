@@ -123,7 +123,6 @@ struct OutdatedPackagesList_Table: View
                     )
                 }
         
-
                 TableColumn("start-page.updates.installed-version")
                 { outdatedPackage in
                     Text(outdatedPackage.installedVersions.formatted(.list(type: .and)))

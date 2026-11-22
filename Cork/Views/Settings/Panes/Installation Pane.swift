@@ -19,6 +19,7 @@ struct InstallationAndUninstallationPane: View
     
     @Default(.showCompatibilityWarning) var showCompatibilityWarning: Bool
     @Default(.includeGreedyOutdatedPackages) var includeGreedyOutdatedPackages: Bool
+    @Default(.automaticallyExpandOutdatedPackageList) var automaticallyExpandOutdatedPackageList: Bool
 
     @Default(.showRealTimeTerminalOutputOfOperations) var showRealTimeTerminalOutputOfOperations: Bool
     @Default(.openRealTimeTerminalOutputByDefault) var openRealTimeTerminalOutputByDefault: Bool
@@ -68,9 +69,16 @@ struct InstallationAndUninstallationPane: View
 
                 LabeledContent
                 {
-                    Defaults.Toggle(key: .includeGreedyOutdatedPackages)
+                    VStack(alignment: .leading)
                     {
-                        Text("settings.install-uninstall.include-greedy-packages.toggle")
+                        Defaults.Toggle(key: .includeGreedyOutdatedPackages)
+                        {
+                            Text("settings.install-uninstall.include-greedy-packages.toggle")
+                        }
+                        
+                        Defaults.Toggle(key: .automaticallyExpandOutdatedPackageList) {
+                            Text("settings.install-uninstall.expand-outdated-packages-list-by-default.toggle")
+                        }
                     }
                 } label: {
                     Text("settings.general.outdated-packages.info-amount")
