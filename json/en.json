@@ -783,6 +783,7 @@
   "settings.install-uninstall": "Packages",
   "settings.install-uninstall.compatibility-checking.label": "Compatibility:",
   "settings.install-uninstall.compatibility-checking.toggle": "Check package compatibility",
+  "settings.install-uninstall.expand-outdated-packages-list-by-default.toggle": "Expand list of outdated packages by default",
   "settings.install-uninstall.include-greedy-packages.toggle": "Show packages not managed by Homebrew",
   "settings.install-uninstall.installation": "Installation:",
   "settings.install-uninstall.installation.automatically-accept-eulas": "Automatically accept package EULAs",
