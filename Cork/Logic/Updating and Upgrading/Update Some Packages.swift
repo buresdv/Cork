@@ -18,6 +18,14 @@ public typealias SinglePackageUpdatingResult = Result<[TerminalOutput], UpdatePr
 
 extension OutdatedPackagesTracker
 {
+    /// Result of the `Formula` and `Cask` updating parts
+    /// Returns the results of the updating itself, along with any optional unimplemented outputs
+    struct PartialStageUpdatingResult
+    {
+        let singlePackageUpdatingResults: [SinglePackageUpdatingResult]
+        let unimplementedOutputs: [TerminalOutput]?
+    }
+    
     func updateSomePackages(
         packagesToUpdate: [OutdatedPackage],
         updateProgressTracker: UpdateProgressTracker,
@@ -49,7 +57,7 @@ extension OutdatedPackagesTracker
 
         if !casksToUpdate.isEmpty
         {
-            await updateCasks(
+            let casksUpdatingResult: PartialStageUpdatingResult = await updateCasks(
                 casksToUpdate: casksToUpdate,
                 totalPackagesSelectedForSelectiveUpdating: Double(packagesToUpdate.count),
                 updateProgressTracker: updateProgressTracker
@@ -94,13 +102,13 @@ extension OutdatedPackagesTracker
     ///   - casksToUpdate: Which Casks to update
     ///   - totalPackagesSelectedForSelectiveUpdating: How many packages in total are there to update, for cfalculating how much of the total progress is dedicated to Casks
     ///   - updateProgressTracker: Update progress tracker for reporting
-    /// - Returns: Unimplemented outputs
+    /// - Returns: Result of this part of the updating process
     /// - Throws: Critical error
     private func updateCasks(
         casksToUpdate: [OutdatedPackage],
         totalPackagesSelectedForSelectiveUpdating: Double,
         updateProgressTracker: UpdateProgressTracker
-    ) async throws -> [TerminalOutput]?
+    ) async -> PartialStageUpdatingResult
     {
         let percentageOfTotalNumberOfPackagesSelectedToBeUpdated: Double = .init((Double(casksToUpdate.count) / totalPackagesSelectedForSelectiveUpdating) * 100)
 
@@ -114,7 +122,12 @@ extension OutdatedPackagesTracker
 
         let (stream, process): (AsyncStream<TerminalOutput>, Process) = await shell(AppConstants.shared.brewExecutablePath, ["reinstall", "--cask", casksToUpdate.map { $0.package.name(withPrecision: .precise) }.joined(separator: " ")])
 
-        var consolidatedCriticalErrors: [UpdateProgressTracker.IndividualPackageUpdatingError]
+        var consolidatedUpdateResults: [SinglePackageUpdatingResult] = .init()
+        
+        var consolidatedCriticalErrors: [UpdateProgressTracker.IndividualPackageUpdatingError] = .init()
+        
+        var processUnimplementedCases: [TerminalOutput] = .init()
+        var processUnimplementedErrors: [UpdateProgressTracker.IndividualPackageUpdatingError] = .init()
 
         for await output in stream
         {
@@ -125,14 +138,14 @@ extension OutdatedPackagesTracker
                 AppConstants.shared.logger.debug("Matched update standard case: \(standardCase.description)")
 
                 casksPartProgressTracker.increment(bySetNumber: 1)
-
+                
             } onErrorOutput: { errorCase in
                 switch errorCase
                 {
                 case .postInstallStepFailed:
                     consolidatedCriticalErrors.append(
                         .implemented(
-                            failedPackage: packageToUpdate,
+                            failedPackage: updateProgressTracker.packageBeingCurrentlyUpdated!,
                             error: .postInstallStepFailed(
                                 rawOutput: output.description
                             )
@@ -141,7 +154,7 @@ extension OutdatedPackagesTracker
                 case .terminalRequired:
                     consolidatedCriticalErrors.append(
                         .implemented(
-                            failedPackage: packageToUpdate,
+                            failedPackage: updateProgressTracker.packageBeingCurrentlyUpdated!,
                             error: .terminalRequired
                         )
                     )
@@ -154,13 +167,30 @@ extension OutdatedPackagesTracker
                 case .standardOutput(let standardOutput):
                     processUnimplementedCases.append(unimplementedCase)
                 case .standardError(let standardError):
-                    processError = .unimplemented(
-                        failedPackage: packageToUpdate,
+                    processUnimplementedErrors.append(.unimplemented(
+                        failedPackage: updateProgressTracker.packageBeingCurrentlyUpdated!,
                         rawOutput: standardError.rawOutput
-                    )
+                    ))
                 }
             }
         }
+        
+        return .init(singlePackageUpdatingResults: <#T##[SinglePackageUpdatingResult]#>, unimplementedOutputs: <#T##[TerminalOutput]?#>)
+    }
+    
+    private func setCorrectProgressTextForStage(stage: UpdateProgressTracker.IndividialPackageUpdatingStage.StandardCases, packageBeingUpdates: OutdatedPackage)
+    {
+        /*
+        switch stage
+        {
+        case .downloading:
+            
+        case .installingUpdate:
+            
+        case .cleaningUp:
+            
+        }
+         */
     }
 }
 

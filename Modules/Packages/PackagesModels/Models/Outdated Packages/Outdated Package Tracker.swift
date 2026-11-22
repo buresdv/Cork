@@ -44,6 +44,8 @@ public class OutdatedPackagesTracker
     
     public var warningsThatDoNotPreventShowingOfOutdatedPackages: [TerminalOutput]?
     
+    public var individualPackageUpdating_numberOfPackageCurrentlyBeingUpdated: Int = 1
+    
     public func setNonCriticalWarnings(to outputs: [TerminalOutput])
     {
         self.warningsThatDoNotPreventShowingOfOutdatedPackages = outputs
