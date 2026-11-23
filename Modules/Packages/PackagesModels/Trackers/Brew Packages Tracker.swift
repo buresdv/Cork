@@ -214,6 +214,13 @@ public class BrewPackagesTracker: @MainActor Loadable
             return false
         }
     }
+    
+    public func findAdoptableAppsByUUIDs(uuids: Set<UUID>) -> [BrewPackagesTracker.AdoptableApp]
+    {
+        return adoptableApps.filter { adoptableAppInTracker in
+            return uuids.contains(adoptableAppInTracker.id)
+        }
+    }
 }
 
 public extension BrewPackagesTracker

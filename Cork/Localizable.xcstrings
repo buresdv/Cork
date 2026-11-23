@@ -12871,6 +12871,28 @@
         }
       }
     },
+    "action.package-adoption.ignore-multiple.%lld" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ignore %lld app"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ignore %lld apps"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "action.package-adoption.ignore.%@" : {
       "comment" : "A button that allows a user to ignore a particular app that is being recommended for adoption. The argument is the name of the app.",
       "extractionState" : "manual",
@@ -12993,6 +13015,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "忽略 %@"
+          }
+        }
+      }
+    },
+    "action.package-adoption.include-multiple.%lld" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Stop ignoring %lld app"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Stop ignoring %lld apps"
+                }
+              }
+            }
           }
         }
       }

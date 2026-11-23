@@ -18,6 +18,8 @@ struct ExcludedAdoptablePackagesList: View
     
     @State private var searchText: String = ""
     
+    @State private var selectedExcludedAdoptablePackages: Set<UUID> = .init()
+    
     @Query private var excludedApps: [ExcludedAdoptableApp]
     
     var displayedExcludedAdoptablePackages: ArraySlice<BrewPackagesTracker.AdoptableApp>
@@ -55,12 +57,14 @@ struct ExcludedAdoptablePackagesList: View
     {
         AdoptablePackageListTemplate(
             adoptablePackageType: .ignoredPackages,
+            selectedAdoptablePackages: $selectedExcludedAdoptablePackages,
             searchText: $searchText
-        ){
+        ) {
             ForEach(displayedExcludedAdoptablePackages)
             { ignoredApp in
                 AdoptablePackageListItem(
                     adoptableCask: ignoredApp,
+                    adoptablePackagesSelection: selectedExcludedAdoptablePackages,
                     exclusionButtonType: .includeOnly
                 )
                     .saturation(0.3)

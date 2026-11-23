@@ -8,9 +8,9 @@
 import ButtonKit
 import CorkModels
 import CorkShared
-import SwiftUI
-import SwiftData
 import FactoryKit
+import SwiftData
+import SwiftUI
 
 struct AdoptablePackageListItem: View
 {
@@ -35,17 +35,19 @@ struct AdoptablePackageListItem: View
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
     let adoptableCask: BrewPackagesTracker.AdoptableApp
-    
+
+    let adoptablePackagesSelection: Set<UUID>
+
     var isAdoptableCaskDisabled: Bool
     {
         return self.excludedApps.contains
         { excludedApp in
-            return excludedApp.appExecutable == adoptableCask.appExecutable
+            excludedApp.appExecutable == adoptableCask.appExecutable
         }
     }
 
     let exclusionButtonType: ExclusionButtonType
-    
+
     @Query private var excludedApps: [ExcludedAdoptableApp]
 
     /// Retrieve the correct number of adoption candidates for this adoptable app
@@ -89,45 +91,12 @@ struct AdoptablePackageListItem: View
         }
         .contextMenu
         {
-            switch adoptionCandidateDisplayType
-            {
-            case .oneAdoptionCandidate(let adoptionCandidate):
-                PreviewPackageButtonWithCustomLabel(
-                    label: "action.preview-package-app-would-be-adopted-as.\(adoptionCandidate.name(withPrecision: .inlineFormatted))", packageToPreview: .init(name: adoptionCandidate.name(withPrecision: .precise), type: .cask, installedIntentionally: true)
-                )
-
-            case .multipleAdoptionCandidates(_, let selectedAdoptionCandidate):
-                if let selectedAdoptionCandidate
-                {
-                    PreviewPackageButtonWithCustomLabel(
-                        label: "action.preview-package-app-would-be-adopted-as.\(selectedAdoptionCandidate.name(withPrecision: .precise))", packageToPreview: .init(name: selectedAdoptionCandidate.name(withPrecision: .precise), type: .cask, installedIntentionally: true)
-                    )
-                }
-                else
-                {
-                    Text("error.preview-package-app-would-be-adopted-as.no-cask-name-selected")
-                        .disabled(true)
-                }
-            }
-
-            Button
-            {
-                adoptableCask.fullAppUrl.revealInFinder(.openParentDirectoryAndHighlightTarget)
-            } label: {
-                Label("action.reveal-\(adoptableCask.appExecutable)-in-finder", systemImage: "finder")
-            }
-
-            Divider()
-
-            switch exclusionButtonType
-            {
-            case .excludeOnly:
-                ignoreAdoptableAppButton(appToIgnore: adoptableCask)
-            case .includeOnly:
-                includeAdoptableAppButton(appToInclude: adoptableCask)
-            case .none:
-                EmptyView()
-            }
+            ContextMenuContents(
+                adoptionCandidateDisplayType: adoptionCandidateDisplayType,
+                adoptableCask: adoptableCask,
+                exclusionButtonType: exclusionButtonType,
+                adoptablePackagesSelection: adoptablePackagesSelection
+            )
         }
     }
 
@@ -192,7 +161,7 @@ struct AdoptablePackageListItem: View
                                 customMessage: String(localized: "mass-adoption.failed.details-dropdown.missing-candidate-cask-name")
                             )
                         )
-                        
+
                         return
                     }
 
@@ -225,6 +194,106 @@ struct AdoptablePackageListItem: View
             .disabled(isAdoptableCaskDisabled)
         }
     }
+}
+
+private struct ContextMenuContents: View
+{
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
+
+    var adoptionCandidateDisplayType: AdoptablePackageListItem.AdoptionCandidatesDisplayType
+
+    let adoptableCask: BrewPackagesTracker.AdoptableApp
+
+    let exclusionButtonType: AdoptablePackageListItem.ExclusionButtonType
+
+    let adoptablePackagesSelection: Set<UUID>
+
+    private enum ContextMenuDisplayType
+    {
+        case singleApp
+        case multipleApps
+    }
+
+    private var contextMenuDisplayType: ContextMenuDisplayType
+    {
+        if adoptablePackagesSelection.count > 1
+        {
+            return .multipleApps
+        }
+        else
+        {
+            return .singleApp
+        }
+    }
+
+    var body: some View
+    {
+        switch contextMenuDisplayType
+        {
+        case .singleApp:
+            singleAppContextMenu
+        case .multipleApps:
+            multipleAppsContextMenu
+        }
+    }
+
+    @ViewBuilder
+    private var singleAppContextMenu: some View
+    {
+        switch adoptionCandidateDisplayType
+        {
+        case .oneAdoptionCandidate(let adoptionCandidate):
+            PreviewPackageButtonWithCustomLabel(
+                label: "action.preview-package-app-would-be-adopted-as.\(adoptionCandidate.name(withPrecision: .inlineFormatted))", packageToPreview: .init(name: adoptionCandidate.name(withPrecision: .precise), type: .cask, installedIntentionally: true)
+            )
+
+        case .multipleAdoptionCandidates(_, let selectedAdoptionCandidate):
+            if let selectedAdoptionCandidate
+            {
+                PreviewPackageButtonWithCustomLabel(
+                    label: "action.preview-package-app-would-be-adopted-as.\(selectedAdoptionCandidate.name(withPrecision: .precise))", packageToPreview: .init(name: selectedAdoptionCandidate.name(withPrecision: .precise), type: .cask, installedIntentionally: true)
+                )
+            }
+            else
+            {
+                Text("error.preview-package-app-would-be-adopted-as.no-cask-name-selected")
+                    .disabled(true)
+            }
+        }
+
+        Button
+        {
+            adoptableCask.fullAppUrl.revealInFinder(.openParentDirectoryAndHighlightTarget)
+        } label: {
+            Label("action.reveal-\(adoptableCask.appExecutable)-in-finder", systemImage: "finder")
+        }
+
+        Divider()
+
+        switch exclusionButtonType
+        {
+        case .excludeOnly:
+            ignoreAdoptableAppButton(appToIgnore: adoptableCask)
+        case .includeOnly:
+            includeAdoptableAppButton(appToInclude: adoptableCask)
+        case .none:
+            EmptyView()
+        }
+    }
+
+    @ViewBuilder
+    private var multipleAppsContextMenu: some View
+    {
+        switch exclusionButtonType
+        {
+        case .excludeOnly:
+            ignoreMultipleAdoptableAppsButton(packageUUIDs: adoptablePackagesSelection)
+        case .includeOnly:
+            includeMultipleAdoptableAppsButton(packageUUIDs: adoptablePackagesSelection)
+        case .none:
+            EmptyView()
+        }
+    }
 
     @ViewBuilder
     func ignoreAdoptableAppButton(appToIgnore: BrewPackagesTracker.AdoptableApp) -> some View
@@ -240,6 +309,30 @@ struct AdoptablePackageListItem: View
     }
 
     @ViewBuilder
+    func ignoreMultipleAdoptableAppsButton(packageUUIDs: Set<UUID>) -> some View
+    {
+        var foundAdoptableApps: [BrewPackagesTracker.AdoptableApp]
+        {
+            return brewPackagesTracker.findAdoptableAppsByUUIDs(uuids: packageUUIDs)
+        }
+
+        AsyncButton
+        {
+            AppConstants.shared.logger.info("Adding \(packageUUIDs.count) to the excluded apps - \(foundAdoptableApps.map { $0.appExecutable }.formatted(.list(type: .and)))")
+            
+            for adoptableApp in foundAdoptableApps
+            {
+                await adoptableApp.excludeSelf()
+            }
+        } label: {
+            Text("action.package-adoption.ignore-multiple.\(foundAdoptableApps.count)")
+
+            Text(foundAdoptableApps.map { $0.appExecutable }.formatted(.list(type: .and)))
+                
+        }
+    }
+
+    @ViewBuilder
     func includeAdoptableAppButton(appToInclude: BrewPackagesTracker.AdoptableApp) -> some View
     {
         AsyncButton
@@ -249,6 +342,30 @@ struct AdoptablePackageListItem: View
             await appToInclude.includeSelf()
         } label: {
             Label("action.package-adoption.include.\(appToInclude.appExecutable)", systemImage: "plus.circle")
+        }
+    }
+
+    @ViewBuilder
+    private func includeMultipleAdoptableAppsButton(packageUUIDs: Set<UUID>) -> some View
+    {
+        var foundAdoptableApps: [BrewPackagesTracker.AdoptableApp]
+        {
+            return brewPackagesTracker.findAdoptableAppsByUUIDs(uuids: packageUUIDs)
+        }
+
+        AsyncButton
+        {
+            AppConstants.shared.logger.info("Adding \(packageUUIDs.count) apps to the excluded apps - \(foundAdoptableApps.map { $0.appExecutable }.formatted(.list(type: .and)))")
+            
+            for adoptableApp in foundAdoptableApps
+            {
+                await adoptableApp.includeSelf()
+            }
+        } label: {
+            Text("action.package-adoption.include-multiple.\(foundAdoptableApps.count)")
+
+            Text(foundAdoptableApps.map { $0.appExecutable }.formatted(.list(type: .and)))
+                
         }
     }
 }

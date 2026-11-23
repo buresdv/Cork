@@ -8,6 +8,7 @@
 import CorkShared
 import SwiftData
 import SwiftUI
+import CorkModels
 
 struct AdoptablePackageListTemplate<Content: View, Header: View, Footer: View>: View
 {
@@ -19,6 +20,8 @@ struct AdoptablePackageListTemplate<Content: View, Header: View, Footer: View>: 
 
     let adoptablePackageType: AdoptablePackageListType
 
+    @Binding var selectedAdoptablePackages: Set<UUID>
+    
     @Binding var searchText: String
 
     @ViewBuilder
@@ -37,7 +40,7 @@ struct AdoptablePackageListTemplate<Content: View, Header: View, Footer: View>: 
 
     var body: some View
     {
-        List
+        List(selection: $selectedAdoptablePackages)
         {
             Section
             {

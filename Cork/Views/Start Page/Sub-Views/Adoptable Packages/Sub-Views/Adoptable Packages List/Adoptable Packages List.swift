@@ -17,6 +17,8 @@ struct AdoptablePackagesList: View
     @State private var numberOfMaxShownAdoptableApps: Int = 5
 
     @State private var searchText: String = ""
+    
+    @State private var selectedAdoptablePackages: Set<UUID> = .init()
 
     @Query private var excludedApps: [ExcludedAdoptableApp]
 
@@ -53,8 +55,11 @@ struct AdoptablePackagesList: View
 
     var body: some View
     {
-        AdoptablePackageListTemplate(adoptablePackageType: .adoptablePackages, searchText: $searchText)
-        {
+        AdoptablePackageListTemplate(
+            adoptablePackageType: .adoptablePackages,
+            selectedAdoptablePackages: $selectedAdoptablePackages,
+            searchText: $searchText
+        ) {
             ForEach(displayedAdoptablePackages)
             { adoptableCask in
                 HStack(alignment: .center)
@@ -74,7 +79,11 @@ struct AdoptablePackagesList: View
                     }
                     .labelsHidden()
 
-                    AdoptablePackageListItem(adoptableCask: adoptableCask, exclusionButtonType: .excludeOnly)
+                    AdoptablePackageListItem(
+                        adoptableCask: adoptableCask,
+                        adoptablePackagesSelection: selectedAdoptablePackages,
+                        exclusionButtonType: .excludeOnly
+                    )
                 }
             }
         } sectionHeaderContent: {
