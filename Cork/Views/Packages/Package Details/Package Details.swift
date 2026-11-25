@@ -150,7 +150,7 @@ struct PackageDetailView: View, Sendable, DismissablePane
 
             do
             {
-                packageDetails = try await package.loadDetails()
+                packageDetails = try await package.loadDetails(usingPackageTracker: brewPackagesTracker)
                 
                 guard !Task.isCancelled else { return }
 

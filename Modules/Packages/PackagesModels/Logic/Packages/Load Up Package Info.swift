@@ -138,7 +138,7 @@ public extension BrewPackage
 
             // MARK: - Formuale functions
 
-            func extractDependencies() -> [BrewPackageDependency]?
+            func extractDependencies() -> [BrewPackageDependencyNoAssociatedPackage]?
             {
                 let allDependencies: [BrewPackage.PackageCommandOutput.Formulae.Installed.RuntimeDependencies] = installed.flatMap
                 { installed in
@@ -246,7 +246,7 @@ public extension BrewPackage
         let casks: [Casks]?
 
         /// Extract dependencies from the struct so they can be used
-        func extractDependencies() -> [BrewPackageDependency]?
+        func extractDependencies() -> [BrewPackageDependencyNoAssociatedPackage]?
         {
             guard let formulae = formulae
             else
@@ -276,7 +276,9 @@ public extension BrewPackage
 
     /// Load package details
     @MainActor
-    func loadDetails() async throws(BrewPackageInfoLoadingError) -> BrewPackage.BrewPackageDetails
+    func loadDetails(
+        usingPackageTracker packageTracker: BrewPackagesTracker
+    ) async throws(BrewPackageInfoLoadingError) -> BrewPackage.BrewPackageDetails
     {
         let decoder: JSONDecoder = {
             let decoder: JSONDecoder = .init()
@@ -355,13 +357,17 @@ public extension BrewPackage
                     throw BrewPackageInfoLoadingError.couldNotRetrievePackageFromOutput
                 }
 
+                let extractedRawDependencies: [BrewPackageDependencyNoAssociatedPackage]? = formulaInfo.extractDependencies()
+                
+                let dependenciesFromTracker: [BrewPackageDependency]? = await associateRawDependenciesWithInstalledPackages(rawDependencies: extractedRawDependencies, usingPackageTracker: packageTracker)
+                
                 return try .init(
                     name: formulaInfo.name,
                     description: formulaInfo.desc,
                     homepage: formulaInfo.homepage,
                     tap: .init(name: formulaInfo.tap),
                     installedAsDependency: formulaInfo.installed.first?.isDependencyOfAnotherPackage ?? false,
-                    dependencies: formulaInfo.extractDependencies(),
+                    dependencies: dependenciesFromTracker,
                     outdated: formulaInfo.outdated,
                     caveats: formulaInfo.caveats,
                     deprecated: formulaInfo.deprecated,
@@ -400,6 +406,38 @@ public extension BrewPackage
             AppConstants.shared.logger.error("Failed while decoding package info: \(brewDetailsLoadingError)")
 
             throw BrewPackageInfoLoadingError.couldNotDecodeOutput(presentError: brewDetailsLoadingError.localizedDescription)
+        }
+    }
+    
+    private func associateRawDependenciesWithInstalledPackages(
+        rawDependencies: [BrewPackageDependencyNoAssociatedPackage]?,
+        usingPackageTracker packageTracker: BrewPackagesTracker
+    ) async -> [BrewPackageDependency]?
+    {
+        guard let rawDependencies else
+        {
+            return nil
+        }
+        
+        let installedFormulae = await packageTracker.successfullyLoadedFormulae
+        
+        var consolidatedDependenciesWithPackagesAssigned: [BrewPackageDependency] = .init()
+        
+        for rawDependency in rawDependencies
+        {
+            if let foundPackageInTracker: BrewPackage = installedFormulae.first(where: { $0.name(withPrecision: .precise) == rawDependency.name })
+            {
+                consolidatedDependenciesWithPackagesAssigned.append(.init(packageDependencyWithNoAssociatedPackage: rawDependency, package: foundPackageInTracker))
+            }
+        }
+        
+        if consolidatedDependenciesWithPackagesAssigned.isEmpty
+        {
+            return nil
+        }
+        else
+        {
+            return consolidatedDependenciesWithPackagesAssigned
         }
     }
 

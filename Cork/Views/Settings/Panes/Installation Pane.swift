@@ -40,8 +40,6 @@ struct InstallationAndUninstallationPane: View
         {
             Form
             {
-                // TODO: Implement this
-                /*
                 LabeledContent
                 {
                     VStack(alignment: .leading)
@@ -55,7 +53,6 @@ struct InstallationAndUninstallationPane: View
                 } label: {
                     Text("settings.packages-design.label")
                 }
-                */
                 
                 LabeledContent
                 {

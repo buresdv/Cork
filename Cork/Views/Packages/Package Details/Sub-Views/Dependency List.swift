@@ -31,7 +31,7 @@ struct DependencyList: View
         }
         else
         {
-            return dependencies.filter { $0.name.localizedCaseInsensitiveContains(dependencySearchText) }
+            return dependencies.filter { $0.package.name(withPrecision: .precise).localizedCaseInsensitiveContains(dependencySearchText) }
         }
     }
 
@@ -50,18 +50,10 @@ struct DependencyList: View
                 {
                     TableColumn("package-details.dependencies.results.name")
                     { dependency in
-                        // Find the dependency in the tracker to show it in a more complete way
-                        if let dependencyFromTracker: BrewPackage = brewPackagesTracker.successfullyLoadedFormulae.first(where: { $0.internalName == BrewPackageName(from: dependency.name) })
-                        {
-                            dependencyFromTracker.nameView(
-                                withComponents: .boundVersion,
-                                isExemptFromHighlighting: false
-                            )
-                        }
-                        else
-                        {
-                            Text("DEBUG: Unexpected missing string")
-                        }
+                        dependency.package.nameView(
+                            withComponents: .boundVersion,
+                            isExemptFromHighlighting: false
+                        )
                     }
                     TableColumn("package-details.dependencies.results.version")
                     { dependency in
@@ -85,7 +77,10 @@ struct DependencyList: View
             {
                 List(foundDependencies)
                 { dependency in
-                    Text(dependency.name)
+                    dependency.package.nameView(
+                        withComponents: .boundVersion,
+                        isExemptFromHighlighting: false
+                    )
                 }
                 .listStyle(.bordered(alternatesRowBackgrounds: true))
             }

@@ -103076,6 +103076,9 @@
         }
       }
     },
+    "settings.packages-design.label" : {
+
+    },
     "setup.level.advanced.title" : {
       "localizations" : {
         "cs" : {
