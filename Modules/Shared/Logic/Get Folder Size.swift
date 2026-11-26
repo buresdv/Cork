@@ -9,7 +9,7 @@ import Foundation
 
 public extension URL
 {
-    var directorySize: Int64
+    func directorySize() async -> Int64
     {
         let contents: [URL]
         do
@@ -37,7 +37,7 @@ public extension URL
 
             if isDirectoryResourceValue.isDirectory == true
             {
-                size += url.directorySize
+                await size += url.directorySize()
             }
             else
             {

@@ -309,12 +309,12 @@ private extension BrewPackagesTracker
                     switch packageURL.packageType
                     {
                     case .formula:
-                        return packageURL.directorySize
+                        return await packageURL.directorySize()
                     case .cask:
                         guard let sizeOfActualApp: Int64 = await urlToVersionUsedForDeterminingActualExecutableLocation.getActualAppSize()
                         else
                         {
-                            return packageURL.directorySize
+                            return await packageURL.directorySize()
                         }
 
                         return sizeOfActualApp
@@ -416,7 +416,7 @@ private extension URL
     /// Get the actual size of the installed app by resolving a symlink inside a version's folder and loading the size of the app from the `Applications` directory
     func getActualAppSize() async -> Int64?
     {
-        return await getUrlToActualCaskExecutable().directorySize
+        return await getUrlToActualCaskExecutable().directorySize()
     }
 }
 

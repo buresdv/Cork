@@ -16,7 +16,7 @@ public extension CachedDownloadsTracker
     {
         AppConstants.shared.logger.info("Will load cached downloaded packages")
         
-        let currentSizeOfCachedPackageFolder: Int64 = appConstants.brewCachedDownloadsPath.directorySize
+        let currentSizeOfCachedPackageFolder: Int64 = await appConstants.brewCachedDownloadsPath.directorySize()
 
         AppConstants.shared.logger.info("Last size: \(self.lastSizeOfCachedPackageFolder), new size: \(currentSizeOfCachedPackageFolder)")
 
