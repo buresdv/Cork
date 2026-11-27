@@ -374,7 +374,7 @@
     "error.tap.untap.could-not-untap.tap-%@.failure-reason-%@": "无法移除扩展仓库 %@ (输出: %@ )",
     "error.top-packages.could-not-decode-casks.%@": "%@",
     "error.top-packages.could-not-decode-formulae.%@": "%@",
-    "error.top-packages.could-not-download-data": "无法下载上层包",
+    "error.top-packages.could-not-download-data": "无法下载热门软件包",
     "error.top-packages.impossible-error": "所请求的软件包并未找到",
     "generic.false": "否",
     "generic.true": "是",
